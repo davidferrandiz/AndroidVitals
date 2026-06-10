@@ -245,6 +245,13 @@
     <div class="timeline-item">
       <div class="tl-dot"></div>
       <div>
+        <div class="tl-text">i18n implementado. Strings de MonitorScreen extraídas a feature/monitor/res/values/strings.xml (inglés default) y traducidas a 19 idiomas más: es, zh-rCN, hi, ar, pt-rBR, in, fr, ja, ru, de, ko, tr, it, vi, pl, fa, th, nl, uk. Cubren ~95% de usuarios Android globales. Términos técnicos universales (PSS, PID, Java heap, Native heap, Stack, MHz, MB, GB) se mantienen en inglés en todos los locales por convención. ar y fa son RTL y Android los gestiona automáticamente.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
         <div class="tl-text">Card de RAM convertida en desplegable. Al expandir muestra el breakdown del propio proceso vía Debug.getMemoryInfo() (Total PSS, Java heap, Native heap, Code, Stack, Graphics, Other). Nuevo GetProcessMemoryBreakdownUseCase en :core (polling 5s, Dispatchers.IO). El flow solo se activa cuando la card está expandida vía flatMapLatest. Descartado listar RAM por app porque desde API 26 getRunningAppProcesses() solo devuelve el propio proceso.</div>
         <div class="tl-date">Junio 2026</div>
       </div>

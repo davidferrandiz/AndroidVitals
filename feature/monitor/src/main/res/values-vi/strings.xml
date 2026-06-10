@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">Pin</string>
+    <string name="card_network">Mạng</string>
+    <string name="card_storage">Bộ nhớ</string>
+    <string name="card_processes">Tiến trình</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d tiến trình</string>
+    <string name="no_data">Không có dữ liệu</string>
+    <string name="loading">Đang tải…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">Luồng đang hoạt động</string>
+    <string name="label_cores">NHÂN</string>
+    <string name="label_temperature">NHIỆT ĐỘ</string>
+    <string name="core_name">Nhân %1$d</string>
+    <string name="core_offline">tắt</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Ẩn chi tiết Vitals</string>
+    <string name="show_breakdown">▾ Xem chi tiết Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">Đồ họa</string>
+    <string name="metric_code">Mã</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">Trạng thái</string>
+    <string name="battery_health">Tình trạng</string>
+    <string name="battery_temperature">Nhiệt độ</string>
+    <string name="battery_voltage">Hiệu điện thế</string>
+    <string name="battery_technology">Công nghệ</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  TẢI XUỐNG</string>
+    <string name="label_upload">↑  TẢI LÊN</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">Tổng</string>
+    <string name="storage_used">Đã dùng</string>
+    <string name="storage_free">Còn trống</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">Không thể truy cập /proc trên thiết bị này</string>
+    <string name="label_top_by_ram">TIÊU THỤ RAM CAO NHẤT</string>
+
+</resources>

@@ -5,7 +5,8 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:maven.google.com)",
       "Bash(xargs cat)",
-      "Bash(./gradlew :feature:monitor:compileDebugKotlin :core:compileDebugKotlin)"
+      "Bash(./gradlew :feature:monitor:compileDebugKotlin :core:compileDebugKotlin)",
+      "Bash(./gradlew :feature:monitor:compileDebugKotlin)"
     ]
   }
 }

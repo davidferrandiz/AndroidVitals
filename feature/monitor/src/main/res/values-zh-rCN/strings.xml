@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">内存</string>
+    <string name="card_battery">电池</string>
+    <string name="card_network">网络</string>
+    <string name="card_storage">存储</string>
+    <string name="card_processes">进程</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d 个进程</string>
+    <string name="no_data">无数据</string>
+    <string name="loading">加载中…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">活动线程</string>
+    <string name="label_cores">核心</string>
+    <string name="label_temperature">温度</string>
+    <string name="core_name">核心 %1$d</string>
+    <string name="core_offline">离线</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ 隐藏 Vitals 详情</string>
+    <string name="show_breakdown">▾ 查看 Vitals 详情</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">图形</string>
+    <string name="metric_code">代码</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">状态</string>
+    <string name="battery_health">健康度</string>
+    <string name="battery_temperature">温度</string>
+    <string name="battery_voltage">电压</string>
+    <string name="battery_technology">技术</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  下载</string>
+    <string name="label_upload">↑  上传</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">总计</string>
+    <string name="storage_used">已用</string>
+    <string name="storage_free">可用</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">此设备无法访问 /proc</string>
+    <string name="label_top_by_ram">内存占用排行</string>
+
+</resources>

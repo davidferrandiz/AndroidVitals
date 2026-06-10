@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">Pil</string>
+    <string name="card_network">Ağ</string>
+    <string name="card_storage">Depolama</string>
+    <string name="card_processes">İşlemler</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d işlem</string>
+    <string name="no_data">Veri yok</string>
+    <string name="loading">Yükleniyor…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">Etkin iş parçacıkları</string>
+    <string name="label_cores">ÇEKİRDEKLER</string>
+    <string name="label_temperature">SICAKLIK</string>
+    <string name="core_name">Çekirdek %1$d</string>
+    <string name="core_offline">çevrimdışı</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Vitals dökümünü gizle</string>
+    <string name="show_breakdown">▾ Vitals dökümünü göster</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">Grafik</string>
+    <string name="metric_code">Kod</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">Durum</string>
+    <string name="battery_health">Sağlık</string>
+    <string name="battery_temperature">Sıcaklık</string>
+    <string name="battery_voltage">Voltaj</string>
+    <string name="battery_technology">Teknoloji</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  İNDİRME</string>
+    <string name="label_upload">↑  YÜKLEME</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">Toplam</string>
+    <string name="storage_used">Kullanılan</string>
+    <string name="storage_free">Boş</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">Bu cihazda /proc erişimi yok</string>
+    <string name="label_top_by_ram">RAM SIRALAMASI</string>
+
+</resources>

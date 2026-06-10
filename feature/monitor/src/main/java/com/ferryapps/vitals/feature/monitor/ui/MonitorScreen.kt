@@ -40,12 +40,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.ferryapps.vitals.feature.monitor.R
 import com.ferryapps.vitals.core.domain.model.BatteryInfo
 import com.ferryapps.vitals.core.domain.model.CpuCoreInfo
 import com.ferryapps.vitals.core.domain.model.NetworkSpeed
@@ -103,7 +105,7 @@ fun MonitorScreen(
                 id          = "cpu",
                 accentColor = ColorCpu,
                 icon        = "⚡",
-                title       = "CPU",
+                title       = stringResource(R.string.card_cpu),
                 summary     = "%.1f%%".format(uiState.cpuPercent),
                 progress    = uiState.cpuPercent / 100f,
                 isExpanded  = "cpu" in expandedCards,
@@ -123,7 +125,7 @@ fun MonitorScreen(
                 id          = "ram",
                 accentColor = ColorMemory,
                 icon        = "🧠",
-                title       = "Memoria RAM",
+                title       = stringResource(R.string.card_ram),
                 summary     = "%.1f%%  ·  %d / %d GB".format(
                     uiState.memory.usedPercent,
                     uiState.memory.usedKb / 1_048_576,
@@ -148,7 +150,7 @@ fun MonitorScreen(
                 id          = "battery",
                 accentColor = ColorBattery,
                 icon        = if (bat?.isCharging == true) "🔋⚡" else "🔋",
-                title       = "Batería",
+                title       = stringResource(R.string.card_battery),
                 summary     = if (bat != null) "${bat.levelPercent}%  ·  ${bat.status}" else "—",
                 progress    = (bat?.levelPercent ?: 0) / 100f,
                 isExpanded  = "battery" in expandedCards,
@@ -165,7 +167,7 @@ fun MonitorScreen(
                 id          = "network",
                 accentColor = ColorNetwork,
                 icon        = "📡",
-                title       = "Red",
+                title       = stringResource(R.string.card_network),
                 summary     = if (net != null)
                     "↓ ${net.rxFormatted()}  ↑ ${net.txFormatted()}"
                 else "—",
@@ -184,7 +186,7 @@ fun MonitorScreen(
                 id          = "storage",
                 accentColor = ColorStorage,
                 icon        = "💾",
-                title       = "Almacenamiento",
+                title       = stringResource(R.string.card_storage),
                 summary     = if (stor != null)
                     "%.1f / %.1f GB".format(stor.usedGb(), stor.totalGb())
                 else "—",
@@ -202,9 +204,9 @@ fun MonitorScreen(
                 id          = "processes",
                 accentColor = ColorProcesses,
                 icon        = "📊",
-                title       = "Procesos",
+                title       = stringResource(R.string.card_processes),
                 summary     = if (processes.isNotEmpty())
-                    "${processes.size} procesos"
+                    stringResource(R.string.processes_count, processes.size)
                 else "—",
                 progress    = null,
                 isExpanded  = "processes" in expandedCards,
@@ -340,10 +342,10 @@ private fun CpuExpandedContent(
     thermals: List<ThermalZone>,
     threads: Int
 ) {
-    MetricRow("Threads activos", threads.toString())
+    MetricRow(stringResource(R.string.active_threads), threads.toString())
     if (cores.isNotEmpty()) {
         Spacer(Modifier.height(4.dp))
-        Text("CORES", style = LabelStyle)
+        Text(stringResource(R.string.label_cores), style = LabelStyle)
         cores.forEach { core ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -351,13 +353,13 @@ private fun CpuExpandedContent(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text  = "Core ${core.index}",
+                    text  = stringResource(R.string.core_name, core.index),
                     style = MaterialTheme.typography.bodySmall,
                     color = if (core.isOnline) MaterialTheme.colorScheme.onSurface
                             else MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text  = if (core.isOnline) "${core.currentMhz} MHz" else "offline",
+                    text  = if (core.isOnline) "${core.currentMhz} MHz" else stringResource(R.string.core_offline),
                     style = MaterialTheme.typography.bodySmall.copy(fontFamily = FontFamily.Monospace),
                     color = if (core.isOnline) ColorCpu
                             else MaterialTheme.colorScheme.onSurfaceVariant
@@ -367,7 +369,7 @@ private fun CpuExpandedContent(
     }
     if (thermals.isNotEmpty()) {
         Spacer(Modifier.height(4.dp))
-        Text("TEMPERATURA", style = LabelStyle)
+        Text(stringResource(R.string.label_temperature), style = LabelStyle)
         thermals.forEach { zone ->
             MetricRow(zone.name, "%.1f °C".format(zone.temperatureCelsius))
         }
@@ -381,25 +383,25 @@ private fun MemoryExpandedContent(
     onToggleMem: () -> Unit
 ) {
     Text(
-        text     = if (memExpanded) "▴ Ocultar desglose de Vitals"
-                   else "▾ Ver desglose de Vitals",
+        text     = if (memExpanded) stringResource(R.string.hide_breakdown)
+                   else stringResource(R.string.show_breakdown),
         style    = MaterialTheme.typography.bodySmall,
         color    = ColorMemory,
         modifier = Modifier.clickable(onClick = onToggleMem)
     )
     AnimatedVisibility(visible = memExpanded) {
         if (memBreakdown == null) {
-            Text("Cargando…", style = MaterialTheme.typography.bodySmall)
+            Text(stringResource(R.string.loading), style = MaterialTheme.typography.bodySmall)
         } else {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Spacer(Modifier.height(4.dp))
-                Text("VITALS (PID ${memBreakdown.pid})", style = LabelStyle)
-                MetricRow("Total PSS",   "${memBreakdown.totalPssKb / 1024} MB")
-                MetricRow("Java heap",   "${memBreakdown.javaHeapKb / 1024} MB")
-                MetricRow("Native heap", "${memBreakdown.nativeHeapKb / 1024} MB")
-                MetricRow("Gráficos",    "${memBreakdown.graphicsKb / 1024} MB")
-                MetricRow("Código",      "${memBreakdown.codeKb / 1024} MB")
-                MetricRow("Stack",       "${memBreakdown.stackKb / 1024} MB")
+                Text(stringResource(R.string.vitals_pid, memBreakdown.pid), style = LabelStyle)
+                MetricRow(stringResource(R.string.metric_total_pss),   "${memBreakdown.totalPssKb / 1024} MB")
+                MetricRow(stringResource(R.string.metric_java_heap),   "${memBreakdown.javaHeapKb / 1024} MB")
+                MetricRow(stringResource(R.string.metric_native_heap), "${memBreakdown.nativeHeapKb / 1024} MB")
+                MetricRow(stringResource(R.string.metric_graphics),    "${memBreakdown.graphicsKb / 1024} MB")
+                MetricRow(stringResource(R.string.metric_code),        "${memBreakdown.codeKb / 1024} MB")
+                MetricRow(stringResource(R.string.metric_stack),       "${memBreakdown.stackKb / 1024} MB")
             }
         }
     }
@@ -408,20 +410,20 @@ private fun MemoryExpandedContent(
 @Composable
 private fun BatteryExpandedContent(battery: BatteryInfo?) {
     if (battery == null) {
-        Text("Sin datos", style = MaterialTheme.typography.bodySmall)
+        Text(stringResource(R.string.no_data), style = MaterialTheme.typography.bodySmall)
         return
     }
-    MetricRow("Estado",      battery.status)
-    MetricRow("Salud",       battery.health)
-    MetricRow("Temperatura", "%.1f °C".format(battery.temperatureCelsius))
-    MetricRow("Voltaje",     "${battery.voltageMillivolts} mV")
-    MetricRow("Tecnología",  battery.technology)
+    MetricRow(stringResource(R.string.battery_status),      battery.status)
+    MetricRow(stringResource(R.string.battery_health),      battery.health)
+    MetricRow(stringResource(R.string.battery_temperature), "%.1f °C".format(battery.temperatureCelsius))
+    MetricRow(stringResource(R.string.battery_voltage),     "${battery.voltageMillivolts} mV")
+    MetricRow(stringResource(R.string.battery_technology),  battery.technology)
 }
 
 @Composable
 private fun NetworkExpandedContent(network: NetworkSpeed?) {
     if (network == null) {
-        Text("Sin datos", style = MaterialTheme.typography.bodySmall)
+        Text(stringResource(R.string.no_data), style = MaterialTheme.typography.bodySmall)
         return
     }
     Row(
@@ -429,7 +431,7 @@ private fun NetworkExpandedContent(network: NetworkSpeed?) {
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Text("↓  DESCARGA", style = LabelStyle)
+            Text(stringResource(R.string.label_download), style = LabelStyle)
             Spacer(Modifier.height(4.dp))
             Text(
                 text       = network.rxFormatted(),
@@ -439,7 +441,7 @@ private fun NetworkExpandedContent(network: NetworkSpeed?) {
             )
         }
         Column(modifier = Modifier.weight(1f)) {
-            Text("↑  SUBIDA", style = LabelStyle)
+            Text(stringResource(R.string.label_upload), style = LabelStyle)
             Spacer(Modifier.height(4.dp))
             Text(
                 text       = network.txFormatted(),
@@ -454,12 +456,12 @@ private fun NetworkExpandedContent(network: NetworkSpeed?) {
 @Composable
 private fun StorageExpandedContent(storage: StorageInfo?) {
     if (storage == null) {
-        Text("Sin datos", style = MaterialTheme.typography.bodySmall)
+        Text(stringResource(R.string.no_data), style = MaterialTheme.typography.bodySmall)
         return
     }
-    MetricRow("Total", "%.2f GB".format(storage.totalGb()))
-    MetricRow("Usado", "%.2f GB".format(storage.usedGb()))
-    MetricRow("Libre", "%.2f GB".format(storage.freeGb()))
+    MetricRow(stringResource(R.string.storage_total), "%.2f GB".format(storage.totalGb()))
+    MetricRow(stringResource(R.string.storage_used),  "%.2f GB".format(storage.usedGb()))
+    MetricRow(stringResource(R.string.storage_free),  "%.2f GB".format(storage.freeGb()))
     Spacer(Modifier.height(4.dp))
     LinearProgressIndicator(
         progress  = { (storage.usedPercent / 100f).coerceIn(0f, 1f) },
@@ -477,13 +479,13 @@ private fun StorageExpandedContent(storage: StorageInfo?) {
 private fun ProcessesExpandedContent(processes: List<TopProcess>) {
     if (processes.isEmpty()) {
         Text(
-            "Sin acceso a /proc en este dispositivo",
+            stringResource(R.string.no_proc_access),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         return
     }
-    Text("TOP POR RAM", style = LabelStyle)
+    Text(stringResource(R.string.label_top_by_ram), style = LabelStyle)
     Spacer(Modifier.height(4.dp))
     processes.forEach { proc ->
         Row(
