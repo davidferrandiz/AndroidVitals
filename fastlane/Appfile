@@ -1,0 +1,17 @@
+# Appfile — configuración global de la app para Fastlane
+#
+# Fastlane lee este fichero antes de ejecutar cualquier lane.
+# Los valores aquí definidos están disponibles en el Fastfile
+# sin tener que pasarlos como parámetros.
+
+# Credenciales de la cuenta de servicio de Google Play.
+# No hardcodeamos el path del JSON aquí — lo leemos de una variable
+# de entorno para que funcione tanto en local (donde el dev tiene
+# el fichero en disco) como en CI (donde GitHub Actions lo inyecta
+# como secret en la variable PLAY_STORE_JSON_KEY).
+json_key_file(ENV["PLAY_STORE_JSON_KEY"])
+
+# Package name de la app. Debe coincidir exactamente con el
+# applicationId en app/build.gradle.kts.
+# Fastlane lo usa para identificar la app en Google Play Console.
+package_name("com.ferryapps.vitals")
