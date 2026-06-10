@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Vitals</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    h1 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #4FC3F7;
+      margin-top: 36px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    p { font-size: 15px; color: #ccc; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { font-size: 15px; color: #ccc; margin-bottom: 6px; }
+    a { color: #4FC3F7; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 12px;
+    }
+    .badge {
+      display: inline-block;
+      background: #4FC3F7;
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    footer { margin-top: 60px; color: #555; font-size: 13px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <span class="badge">VITALS</span>
+  <h1>Política de Privacidad</h1>
+  <p class="subtitle">Última actualización: junio de 2025</p>
+
+  <div class="card">
+    <p>
+      <strong style="color:#fff">Vitals</strong> es una aplicación de monitorización del sistema para Android.
+      Esta política explica qué información recopilamos, cómo la usamos y qué derechos tienes sobre ella.
+    </p>
+  </div>
+
+  <h2>1. Información que recopilamos</h2>
+  <p>Vitals <strong style="color:#fff">no recopila ni transmite información personal</strong> del usuario.
+     Toda la lectura de métricas del sistema (CPU, RAM, batería, red, almacenamiento, procesos)
+     se realiza localmente en el dispositivo y no se envía a ningún servidor externo.</p>
+
+  <p>Los únicos datos que pueden salir del dispositivo son los generados por los servicios de terceros
+     descritos en la sección 3, y únicamente con fines de diagnóstico técnico.</p>
+
+  <h2>2. Permisos utilizados</h2>
+  <ul>
+    <li><strong>FOREGROUND_SERVICE / FOREGROUND_SERVICE_DATA_SYNC</strong> — permite mantener el
+        servicio de monitorización activo en segundo plano con notificación visible.</li>
+    <li><strong>POST_NOTIFICATIONS</strong> — para mostrar la notificación del servicio en Android 13+.</li>
+    <li><strong>INTERNET</strong> — requerido por Firebase para el envío de informes de fallos.</li>
+  </ul>
+  <p>La app no solicita acceso a contactos, cámara, micrófono, ubicación ni almacenamiento del usuario.</p>
+
+  <h2>3. Servicios de terceros</h2>
+  <p>Vitals utiliza los siguientes servicios de Google:</p>
+  <ul>
+    <li>
+      <strong>Firebase Crashlytics</strong> — recopila automáticamente informes de fallos cuando
+      la app se cierra de forma inesperada. Estos informes incluyen información técnica del error
+      (stack trace, versión de Android, modelo de dispositivo) pero no identifican al usuario.
+      <br>
+      <a href="https://firebase.google.com/support/privacy" target="_blank">Política de privacidad de Firebase →</a>
+    </li>
+    <li>
+      <strong>Firebase Analytics</strong> — recopila métricas de uso anónimas y agregadas.
+      No incluye información personal identificable.
+      <br>
+      <a href="https://policies.google.com/privacy" target="_blank">Política de privacidad de Google →</a>
+    </li>
+  </ul>
+  <p>Puedes desactivar la recopilación de datos de Firebase en los ajustes de tu dispositivo
+     mediante las opciones de personalización de anuncios de Google.</p>
+
+  <h2>4. Almacenamiento de datos</h2>
+  <p>Las métricas del sistema se almacenan localmente en el dispositivo mediante una base de datos
+     interna (Room/SQLite). Estos datos no abandonan el dispositivo y se eliminan al desinstalar la app.</p>
+
+  <h2>5. Menores de edad</h2>
+  <p>Vitals no está dirigida a menores de 13 años ni recopila conscientemente información de ellos.</p>
+
+  <h2>6. Cambios en esta política</h2>
+  <p>Cualquier cambio en esta política se publicará en esta misma página. Te recomendamos revisarla periódicamente.</p>
+
+  <h2>7. Contacto</h2>
+  <p>Si tienes preguntas sobre esta política de privacidad, puedes escribirnos a:</p>
+  <p><a href="mailto:davidferry96@gmail.com">davidferry96@gmail.com</a></p>
+
+  <footer>
+    © 2025 Vitals · Todos los derechos reservados
+  </footer>
+
+</div>
+</body>
+</html>
