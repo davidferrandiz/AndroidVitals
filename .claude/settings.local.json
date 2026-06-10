@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew assembleDebug)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:maven.google.com)",
+      "Bash(xargs cat)"
+    ]
+  }
+}

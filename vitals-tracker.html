@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitals — Project Tracker</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f7f4; color: #1a1a1a; padding: 2rem; min-height: 100vh; }
+
+  .header { margin-bottom: 2rem; }
+  .app-name { font-size: 28px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.5px; }
+  .app-sub { font-size: 14px; color: #888; margin-top: 4px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 99px; }
+  .badge-android { background: #e8f5e9; color: #2e7d32; }
+  .badge-kotlin { background: #ede7f6; color: #4527a0; }
+  .badge-compose { background: #e3f2fd; color: #1565c0; }
+  .badge-hilt { background: #fce4ec; color: #880e4f; }
+  .badge-firebase { background: #fff3e0; color: #e65100; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 2rem; }
+  .metric { background: #fff; border-radius: 12px; padding: 1rem 1.25rem; border: 0.5px solid #e8e8e8; }
+  .metric-val { font-size: 26px; font-weight: 600; color: #1a1a1a; }
+  .metric-lbl { font-size: 12px; color: #888; margin-top: 2px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-full { grid-column: 1 / -1; }
+
+  .card { background: #fff; border-radius: 12px; border: 0.5px solid #e8e8e8; padding: 1.25rem; }
+  .card-title { font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem; }
+
+  .item { display: flex; align-items: flex-start; gap: 10px; padding: 0.5rem 0; border-bottom: 0.5px solid #f0f0f0; }
+  .item:last-child { border-bottom: none; }
+  .item-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .dot-done { background: #4caf50; }
+  .dot-progress { background: #ff9800; }
+  .dot-pending { background: #e0e0e0; }
+  .item-text { font-size: 13px; color: #1a1a1a; line-height: 1.5; flex: 1; }
+  .item-text.done { color: #888; }
+  .item-badge { font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 99px; flex-shrink: 0; }
+  .ib-done { background: #e8f5e9; color: #2e7d32; }
+  .ib-progress { background: #fff3e0; color: #e65100; }
+  .ib-pending { background: #f5f5f5; color: #999; }
+
+  .module-card { background: #fff; border-radius: 12px; border: 0.5px solid #e8e8e8; padding: 1rem 1.25rem; }
+  .module-name { font-size: 13px; font-weight: 600; color: #1a1a1a; font-family: 'SF Mono', monospace; margin-bottom: 4px; }
+  .module-desc { font-size: 12px; color: #888; margin-bottom: 10px; line-height: 1.4; }
+  .module-progress { height: 4px; background: #f0f0f0; border-radius: 2px; overflow: hidden; }
+  .module-bar { height: 4px; border-radius: 2px; transition: width 0.5s; }
+
+  .dep-row { display: flex; align-items: center; justify-content: space-between; padding: 0.45rem 0; border-bottom: 0.5px solid #f0f0f0; }
+  .dep-row:last-child { border-bottom: none; }
+  .dep-name { font-size: 13px; color: #1a1a1a; font-family: 'SF Mono', monospace; font-size: 12px; }
+  .dep-ver { font-size: 11px; color: #bbb; }
+
+  .timeline-item { display: flex; gap: 12px; padding: 0.6rem 0; }
+  .tl-dot { width: 10px; height: 10px; border-radius: 50%; background: #534AB7; flex-shrink: 0; margin-top: 4px; position: relative; }
+  .tl-dot::after { content: ''; position: absolute; left: 4px; top: 10px; width: 1px; height: calc(100% + 8px); background: #e8e8e8; }
+  .timeline-item:last-child .tl-dot::after { display: none; }
+  .tl-text { font-size: 13px; color: #1a1a1a; line-height: 1.5; }
+  .tl-date { font-size: 11px; color: #bbb; margin-top: 2px; }
+
+  .legend { display: flex; gap: 16px; margin-bottom: 1rem; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #888; }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    body { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="app-name">Vitals</div>
+  <div class="app-sub">Android system monitor · minSdk 26 · targetSdk 36</div>
+  <div class="badges">
+    <span class="badge badge-android">Android</span>
+    <span class="badge badge-kotlin">Kotlin 2.2.10</span>
+    <span class="badge badge-compose">Compose BOM 2026.02</span>
+    <span class="badge badge-hilt">Hilt 2.56</span>
+    <span class="badge badge-firebase">Firebase</span>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric">
+    <div class="metric-val" id="done-count">2</div>
+    <div class="metric-lbl">features completadas</div>
+  </div>
+  <div class="metric">
+    <div class="metric-val">3</div>
+    <div class="metric-lbl">módulos</div>
+  </div>
+  <div class="metric">
+    <div class="metric-val" id="dep-count">15</div>
+    <div class="metric-lbl">dependencias</div>
+  </div>
+  <div class="metric">
+    <div class="metric-val">AGP 9.2</div>
+    <div class="metric-lbl">build system</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- Módulos -->
+  <div class="card grid-full">
+    <div class="card-title">Módulos del proyecto</div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+      <div class="module-card">
+        <div class="module-name">:app</div>
+        <div class="module-desc">Entry point, NavHost, HiltAndroidApp, DI global</div>
+        <div class="module-progress"><div class="module-bar" style="width: 30%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:core</div>
+        <div class="module-desc">Room, Retrofit, repositorios, domain models, notificaciones</div>
+        <div class="module-progress"><div class="module-bar" style="width: 55%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:feature:monitor</div>
+        <div class="module-desc">ForegroundService, WorkManager, FCM, UI Compose, ViewModel</div>
+        <div class="module-progress"><div class="module-bar" style="width: 25%; background: #ff9800;"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup & Arquitectura -->
+  <div class="card">
+    <div class="card-title">Setup & arquitectura</div>
+    <div class="legend">
+      <div class="legend-item"><div class="item-dot dot-done"></div>hecho</div>
+      <div class="legend-item"><div class="item-dot dot-progress"></div>en progreso</div>
+      <div class="legend-item"><div class="item-dot dot-pending"></div>pendiente</div>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Proyecto Android Studio creado</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Modularización :app / :core / :feature:monitor</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">libs.versions.toml actualizado (Hilt, Room, Retrofit, Firebase, WorkManager…)</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">CLAUDE.md configurado</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">google-services.json añadido</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Gradle sync sin errores</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="card">
+    <div class="card-title">Features</div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">Foreground Service (monitorización CPU/RAM)</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">WorkManager (snapshots periódicos)</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">Notificaciones locales (alertas de umbral)</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">FCM (push remoto)</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">Room DB (historial de snapshots)</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">Capa de red Retrofit + OkHttp</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-progress"></div>
+      <div class="item-text">UI Compose — pantalla principal</div>
+      <span class="item-badge ib-progress">esqueleto</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">CI/CD pipeline</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Play Store release</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+  </div>
+
+  <!-- Dependencias -->
+  <div class="card">
+    <div class="card-title">Stack de dependencias</div>
+    <div class="dep-row"><span class="dep-name">hilt-android</span><span class="dep-ver">2.56.2</span></div>
+    <div class="dep-row"><span class="dep-name">room-runtime</span><span class="dep-ver">2.7.1</span></div>
+    <div class="dep-row"><span class="dep-name">room-ktx</span><span class="dep-ver">2.7.1</span></div>
+    <div class="dep-row"><span class="dep-name">retrofit</span><span class="dep-ver">2.11.0</span></div>
+    <div class="dep-row"><span class="dep-name">okhttp</span><span class="dep-ver">4.12.0</span></div>
+    <div class="dep-row"><span class="dep-name">okhttp-logging</span><span class="dep-ver">4.12.0</span></div>
+    <div class="dep-row"><span class="dep-name">moshi-kotlin</span><span class="dep-ver">1.15.2</span></div>
+    <div class="dep-row"><span class="dep-name">workmanager-ktx</span><span class="dep-ver">2.10.1</span></div>
+    <div class="dep-row"><span class="dep-name">hilt-work</span><span class="dep-ver">1.2.0</span></div>
+    <div class="dep-row"><span class="dep-name">firebase-bom</span><span class="dep-ver">33.14.0</span></div>
+    <div class="dep-row"><span class="dep-name">firebase-crashlytics</span><span class="dep-ver">via BOM</span></div>
+    <div class="dep-row"><span class="dep-name">firebase-analytics</span><span class="dep-ver">via BOM</span></div>
+    <div class="dep-row"><span class="dep-name">firebase-messaging</span><span class="dep-ver">via BOM</span></div>
+    <div class="dep-row"><span class="dep-name">navigation-compose</span><span class="dep-ver">2.9.0</span></div>
+    <div class="dep-row"><span class="dep-name">lifecycle-viewmodel-compose</span><span class="dep-ver">2.9.1</span></div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="card">
+    <div class="card-title">Historial</div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Sistema de monitoreo en background completado. VitalsForegroundService reescrito: CoroutineScope(IO) combina GetCpuUsageUseCase + GetMemoryUseCase + GetThreadCountUseCase y publica en MonitorServiceState (@Singleton). Notificación actualizada cada segundo con CPU y RAM. MonitorViewModel migrado a observar MonitorServiceState y arranca el service vía startForegroundService. Canales creados en VitalsApplication.onCreate().</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">GetMemoryUseCase implementado en :core/domain/usecase leyendo /proc/meminfo (MemTotal + MemAvailable) en Dispatchers.IO. Emite MemoryInfo(totalKb, availableKb, usedKb, usedPercent) cada segundo. LeakCanary 2.14 añadido como debugImplementation en :app para detección de fugas de memoria en desarrollo.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Módulo 2 completado. GetCpuUsageUseCase implementado en :core leyendo /proc/stat en Dispatchers.IO y exponiendo un Flow&lt;Float&gt; por segundo. Primer código real tocando el kernel.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+        <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">KSP corregido a versión compatible con Kotlin. google-services.json añadido. Gradle sync limpio — proyecto compila sin errores.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+        <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">GetCpuUsageUseCase conectado a MonitorViewModel (cpuUsage: StateFlow&lt;Float&gt;) y MonitorScreen (CpuLiveCard con LinearProgressIndicator). El porcentaje se actualiza en vivo cada segundo.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Implementado GetCpuUsageUseCase en :core/domain/usecase. Lee /proc/stat en Dispatchers.IO, compara dos capturas con 500 ms de diferencia y expone el porcentaje como Flow&lt;Float&gt; emitiendo cada segundo.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Proyecto creado en Android Studio. AGP 9.2.1, Kotlin 2.2.10, Compose BOM 2026.02, minSdk 26 / targetSdk 36.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Modularización implementada. Creados :core (Room, Retrofit, Moshi, domain layer, NotificationHelper, DI) y :feature:monitor (ForegroundService, VitalsWorker, VitalsFcmService, MonitorScreen, MonitorViewModel). Actualizado libs.versions.toml con 15 dependencias nuevas (KSP, Hilt 2.56, Room 2.7, Firebase BOM 33.14, WorkManager 2.10). CLAUDE.md configurado con reglas de arquitectura.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot" style="background: #ff9800;"></div>
+      <div>
+        <div class="tl-text">Plan de modularización definido. 3 módulos: :app, :core, :feature:monitor. Stack completo: Hilt, Room, Retrofit, WorkManager, Firebase, FCM.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aprendizaje -->
+  <div class="card">
+    <div class="card-title">Learning path</div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Módulo 1 — Setup & mentalidad IA-first</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Módulo 2 — Android OS internals: Threading & Looper</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Módulo 3 — Memory management & GC</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Módulo 4 — Background tasks & Services</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Módulo 5 — CI/CD para mobile</div>
+      <span class="item-badge ib-pending">pendiente</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
