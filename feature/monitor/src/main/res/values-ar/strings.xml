@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">البطارية</string>
+    <string name="card_network">الشبكة</string>
+    <string name="card_storage">التخزين</string>
+    <string name="card_processes">العمليات</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d عملية</string>
+    <string name="no_data">لا توجد بيانات</string>
+    <string name="loading">جارٍ التحميل…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">السلاسل النشطة</string>
+    <string name="label_cores">الأنوية</string>
+    <string name="label_temperature">درجة الحرارة</string>
+    <string name="core_name">نواة %1$d</string>
+    <string name="core_offline">غير متصل</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ إخفاء تفاصيل Vitals</string>
+    <string name="show_breakdown">▾ عرض تفاصيل Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">الرسومات</string>
+    <string name="metric_code">الكود</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">الحالة</string>
+    <string name="battery_health">السلامة</string>
+    <string name="battery_temperature">درجة الحرارة</string>
+    <string name="battery_voltage">الجهد</string>
+    <string name="battery_technology">التقنية</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  التنزيل</string>
+    <string name="label_upload">↑  الرفع</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">الإجمالي</string>
+    <string name="storage_used">المستخدم</string>
+    <string name="storage_free">المتاح</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">لا يمكن الوصول إلى /proc على هذا الجهاز</string>
+    <string name="label_top_by_ram">الأعلى استهلاكاً للذاكرة</string>
+
+</resources>

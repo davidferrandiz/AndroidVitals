@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">ЦП</string>
+    <string name="card_ram">ОЗУ</string>
+    <string name="card_battery">Батарея</string>
+    <string name="card_network">Сеть</string>
+    <string name="card_storage">Хранилище</string>
+    <string name="card_processes">Процессы</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d процессов</string>
+    <string name="no_data">Нет данных</string>
+    <string name="loading">Загрузка…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">Активные потоки</string>
+    <string name="label_cores">ЯДРА</string>
+    <string name="label_temperature">ТЕМПЕРАТУРА</string>
+    <string name="core_name">Ядро %1$d</string>
+    <string name="core_offline">отключено</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Скрыть разбивку Vitals</string>
+    <string name="show_breakdown">▾ Показать разбивку Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">Графика</string>
+    <string name="metric_code">Код</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">Состояние</string>
+    <string name="battery_health">Здоровье</string>
+    <string name="battery_temperature">Температура</string>
+    <string name="battery_voltage">Напряжение</string>
+    <string name="battery_technology">Технология</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  ЗАГРУЗКА</string>
+    <string name="label_upload">↑  ОТПРАВКА</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">Всего</string>
+    <string name="storage_used">Использовано</string>
+    <string name="storage_free">Свободно</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">Нет доступа к /proc на этом устройстве</string>
+    <string name="label_top_by_ram">ТОП ПО ОЗУ</string>
+
+</resources>

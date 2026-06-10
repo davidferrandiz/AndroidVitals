@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">Batterij</string>
+    <string name="card_network">Netwerk</string>
+    <string name="card_storage">Opslag</string>
+    <string name="card_processes">Processen</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d processen</string>
+    <string name="no_data">Geen gegevens</string>
+    <string name="loading">Laden…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">Actieve threads</string>
+    <string name="label_cores">CORES</string>
+    <string name="label_temperature">TEMPERATUUR</string>
+    <string name="core_name">Core %1$d</string>
+    <string name="core_offline">offline</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Vitals-overzicht verbergen</string>
+    <string name="show_breakdown">▾ Vitals-overzicht tonen</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">Graphics</string>
+    <string name="metric_code">Code</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">Status</string>
+    <string name="battery_health">Conditie</string>
+    <string name="battery_temperature">Temperatuur</string>
+    <string name="battery_voltage">Spanning</string>
+    <string name="battery_technology">Technologie</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  DOWNLOAD</string>
+    <string name="label_upload">↑  UPLOAD</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">Totaal</string>
+    <string name="storage_used">Gebruikt</string>
+    <string name="storage_free">Vrij</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">Geen toegang tot /proc op dit toestel</string>
+    <string name="label_top_by_ram">TOP OP RAM</string>
+
+</resources>

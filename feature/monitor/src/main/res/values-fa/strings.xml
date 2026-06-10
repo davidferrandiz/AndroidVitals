@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">باتری</string>
+    <string name="card_network">شبکه</string>
+    <string name="card_storage">حافظه</string>
+    <string name="card_processes">فرآیندها</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d فرآیند</string>
+    <string name="no_data">داده‌ای نیست</string>
+    <string name="loading">در حال بارگذاری…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">نخ‌های فعال</string>
+    <string name="label_cores">هسته‌ها</string>
+    <string name="label_temperature">دما</string>
+    <string name="core_name">هسته %1$d</string>
+    <string name="core_offline">آفلاین</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ پنهان کردن جزئیات Vitals</string>
+    <string name="show_breakdown">▾ نمایش جزئیات Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">گرافیک</string>
+    <string name="metric_code">کد</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">وضعیت</string>
+    <string name="battery_health">سلامت</string>
+    <string name="battery_temperature">دما</string>
+    <string name="battery_voltage">ولتاژ</string>
+    <string name="battery_technology">فناوری</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  دانلود</string>
+    <string name="label_upload">↑  آپلود</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">کل</string>
+    <string name="storage_used">استفاده‌شده</string>
+    <string name="storage_free">آزاد</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">دسترسی به /proc در این دستگاه وجود ندارد</string>
+    <string name="label_top_by_ram">بیشترین مصرف حافظه</string>
+
+</resources>

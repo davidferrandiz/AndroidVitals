@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">Batterie</string>
+    <string name="card_network">Réseau</string>
+    <string name="card_storage">Stockage</string>
+    <string name="card_processes">Processus</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d processus</string>
+    <string name="no_data">Aucune donnée</string>
+    <string name="loading">Chargement…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">Threads actifs</string>
+    <string name="label_cores">CŒURS</string>
+    <string name="label_temperature">TEMPÉRATURE</string>
+    <string name="core_name">Cœur %1$d</string>
+    <string name="core_offline">hors ligne</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Masquer les détails Vitals</string>
+    <string name="show_breakdown">▾ Voir les détails Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">Graphismes</string>
+    <string name="metric_code">Code</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">État</string>
+    <string name="battery_health">Santé</string>
+    <string name="battery_temperature">Température</string>
+    <string name="battery_voltage">Tension</string>
+    <string name="battery_technology">Technologie</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  TÉLÉCHARGEMENT</string>
+    <string name="label_upload">↑  ENVOI</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">Total</string>
+    <string name="storage_used">Utilisé</string>
+    <string name="storage_free">Libre</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">Accès à /proc non disponible sur cet appareil</string>
+    <string name="label_top_by_ram">TOP PAR RAM</string>
+
+</resources>

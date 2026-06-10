@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">แบตเตอรี่</string>
+    <string name="card_network">เครือข่าย</string>
+    <string name="card_storage">พื้นที่จัดเก็บ</string>
+    <string name="card_processes">โปรเซส</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d โปรเซส</string>
+    <string name="no_data">ไม่มีข้อมูล</string>
+    <string name="loading">กำลังโหลด…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">เธรดที่ทำงานอยู่</string>
+    <string name="label_cores">คอร์</string>
+    <string name="label_temperature">อุณหภูมิ</string>
+    <string name="core_name">คอร์ %1$d</string>
+    <string name="core_offline">ออฟไลน์</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ ซ่อนรายละเอียด Vitals</string>
+    <string name="show_breakdown">▾ ดูรายละเอียด Vitals</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">กราฟิก</string>
+    <string name="metric_code">โค้ด</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">สถานะ</string>
+    <string name="battery_health">สุขภาพ</string>
+    <string name="battery_temperature">อุณหภูมิ</string>
+    <string name="battery_voltage">แรงดันไฟ</string>
+    <string name="battery_technology">เทคโนโลยี</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  ดาวน์โหลด</string>
+    <string name="label_upload">↑  อัปโหลด</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">รวม</string>
+    <string name="storage_used">ใช้ไป</string>
+    <string name="storage_free">ว่าง</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">ไม่สามารถเข้าถึง /proc บนอุปกรณ์นี้</string>
+    <string name="label_top_by_ram">อันดับการใช้ RAM</string>
+
+</resources>

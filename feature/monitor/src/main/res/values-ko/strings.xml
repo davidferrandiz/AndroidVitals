@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">배터리</string>
+    <string name="card_network">네트워크</string>
+    <string name="card_storage">저장소</string>
+    <string name="card_processes">프로세스</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">프로세스 %1$d개</string>
+    <string name="no_data">데이터 없음</string>
+    <string name="loading">불러오는 중…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">활성 스레드</string>
+    <string name="label_cores">코어</string>
+    <string name="label_temperature">온도</string>
+    <string name="core_name">코어 %1$d</string>
+    <string name="core_offline">오프라인</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Vitals 상세 숨기기</string>
+    <string name="show_breakdown">▾ Vitals 상세 보기</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">그래픽</string>
+    <string name="metric_code">코드</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">상태</string>
+    <string name="battery_health">수명</string>
+    <string name="battery_temperature">온도</string>
+    <string name="battery_voltage">전압</string>
+    <string name="battery_technology">기술</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  다운로드</string>
+    <string name="label_upload">↑  업로드</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">전체</string>
+    <string name="storage_used">사용 중</string>
+    <string name="storage_free">남음</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">이 기기에서는 /proc 에 접근할 수 없습니다</string>
+    <string name="label_top_by_ram">RAM 사용량 상위</string>
+
+</resources>

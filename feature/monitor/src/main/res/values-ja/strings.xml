@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">バッテリー</string>
+    <string name="card_network">ネットワーク</string>
+    <string name="card_storage">ストレージ</string>
+    <string name="card_processes">プロセス</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d 個のプロセス</string>
+    <string name="no_data">データなし</string>
+    <string name="loading">読み込み中…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">アクティブなスレッド</string>
+    <string name="label_cores">コア</string>
+    <string name="label_temperature">温度</string>
+    <string name="core_name">コア %1$d</string>
+    <string name="core_offline">オフライン</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Vitals の内訳を隠す</string>
+    <string name="show_breakdown">▾ Vitals の内訳を見る</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">グラフィック</string>
+    <string name="metric_code">コード</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">状態</string>
+    <string name="battery_health">劣化状態</string>
+    <string name="battery_temperature">温度</string>
+    <string name="battery_voltage">電圧</string>
+    <string name="battery_technology">タイプ</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  ダウンロード</string>
+    <string name="label_upload">↑  アップロード</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">合計</string>
+    <string name="storage_used">使用中</string>
+    <string name="storage_free">空き</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">このデバイスでは /proc にアクセスできません</string>
+    <string name="label_top_by_ram">RAM 使用順</string>
+
+</resources>

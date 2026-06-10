@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Card titles -->
+    <string name="card_cpu">CPU</string>
+    <string name="card_ram">RAM</string>
+    <string name="card_battery">बैटरी</string>
+    <string name="card_network">नेटवर्क</string>
+    <string name="card_storage">स्टोरेज</string>
+    <string name="card_processes">प्रक्रियाएँ</string>
+
+    <!-- Card summaries / generic -->
+    <string name="processes_count">%1$d प्रक्रियाएँ</string>
+    <string name="no_data">कोई डेटा नहीं</string>
+    <string name="loading">लोड हो रहा है…</string>
+
+    <!-- CPU expanded -->
+    <string name="active_threads">सक्रिय थ्रेड्स</string>
+    <string name="label_cores">कोर</string>
+    <string name="label_temperature">तापमान</string>
+    <string name="core_name">कोर %1$d</string>
+    <string name="core_offline">ऑफ़लाइन</string>
+
+    <!-- Memory expanded -->
+    <string name="hide_breakdown">▴ Vitals विवरण छिपाएँ</string>
+    <string name="show_breakdown">▾ Vitals विवरण देखें</string>
+    <string name="vitals_pid">VITALS (PID %1$d)</string>
+    <string name="metric_total_pss">Total PSS</string>
+    <string name="metric_java_heap">Java heap</string>
+    <string name="metric_native_heap">Native heap</string>
+    <string name="metric_graphics">ग्राफ़िक्स</string>
+    <string name="metric_code">कोड</string>
+    <string name="metric_stack">Stack</string>
+
+    <!-- Battery expanded -->
+    <string name="battery_status">स्थिति</string>
+    <string name="battery_health">स्वास्थ्य</string>
+    <string name="battery_temperature">तापमान</string>
+    <string name="battery_voltage">वोल्टेज</string>
+    <string name="battery_technology">तकनीक</string>
+
+    <!-- Network expanded -->
+    <string name="label_download">↓  डाउनलोड</string>
+    <string name="label_upload">↑  अपलोड</string>
+
+    <!-- Storage expanded -->
+    <string name="storage_total">कुल</string>
+    <string name="storage_used">उपयोग में</string>
+    <string name="storage_free">मुक्त</string>
+
+    <!-- Processes expanded -->
+    <string name="no_proc_access">इस डिवाइस पर /proc तक पहुँच नहीं</string>
+    <string name="label_top_by_ram">RAM के अनुसार शीर्ष</string>
+
+</resources>
