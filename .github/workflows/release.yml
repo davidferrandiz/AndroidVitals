@@ -1,9 +1,30 @@
 name: Release
 
+# Se ejecuta de dos formas:
+#   1. Automáticamente cuando se hace push/merge a la rama 'release'
+#   2. Manualmente desde GitHub Actions UI (con elección de bump)
+#
+# Flujo de ramas:
+#   feature/* → main (CI) → release (Release automático)
 on:
   push:
     branches:
-      - main
+      - release
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Tipo de versión'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch   # 1.0.0 → 1.0.1  (bug fix)
+          - minor   # 1.0.0 → 1.1.0  (nueva funcionalidad)
+          - major   # 1.0.0 → 2.0.0  (breaking change)
+
+# Necesario para que el runner pueda hacer push del commit de versión
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -12,6 +33,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # fetch-depth 0 para que git push funcione con el historial completo
+          fetch-depth: 0
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -37,6 +61,35 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
+      # Lee versionName y versionCode del build.gradle.kts,
+      # calcula la nueva versión según el bump elegido,
+      # y sobreescribe los valores en el fichero.
+      - name: Bump version
+        run: |
+          CURRENT_NAME=$(grep 'versionName = ' app/build.gradle.kts | sed 's/.*versionName = "\(.*\)".*/\1/')
+          CURRENT_CODE=$(grep 'versionCode = ' app/build.gradle.kts | sed 's/.*versionCode = \([0-9]*\).*/\1/')
+
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_NAME"
+
+          BUMP="${{ github.event.inputs.bump }}"
+          BUMP="${BUMP:-patch}"   # si viene de push a release sin input, usa patch por defecto
+
+          case "$BUMP" in
+            major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
+            minor) MINOR=$((MINOR + 1)); PATCH=0 ;;
+            patch) PATCH=$((PATCH + 1)) ;;
+          esac
+
+          NEW_NAME="$MAJOR.$MINOR.$PATCH"
+          NEW_CODE=$((CURRENT_CODE + 1))
+
+          sed -i "s/versionName = \"$CURRENT_NAME\"/versionName = \"$NEW_NAME\"/" app/build.gradle.kts
+          sed -i "s/versionCode = $CURRENT_CODE/versionCode = $NEW_CODE/" app/build.gradle.kts
+
+          echo "NEW_NAME=$NEW_NAME" >> $GITHUB_ENV
+          echo "NEW_CODE=$NEW_CODE" >> $GITHUB_ENV
+          echo "Bumped: $CURRENT_NAME ($CURRENT_CODE) → $NEW_NAME ($NEW_CODE)"
+
       - name: Lint
         run: ./gradlew lint
 
@@ -44,8 +97,7 @@ jobs:
         run: ./gradlew test
 
       - name: Decode keystore
-        run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > vitals.jks
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > vitals.jks
 
       - name: Build release AAB
         run: |
@@ -58,14 +110,25 @@ jobs:
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
         with:
-          name: vitals-release
+          name: vitals-${{ env.NEW_NAME }}-(${{ env.NEW_CODE }})
           path: app/build/outputs/bundle/release/app-release.aab
 
+      # Fastlane solo sube el AAB ya compilado — no recompila
       - name: Deploy to Play Store (internal track)
-        run: bundle exec fastlane beta
+        run: bundle exec fastlane upload_only
         env:
           PLAY_STORE_JSON_KEY: ${{ secrets.PLAY_STORE_JSON_KEY }}
 
       - name: Clean up keystore
         if: always()
         run: rm -f vitals.jks
+
+      # Commitea el bump de versión de vuelta al repo
+      # para que el siguiente release parta de la versión correcta
+      - name: Commit version bump
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add app/build.gradle.kts
+          git commit -m "chore: bump version to ${{ env.NEW_NAME }} (${{ env.NEW_CODE }})"
+          git push
