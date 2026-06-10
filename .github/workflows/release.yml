@@ -130,15 +130,22 @@ jobs:
           name: vitals-${{ env.NEW_NAME }}-(${{ env.NEW_CODE }})
           path: app/build/outputs/bundle/release/app-release.aab
 
+      # Escribe el JSON de la cuenta de servicio a un fichero temporal.
+      # json_key_file de Fastlane necesita un path, no el contenido directo.
+      - name: Write Play Store JSON key
+        run: echo '${{ secrets.PLAY_STORE_JSON_KEY }}' > play-store-key.json
+
       # Fastlane solo sube el AAB ya compilado — no recompila
       - name: Deploy to Play Store (internal track)
         run: bundle exec fastlane upload_only
         env:
-          PLAY_STORE_JSON_KEY: ${{ secrets.PLAY_STORE_JSON_KEY }}
+          PLAY_STORE_JSON_KEY: ${{ github.workspace }}/play-store-key.json
 
-      - name: Clean up keystore
+      - name: Clean up secrets
         if: always()
-        run: rm -f vitals.jks
+        run: |
+          rm -f vitals.jks
+          rm -f play-store-key.json
 
       # Commitea el bump de versión de vuelta al repo
       # para que el siguiente release parta de la versión correcta
