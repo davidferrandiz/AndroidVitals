@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1062493780576:android:3cb0a6558bf4b1dfb4e105",
+        "android_client_info": {
+          "package_name": "com.ferryapps.vital.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoKeAhqBGer9LHvFUZCNhSS5jRc6FGg9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1062493780576:android:11851c2ab27390b4b4e105",
         "android_client_info": {
           "package_name": "com.ferryapps.vitals"

@@ -26,7 +26,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            versionNameSuffix = "-debug"
+            isDebuggable = true
+            optimization {
+                enable = false
+            }
+        }
         release {
+            isDebuggable = false
             optimization {
                 enable = false
             }
