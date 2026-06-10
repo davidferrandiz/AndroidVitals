@@ -20,7 +20,7 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,6 +77,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    // Startup — explícita para que Lint resuelva InitializationProvider
+    // (WorkManager ya la trae transitivamente, pero AGP 9 lo exige directo)
+    implementation(libs.startup.runtime)
 
     // Core
     implementation(libs.androidx.core.ktx)
