@@ -1,61 +1,28 @@
-# Fastfile — define los "lanes" (flujos de automatización)
-#
-# Un lane es como una función: agrupa acciones que se ejecutan
-# en secuencia. Si cualquier acción falla, el lane se detiene
-# y Fastlane reporta el error.
-#
-# Estructura:
-#   default_platform → plataforma por defecto (:android o :ios)
-#   platform :android do → agrupa los lanes específicos de Android
-#     lane :nombre do → define un flujo concreto
-#
-# Ejecución local:   bundle exec fastlane <nombre_del_lane>
-# Ejecución en CI:   bundle exec fastlane beta  (ver release.yml)
-
 default_platform(:android)
 
 platform :android do
 
-  # Lane: test
-  # Propósito: ejecutar los unit tests del proyecto.
-  # Usado para validar que el código es correcto antes de publicar.
-  # En CI lo llama el workflow ci.yml indirectamente via ./gradlew test,
-  # pero este lane permite ejecutar los tests desde Fastlane
-  # si en algún momento queremos encadenarlo con otros lanes.
   lane :test do
     gradle(task: "test")
   end
 
-  # Lane: beta
-  # Propósito: incrementar la versión, compilar el AAB firmado
-  # y subirlo al track "internal" de Google Play Console.
-  #
-  # Este es el lane principal que llama release.yml en cada merge a main.
-  # El flujo completo es:
-  #   1. increment_version_code → incrementa el versionCode en build.gradle.kts
-  #      automáticamente, sin tocar el fichero a mano.
-  #      Google Play rechaza uploads con el mismo versionCode, por eso
-  #      es obligatorio incrementarlo en cada release.
-  #
-  #   2. gradle(bundle, Release) → compila el AAB firmado.
-  #      En CI, la firma ya viene del paso anterior del workflow
-  #      (decode keystore + flags -P), así que Fastlane simplemente
-  #      lanza el task de Gradle. En local necesitarías tener el
-  #      keystore configurado en gradle.properties.
-  #
-  #   3. upload_to_play_store → sube el AAB al track "internal".
-  #      - track: "internal" → el más restrictivo, solo tú y los testers
-  #        internos pueden descargarlo. Ideal para validar antes de abrir
-  #        al público.
-  #      - release_status: "draft" → la release queda en borrador en
-  #        Play Console. Tienes que publicarla manualmente. Esto evita
-  #        que un push accidental llegue a usuarios sin revisión humana.
-  #      - skip_upload_apk: true → solo subimos AAB (el formato moderno
-  #        que Google recomienda). APK está deprecated para nuevas apps.
-  lane :beta do
-    increment_version_code(
-      gradle_file_path: "app/build.gradle.kts"
+  # Lane: upload_only
+  # El workflow de GitHub Actions ya ha compilado y firmado el AAB.
+  # Este lane solo sube el binario existente a Play Console.
+  # No recompila ni toca el versionCode — eso lo gestiona el workflow.
+  lane :upload_only do
+    upload_to_play_store(
+      track: "internal",
+      aab: "app/build/outputs/bundle/release/app-release.aab",
+      skip_upload_apk: true,
+      release_status: "draft"
     )
+  end
+
+  # Lane: beta (uso local)
+  # Para subir desde tu Mac sin pasar por CI.
+  # Aquí sí compilamos porque no tenemos el paso previo del workflow.
+  lane :beta do
     gradle(
       task: "bundle",
       build_type: "Release"
@@ -69,15 +36,8 @@ platform :android do
   end
 
   # Lane: promote_to_alpha
-  # Propósito: promover la release que ya está en "internal"
-  # al track "alpha" (testers externos con acceso por enlace).
-  #
-  # Este lane NO recompila — usa el binario que ya está en Play Console.
-  # El flujo de tracks en Google Play es:
-  #   internal → alpha → beta → production
-  #
-  # Ejecución manual cuando quieres abrir la app a más testers:
-  #   bundle exec fastlane promote_to_alpha
+  # Promueve la release de internal → alpha sin recompilar.
+  # Ejecución manual: bundle exec fastlane promote_to_alpha
   lane :promote_to_alpha do
     upload_to_play_store(
       track: "internal",

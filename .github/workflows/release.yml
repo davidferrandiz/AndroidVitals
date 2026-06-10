@@ -1,13 +1,18 @@
 name: Release
 
 # Se ejecuta de dos formas:
-#   1. Automáticamente cuando se hace push/merge a la rama 'release'
+#   1. Automáticamente cuando se mergea un PR a la rama 'release'.
+#      El tipo de bump lo controla el label del PR:
+#        bump:major → 1.0.0 → 2.0.0
+#        bump:minor → 1.0.0 → 1.1.0
+#        bump:patch → 1.0.0 → 1.0.1  (default si no hay label)
 #   2. Manualmente desde GitHub Actions UI (con elección de bump)
 #
 # Flujo de ramas:
 #   feature/* → main (CI) → release (Release automático)
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - release
   workflow_dispatch:
@@ -29,6 +34,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # Si viene de un PR, solo ejecutar si fue mergeado (no si se cerró sin merge)
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
 
     steps:
       - name: Checkout
@@ -71,8 +78,18 @@ jobs:
 
           IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_NAME"
 
-          BUMP="${{ github.event.inputs.bump }}"
-          BUMP="${BUMP:-patch}"   # si viene de push a release sin input, usa patch por defecto
+          # Prioridad: input manual > label del PR > patch por defecto
+          if [ -n "${{ github.event.inputs.bump }}" ]; then
+            BUMP="${{ github.event.inputs.bump }}"
+          elif ${{ contains(github.event.pull_request.labels.*.name, 'bump:major') }}; then
+            BUMP="major"
+          elif ${{ contains(github.event.pull_request.labels.*.name, 'bump:minor') }}; then
+            BUMP="minor"
+          else
+            BUMP="patch"
+          fi
+
+          echo "Bump type: $BUMP"
 
           case "$BUMP" in
             major) MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0 ;;
