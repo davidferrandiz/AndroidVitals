@@ -119,12 +119,12 @@
       <div class="module-card">
         <div class="module-name">:core</div>
         <div class="module-desc">Room, Retrofit, repositorios, domain models, notificaciones</div>
-        <div class="module-progress"><div class="module-bar" style="width: 55%; background: #ff9800;"></div></div>
+        <div class="module-progress"><div class="module-bar" style="width: 60%; background: #ff9800;"></div></div>
       </div>
       <div class="module-card">
         <div class="module-name">:feature:monitor</div>
         <div class="module-desc">ForegroundService, WorkManager, FCM, UI Compose, ViewModel</div>
-        <div class="module-progress"><div class="module-bar" style="width: 25%; background: #ff9800;"></div></div>
+        <div class="module-progress"><div class="module-bar" style="width: 30%; background: #ff9800;"></div></div>
       </div>
     </div>
   </div>
@@ -242,6 +242,13 @@
   <!-- Timeline -->
   <div class="card">
     <div class="card-title">Historial</div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Card de RAM convertida en desplegable. Al expandir muestra el breakdown del propio proceso vía Debug.getMemoryInfo() (Total PSS, Java heap, Native heap, Code, Stack, Graphics, Other). Nuevo GetProcessMemoryBreakdownUseCase en :core (polling 5s, Dispatchers.IO). El flow solo se activa cuando la card está expandida vía flatMapLatest. Descartado listar RAM por app porque desde API 26 getRunningAppProcesses() solo devuelve el propio proceso.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
     <div class="timeline-item">
       <div class="tl-dot"></div>
       <div>
