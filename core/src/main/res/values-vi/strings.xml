@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Giám sát</string>
+    <string name="notif_channel_monitor_desc">Giám sát hệ thống liên tục</string>
+    <string name="notif_channel_alerts_name">Cảnh báo</string>
+    <string name="notif_channel_alerts_desc">Cảnh báo ngưỡng cho CPU và RAM</string>
+
+</resources>

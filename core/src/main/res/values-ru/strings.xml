@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Мониторинг</string>
+    <string name="notif_channel_monitor_desc">Непрерывный мониторинг системы</string>
+    <string name="notif_channel_alerts_name">Оповещения</string>
+    <string name="notif_channel_alerts_desc">Пороговые оповещения для CPU и RAM</string>
+
+</resources>

@@ -38,6 +38,20 @@
     <string name="battery_temperature">Nhiệt độ</string>
     <string name="battery_voltage">Hiệu điện thế</string>
     <string name="battery_technology">Công nghệ</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">Đang sạc</string>
+    <string name="battery_status_discharging">Đang xả</string>
+    <string name="battery_status_full">Đầy</string>
+    <string name="battery_status_not_charging">Không sạc</string>
+    <string name="battery_status_unknown">Không xác định</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">Tốt</string>
+    <string name="battery_health_overheat">Quá nhiệt</string>
+    <string name="battery_health_dead">Hỏng</string>
+    <string name="battery_health_over_voltage">Quá áp</string>
+    <string name="battery_health_cold">Lạnh</string>
+    <string name="battery_health_unknown">Không xác định</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  TẢI XUỐNG</string>

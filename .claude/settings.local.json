@@ -7,7 +7,8 @@
       "Bash(xargs cat)",
       "Bash(./gradlew :feature:monitor:compileDebugKotlin :core:compileDebugKotlin)",
       "Bash(./gradlew :feature:monitor:compileDebugKotlin)",
-      "Bash(./gradlew :feature:monitor:compileDebugKotlin :app:compileDebugKotlin --console=plain)"
+      "Bash(./gradlew :feature:monitor:compileDebugKotlin :app:compileDebugKotlin --console=plain)",
+      "Bash(python3 *)"
     ]
   }
 }

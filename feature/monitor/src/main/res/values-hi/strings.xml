@@ -38,6 +38,20 @@
     <string name="battery_temperature">तापमान</string>
     <string name="battery_voltage">वोल्टेज</string>
     <string name="battery_technology">तकनीक</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">चार्ज हो रही है</string>
+    <string name="battery_status_discharging">डिस्चार्ज हो रही है</string>
+    <string name="battery_status_full">पूरी</string>
+    <string name="battery_status_not_charging">चार्ज नहीं हो रही</string>
+    <string name="battery_status_unknown">अज्ञात</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">अच्छी</string>
+    <string name="battery_health_overheat">अधिक गरम</string>
+    <string name="battery_health_dead">खत्म</string>
+    <string name="battery_health_over_voltage">अधिक वोल्टेज</string>
+    <string name="battery_health_cold">ठंडी</string>
+    <string name="battery_health_unknown">अज्ञात</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  डाउनलोड</string>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Monitorage</string>
+    <string name="notif_channel_monitor_desc">Surveillance continue du système</string>
+    <string name="notif_channel_alerts_name">Alertes</string>
+    <string name="notif_channel_alerts_desc">Alertes de seuil pour CPU et RAM</string>
+
+</resources>

@@ -38,6 +38,20 @@
     <string name="battery_temperature">دما</string>
     <string name="battery_voltage">ولتاژ</string>
     <string name="battery_technology">فناوری</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">در حال شارژ</string>
+    <string name="battery_status_discharging">در حال تخلیه</string>
+    <string name="battery_status_full">پر</string>
+    <string name="battery_status_not_charging">شارژ نمی‌شود</string>
+    <string name="battery_status_unknown">نامشخص</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">خوب</string>
+    <string name="battery_health_overheat">بیش از حد گرم</string>
+    <string name="battery_health_dead">تمام شده</string>
+    <string name="battery_health_over_voltage">ولتاژ بالا</string>
+    <string name="battery_health_cold">سرد</string>
+    <string name="battery_health_unknown">نامشخص</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  دانلود</string>
