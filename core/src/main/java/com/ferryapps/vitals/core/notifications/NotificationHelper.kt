@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import androidx.core.app.NotificationCompat
+import com.ferryapps.vitals.core.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,10 +25,16 @@ class NotificationHelper @Inject constructor(
 
     fun createChannels() {
         listOf(
-            NotificationChannel(CHANNEL_MONITOR, "Monitor", NotificationManager.IMPORTANCE_LOW)
-                .apply { description = "Ongoing system vitals monitoring" },
-            NotificationChannel(CHANNEL_ALERTS, "Alerts", NotificationManager.IMPORTANCE_HIGH)
-                .apply { description = "Threshold alerts for CPU and RAM" }
+            NotificationChannel(
+                CHANNEL_MONITOR,
+                context.getString(R.string.notif_channel_monitor_name),
+                NotificationManager.IMPORTANCE_LOW
+            ).apply { description = context.getString(R.string.notif_channel_monitor_desc) },
+            NotificationChannel(
+                CHANNEL_ALERTS,
+                context.getString(R.string.notif_channel_alerts_name),
+                NotificationManager.IMPORTANCE_HIGH
+            ).apply { description = context.getString(R.string.notif_channel_alerts_desc) }
         ).forEach(manager::createNotificationChannel)
     }
 
