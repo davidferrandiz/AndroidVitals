@@ -48,7 +48,9 @@ import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ferryapps.vitals.feature.monitor.R
+import com.ferryapps.vitals.core.domain.model.BatteryHealth
 import com.ferryapps.vitals.core.domain.model.BatteryInfo
+import com.ferryapps.vitals.core.domain.model.BatteryStatus
 import com.ferryapps.vitals.core.domain.model.CpuCoreInfo
 import com.ferryapps.vitals.core.domain.model.NetworkSpeed
 import com.ferryapps.vitals.core.domain.model.ProcessMemoryBreakdown
@@ -151,7 +153,7 @@ fun MonitorScreen(
                 accentColor = ColorBattery,
                 icon        = if (bat?.isCharging == true) "🔋⚡" else "🔋",
                 title       = stringResource(R.string.card_battery),
-                summary     = if (bat != null) "${bat.levelPercent}%  ·  ${bat.status}" else "—",
+                summary     = if (bat != null) "${bat.levelPercent}%  ·  ${stringResource(bat.status.labelRes())}" else "—",
                 progress    = (bat?.levelPercent ?: 0) / 100f,
                 isExpanded  = "battery" in expandedCards,
                 onToggle    = { viewModel.toggleCard("battery") }
@@ -413,11 +415,28 @@ private fun BatteryExpandedContent(battery: BatteryInfo?) {
         Text(stringResource(R.string.no_data), style = MaterialTheme.typography.bodySmall)
         return
     }
-    MetricRow(stringResource(R.string.battery_status),      battery.status)
-    MetricRow(stringResource(R.string.battery_health),      battery.health)
+    MetricRow(stringResource(R.string.battery_status),      stringResource(battery.status.labelRes()))
+    MetricRow(stringResource(R.string.battery_health),      stringResource(battery.health.labelRes()))
     MetricRow(stringResource(R.string.battery_temperature), "%.1f °C".format(battery.temperatureCelsius))
     MetricRow(stringResource(R.string.battery_voltage),     "${battery.voltageMillivolts} mV")
     MetricRow(stringResource(R.string.battery_technology),  battery.technology)
+}
+
+private fun BatteryStatus.labelRes(): Int = when (this) {
+    BatteryStatus.CHARGING     -> R.string.battery_status_charging
+    BatteryStatus.DISCHARGING  -> R.string.battery_status_discharging
+    BatteryStatus.FULL         -> R.string.battery_status_full
+    BatteryStatus.NOT_CHARGING -> R.string.battery_status_not_charging
+    BatteryStatus.UNKNOWN      -> R.string.battery_status_unknown
+}
+
+private fun BatteryHealth.labelRes(): Int = when (this) {
+    BatteryHealth.GOOD         -> R.string.battery_health_good
+    BatteryHealth.OVERHEAT     -> R.string.battery_health_overheat
+    BatteryHealth.DEAD         -> R.string.battery_health_dead
+    BatteryHealth.OVER_VOLTAGE -> R.string.battery_health_over_voltage
+    BatteryHealth.COLD         -> R.string.battery_health_cold
+    BatteryHealth.UNKNOWN      -> R.string.battery_health_unknown
 }
 
 @Composable

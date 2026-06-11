@@ -38,6 +38,20 @@
     <string name="battery_temperature">Temperatura</string>
     <string name="battery_voltage">Tensione</string>
     <string name="battery_technology">Tecnologia</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">In carica</string>
+    <string name="battery_status_discharging">In scarica</string>
+    <string name="battery_status_full">Piena</string>
+    <string name="battery_status_not_charging">Non in carica</string>
+    <string name="battery_status_unknown">Sconosciuto</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">Buona</string>
+    <string name="battery_health_overheat">Surriscaldata</string>
+    <string name="battery_health_dead">Esaurita</string>
+    <string name="battery_health_over_voltage">Sovratensione</string>
+    <string name="battery_health_cold">Fredda</string>
+    <string name="battery_health_unknown">Sconosciuta</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  DOWNLOAD</string>

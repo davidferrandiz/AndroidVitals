@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">मॉनिटर</string>
+    <string name="notif_channel_monitor_desc">सिस्टम वाइटल्स की निरंतर निगरानी</string>
+    <string name="notif_channel_alerts_name">अलर्ट</string>
+    <string name="notif_channel_alerts_desc">CPU और RAM के लिए थ्रेशोल्ड अलर्ट</string>
+
+</resources>

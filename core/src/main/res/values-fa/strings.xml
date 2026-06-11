@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">نظارت</string>
+    <string name="notif_channel_monitor_desc">نظارت مداوم بر وضعیت سیستم</string>
+    <string name="notif_channel_alerts_name">هشدارها</string>
+    <string name="notif_channel_alerts_desc">هشدارهای آستانه برای CPU و RAM</string>
+
+</resources>

@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
+import com.ferryapps.vitals.core.domain.model.BatteryHealth
 import com.ferryapps.vitals.core.domain.model.BatteryInfo
+import com.ferryapps.vitals.core.domain.model.BatteryStatus
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -49,19 +51,19 @@ class GetBatteryUseCase @Inject constructor(
     }
 
     private fun mapStatus(status: Int) = when (status) {
-        BatteryManager.BATTERY_STATUS_CHARGING    -> "Cargando"
-        BatteryManager.BATTERY_STATUS_DISCHARGING -> "Descargando"
-        BatteryManager.BATTERY_STATUS_FULL        -> "Llena"
-        BatteryManager.BATTERY_STATUS_NOT_CHARGING -> "No carga"
-        else -> "Desconocido"
+        BatteryManager.BATTERY_STATUS_CHARGING     -> BatteryStatus.CHARGING
+        BatteryManager.BATTERY_STATUS_DISCHARGING  -> BatteryStatus.DISCHARGING
+        BatteryManager.BATTERY_STATUS_FULL         -> BatteryStatus.FULL
+        BatteryManager.BATTERY_STATUS_NOT_CHARGING -> BatteryStatus.NOT_CHARGING
+        else -> BatteryStatus.UNKNOWN
     }
 
     private fun mapHealth(health: Int) = when (health) {
-        BatteryManager.BATTERY_HEALTH_GOOD             -> "Buena"
-        BatteryManager.BATTERY_HEALTH_OVERHEAT         -> "Sobrecalentada"
-        BatteryManager.BATTERY_HEALTH_DEAD             -> "Agotada"
-        BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE     -> "Sobretensión"
-        BatteryManager.BATTERY_HEALTH_COLD             -> "Muy fría"
-        else -> "Desconocida"
+        BatteryManager.BATTERY_HEALTH_GOOD         -> BatteryHealth.GOOD
+        BatteryManager.BATTERY_HEALTH_OVERHEAT     -> BatteryHealth.OVERHEAT
+        BatteryManager.BATTERY_HEALTH_DEAD         -> BatteryHealth.DEAD
+        BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE -> BatteryHealth.OVER_VOLTAGE
+        BatteryManager.BATTERY_HEALTH_COLD         -> BatteryHealth.COLD
+        else -> BatteryHealth.UNKNOWN
     }
 }

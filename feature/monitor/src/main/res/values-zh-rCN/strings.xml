@@ -38,6 +38,20 @@
     <string name="battery_temperature">温度</string>
     <string name="battery_voltage">电压</string>
     <string name="battery_technology">技术</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">充电中</string>
+    <string name="battery_status_discharging">放电中</string>
+    <string name="battery_status_full">已充满</string>
+    <string name="battery_status_not_charging">未充电</string>
+    <string name="battery_status_unknown">未知</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">良好</string>
+    <string name="battery_health_overheat">过热</string>
+    <string name="battery_health_dead">已损坏</string>
+    <string name="battery_health_over_voltage">过压</string>
+    <string name="battery_health_cold">过冷</string>
+    <string name="battery_health_unknown">未知</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  下载</string>

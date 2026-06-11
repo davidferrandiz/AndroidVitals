@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Monitor</string>
+    <string name="notif_channel_monitor_desc">Ciągłe monitorowanie systemu</string>
+    <string name="notif_channel_alerts_name">Alerty</string>
+    <string name="notif_channel_alerts_desc">Alerty progowe dla CPU i RAM</string>
+
+</resources>

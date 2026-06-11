@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Monitor</string>
+    <string name="notif_channel_monitor_desc">Monitorización continua del sistema</string>
+    <string name="notif_channel_alerts_name">Alertas</string>
+    <string name="notif_channel_alerts_desc">Alertas de umbral para CPU y RAM</string>
+
+</resources>

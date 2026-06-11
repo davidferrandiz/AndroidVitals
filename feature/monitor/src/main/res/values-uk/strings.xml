@@ -38,6 +38,20 @@
     <string name="battery_temperature">Температура</string>
     <string name="battery_voltage">Напруга</string>
     <string name="battery_technology">Технологія</string>
+    <!-- Battery status values -->
+    <string name="battery_status_charging">Заряджається</string>
+    <string name="battery_status_discharging">Розряджається</string>
+    <string name="battery_status_full">Повна</string>
+    <string name="battery_status_not_charging">Не заряджається</string>
+    <string name="battery_status_unknown">Невідомо</string>
+
+    <!-- Battery health values -->
+    <string name="battery_health_good">Добре</string>
+    <string name="battery_health_overheat">Перегрів</string>
+    <string name="battery_health_dead">Розряджена</string>
+    <string name="battery_health_over_voltage">Перенапруга</string>
+    <string name="battery_health_cold">Холодна</string>
+    <string name="battery_health_unknown">Невідомо</string>
 
     <!-- Network expanded -->
     <string name="label_download">↓  ЗАВАНТАЖЕННЯ</string>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Notification channels -->
+    <string name="notif_channel_monitor_name">Pemantauan</string>
+    <string name="notif_channel_monitor_desc">Pemantauan sistem berkelanjutan</string>
+    <string name="notif_channel_alerts_name">Peringatan</string>
+    <string name="notif_channel_alerts_desc">Peringatan ambang batas untuk CPU dan RAM</string>
+
+</resources>
