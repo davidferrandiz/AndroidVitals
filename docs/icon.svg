@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" fill="#111214"/>
+
+  <!-- Subtle grid -->
+  <line x1="0" y1="128" x2="512" y2="128" stroke="#1e2530" stroke-width="1"/>
+  <line x1="0" y1="192" x2="512" y2="192" stroke="#1e2530" stroke-width="1"/>
+  <line x1="0" y1="256" x2="512" y2="256" stroke="#1e2530" stroke-width="1"/>
+  <line x1="0" y1="320" x2="512" y2="320" stroke="#1e2530" stroke-width="1"/>
+  <line x1="0" y1="384" x2="512" y2="384" stroke="#1e2530" stroke-width="1"/>
+  <line x1="128" y1="0" x2="128" y2="512" stroke="#1e2530" stroke-width="1"/>
+  <line x1="256" y1="0" x2="256" y2="512" stroke="#1e2530" stroke-width="1"/>
+  <line x1="384" y1="0" x2="384" y2="512" stroke="#1e2530" stroke-width="1"/>
+
+  <!-- Pulse glow -->
+  <polyline
+    points="0,256 100,256 128,100 168,412 208,180 244,300 256,256 268,256 304,100 344,412 384,180 420,300 448,256 512,256"
+    fill="none"
+    stroke="#4FC3F7"
+    stroke-width="22"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.10"/>
+
+  <!-- Pulse main line -->
+  <polyline
+    points="0,256 100,256 128,100 168,412 208,180 244,300 256,256 268,256 304,100 344,412 384,180 420,300 448,256 512,256"
+    fill="none"
+    stroke="#4FC3F7"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- Center dot outer ring -->
+  <circle cx="256" cy="256" r="22" fill="none" stroke="#4FC3F7" stroke-width="3" opacity="0.35"/>
+  <!-- Center dot -->
+  <circle cx="256" cy="256" r="9" fill="#4FC3F7"/>
+
+</svg>
