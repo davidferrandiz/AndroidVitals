@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+    Foreground Service desactivado para distribución en stores (Play Console rechaza
+    apps con foregroundServiceType="dataSync" sin un caso de uso aprobado).
+    Mantener comentado hasta que se justifique formalmente.
+
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    -->
 
     <application>
+        <!--
         <service
             android:name="com.ferryapps.vitals.feature.monitor.service.VitalsForegroundService"
             android:foregroundServiceType="dataSync"
             android:exported="false" />
+        -->
 
         <service
             android:name="com.ferryapps.vitals.feature.monitor.fcm.VitalsFcmService"

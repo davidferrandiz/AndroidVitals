@@ -1,5 +1,11 @@
 package com.ferryapps.vitals.feature.monitor.service
 
+// Foreground Service desactivado para distribución en stores (Play Console rechaza
+// apps con foregroundServiceType="dataSync" sin un caso de uso aprobado).
+// La recogida de CPU/RAM/threads se hace ahora directamente desde MonitorViewModel.
+// Mantener todo este fichero comentado hasta que se justifique formalmente.
+
+/*
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
@@ -79,3 +85,4 @@ class VitalsForegroundService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 }
+*/
