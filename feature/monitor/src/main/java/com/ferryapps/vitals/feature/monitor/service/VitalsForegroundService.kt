@@ -1,5 +1,10 @@
 package com.ferryapps.vitals.feature.monitor.service
 
+// Foreground Service desactivado: Play Store requiere declaración formal + vídeo
+// justificativo para FOREGROUND_SERVICE_SPECIAL_USE. Las métricas se recogen
+// directamente desde MonitorViewModel. Descomentar si se decide activar en el futuro.
+
+/*
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
@@ -19,6 +24,18 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+// Para activar:
+// 1. Añadir al app/AndroidManifest.xml:
+//      <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+//      <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+// 2. Añadir al feature/monitor/AndroidManifest.xml dentro de <application>:
+//      <service
+//          android:name="com.ferryapps.vitals.feature.monitor.service.VitalsForegroundService"
+//          android:foregroundServiceType="specialUse"
+//          android:exported="false" />
+// 3. Declarar en Play Console → App content → Foreground service special use
+// 4. En MonitorViewModel.init: context.startForegroundService(Intent(context, VitalsForegroundService::class.java))
 
 @AndroidEntryPoint
 class VitalsForegroundService : Service() {
@@ -79,3 +96,4 @@ class VitalsForegroundService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 }
+*/
