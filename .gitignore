@@ -23,3 +23,7 @@ local.properties
 
 # Release artifacts
 app/release/
+
+# Firebase config — contiene API key de cliente (restringida por SHA/package)
+# Descomenta si quieres excluirla del repo y distribuirla por otro canal (CI secret)
+# app/google-services.json
