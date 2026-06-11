@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <!-- specialUse: monitor de métricas del sistema en segundo plano (CPU, RAM, batería, red) -->
-        <service
-            android:name="com.ferryapps.vitals.feature.monitor.service.VitalsForegroundService"
-            android:foregroundServiceType="specialUse"
-            android:exported="false" />
-
         <service
             android:name="com.ferryapps.vitals.feature.monitor.fcm.VitalsFcmService"
             android:exported="false">
