@@ -155,4 +155,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git add app/build.gradle.kts
           git commit -m "chore: bump version to ${{ env.NEW_NAME }} (${{ env.NEW_CODE }})"
-          git push
+          git push origin HEAD:main
