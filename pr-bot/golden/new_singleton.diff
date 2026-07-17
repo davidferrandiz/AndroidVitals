@@ -1,0 +1,17 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/data/cache/VitalsCache.kt b/core/src/main/java/com/ferryapps/vitals/core/data/cache/VitalsCache.kt
+new file mode 100644
+index 0000000..bbbb111
+--- /dev/null
++++ b/core/src/main/java/com/ferryapps/vitals/core/data/cache/VitalsCache.kt
+@@ -0,0 +1,12 @@
++package com.ferryapps.vitals.core.data.cache
++
++import com.ferryapps.vitals.core.domain.model.VitalsSnapshot
++
++// Singleton ad-hoc con estado mutable global (no pasa por Hilt)
++object VitalsCache {
++    var last: VitalsSnapshot? = null
++
++    fun put(s: VitalsSnapshot) { last = s }
++    fun get(): VitalsSnapshot? = last
++}

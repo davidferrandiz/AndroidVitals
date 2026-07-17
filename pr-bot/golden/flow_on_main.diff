@@ -1,0 +1,15 @@
+diff --git a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
+index cccc111..cccc222 100644
+--- a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
++++ b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
+@@ -22,7 +22,10 @@ class MonitorViewModel @Inject constructor(
+     init {
+-        viewModelScope.launch {
+-            repository.observe().collect { _state.value = it }
+-        }
++        // Recoge el Flow en el hilo principal (Dispatchers.Main) -> bloquea la UI
++        viewModelScope.launch(Dispatchers.Main) {
++            repository.observe().collect { _state.value = it }
++        }
+     }
+ }

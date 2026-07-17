@@ -1,0 +1,13 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/domain/model/VitalsSnapshot.kt b/core/src/main/java/com/ferryapps/vitals/core/domain/model/VitalsSnapshot.kt
+index dddd111..dddd222 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/domain/model/VitalsSnapshot.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/domain/model/VitalsSnapshot.kt
+@@ -1,6 +1,7 @@
+ package com.ferryapps.vitals.core.domain.model
+
++/** Instantánea de las métricas del sistema en un momento dado. */
+ data class VitalsSnapshot(
+     val timestampMillis: Long,
+     val cpu: CpuCoreInfo,
+     val memory: MemoryInfo,
+ )

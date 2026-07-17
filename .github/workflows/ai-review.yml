@@ -1,0 +1,36 @@
+name: AI Code Review (LLM local)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  ai-review:
+    # ⚠️ self-hosted: un runner en TU máquina (con Ollama + Python + gh).
+    # Los runners en la nube de GitHub NO llegan a tu Ollama local (localhost:11434).
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar dependencias del bot
+        run: python3 -m pip install --upgrade openai
+
+      - name: Sacar el diff del PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr diff ${{ github.event.pull_request.number }} --repo ${{ github.repository }} > pr.diff
+
+      - name: Revisar con el LLM local
+        env:
+          PR_BOT_MODEL: qwen3-coder:latest
+        run: python3 .github/scripts/ci_review.py pr.diff > review.txt
+
+      - name: Comentar el PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file review.txt

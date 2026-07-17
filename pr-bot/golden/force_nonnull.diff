@@ -1,0 +1,12 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt b/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
+index aaaa111..aaaa222 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
+@@ -18,6 +18,9 @@ class VitalsRepositoryImpl @Inject constructor(
+     override suspend fun save(snapshot: VitalsSnapshot) {
+         dao.insert(snapshot.toEntity())
+     }
++
++    // BUG: !! sobre el resultado de una query que puede ser null -> NPE en runtime
++    fun lastBattery(): Int = dao.lastSnapshot()!!.battery.level!!
+ }
