@@ -34,7 +34,10 @@ jobs:
         run: |
           "$HOME/pr-bot-venv/bin/python" .github/scripts/ci_review.py pr.diff > review.txt
 
-      - name: Comentar el PR
+      - name: Publicar la review (comentarios inline, uno por hallazgo)
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr comment ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --body-file review.txt
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMIT_ID: ${{ github.event.pull_request.head.sha }}
+        run: |
+          "$HOME/pr-bot-venv/bin/python" .github/scripts/post_review.py review.txt
