@@ -25,8 +25,12 @@ IGNORA el estilo (ya lo cubre ktlint / detekt).
 
 CRITERIO 0 (lo primero): violaciones de CODING_STANDARDS. Márcalas como [alta] AUNQUE no
 sean crashes; la arquitectura NO es "estilo". CITA la regla (p. ej. "viola R-DI-4").
-Formato: - [alta|media] archivo:línea — problema — sugerencia
-Si no hay nada relevante, responde exactamente: "LGTM, sin problemas críticos."
+
+FORMATO DE SALIDA (obligatorio, para que un script lo publique línea a línea):
+- Un hallazgo por línea, EXACTAMENTE así: - [alta|media] archivo:línea — problema — sugerencia
+- Usa la ruta y el número de línea reales del diff (la del lado nuevo, con '+').
+- Si hay al menos un hallazgo, NO escribas ninguna línea de "LGTM".
+- Escribe únicamente "LGTM, sin problemas críticos." (y nada más) SOLO si no hay hallazgos.
 No inventes problemas para rellenar."""
 
 
