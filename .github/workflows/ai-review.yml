@@ -17,8 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Instalar dependencias del bot
-        run: python3 -m pip install --upgrade openai
+      - name: Preparar entorno Python (venv propio del runner)
+        # venv en el runner: evita el "externally-managed-environment" de Homebrew en macOS.
+        run: |
+          python3 -m venv "$HOME/pr-bot-venv"
+          "$HOME/pr-bot-venv/bin/pip" install -q --upgrade pip openai
 
       - name: Sacar el diff del PR
         env:
@@ -28,7 +31,8 @@ jobs:
       - name: Revisar con el LLM local
         env:
           PR_BOT_MODEL: qwen3-coder:latest
-        run: python3 .github/scripts/ci_review.py pr.diff > review.txt
+        run: |
+          "$HOME/pr-bot-venv/bin/python" .github/scripts/ci_review.py pr.diff > review.txt
 
       - name: Comentar el PR
         env:
