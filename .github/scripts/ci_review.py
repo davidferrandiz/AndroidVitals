@@ -1,12 +1,14 @@
-"""Revisor para CI (GitHub Actions).
+"""Revisor para CI — salida en JSON estructurado (para publicar comentarios inline).
 
-Autónomo: lee un archivo diff (pr.diff), carga CODING_STANDARDS.md desde la raíz del
-repo si existe (RAG ligero), llama al LLM local vía Ollama e imprime la review.
-Lo impreso va al comentario del PR.
+Autónomo: lee un diff (pr.diff), carga CODING_STANDARDS.md desde la raíz del repo (RAG
+ligero), llama al LLM local vía Ollama y devuelve un ARRAY JSON de hallazgos. Ese JSON lo
+consume post_review.py para publicar un review con comentarios línea a línea.
 
-Uso en el workflow:  python .github/scripts/ci_review.py pr.diff > review.txt
+Uso:  python ci_review.py pr.diff > review.json
 """
+import json
 import os
+import re
 import sys
 from openai import OpenAI
 
@@ -18,23 +20,32 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 STANDARDS = os.path.join(REPO, "CODING_STANDARDS.md")
 
 SYSTEM_PROMPT = """Eres un revisor de código Kotlin/Android senior. Revisa SOLO el diff.
-Busca, por prioridad: 1) bugs/crashes  2) seguridad  3) casos límite.
-Bugs típicos de Kotlin/Android: `!!`, NullPointerException, lateinit sin init, leaks de
-coroutines/Flows, fugas de Context/View, trabajo pesado en el hilo principal.
-IGNORA el estilo (ya lo cubre ktlint / detekt).
+Prioridad: 1) bugs/crashes  2) seguridad  3) casos límite. Bugs típicos de Kotlin/Android:
+`!!`, NullPointerException, lateinit sin init, leaks de coroutines/Flows, fugas de Context,
+trabajo pesado en el hilo principal. IGNORA el estilo (lo cubre ktlint/detekt).
 
-CRITERIO 0 (lo primero): violaciones de CODING_STANDARDS. Márcalas como [alta] AUNQUE no
-sean crashes; la arquitectura NO es "estilo". CITA la regla (p. ej. "viola R-DI-4").
+CRITERIO 0 (lo primero): violaciones de CODING_STANDARDS → severidad "alta" AUNQUE no sean
+crashes; la arquitectura NO es "estilo". CITA la regla en la nota (p. ej. "viola R-DI-4").
 
-FORMATO DE SALIDA (obligatorio, para que un script lo publique línea a línea):
-- Un hallazgo por línea, EXACTAMENTE así: - [alta|media] archivo:línea — problema — sugerencia
-- Usa la ruta y el número de línea reales del diff (la del lado nuevo, con '+').
-- Si hay al menos un hallazgo, NO escribas ninguna línea de "LGTM".
-- Escribe únicamente "LGTM, sin problemas críticos." (y nada más) SOLO si no hay hallazgos.
+DEVUELVE EXCLUSIVAMENTE un array JSON válido (sin texto alrededor, sin ```), un objeto por
+hallazgo, con estas claves exactas:
+  {"archivo": "<ruta tal cual aparece en el diff>", "linea": <entero, línea del lado nuevo>,
+   "severidad": "alta" | "media", "nota": "<problema — sugerencia>"}
+Si no hay hallazgos, devuelve exactamente: []
 No inventes problemas para rellenar."""
 
 
-def review(diff: str) -> str:
+def _extract_json(text: str):
+    text = text.strip()
+    text = re.sub(r"^```(?:json)?", "", text).strip()
+    text = re.sub(r"```$", "", text).strip()
+    i, j = text.find("["), text.rfind("]")
+    if i != -1 and j != -1:
+        text = text[i:j + 1]
+    return json.loads(text)
+
+
+def review(diff: str):
     standards = ""
     if os.path.exists(STANDARDS):
         standards = "CODING_STANDARDS:\n" + open(STANDARDS, encoding="utf-8", errors="ignore").read()[:6000]
@@ -45,15 +56,19 @@ def review(diff: str) -> str:
             {"role": "user", "content": f"{standards}\n\n---\nRevisa este diff:\n{diff}"},
         ],
     )
-    return resp.choices[0].message.content
+    raw = resp.choices[0].message.content
+    try:
+        findings = _extract_json(raw)
+        return findings if isinstance(findings, list) else []
+    except Exception:
+        # Si el modelo no devolvió JSON válido, no rompemos el CI: cero hallazgos.
+        return []
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Uso: python ci_review.py <pr.diff>")
-        sys.exit(1)
-    diff = open(sys.argv[1], encoding="utf-8").read()
-    if not diff.strip():
-        print("LGTM, sin problemas críticos.")
+        print("[]")
         sys.exit(0)
-    print(review(diff))
+    diff = open(sys.argv[1], encoding="utf-8").read()
+    findings = review(diff) if diff.strip() else []
+    print(json.dumps(findings, ensure_ascii=False, indent=2))

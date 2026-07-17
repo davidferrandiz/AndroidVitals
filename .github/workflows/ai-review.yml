@@ -28,16 +28,19 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr diff ${{ github.event.pull_request.number }} --repo ${{ github.repository }} > pr.diff
 
-      - name: Revisar con el LLM local
+      - name: Revisar con el LLM local (JSON estructurado)
         env:
           PR_BOT_MODEL: qwen3-coder:latest
         run: |
-          "$HOME/pr-bot-venv/bin/python" .github/scripts/ci_review.py pr.diff > review.txt
+          "$HOME/pr-bot-venv/bin/python" .github/scripts/ci_review.py pr.diff > review.json
 
-      - name: Publicar la review (comentarios inline, uno por hallazgo)
+      - name: Publicar review inline (línea a línea)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           COMMIT_ID: ${{ github.event.pull_request.head.sha }}
+          PR_BOT_MIN_SEVERITY: media      # umbral: alta + media
+          PR_BOT_REVIEW_EVENT: COMMENT     # no bloquea el merge
+          PR_BOT_SUMMARY: "1"              # resumen de cabecera + inline
         run: |
-          "$HOME/pr-bot-venv/bin/python" .github/scripts/post_review.py review.txt
+          "$HOME/pr-bot-venv/bin/python" .github/scripts/post_review.py review.json pr.diff

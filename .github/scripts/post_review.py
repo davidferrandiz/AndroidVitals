@@ -1,12 +1,17 @@
-"""Publica la review como comentarios INLINE separados en el PR (estilo Gemini).
+"""Publica los hallazgos como UN review con comentarios inline (API de reviews de GitHub).
 
-Lee el texto del revisor (líneas '- [sev] archivo:línea — mensaje') y publica CADA
-hallazgo como un comentario de revisión anclado a su archivo:línea vía la API de GitHub.
-Los hallazgos cuya línea no esté en el diff (no anclables) se agrupan en un comentario
-resumen para no perderlos.
+Lee el JSON de ci_review.py y el diff (pr.diff), mapea cada hallazgo a su línea del lado
+nuevo del diff (la API exige que la línea esté en el diff), aplica el umbral de severidad
+y publica un único review con comments[] línea a línea. Opcionalmente añade un resumen de
+cabecera. Solo stdlib.
 
-Sin dependencias externas: solo stdlib (urllib). Variables de entorno esperadas:
-  GITHUB_TOKEN, GITHUB_REPOSITORY (owner/repo), PR_NUMBER, COMMIT_ID (head sha).
+Config por variables de entorno:
+  GITHUB_TOKEN, GITHUB_REPOSITORY (owner/repo), PR_NUMBER, COMMIT_ID (head sha)
+  PR_BOT_MIN_SEVERITY = alta|media|baja   (umbral; default media)
+  PR_BOT_REVIEW_EVENT = COMMENT|REQUEST_CHANGES|APPROVE   (default COMMENT)
+  PR_BOT_SUMMARY = 1|0   (comentario resumen de cabecera; default 1)
+
+Uso:  python post_review.py review.json pr.diff
 """
 import json
 import os
@@ -16,22 +21,19 @@ import urllib.error
 import urllib.request
 
 TOKEN = os.environ["GITHUB_TOKEN"]
-REPO = os.environ["GITHUB_REPOSITORY"]          # owner/repo (lo inyecta Actions)
+REPO = os.environ["GITHUB_REPOSITORY"]
 PR = os.environ["PR_NUMBER"]
-COMMIT = os.environ["COMMIT_ID"]                 # head sha del PR
+COMMIT = os.environ["COMMIT_ID"]
+MIN_SEV = os.environ.get("PR_BOT_MIN_SEVERITY", "media").lower()
+EVENT = os.environ.get("PR_BOT_REVIEW_EVENT", "COMMENT")
+SUMMARY = os.environ.get("PR_BOT_SUMMARY", "1") == "1"
 API = "https://api.github.com"
-
-# - [alta] ruta/al/archivo.kt:42 — problema — sugerencia
-FINDING = re.compile(
-    r"^\s*[-*]\s*\[(?P<sev>[^\]]+)\]\s+(?P<path>\S+?):(?P<line>\d+)\s*[—:-]+\s*(?P<body>.+)$"
-)
+RANK = {"baja": 0, "media": 1, "alta": 2}
 
 
 def api_post(path: str, payload: dict):
     req = urllib.request.Request(
-        API + path,
-        data=json.dumps(payload).encode("utf-8"),
-        method="POST",
+        API + path, data=json.dumps(payload).encode("utf-8"), method="POST",
         headers={
             "Authorization": f"Bearer {TOKEN}",
             "Accept": "application/vnd.github+json",
@@ -41,59 +43,103 @@ def api_post(path: str, payload: dict):
     )
     try:
         with urllib.request.urlopen(req) as r:
-            return r.status, None
+            return r.status, r.read().decode("utf-8", "ignore")
     except urllib.error.HTTPError as e:
         return e.code, e.read().decode("utf-8", "ignore")
 
 
+def diff_new_lines(diff_text: str):
+    """Conjunto de (archivo, línea) presentes en el lado NUEVO del diff (líneas '+' y
+    contexto). La API de review comments solo acepta comentar sobre esas líneas."""
+    valid = set()
+    path = None
+    newno = 0
+    for ln in diff_text.splitlines():
+        if ln.startswith("+++ b/"):
+            path = ln[6:]
+            continue
+        if ln.startswith("@@"):
+            m = re.search(r"\+(\d+)", ln)
+            newno = int(m.group(1)) if m else 0
+            continue
+        if path is None:
+            continue
+        if ln.startswith("+") and not ln.startswith("+++"):
+            valid.add((path, newno)); newno += 1
+        elif ln.startswith(" "):
+            valid.add((path, newno)); newno += 1
+        # las líneas '-' (borradas) no avanzan el contador del lado nuevo
+    return valid
+
+
 def badge(sev: str) -> str:
-    s = sev.strip().lower()
-    if s in ("alta", "high"):
-        return "🔴 **Prioridad alta**"
-    if s in ("media", "medium"):
-        return "🟠 **Prioridad media**"
-    return f"**[{sev.strip()}]**"
+    return {"alta": "🔴 **Prioridad alta**", "media": "🟠 **Prioridad media**"}.get(
+        sev, f"**[{sev}]**")
 
 
 def main():
-    text = open(sys.argv[1], encoding="utf-8").read()
-    findings = [m.groupdict() for m in map(FINDING.match, text.splitlines()) if m]
+    findings = json.load(open(sys.argv[1], encoding="utf-8"))
+    valid = diff_new_lines(open(sys.argv[2], encoding="utf-8").read())
 
-    # Sin hallazgos → un único comentario LGTM.
-    if not findings:
-        api_post(f"/repos/{REPO}/issues/{PR}/comments",
-                 {"body": "🤖 **AI review:** LGTM, sin problemas críticos."})
-        print("Sin hallazgos: publicado LGTM.")
-        return
+    # 1) Umbral de severidad
+    kept = [f for f in findings
+            if RANK.get(str(f.get("severidad", "")).lower(), 0) >= RANK.get(MIN_SEV, 1)]
+    dropped = len(findings) - len(kept)
 
-    unanchored = []
-    for f in findings:
-        body = f"🤖 {badge(f['sev'])}\n\n{f['body'].strip()}"
-        status, err = api_post(
-            f"/repos/{REPO}/pulls/{PR}/comments",
-            {"body": body, "commit_id": COMMIT, "path": f["path"],
-             "line": int(f["line"]), "side": "RIGHT"},
-        )
-        if status in (200, 201):
-            print(f"OK inline  {f['path']}:{f['line']}")
+    # 2) Mapear a línea del diff; lo que no encaje va al resumen
+    comments, unanchored = [], []
+    for f in kept:
+        path = f.get("archivo")
+        sev = str(f.get("severidad", "")).lower()
+        try:
+            line = int(f.get("linea"))
+        except (TypeError, ValueError):
+            line = None
+        body = f"🤖 {badge(sev)}\n\n{str(f.get('nota', '')).strip()}"
+        if path and line and (path, line) in valid:
+            comments.append({"path": path, "line": line, "side": "RIGHT", "body": body})
         else:
-            print(f"WARN inline {status} en {f['path']}:{f['line']} -> resumen  ({err[:120] if err else ''})")
             unanchored.append(f)
 
-    # Los que no se pudieron anclar (línea fuera del diff) → un comentario resumen.
-    if unanchored:
-        summary = "\n".join(
-            f"- 🤖 {badge(f['sev'])} `{f['path']}:{f['line']}` — {f['body'].strip()}"
-            for f in unanchored
-        )
-        api_post(f"/repos/{REPO}/issues/{PR}/comments",
-                 {"body": "🤖 **AI review** — hallazgos fuera del diff:\n\n" + summary})
+    # 3) Resumen de cabecera (opcional)
+    body = ""
+    if SUMMARY:
+        parts = []
+        if kept or unanchored:
+            resumen = f"🤖 **AI review** — {len(comments)} comentario(s) inline"
+            if unanchored:
+                resumen += f", {len(unanchored)} fuera del diff"
+            if dropped:
+                resumen += f", {dropped} bajo umbral omitido(s)"
+            parts.append(resumen + ".")
+        else:
+            parts.append("🤖 **AI review:** LGTM, sin problemas críticos.")
+        for f in unanchored:
+            parts.append(f"- {badge(str(f.get('severidad', '')).lower())} "
+                         f"`{f.get('archivo')}:{f.get('linea')}` — {str(f.get('nota', '')).strip()}")
+        body = "\n".join(parts)
 
-    print(f"Publicados {len(findings) - len(unanchored)} inline, {len(unanchored)} en resumen.")
+    # 4) Publicar UN review (COMMENT no bloquea el merge)
+    payload = {"commit_id": COMMIT, "event": EVENT}
+    if body:
+        payload["body"] = body
+    if comments:
+        payload["comments"] = comments
+    # Un review COMMENT necesita al menos body o comments
+    if not body and not comments:
+        payload["body"] = "🤖 **AI review:** LGTM, sin problemas críticos."
+
+    status, resp = api_post(f"/repos/{REPO}/pulls/{PR}/reviews", payload)
+    if status in (200, 201):
+        print(f"OK review publicado: {len(comments)} inline, "
+              f"{len(unanchored)} en resumen, {dropped} bajo umbral.")
+    else:
+        print(f"ERROR {status}: {resp[:400]}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Uso: python post_review.py <review.txt>")
+    if len(sys.argv) < 3:
+        print("Uso: python post_review.py <review.json> <pr.diff>")
         sys.exit(1)
     main()
