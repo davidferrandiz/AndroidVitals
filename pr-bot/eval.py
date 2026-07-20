@@ -30,6 +30,27 @@ GOLDEN = [
      "rule": "R-COR-1", "silent": False},
     # cambio limpio (solo un comentario): debe CALLAR.
     {"file": "golden/clean.diff", "must_find": [], "silent": True},
+
+    # --- Casos añadidos por pr-bot-ampliar-evaluacion (representativos de tus clases) ---
+    # viola R-COR-2: GlobalScope no se cancela con el ciclo de vida -> leak de coroutine.
+    {"file": "golden/global_scope_leak.diff",
+     "must_find": ["r-cor-2", "r-cor", "globalscope", "scope", "leak"],
+     "rule": "R-COR-2", "silent": False},
+    # viola K-LEAK-1: Context guardado en campo estático -> fuga de memoria.
+    {"file": "golden/context_leak.diff",
+     "must_find": ["k-leak-1", "k-leak", "context", "fuga", "leak"],
+     "rule": "K-LEAK-1", "silent": False},
+    # viola R-ROOM-2: query bloqueante (no suspend/Flow) en el hilo principal.
+    {"file": "golden/room_blocking.diff",
+     "must_find": ["r-room-2", "r-room", "suspend", "hilo principal", "bloquea"],
+     "rule": "R-ROOM-2", "silent": False},
+    # viola K-NET-1: catch vacío que se traga la excepción de red.
+    {"file": "golden/empty_catch.diff",
+     "must_find": ["k-net-1", "k-net", "catch", "excepción", "silencio"],
+     "rule": "K-NET-1", "silent": False},
+    # limpios nuevos: deben CALLAR (miden precision).
+    {"file": "golden/clean_doc.diff", "must_find": [], "silent": True},
+    {"file": "golden/clean_rename.diff", "must_find": [], "silent": True},
 ]
 
 

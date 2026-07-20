@@ -1,0 +1,12 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt b/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
+index f1f1f11..f2f2f22 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
+@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
+ @Dao
+ interface VitalsDao {
+
++    /** Inserta una instantánea de métricas del sistema. */
+     @Insert
+     suspend fun insert(entity: VitalsEntity)
+ }

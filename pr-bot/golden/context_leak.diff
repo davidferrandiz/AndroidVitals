@@ -1,0 +1,16 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/notifications/NotificationHelper.kt b/core/src/main/java/com/ferryapps/vitals/core/notifications/NotificationHelper.kt
+index c3c3c33..c4c4c44 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/notifications/NotificationHelper.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/notifications/NotificationHelper.kt
+@@ -12,6 +12,12 @@ class NotificationHelper @Inject constructor(
+     private val context: Context,
+ ) {
+
++    companion object {
++        // BUG: guardar un Context (de Activity) en un campo estático provoca fuga de
++        // memoria: el objeto vive tanto como el proceso y retiene la Activity.
++        var lastActivityContext: Context? = null
++    }
++
+     fun build(): Notification { /* ... */ }
+ }

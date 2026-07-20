@@ -1,0 +1,16 @@
+diff --git a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/service/VitalsForegroundService.kt b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/service/VitalsForegroundService.kt
+index e1e1e11..e2e2e22 100644
+--- a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/service/VitalsForegroundService.kt
++++ b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/service/VitalsForegroundService.kt
+@@ -34,6 +34,11 @@ class VitalsForegroundService : LifecycleService() {
+
+     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+         startForeground(NOTIF_ID, notificationHelper.build())
++        // BUG: GlobalScope no se cancela con el ciclo de vida del servicio -> la coroutine
++        // sigue viva aunque el servicio muera (leak de coroutine).
++        GlobalScope.launch {
++            repository.observe().collect { pushSnapshot(it) }
++        }
+         return START_STICKY
+     }
+ }

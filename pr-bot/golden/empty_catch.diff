@@ -1,0 +1,14 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt b/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
+index a7a7a77..a8a8a88 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/data/repository/VitalsRepositoryImpl.kt
+@@ -28,7 +28,11 @@ class VitalsRepositoryImpl @Inject constructor(
+     override suspend fun publish(snapshot: VitalsSnapshot) {
+-        api.upload(snapshot.toDto())
++        try {
++            api.upload(snapshot.toDto())
++        } catch (e: Exception) {
++            // BUG: se traga la excepción de red en silencio; nadie se entera del fallo
++        }
+     }
+ }

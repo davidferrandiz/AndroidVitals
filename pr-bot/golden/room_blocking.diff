@@ -1,0 +1,13 @@
+diff --git a/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt b/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
+index d5d5d55..d6d6d66 100644
+--- a/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
++++ b/core/src/main/java/com/ferryapps/vitals/core/data/db/VitalsDao.kt
+@@ -18,6 +18,10 @@ interface VitalsDao {
+     @Query("SELECT * FROM vitals ORDER BY timestampMillis DESC LIMIT 1")
+     fun observeLast(): Flow<VitalsEntity?>
+
++    // BUG: query bloqueante (ni suspend ni Flow). Al llamarse desde el hilo principal
++    // congela la UI mientras Room accede a disco.
++    @Query("SELECT COUNT(*) FROM vitals")
++    fun countBlocking(): Int
+ }

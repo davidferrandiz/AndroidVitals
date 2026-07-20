@@ -1,0 +1,13 @@
+diff --git a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
+index b9b9b99..babababa 100644
+--- a/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
++++ b/feature/monitor/src/main/java/com/ferryapps/vitals/feature/monitor/ui/MonitorViewModel.kt
+@@ -15,8 +15,8 @@ class MonitorViewModel @Inject constructor(
+     private val repository: VitalsRepository,
+ ) : ViewModel() {
+
+-    private val _state = MutableStateFlow(MonitorUiState())
+-    val state: StateFlow<MonitorUiState> = _state.asStateFlow()
++    private val _uiState = MutableStateFlow(MonitorUiState())
++    val uiState: StateFlow<MonitorUiState> = _uiState.asStateFlow()
+ }
