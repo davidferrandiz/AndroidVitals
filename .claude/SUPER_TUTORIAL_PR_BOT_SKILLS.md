@@ -41,7 +41,7 @@ coste cero).
 
 ---
 
-## 2. Conceptos base (glosario para la entrevista)
+## 2. Conceptos base
 
 - **LLM local / Ollama** — un modelo de IA que corre en TU máquina (`localhost:11434`). El
   código no sale a terceros: privacidad y coste cero. El tag del modelo (p. ej.
@@ -360,21 +360,4 @@ medición pobre.
 
 ---
 
-## 5. Trampas comunes (para no caer en la entrevista)
-
-1. **Tag del modelo mal** → 404. Usa el exacto de `ollama list`.
-2. **RAG sin reforzar el prompt** → ignora las reglas aunque tenga el documento.
-3. **Medir solo recall** → no ves el ruido (precision) ni el valor real (¿cita la regla?).
-4. **`must_find` genéricos** → inflan el recall por subcadenas.
-5. **Runner cloud + Ollama local** → no se ven. Usa **self-hosted**.
-6. **Prompt injection** → el diff son datos, no instrucciones.
-7. **Auto-merge por el bot** → nunca; el humano decide.
-8. **Overfitting al golden set** → mejorar 5 casos no es mejorar en producción.
-
-## 6. Frases que resumen la filosofía
-
-- *"La IA es un primer revisor, no la última palabra."*
-- *"RAG da el contexto; el prompt da el criterio — van juntos."*
-- *"Mide, no te fíes a ojo… y mide lo que importa."*
-- *"El bot mejora midiendo, no a ojo: construir → medir → mejorar."*
 - *"El humano decide lo de criterio, secretos e infra; la IA acelera lo verificable."*
