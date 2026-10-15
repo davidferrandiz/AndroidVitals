@@ -1,31 +1,33 @@
 # Vitals — Android System Monitor
 
-App de monitorización del sistema (CPU, RAM, threads) con lectura en tiempo real vía
-**Foreground Service**, recogida periódica vía **WorkManager** y comandos remotos vía **FCM**.
-Los datos se persisten en **Room** y se publican a un backend propio mediante **Retrofit**.
+Monitor del sistema para Android: batería (potencia, corriente, ciclos), CPU (carga estimada por
+frecuencia, núcleos con nombre, detector de throttling), temperatura, memoria, red y hardware
+(SoC, GPU, pantalla, Widevine, sensores). Todo se lee en el dispositivo y solo con la pantalla visible.
 
 ## Stack técnico
 
 | Capa | Tecnología |
 |---|---|
-| UI | Jetpack Compose + Material 3 |
+| UI | Jetpack Compose + Material 3, Navigation Compose |
 | DI | Hilt (KSP) |
-| Base de datos | Room (KSP) |
-| Background | ForegroundService + WorkManager |
-| Red | Retrofit + OkHttp + Moshi |
-| Push | Firebase Cloud Messaging |
-| Observabilidad | Firebase Crashlytics + Analytics |
-| Build | AGP 9.x · Kotlin 2.2.x · Gradle Version Catalog |
+| Persistencia | DataStore (ajustes) · Room (historial, próximamente) |
+| Background | WorkManager (`VitalsWorker`, próximamente) |
+| Observabilidad | Firebase Crashlytics + Analytics (desactivables en Ajustes) |
+| Build | AGP 9.x · Kotlin 2.x · Gradle Version Catalog · R8 en release |
 
 ## Estructura de módulos
 
 ```
-:app              → Entry point: VitalsApplication, MainActivity, NavHost, AppModule
-:core             → Data (Room, Retrofit), Domain (models, repos, UseCases), Notifications, DI
-:feature:monitor  → VitalsForegroundService, VitalsWorker, VitalsFcmService, MonitorScreen + ViewModel
+:app               → VitalsApplication, MainActivity, navegación, Firebase (AnalyticsTracker)
+:core              → Dominio, parsers puros con tests, use cases, DataStore, Room, DI
+:designsystem      → Tema, iconos, componentes y formateadores compartidos
+:feature:monitor   → Panel
+:feature:battery   → Batería
+:feature:hardware  → Hardware
+:feature:settings  → Ajustes
 ```
 
-Regla de dependencias: `:app → :feature:* → :core` · `:core` no depende de nadie.
+Regla de dependencias: `:app → :feature:* → :designsystem → :core` · `:core` no depende de nadie.
 
 ## Compilar
 

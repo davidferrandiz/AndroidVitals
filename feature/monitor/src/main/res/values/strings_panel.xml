@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos del Panel rediseñado (1.3). Por ahora en inglés y español; el resto de idiomas
+     cae al inglés hasta traducirlos. -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="panel_title">Vitals</string>
+    <string name="panel_settings_cd">Settings</string>
+    <string name="panel_device_subtitle">%1$s · Android %2$s</string>
+
+    <string name="panel_alert_low_memory_title">Low memory</string>
+    <string name="panel_alert_low_memory_msg">Android is closing background apps. Close the ones you aren\'t using or restart your phone.</string>
+    <string name="panel_alert_storage_title">Storage almost full</string>
+    <string name="panel_alert_storage_msg">%1$s free of %2$s. Below 10%% apps and updates can fail.</string>
+    <string name="panel_alert_storage_action">Open storage settings</string>
+
+    <string name="tile_temperature">Temperature</string>
+    <string name="tile_battery_charging_eta">Charging · full in %1$s</string>
+    <string name="tile_battery_discharging_power">Discharging · %1$s</string>
+    <string name="tile_ram_caption">%1$s of %2$s · %3$s</string>
+    <string name="tile_temperature_caption">Battery · %1$s</string>
+    <string name="tile_storage_caption">%1$s of %2$s · %3$s free</string>
+    <string name="state_normal">normal</string>
+    <string name="state_high">high</string>
+    <string name="state_warm">warm</string>
+    <string name="state_hot">hot</string>
+
+    <string name="thermal_ok_title">Performance not limited</string>
+    <string name="thermal_margin">Thermal headroom %1$d%%</string>
+    <string name="thermal_moderate_title">Performance slightly limited</string>
+    <string name="thermal_severe_title">Performance limited by temperature</string>
+    <string name="thermal_throttling_msg">The system is lowering CPU speed to cool down.</string>
+
+    <string name="cpu_subtitle">%1$s · %2$d cores</string>
+    <string name="cpu_estimated_load">estimated load</string>
+    <string name="cpu_chart_cd">Estimated CPU load over the last minute</string>
+    <string name="cpu_cluster_named">%1$d× %2$s</string>
+    <string name="cpu_cluster_unnamed">%1$d cores</string>
+    <string name="cpu_freq_of">%1$s / %2$s</string>
+    <string name="cpu_show_details">Show the %1$d cores and temperatures</string>
+    <string name="cpu_hide_details">Hide cores and temperatures</string>
+    <string name="cpu_section_cores">Cores</string>
+    <string name="cpu_core_named">Core %1$d · %2$s</string>
+    <string name="cpu_section_temps">Temperatures</string>
+    <string name="thermal_kind_cpu">CPU</string>
+    <string name="thermal_kind_gpu">GPU</string>
+    <string name="thermal_kind_soc">SoC</string>
+    <string name="thermal_kind_board">Board</string>
+    <string name="thermal_kind_battery">Battery</string>
+    <string name="thermal_kind_skin">Surface</string>
+    <string name="thermal_kind_other">Sensor</string>
+    <string name="thermal_zone_label">%1$s (%2$s)</string>
+    <string name="temps_unavailable_title">Per-sensor temperatures</string>
+    <string name="temps_unavailable_reason">Your phone\'s manufacturer doesn\'t let apps read the temperature sensors. Battery temperature and the thermal status are still shown.</string>
+
+    <string name="network_chart_cd">Download and upload speed over the last minute</string>
+    <string name="net_wifi">Wi-Fi</string>
+    <string name="net_wifi_gen">Wi-Fi %1$d</string>
+    <string name="net_band_2_4">2.4 GHz</string>
+    <string name="net_band_5">5 GHz</string>
+    <string name="net_band_6">6 GHz</string>
+    <string name="net_signal">Signal %1$d dBm · %2$s</string>
+    <string name="signal_good">good</string>
+    <string name="signal_fair">fair</string>
+    <string name="signal_poor">poor</string>
+    <string name="net_link">Link %1$d Mbps</string>
+    <string name="net_cellular">Mobile data</string>
+    <string name="net_ethernet">Ethernet</string>
+    <string name="net_vpn">VPN</string>
+    <string name="net_other">Connected</string>
+    <string name="net_none">No connection</string>
+
+    <string name="battery_row_detail">%1$s · %2$s · %3$s</string>
+    <string name="battery_row_eta">%1$s · about %2$s with this usage</string>
+
+    <string name="vitals_title">Vitals usage</string>
+    <string name="vitals_light">Light</string>
+    <string name="vitals_desc">What this app uses while it\'s open. Android only lets apps see their own processes, so these are Vitals\'.</string>
+    <string name="vitals_cpu">CPU</string>
+    <string name="vitals_pss">Memory (PSS)</string>
+    <string name="vitals_show">Show memory breakdown and processes</string>
+    <string name="vitals_hide">Hide breakdown</string>
+    <string name="vitals_memory_section">Memory · PID %1$d</string>
+    <string name="vitals_processes_section">Processes by RAM</string>
+    <string name="metric_other">Other</string>
+</resources>

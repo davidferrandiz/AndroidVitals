@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Batería</string>
+    <string name="battery_full_in">Lleno en %1$s</string>
+    <string name="battery_remaining">Unas %1$s más con este uso</string>
+    <string name="battery_power_history">Potencia · últimos 5 minutos</string>
+    <string name="battery_current_title">Corriente y potencia</string>
+    <string name="battery_current_reason">Tu móvil no da la corriente de la batería a las apps. Se siguen mostrando el nivel, el voltaje, la temperatura y la salud.</string>
+    <string name="battery_current">Corriente</string>
+    <string name="battery_current_avg">media %1$s</string>
+    <string name="battery_voltage">Voltaje</string>
+    <string name="battery_temperature">Temperatura</string>
+    <string name="battery_temp_normal">Normal</string>
+    <string name="battery_temp_warm">Templada</string>
+    <string name="battery_temp_hot">Caliente · deja que se enfríe</string>
+    <string name="battery_charge_counter">Restante</string>
+    <string name="battery_cycles">Ciclos de carga</string>
+    <string name="battery_cycles_source">según el sistema</string>
+    <string name="battery_cycles_needs_14">Android lo ofrece desde la versión 14</string>
+    <string name="battery_cycles_not_reported">tu fabricante no lo indica</string>
+    <string name="battery_health">Salud (sistema)</string>
+    <string name="battery_health_source">según el sistema</string>
+    <string name="battery_charger">Cargador</string>
+    <string name="battery_charger_type">Tipo</string>
+    <string name="battery_status">Estado</string>
+    <string name="battery_plug_ac">Cargador de pared</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Inalámbrico</string>
+    <string name="battery_plug_dock">Base</string>
+    <string name="battery_plug_none">Sin conectar</string>
+    <string name="battery_status_charging">Cargando</string>
+    <string name="battery_status_discharging">Descargando</string>
+    <string name="battery_status_full">Completa</string>
+    <string name="battery_status_not_charging">Sin cargar</string>
+    <string name="battery_status_unknown">Desconocido</string>
+    <string name="battery_health_good">Buena</string>
+    <string name="battery_health_overheat">Sobrecalentada</string>
+    <string name="battery_health_dead">Agotada</string>
+    <string name="battery_health_over_voltage">Sobretensión</string>
+    <string name="battery_health_cold">Fría</string>
+    <string name="battery_health_unknown">Desconocida</string>
+</resources>

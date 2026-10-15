@@ -34,8 +34,10 @@ android {
         }
         release {
             isDebuggable = false
+            // R8: APK más pequeño y arranque más rápido. Importa en los móviles de gama
+            // baja que usa la mayoría de usuarios (Moto E14, Redmi 12C…).
             optimization {
-                enable = false
+                enable = true
             }
         }
     }
@@ -45,6 +47,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -54,7 +57,11 @@ hilt {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":designsystem"))
     implementation(project(":feature:monitor"))
+    implementation(project(":feature:battery"))
+    implementation(project(":feature:hardware"))
+    implementation(project(":feature:settings"))
 
     // Hilt
     implementation(libs.hilt.android)
@@ -76,6 +83,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.lifecycle.runtime.compose)
+
+    // WorkManager (Configuration.Provider en VitalsApplication)
+    implementation(libs.workmanager.ktx)
 
     // Startup — explícita para que Lint resuelva InitializationProvider
     // (WorkManager ya la trae transitivamente, pero AGP 9 lo exige directo)

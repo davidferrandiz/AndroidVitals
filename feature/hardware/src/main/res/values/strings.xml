@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="hw_title">Hardware</string>
+    <string name="hw_share">Share report</string>
+    <string name="hw_android_patch">Android %1$s · security patch %2$s</string>
+    <string name="hw_android_only">Android %1$s</string>
+    <string name="hw_widevine_l1">Widevine L1 · HD streaming</string>
+    <string name="hw_widevine_other">Widevine %1$s · SD streaming</string>
+    <string name="hw_uptime">Up %1$s</string>
+
+    <string name="hw_thermal">Thermal performance</string>
+    <string name="hw_thermal_status">Thermal status</string>
+    <string name="hw_thermal_unavailable_reason">Android reports the thermal status from version 10. Temperatures are still shown on the Panel.</string>
+    <string name="hw_thermal_ok">Not limited</string>
+    <string name="hw_thermal_moderate">Slightly limited</string>
+    <string name="hw_thermal_severe">Limiting</string>
+    <string name="hw_thermal_margin">Headroom before limiting</string>
+    <string name="hw_thermal_cool">Cool</string>
+    <string name="hw_thermal_limit">Limiting</string>
+    <string name="hw_thermal_ok_desc">If the system starts lowering CPU speed because of temperature, you\'ll see it here.</string>
+    <string name="hw_thermal_throttling_desc">The system is lowering CPU speed to cool down. It usually happens when charging while gaming or with a thick case.</string>
+
+    <string name="hw_processor">Processor</string>
+    <string name="hw_soc">SoC</string>
+    <string name="hw_soc_code">The system calls it %1$s</string>
+    <string name="hw_cores">Cores</string>
+    <string name="hw_core_generic">cores</string>
+    <string name="hw_gpu">GPU</string>
+    <string name="hw_vulkan">Vulkan</string>
+    <string name="hw_not_supported">Not supported</string>
+
+    <string name="hw_display">Display</string>
+    <string name="hw_display_size">Size and resolution</string>
+    <string name="hw_display_refresh">Refresh rate</string>
+    <string name="hw_display_refresh_value">%1$s Hz now · up to %2$s Hz</string>
+    <string name="hw_display_density">Density</string>
+    <string name="hw_dpi">%1$d dpi</string>
+    <string name="hw_display_hdr">HDR</string>
+
+    <string name="hw_memory">Memory and storage</string>
+    <string name="hw_ram">RAM</string>
+    <string name="hw_zram">zRAM (compressed swap)</string>
+    <string name="hw_storage">Storage</string>
+
+    <string name="hw_sensors">Sensors</string>
+    <string name="hw_sensors_count">live · %1$d in total</string>
+    <string name="hw_sensor_accelerometer">Accelerometer</string>
+    <string name="hw_sensor_gyroscope">Gyroscope</string>
+    <string name="hw_sensor_magnetometer">Magnetometer</string>
+    <string name="hw_sensor_barometer">Barometer</string>
+    <string name="hw_sensor_light">Ambient light</string>
+    <string name="hw_sensor_proximity">Proximity</string>
+    <string name="hw_proximity_near">Near</string>
+    <string name="hw_proximity_far">Far</string>
+
+    <string name="hw_system">System</string>
+    <string name="hw_android">Android</string>
+    <string name="hw_kernel">Kernel</string>
+    <string name="hw_abi">Architecture</string>
+    <string name="hw_model_code">Model code</string>
+</resources>

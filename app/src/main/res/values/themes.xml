@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Vitals" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Oscuro desde el primer frame: evita el destello blanco antes de que pinte Compose. -->
+    <style name="Theme.Vitals" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/vitals_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
 </resources>

@@ -23,20 +23,17 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":designsystem"))
 
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     ksp(libs.kotlinMetadataJvm)
 
-    // WorkManager + Hilt integration
+    // WorkManager + Hilt integration (VitalsWorker: historial de batería en la 1.4)
     implementation(libs.workmanager.ktx)
     implementation(libs.androidx.hilt.work)
     ksp(libs.androidx.hilt.compiler)
-
-    // FCM (BOM resolved transitively by :app at runtime)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.messaging)
 
     // Compose UI
     implementation(platform(libs.androidx.compose.bom))
@@ -44,6 +41,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.androidx.core.ktx)

@@ -8,8 +8,9 @@ Cada comentario debe **citar la regla** que se incumple (p. ej. "viola R-DEP-1")
 
 ## 1. Arquitectura de módulos (reglas duras)
 
-- **R-DEP-1** — Grafo de dependencias estricto: `:app → :feature:* → :core`. Además
-  `:app → :core` directo está permitido.
+- **R-DEP-1** — Grafo de dependencias estricto: `:app → :feature:* → :designsystem → :core`. Además
+  `:app → :core`, `:app → :designsystem` y `:feature:* → :core` directos están permitidos.
+  Una feature nunca depende de otra feature.
 - **R-DEP-2** — `:feature:*` **nunca** importa de `:app`.
 - **R-DEP-3** — `:core` **no depende** de ningún módulo interno (ni `:app` ni `:feature`).
 - **R-DEP-4** — Toda feature nueva va como módulo `:feature:<nombre>`, **nunca** dentro de `:app`.
@@ -36,7 +37,7 @@ Cada comentario debe **citar la regla** que se incumple (p. ej. "viola R-DEP-1")
 - **R-ROOM-2** — Nada de acceso a base de datos en el hilo principal: DAOs `suspend` o que
   devuelvan `Flow`.
 
-## 4. Concurrencia (crítico en esta app: Service + Worker + FCM)
+## 4. Concurrencia (crítico en esta app: lecturas periódicas de /proc y /sys + Worker)
 
 - **R-COR-1** — La colección de `Flow` va **siempre** en `viewModelScope` o en un dispatcher
   de background — **nunca en Main**.
@@ -52,8 +53,9 @@ Cada comentario debe **citar la regla** que se incumple (p. ej. "viola R-DEP-1")
 
 ## 6. UI (Compose + MVVM)
 
-- **R-MVVM-1** — El ViewModel expone `StateFlow`; Compose observa con `collectAsState()`.
-  El estado de UI no se mantiene en el Composable a mano si pertenece al VM.
+- **R-MVVM-1** — El ViewModel expone `StateFlow` (`stateIn(WhileSubscribed(5_000))`); Compose observa con
+  `collectAsStateWithLifecycle()`. **Prohibido `collectAsState()`**: mantiene los flows vivos en segundo
+  plano y gasta batería. El estado de UI no se mantiene en el Composable a mano si pertenece al VM.
 - **R-UI-1** — Single-Activity: `MainActivity` es el host; cada feature expone un
   `@Composable` de entrada.
 - **R-CMP-1** — Sin side-effects dentro de la composición: usar `LaunchedEffect`,

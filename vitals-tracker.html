@@ -92,7 +92,7 @@
     <div class="metric-lbl">features completadas</div>
   </div>
   <div class="metric">
-    <div class="metric-val">3</div>
+    <div class="metric-val">7</div>
     <div class="metric-lbl">módulos</div>
   </div>
   <div class="metric">
@@ -113,18 +113,38 @@
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
       <div class="module-card">
         <div class="module-name">:app</div>
-        <div class="module-desc">Entry point, NavHost, HiltAndroidApp, DI global</div>
-        <div class="module-progress"><div class="module-bar" style="width: 30%; background: #ff9800;"></div></div>
+        <div class="module-desc">Entry point, navegación con barra inferior, tema según ajustes, Firebase tras AnalyticsTracker</div>
+        <div class="module-progress"><div class="module-bar" style="width: 80%; background: #ff9800;"></div></div>
       </div>
       <div class="module-card">
         <div class="module-name">:core</div>
-        <div class="module-desc">Room, Retrofit, repositorios, domain models, notificaciones</div>
-        <div class="module-progress"><div class="module-bar" style="width: 60%; background: #ff9800;"></div></div>
+        <div class="module-desc">Dominio, parsers puros con tests, use cases de /proc, /sys y APIs del sistema, DataStore, Room</div>
+        <div class="module-progress"><div class="module-bar" style="width: 80%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:designsystem</div>
+        <div class="module-desc">Tema claro/oscuro/dinámico, VitalsPalette, iconos vectoriales, componentes, formateadores</div>
+        <div class="module-progress"><div class="module-bar" style="width: 80%; background: #ff9800;"></div></div>
       </div>
       <div class="module-card">
         <div class="module-name">:feature:monitor</div>
-        <div class="module-desc">ForegroundService, WorkManager, FCM, UI Compose, ViewModel</div>
-        <div class="module-progress"><div class="module-bar" style="width: 30%; background: #ff9800;"></div></div>
+        <div class="module-desc">Panel: resumen, avisos, throttling, CPU, red, batería, consumo de Vitals</div>
+        <div class="module-progress"><div class="module-bar" style="width: 80%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:feature:battery</div>
+        <div class="module-desc">Potencia, corriente, ciclos, temperatura, cargador</div>
+        <div class="module-progress"><div class="module-bar" style="width: 70%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:feature:hardware</div>
+        <div class="module-desc">SoC, GPU, pantalla, Widevine, sensores en vivo, informe</div>
+        <div class="module-progress"><div class="module-bar" style="width: 70%; background: #ff9800;"></div></div>
+      </div>
+      <div class="module-card">
+        <div class="module-name">:feature:settings</div>
+        <div class="module-desc">Unidades, tema, privacidad (analítica y fallos), acerca de</div>
+        <div class="module-progress"><div class="module-bar" style="width: 70%; background: #ff9800;"></div></div>
       </div>
     </div>
   </div>
@@ -174,48 +194,63 @@
     <div class="card-title">Features</div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">Foreground Service (monitorización CPU/RAM)</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Panel rediseñado (resumen 2×2, gráficas 60 s, avisos de memoria y espacio)</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">WorkManager (snapshots periódicos)</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">CPU: carga estimada por frecuencia, núcleos con nombre, clústeres</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">Notificaciones locales (alertas de umbral)</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Detector de throttling (estado térmico + margen)</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">FCM (push remoto)</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Batería: potencia, corriente normalizada, ciclos, cargador</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">Room DB (historial de snapshots)</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Hardware: SoC con nombre comercial, GPU, Vulkan, pantalla, Widevine, sensores</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">Capa de red Retrofit + OkHttp</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Ajustes con DataStore (°C/°F, tema, privacidad)</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-progress"></div>
-      <div class="item-text">UI Compose — pantalla principal</div>
-      <span class="item-badge ib-progress">esqueleto</span>
+      <div class="item-text">Analítica con consentimiento y eventos propios</div>
+      <span class="item-badge ib-progress">sin compilar</span>
     </div>
     <div class="item">
       <div class="item-dot dot-pending"></div>
-      <div class="item-text">CI/CD pipeline</div>
-      <span class="item-badge ib-pending">pendiente</span>
+      <div class="item-text">Historial de batería y salud estimada (VitalsWorker + Room)</div>
+      <span class="item-badge ib-pending">1.4</span>
     </div>
     <div class="item">
       <div class="item-dot dot-pending"></div>
-      <div class="item-text">Play Store release</div>
+      <div class="item-text">Alertas (temperatura, memoria, espacio) y widget</div>
+      <span class="item-badge ib-pending">1.4</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-pending"></div>
+      <div class="item-text">Traducción de los textos nuevos a los 20 idiomas</div>
       <span class="item-badge ib-pending">pendiente</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">CI/CD pipeline</div>
+      <span class="item-badge ib-done">hecho</span>
+    </div>
+    <div class="item">
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Play Store release</div>
+      <span class="item-badge ib-done">publicada</span>
     </div>
   </div>
 
@@ -225,23 +260,34 @@
     <div class="dep-row"><span class="dep-name">hilt-android</span><span class="dep-ver">2.56.2</span></div>
     <div class="dep-row"><span class="dep-name">room-runtime</span><span class="dep-ver">2.7.1</span></div>
     <div class="dep-row"><span class="dep-name">room-ktx</span><span class="dep-ver">2.7.1</span></div>
-    <div class="dep-row"><span class="dep-name">retrofit</span><span class="dep-ver">2.11.0</span></div>
-    <div class="dep-row"><span class="dep-name">okhttp</span><span class="dep-ver">4.12.0</span></div>
-    <div class="dep-row"><span class="dep-name">okhttp-logging</span><span class="dep-ver">4.12.0</span></div>
-    <div class="dep-row"><span class="dep-name">moshi-kotlin</span><span class="dep-ver">1.15.2</span></div>
     <div class="dep-row"><span class="dep-name">workmanager-ktx</span><span class="dep-ver">2.10.1</span></div>
     <div class="dep-row"><span class="dep-name">hilt-work</span><span class="dep-ver">1.2.0</span></div>
     <div class="dep-row"><span class="dep-name">firebase-bom</span><span class="dep-ver">33.14.0</span></div>
     <div class="dep-row"><span class="dep-name">firebase-crashlytics</span><span class="dep-ver">via BOM</span></div>
     <div class="dep-row"><span class="dep-name">firebase-analytics</span><span class="dep-ver">via BOM</span></div>
-    <div class="dep-row"><span class="dep-name">firebase-messaging</span><span class="dep-ver">via BOM</span></div>
     <div class="dep-row"><span class="dep-name">navigation-compose</span><span class="dep-ver">2.9.0</span></div>
     <div class="dep-row"><span class="dep-name">lifecycle-viewmodel-compose</span><span class="dep-ver">2.9.1</span></div>
+    <div class="dep-row"><span class="dep-name">lifecycle-runtime-compose</span><span class="dep-ver">2.9.1</span></div>
+    <div class="dep-row"><span class="dep-name">datastore-preferences</span><span class="dep-ver">1.1.7</span></div>
   </div>
 
   <!-- Timeline -->
   <div class="card">
     <div class="card-title">Historial</div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Rediseño 1.2/1.3 en la rama feature/redesign. Nuevos módulos :designsystem, :feature:battery, :feature:hardware y :feature:settings. Eliminado el código muerto (Retrofit, FCM, Foreground Service) y activado R8. CPU del sistema por frecuencia (Android bloquea /proc/stat), collectAsStateWithLifecycle para no leer /proc en segundo plano, parsers puros con tests, nombres de SoC MediaTek/Unisoc y analítica con consentimiento en Ajustes.</div>
+        <div class="tl-date">Octubre 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
+        <div class="tl-text">Módulo 3 (Memory management & GC) arrancado. Lección teórica interactiva + quiz de 10 preguntas creados: heap de ART y memory class por dispositivo, GC generacional/concurrent copying, fugas con GC (reachability), onTrimMemory y Low Memory Killer (oom_adj). Lab definido sobre Vitals: observar el GC en Logcat, provocar y cazar un leak con LeakCanary, e implementar onTrimMemory para bajar la frecuencia de muestreo bajo presión.</div>
+        <div class="tl-date">Junio 2026</div>
+      </div>
+    </div>
     <div class="timeline-item">
       <div class="tl-dot"></div>
       <div>
@@ -330,14 +376,14 @@
       <span class="item-badge ib-done">hecho</span>
     </div>
     <div class="item">
-      <div class="item-dot dot-pending"></div>
-      <div class="item-text">Módulo 2 — Android OS internals: Threading & Looper</div>
-      <span class="item-badge ib-pending">pendiente</span>
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Módulo 2 — Android OS internals: Threading & Looper</div>
+      <span class="item-badge ib-done">hecho</span>
     </div>
     <div class="item">
-      <div class="item-dot dot-pending"></div>
+      <div class="item-dot dot-progress"></div>
       <div class="item-text">Módulo 3 — Memory management & GC</div>
-      <span class="item-badge ib-pending">pendiente</span>
+      <span class="item-badge ib-progress">en progreso</span>
     </div>
     <div class="item">
       <div class="item-dot dot-pending"></div>

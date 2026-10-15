@@ -25,4 +25,8 @@ dependencyResolutionManagement {
 rootProject.name = "Vitals"
 include(":app")
 include(":core")
+include(":designsystem")
 include(":feature:monitor")
+include(":feature:battery")
+include(":feature:hardware")
+include(":feature:settings")

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="panel_title">Vitals</string>
+    <string name="panel_settings_cd">Ajustes</string>
+    <string name="panel_device_subtitle">%1$s · Android %2$s</string>
+
+    <string name="panel_alert_low_memory_title">Memoria baja</string>
+    <string name="panel_alert_low_memory_msg">Android está cerrando apps en segundo plano. Cierra las que no uses o reinicia el móvil.</string>
+    <string name="panel_alert_storage_title">Espacio casi lleno</string>
+    <string name="panel_alert_storage_msg">Quedan %1$s de %2$s. Por debajo del 10 %% las apps y las actualizaciones pueden fallar.</string>
+    <string name="panel_alert_storage_action">Abrir ajustes de almacenamiento</string>
+
+    <string name="tile_temperature">Temperatura</string>
+    <string name="tile_battery_charging_eta">Cargando · lleno en %1$s</string>
+    <string name="tile_battery_discharging_power">Descargando · %1$s</string>
+    <string name="tile_ram_caption">%1$s de %2$s · %3$s</string>
+    <string name="tile_temperature_caption">Batería · %1$s</string>
+    <string name="tile_storage_caption">%1$s de %2$s · %3$s libres</string>
+    <string name="state_normal">normal</string>
+    <string name="state_high">alta</string>
+    <string name="state_warm">templada</string>
+    <string name="state_hot">caliente</string>
+
+    <string name="thermal_ok_title">Rendimiento sin limitar</string>
+    <string name="thermal_margin">Margen térmico %1$d %%</string>
+    <string name="thermal_moderate_title">Rendimiento algo limitado</string>
+    <string name="thermal_severe_title">Rendimiento limitado por temperatura</string>
+    <string name="thermal_throttling_msg">El sistema está bajando la velocidad de la CPU para enfriarse.</string>
+
+    <string name="cpu_subtitle">%1$s · %2$d núcleos</string>
+    <string name="cpu_estimated_load">carga estimada</string>
+    <string name="cpu_chart_cd">Carga estimada de la CPU en el último minuto</string>
+    <string name="cpu_cluster_named">%1$d× %2$s</string>
+    <string name="cpu_cluster_unnamed">%1$d núcleos</string>
+    <string name="cpu_freq_of">%1$s / %2$s</string>
+    <string name="cpu_show_details">Ver los %1$d núcleos y temperaturas</string>
+    <string name="cpu_hide_details">Ocultar núcleos y temperaturas</string>
+    <string name="cpu_section_cores">Núcleos</string>
+    <string name="cpu_core_named">Núcleo %1$d · %2$s</string>
+    <string name="cpu_section_temps">Temperaturas</string>
+    <string name="thermal_kind_cpu">CPU</string>
+    <string name="thermal_kind_gpu">GPU</string>
+    <string name="thermal_kind_soc">SoC</string>
+    <string name="thermal_kind_board">Placa</string>
+    <string name="thermal_kind_battery">Batería</string>
+    <string name="thermal_kind_skin">Superficie</string>
+    <string name="thermal_kind_other">Sensor</string>
+    <string name="thermal_zone_label">%1$s (%2$s)</string>
+    <string name="temps_unavailable_title">Temperaturas por sensor</string>
+    <string name="temps_unavailable_reason">El fabricante de tu móvil no deja que las apps lean los sensores de temperatura. Se siguen mostrando la temperatura de la batería y el estado térmico.</string>
+
+    <string name="network_chart_cd">Velocidad de bajada y subida en el último minuto</string>
+    <string name="net_wifi">Wi-Fi</string>
+    <string name="net_wifi_gen">Wi-Fi %1$d</string>
+    <string name="net_band_2_4">2,4 GHz</string>
+    <string name="net_band_5">5 GHz</string>
+    <string name="net_band_6">6 GHz</string>
+    <string name="net_signal">Señal %1$d dBm · %2$s</string>
+    <string name="signal_good">buena</string>
+    <string name="signal_fair">regular</string>
+    <string name="signal_poor">débil</string>
+    <string name="net_link">Enlace %1$d Mbps</string>
+    <string name="net_cellular">Datos móviles</string>
+    <string name="net_ethernet">Ethernet</string>
+    <string name="net_vpn">VPN</string>
+    <string name="net_other">Conectado</string>
+    <string name="net_none">Sin conexión</string>
+
+    <string name="battery_row_detail">%1$s · %2$s · %3$s</string>
+    <string name="battery_row_eta">%1$s · unas %2$s con este uso</string>
+
+    <string name="vitals_title">Consumo de Vitals</string>
+    <string name="vitals_light">Ligera</string>
+    <string name="vitals_desc">Lo que gasta esta app mientras la tienes abierta. Android solo deja ver los procesos propios, así que aquí aparecen los de Vitals.</string>
+    <string name="vitals_cpu">CPU</string>
+    <string name="vitals_pss">Memoria (PSS)</string>
+    <string name="vitals_show">Ver desglose de memoria y procesos</string>
+    <string name="vitals_hide">Ocultar desglose</string>
+    <string name="vitals_memory_section">Memoria · PID %1$d</string>
+    <string name="vitals_processes_section">Procesos por RAM</string>
+    <string name="metric_other">Otros</string>
+</resources>

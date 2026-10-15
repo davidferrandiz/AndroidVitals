@@ -28,12 +28,10 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
 
-    // Retrofit + OkHttp + Moshi
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.moshi)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
-    implementation(libs.moshi.kotlin)
+    // DataStore (ajustes del usuario)
+    implementation(libs.datastore.preferences)
 
     implementation(libs.androidx.core.ktx)
+
+    testImplementation(libs.junit)
 }
