@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Мониторинг</string>
-    <string name="notif_channel_monitor_desc">Непрерывный мониторинг системы</string>
-    <string name="notif_channel_alerts_name">Оповещения</string>
-    <string name="notif_channel_alerts_desc">Пороговые оповещения для CPU и RAM</string>
+    <string name="notif_channel_battery_name">Температура батареи</string>
+    <string name="notif_channel_battery_desc">Когда батарея остаётся слишком горячей. Не чаще двух раз в день, ночью без звука.</string>
+    <string name="notif_channel_storage_name">Место в хранилище</string>
+    <string name="notif_channel_storage_desc">Беззвучное уведомление, когда память почти заполнена. Не чаще раза в неделю.</string>
 
 </resources>

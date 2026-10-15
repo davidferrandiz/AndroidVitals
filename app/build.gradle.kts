@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.baselineprofile)
 }
 
 android {
@@ -22,21 +23,39 @@ android {
         versionCode = 9
         versionName = "1.0.9"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Solo la build de release manda estadísticas y fallos a Firebase (ver buildTypes).
+        manifestPlaceholders["firebaseCollectionOff"] = "false"
     }
 
     buildTypes {
         debug {
             versionNameSuffix = "-debug"
             isDebuggable = true
+            manifestPlaceholders["firebaseCollectionOff"] = "true"
             optimization {
                 enable = false
             }
         }
         release {
             isDebuggable = false
+            // R8: APK más pequeño y arranque más rápido. Importa en los móviles de gama
+            // baja que usa la mayoría de usuarios (Moto E14, Redmi 12C…).
             optimization {
-                enable = false
+                enable = true
             }
+        }
+        // Build types del plugin de Baseline Profile. Se declaran solo para firmarlos con la clave
+        // de debug (release no tiene firma en Gradle) y para que el emulador de la CI no mande
+        // nada a Analytics ni a Crashlytics.
+        create("nonMinifiedRelease") {
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            manifestPlaceholders["firebaseCollectionOff"] = "true"
+        }
+        create("benchmarkRelease") {
+            signingConfig = signingConfigs.getByName("debug")
+            matchingFallbacks += listOf("release")
+            manifestPlaceholders["firebaseCollectionOff"] = "true"
         }
     }
     compileOptions {
@@ -45,6 +64,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -54,7 +74,12 @@ hilt {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":designsystem"))
     implementation(project(":feature:monitor"))
+    implementation(project(":feature:battery"))
+    implementation(project(":feature:hardware"))
+    implementation(project(":feature:settings"))
+    implementation(project(":feature:widget"))
 
     // Hilt
     implementation(libs.hilt.android)
@@ -76,6 +101,17 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.lifecycle.runtime.compose)
+
+    // Baseline Profile: lo genera :baselineprofile y ProfileInstaller lo aplica al instalar
+    implementation(libs.androidx.profileinstaller)
+    baselineProfile(project(":baselineprofile"))
+
+    // Valoración en Google Play sin salir de la app
+    implementation(libs.play.review.ktx)
+
+    // WorkManager (Configuration.Provider en VitalsApplication)
+    implementation(libs.workmanager.ktx)
 
     // Startup — explícita para que Lint resuelva InitializationProvider
     // (WorkManager ya la trae transitivamente, pero AGP 9 lo exige directo)

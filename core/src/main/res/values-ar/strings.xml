@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">المراقبة</string>
-    <string name="notif_channel_monitor_desc">مراقبة مستمرة لمؤشرات النظام</string>
-    <string name="notif_channel_alerts_name">التنبيهات</string>
-    <string name="notif_channel_alerts_desc">تنبيهات الحد الأقصى لوحدة المعالجة المركزية والذاكرة</string>
+    <string name="notif_channel_battery_name">حرارة البطارية</string>
+    <string name="notif_channel_battery_desc">عندما تبقى البطارية ساخنة جدًا. مرتين في اليوم كحد أقصى، وبصمت في الليل.</string>
+    <string name="notif_channel_storage_name">مساحة التخزين</string>
+    <string name="notif_channel_storage_desc">تنبيه صامت عندما تكون مساحة التخزين ممتلئة تقريبًا. مرة في الأسبوع كحد أقصى.</string>
 
 </resources>

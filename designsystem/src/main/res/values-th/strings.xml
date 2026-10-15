@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">ไม่มีในอุปกรณ์นี้</string>
+    <string name="ds_why">เพราะอะไร</string>
+    <string name="ds_state_expanded">ขยายอยู่</string>
+    <string name="ds_state_collapsed">ยุบอยู่</string>
+    <string name="ds_duration_minutes">%1$d นาที</string>
+    <string name="ds_duration_hours">%1$d ชม.</string>
+    <string name="ds_duration_hours_minutes">%1$d ชม. %2$d นาที</string>
+    <string name="ds_uptime_days_hours">%1$d วัน %2$d ชม.</string>
+</resources>

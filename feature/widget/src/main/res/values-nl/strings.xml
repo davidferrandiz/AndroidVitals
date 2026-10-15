@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · batterij en systeem</string>
+    <string name="widget_description">Batterijniveau en -temperatuur; breder ook RAM en vrije opslag.</string>
+    <string name="widget_battery">Batterij</string>
+    <string name="widget_charging">Laden</string>
+    <string name="widget_full">Vol</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s vrij</string>
+    <string name="widget_updated">Bijgewerkt %1$s</string>
+</resources>

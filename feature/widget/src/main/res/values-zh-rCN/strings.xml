@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · 电池和系统</string>
+    <string name="widget_description">电池电量和温度；拉宽后还会显示 RAM 和可用空间。</string>
+    <string name="widget_battery">电池</string>
+    <string name="widget_charging">充电中</string>
+    <string name="widget_full">已充满</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">可用 %1$s</string>
+    <string name="widget_updated">%1$s 更新</string>
+</resources>

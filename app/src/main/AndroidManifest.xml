@@ -27,6 +27,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Fuera de release (debug, emulador de Baseline Profile) Firebase no recoge nada,
+             ni siquiera first_open antes de que se aplique el ajuste de Privacidad. -->
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="${firebaseCollectionOff}" />
+
         <!-- Elimina el WorkManagerInitializer automático porque usamos on-demand init via Configuration.Provider -->
         <provider
             android:name="androidx.startup.InitializationProvider"

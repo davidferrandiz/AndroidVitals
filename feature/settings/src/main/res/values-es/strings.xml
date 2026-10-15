@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_back">Atrás</string>
+    <string name="settings_section_view">Vista</string>
+    <string name="settings_temperature">Temperatura</string>
+    <string name="settings_auto">Automático</string>
+    <string name="settings_temperature_auto_hint">Automático usa °F en EE. UU. y °C en el resto.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Oscuro</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_system">Sistema</string>
+    <string name="settings_dynamic_color">Color dinámico</string>
+    <string name="settings_dynamic_color_desc">Usa los colores de tu fondo de pantalla</string>
+    <string name="settings_expand_cards">Tarjetas abiertas al iniciar</string>
+    <string name="settings_expand_cards_desc">Muestra núcleos, temperaturas y desgloses sin tocar</string>
+    <string name="settings_section_privacy">Privacidad</string>
+    <string name="settings_analytics">Estadísticas de uso anónimas</string>
+    <string name="settings_analytics_desc">Ayudan a decidir qué mejorar</string>
+    <string name="settings_crash_reports">Informes de fallos</string>
+    <string name="settings_crash_reports_desc">Se envían a Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Qué se envía y qué no</string>
+    <string name="settings_what_is_sent_desc">Qué pantallas usas, el modelo del móvil, la versión de Android, el país y los informes de fallos. Nunca tus lecturas, tus apps instaladas ni tus datos personales.</string>
+    <string name="settings_privacy_policy">Política de privacidad</string>
+    <string name="settings_section_about">Acerca de</string>
+    <string name="settings_rate">Valorar Vitals en Google Play</string>
+    <string name="settings_feedback">Enviar comentarios</string>
+    <string name="settings_feedback_desc">Incluye el modelo del móvil y la versión de Android</string>
+    <string name="settings_feedback_subject">Comentarios sobre Vitals</string>
+    <string name="settings_version">Versión</string>
+    <string name="settings_section_background">Con la app cerrada</string>
+    <string name="settings_battery_history">Historial de batería</string>
+    <string name="settings_battery_history_desc">Guarda el nivel cada 15 minutos para la gráfica y la salud estimada. Se queda en tu móvil y, si lo desactivas, se borra.</string>
+    <string name="settings_alerts">Avisos</string>
+    <string name="settings_alerts_desc">Te avisa si la batería sigue demasiado caliente o el almacenamiento está casi lleno. Sin ventanas emergentes, en silencio por la noche, y desaparecen solos cuando se resuelve.</string>
+    <string name="settings_alerts_blocked">Las notificaciones de Vitals están desactivadas, así que no se pueden mostrar avisos.</string>
+    <string name="settings_alerts_open_system">Abrir ajustes de notificaciones</string>
+</resources>

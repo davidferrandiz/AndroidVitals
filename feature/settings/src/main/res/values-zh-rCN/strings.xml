@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">设置</string>
+    <string name="settings_back">返回</string>
+    <string name="settings_section_view">显示</string>
+    <string name="settings_temperature">温度</string>
+    <string name="settings_auto">自动</string>
+    <string name="settings_temperature_auto_hint">自动模式在美国使用 °F，在其他地区使用 °C。</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_dynamic_color">动态取色</string>
+    <string name="settings_dynamic_color_desc">使用壁纸的颜色</string>
+    <string name="settings_expand_cards">启动时展开卡片</string>
+    <string name="settings_expand_cards_desc">无需点按即可显示核心、温度和明细</string>
+    <string name="settings_section_background">应用关闭时</string>
+    <string name="settings_battery_history">电池历史记录</string>
+    <string name="settings_battery_history_desc">每 15 分钟记录一次电量，用于图表和估算健康度。仅保存在您的手机上，关闭后会删除。</string>
+    <string name="settings_alerts">提醒</string>
+    <string name="settings_alerts_desc">电池持续过热或存储空间即将用尽时提醒您。不弹窗，夜间静音，问题解决后通知会自动消失。</string>
+    <string name="settings_alerts_blocked">Vitals 的通知已关闭，因此无法显示提醒。</string>
+    <string name="settings_alerts_open_system">打开通知设置</string>
+    <string name="settings_section_privacy">隐私</string>
+    <string name="settings_analytics">匿名使用统计</string>
+    <string name="settings_analytics_desc">帮助我们决定改进方向</string>
+    <string name="settings_crash_reports">崩溃报告</string>
+    <string name="settings_crash_reports_desc">发送到 Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">会发送什么，不会发送什么</string>
+    <string name="settings_what_is_sent_desc">您使用的界面、手机型号、Android 版本、国家/地区和崩溃报告。绝不发送您的读数、已安装的应用或个人数据。</string>
+    <string name="settings_privacy_policy">隐私政策</string>
+    <string name="settings_section_about">关于</string>
+    <string name="settings_rate">在 Google Play 上为 Vitals 评分</string>
+    <string name="settings_feedback">发送反馈</string>
+    <string name="settings_feedback_desc">包含您的手机型号和 Android 版本</string>
+    <string name="settings_feedback_subject">Vitals 反馈</string>
+    <string name="settings_version">版本</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">面板</string>
+    <string name="nav_battery">电池</string>
+    <string name="nav_hardware">硬件</string>
+</resources>

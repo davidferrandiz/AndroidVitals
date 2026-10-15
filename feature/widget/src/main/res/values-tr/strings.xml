@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · pil ve sistem</string>
+    <string name="widget_description">Pil seviyesi ve sıcaklığı; geniş halde RAM ve boş alan da.</string>
+    <string name="widget_battery">Pil</string>
+    <string name="widget_charging">Şarj oluyor</string>
+    <string name="widget_full">Dolu</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s boş</string>
+    <string name="widget_updated">Güncelleme %1$s</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ustawienia</string>
+    <string name="settings_back">Wstecz</string>
+    <string name="settings_section_view">Widok</string>
+    <string name="settings_temperature">Temperatura</string>
+    <string name="settings_auto">Automatycznie</string>
+    <string name="settings_temperature_auto_hint">Tryb automatyczny używa °F w USA i °C w pozostałych krajach.</string>
+    <string name="settings_theme">Motyw</string>
+    <string name="settings_theme_dark">Ciemny</string>
+    <string name="settings_theme_light">Jasny</string>
+    <string name="settings_theme_system">Systemowy</string>
+    <string name="settings_dynamic_color">Dynamiczne kolory</string>
+    <string name="settings_dynamic_color_desc">Użyj kolorów tapety</string>
+    <string name="settings_expand_cards">Otwieraj karty przy starcie</string>
+    <string name="settings_expand_cards_desc">Pokazuj rdzenie, temperatury i podziały bez dotykania</string>
+    <string name="settings_section_background">Przy zamkniętej aplikacji</string>
+    <string name="settings_battery_history">Historia baterii</string>
+    <string name="settings_battery_history_desc">Zapisuje poziom co 15 minut na potrzeby wykresu i szacowanej kondycji. Zostaje na telefonie, a wyłączenie ją usuwa.</string>
+    <string name="settings_alerts">Alerty</string>
+    <string name="settings_alerts_desc">Daje znać, gdy bateria pozostaje zbyt gorąca albo pamięć jest prawie pełna. Bez wyskakujących okienek, w nocy bez dźwięku, a powiadomienie znika samo, gdy problem zniknie.</string>
+    <string name="settings_alerts_blocked">Powiadomienia Vitals są wyłączone, więc alerty nie mogą się wyświetlać.</string>
+    <string name="settings_alerts_open_system">Otwórz ustawienia powiadomień</string>
+    <string name="settings_section_privacy">Prywatność</string>
+    <string name="settings_analytics">Anonimowe statystyki użycia</string>
+    <string name="settings_analytics_desc">Pomóż zdecydować, co ulepszyć</string>
+    <string name="settings_crash_reports">Raporty o awariach</string>
+    <string name="settings_crash_reports_desc">Wysyłane do Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Co jest wysyłane, a co nie</string>
+    <string name="settings_what_is_sent_desc">Używane ekrany, model telefonu, wersja Androida, kraj i raporty o awariach. Nigdy Twoje odczyty, zainstalowane aplikacje ani dane osobowe.</string>
+    <string name="settings_privacy_policy">Polityka prywatności</string>
+    <string name="settings_section_about">Informacje</string>
+    <string name="settings_rate">Oceń Vitals w Google Play</string>
+    <string name="settings_feedback">Wyślij opinię</string>
+    <string name="settings_feedback_desc">Zawiera model telefonu i wersję Androida</string>
+    <string name="settings_feedback_subject">Opinia o Vitals</string>
+    <string name="settings_version">Wersja</string>
+</resources>

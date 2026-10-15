@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Monitor</string>
-    <string name="notif_channel_monitor_desc">Ciągłe monitorowanie systemu</string>
-    <string name="notif_channel_alerts_name">Alerty</string>
-    <string name="notif_channel_alerts_desc">Alerty progowe dla CPU i RAM</string>
+    <string name="notif_channel_battery_name">Temperatura baterii</string>
+    <string name="notif_channel_battery_desc">Gdy bateria pozostaje zbyt gorąca. Najwyżej dwa razy dziennie, w nocy bez dźwięku.</string>
+    <string name="notif_channel_storage_name">Miejsce w pamięci</string>
+    <string name="notif_channel_storage_desc">Cicha informacja, gdy pamięć jest prawie pełna. Najwyżej raz w tygodniu.</string>
 
 </resources>

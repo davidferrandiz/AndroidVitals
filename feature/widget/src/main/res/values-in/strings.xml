@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · baterai dan sistem</string>
+    <string name="widget_description">Level dan suhu baterai; jika lebih lebar, juga RAM dan ruang kosong.</string>
+    <string name="widget_battery">Baterai</string>
+    <string name="widget_charging">Mengisi</string>
+    <string name="widget_full">Penuh</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s kosong</string>
+    <string name="widget_updated">Diperbarui %1$s</string>
+</resources>

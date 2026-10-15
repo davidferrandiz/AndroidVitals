@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · แบตเตอรี่และระบบ</string>
+    <string name="widget_description">ระดับและอุณหภูมิแบตเตอรี่ เมื่อขยายกว้างจะแสดง RAM และพื้นที่ว่างด้วย</string>
+    <string name="widget_battery">แบตเตอรี่</string>
+    <string name="widget_charging">กำลังชาร์จ</string>
+    <string name="widget_full">เต็ม</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">ว่าง %1$s</string>
+    <string name="widget_updated">อัปเดต %1$s</string>
+</resources>

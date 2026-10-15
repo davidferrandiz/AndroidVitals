@@ -14,12 +14,13 @@ class GetStorageUseCase @Inject constructor() {
 
     operator fun invoke(): Flow<StorageInfo> = flow {
         while (true) {
-            emit(readStorage())
+            emit(current())
             delay(10_000) // El almacenamiento cambia muy lento — 10s
         }
     }.flowOn(Dispatchers.IO)
 
-    private fun readStorage(): StorageInfo {
+    /** Una lectura suelta (VitalsWorker). */
+    fun current(): StorageInfo {
         val stat  = StatFs(Environment.getDataDirectory().path)
         val total = stat.totalBytes
         val free  = stat.availableBytes

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_back">Назад</string>
+    <string name="settings_section_view">Вигляд</string>
+    <string name="settings_temperature">Температура</string>
+    <string name="settings_auto">Автоматично</string>
+    <string name="settings_temperature_auto_hint">В автоматичному режимі в США використовується °F, в інших країнах — °C.</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_theme_dark">Темна</string>
+    <string name="settings_theme_light">Світла</string>
+    <string name="settings_theme_system">Системна</string>
+    <string name="settings_dynamic_color">Динамічні кольори</string>
+    <string name="settings_dynamic_color_desc">Використовувати кольори шпалер</string>
+    <string name="settings_expand_cards">Розгортати картки під час запуску</string>
+    <string name="settings_expand_cards_desc">Показувати ядра, температури й подробиці без натискання</string>
+    <string name="settings_section_background">Коли застосунок закритий</string>
+    <string name="settings_battery_history">Історія батареї</string>
+    <string name="settings_battery_history_desc">Зберігає рівень кожні 15 хвилин для графіка й приблизного стану. Зберігається лише на телефоні; у разі вимкнення видаляється.</string>
+    <string name="settings_alerts">Сповіщення</string>
+    <string name="settings_alerts_desc">Повідомляє, якщо батарея залишається надто гарячою або пам\'ять майже заповнена. Без спливних вікон, уночі без звуку, а сповіщення зникає само, коли проблему вирішено.</string>
+    <string name="settings_alerts_blocked">Сповіщення Vitals вимкнено, тому попередження не можуть з\'являтися.</string>
+    <string name="settings_alerts_open_system">Відкрити налаштування сповіщень</string>
+    <string name="settings_section_privacy">Конфіденційність</string>
+    <string name="settings_analytics">Анонімна статистика використання</string>
+    <string name="settings_analytics_desc">Допоможіть вирішити, що покращити</string>
+    <string name="settings_crash_reports">Звіти про збої</string>
+    <string name="settings_crash_reports_desc">Надсилаються до Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Що надсилається, а що ні</string>
+    <string name="settings_what_is_sent_desc">Які екрани ви відкриваєте, модель телефона, версія Android, країна й звіти про збої. Ніколи — ваші показники, встановлені застосунки чи особисті дані.</string>
+    <string name="settings_privacy_policy">Політика конфіденційності</string>
+    <string name="settings_section_about">Про застосунок</string>
+    <string name="settings_rate">Оцінити Vitals у Google Play</string>
+    <string name="settings_feedback">Надіслати відгук</string>
+    <string name="settings_feedback_desc">Містить модель телефона й версію Android</string>
+    <string name="settings_feedback_subject">Відгук про Vitals</string>
+    <string name="settings_version">Версія</string>
+</resources>

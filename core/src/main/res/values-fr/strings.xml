@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Monitorage</string>
-    <string name="notif_channel_monitor_desc">Surveillance continue du système</string>
-    <string name="notif_channel_alerts_name">Alertes</string>
-    <string name="notif_channel_alerts_desc">Alertes de seuil pour CPU et RAM</string>
+    <string name="notif_channel_battery_name">Température de la batterie</string>
+    <string name="notif_channel_battery_desc">Quand la batterie reste trop chaude. Deux fois par jour au maximum, en silence la nuit.</string>
+    <string name="notif_channel_storage_name">Espace de stockage</string>
+    <string name="notif_channel_storage_desc">Notification silencieuse quand le stockage est presque plein. Une fois par semaine au maximum.</string>
 
 </resources>

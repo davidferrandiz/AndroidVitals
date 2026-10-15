@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · バッテリーとシステム</string>
+    <string name="widget_description">バッテリー残量と温度。幅を広げると RAM と空き容量も表示します。</string>
+    <string name="widget_battery">バッテリー</string>
+    <string name="widget_charging">充電中</string>
+    <string name="widget_full">満充電</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">空き %1$s</string>
+    <string name="widget_updated">%1$s 更新</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Cài đặt</string>
+    <string name="settings_back">Quay lại</string>
+    <string name="settings_section_view">Hiển thị</string>
+    <string name="settings_temperature">Nhiệt độ</string>
+    <string name="settings_auto">Tự động</string>
+    <string name="settings_temperature_auto_hint">Chế độ tự động dùng °F ở Mỹ và °C ở các nơi khác.</string>
+    <string name="settings_theme">Giao diện</string>
+    <string name="settings_theme_dark">Tối</string>
+    <string name="settings_theme_light">Sáng</string>
+    <string name="settings_theme_system">Theo hệ thống</string>
+    <string name="settings_dynamic_color">Màu động</string>
+    <string name="settings_dynamic_color_desc">Dùng màu của hình nền</string>
+    <string name="settings_expand_cards">Mở thẻ khi khởi động</string>
+    <string name="settings_expand_cards_desc">Hiện nhân, nhiệt độ và chi tiết mà không cần chạm</string>
+    <string name="settings_section_background">Khi đóng ứng dụng</string>
+    <string name="settings_battery_history">Lịch sử pin</string>
+    <string name="settings_battery_history_desc">Lưu mức pin mỗi 15 phút cho biểu đồ và tình trạng ước tính. Chỉ lưu trên điện thoại của bạn và sẽ bị xóa khi tắt.</string>
+    <string name="settings_alerts">Cảnh báo</string>
+    <string name="settings_alerts_desc">Cho bạn biết khi pin vẫn quá nóng hoặc bộ nhớ gần đầy. Không bật lên màn hình, im lặng vào ban đêm và tự biến mất khi vấn đề đã được xử lý.</string>
+    <string name="settings_alerts_blocked">Thông báo của Vitals đang tắt nên không thể hiển thị cảnh báo.</string>
+    <string name="settings_alerts_open_system">Mở cài đặt thông báo</string>
+    <string name="settings_section_privacy">Quyền riêng tư</string>
+    <string name="settings_analytics">Thống kê sử dụng ẩn danh</string>
+    <string name="settings_analytics_desc">Giúp quyết định cần cải thiện gì</string>
+    <string name="settings_crash_reports">Báo cáo sự cố</string>
+    <string name="settings_crash_reports_desc">Gửi tới Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Những gì được gửi và không được gửi</string>
+    <string name="settings_what_is_sent_desc">Các màn hình bạn dùng, kiểu điện thoại, phiên bản Android, quốc gia và báo cáo sự cố. Không bao giờ gửi số đo, ứng dụng đã cài hay dữ liệu cá nhân của bạn.</string>
+    <string name="settings_privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="settings_section_about">Giới thiệu</string>
+    <string name="settings_rate">Đánh giá Vitals trên Google Play</string>
+    <string name="settings_feedback">Gửi phản hồi</string>
+    <string name="settings_feedback_desc">Kèm kiểu điện thoại và phiên bản Android của bạn</string>
+    <string name="settings_feedback_subject">Phản hồi về Vitals</string>
+    <string name="settings_version">Phiên bản</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">تنظیمات</string>
+    <string name="settings_back">بازگشت</string>
+    <string name="settings_section_view">نمایش</string>
+    <string name="settings_temperature">دما</string>
+    <string name="settings_auto">خودکار</string>
+    <string name="settings_temperature_auto_hint">حالت خودکار در آمریکا °F و در بقیه کشورها °C را نشان می‌دهد.</string>
+    <string name="settings_theme">پوسته</string>
+    <string name="settings_theme_dark">تیره</string>
+    <string name="settings_theme_light">روشن</string>
+    <string name="settings_theme_system">سیستم</string>
+    <string name="settings_dynamic_color">رنگ پویا</string>
+    <string name="settings_dynamic_color_desc">استفاده از رنگ‌های تصویر زمینه</string>
+    <string name="settings_expand_cards">باز کردن کارت‌ها هنگام شروع</string>
+    <string name="settings_expand_cards_desc">نمایش هسته‌ها، دماها و جزئیات بدون لمس</string>
+    <string name="settings_section_background">وقتی برنامه بسته است</string>
+    <string name="settings_battery_history">سابقه باتری</string>
+    <string name="settings_battery_history_desc">سطح باتری را هر ۱۵ دقیقه برای نمودار و سلامت تخمینی ذخیره می‌کند. روی گوشی شما می‌ماند و با خاموش کردن پاک می‌شود.</string>
+    <string name="settings_alerts">هشدارها</string>
+    <string name="settings_alerts_desc">اگر باتری بیش از حد داغ بماند یا فضای ذخیره‌سازی تقریباً پر شود خبرتان می‌کند. بدون پنجره بازشو، شب‌ها بی‌صدا، و وقتی مشکل حل شد خودش پاک می‌شود.</string>
+    <string name="settings_alerts_blocked">اعلان‌های Vitals خاموش است، پس هشدارها نمایش داده نمی‌شوند.</string>
+    <string name="settings_alerts_open_system">باز کردن تنظیمات اعلان</string>
+    <string name="settings_section_privacy">حریم خصوصی</string>
+    <string name="settings_analytics">آمار ناشناس استفاده</string>
+    <string name="settings_analytics_desc">کمک کنید بدانیم چه چیزی را بهتر کنیم</string>
+    <string name="settings_crash_reports">گزارش خرابی</string>
+    <string name="settings_crash_reports_desc">به Firebase Crashlytics ارسال می‌شود</string>
+    <string name="settings_what_is_sent">چه چیزی ارسال می‌شود و چه چیزی نه</string>
+    <string name="settings_what_is_sent_desc">صفحه‌هایی که استفاده می‌کنید، مدل گوشی، نسخه Android، کشور و گزارش‌های خرابی. هرگز داده‌های اندازه‌گیری، برنامه‌های نصب‌شده یا اطلاعات شخصی شما ارسال نمی‌شود.</string>
+    <string name="settings_privacy_policy">سیاست حریم خصوصی</string>
+    <string name="settings_section_about">درباره</string>
+    <string name="settings_rate">به Vitals در Google Play امتیاز دهید</string>
+    <string name="settings_feedback">ارسال بازخورد</string>
+    <string name="settings_feedback_desc">شامل مدل گوشی و نسخه Android شما</string>
+    <string name="settings_feedback_subject">بازخورد Vitals</string>
+    <string name="settings_version">نسخه</string>
+</resources>

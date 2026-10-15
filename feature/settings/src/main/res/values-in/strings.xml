@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Setelan</string>
+    <string name="settings_back">Kembali</string>
+    <string name="settings_section_view">Tampilan</string>
+    <string name="settings_temperature">Suhu</string>
+    <string name="settings_auto">Otomatis</string>
+    <string name="settings_temperature_auto_hint">Mode otomatis memakai °F di AS dan °C di negara lain.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Gelap</string>
+    <string name="settings_theme_light">Terang</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_dynamic_color">Warna dinamis</string>
+    <string name="settings_dynamic_color_desc">Gunakan warna wallpaper Anda</string>
+    <string name="settings_expand_cards">Buka kartu saat mulai</string>
+    <string name="settings_expand_cards_desc">Tampilkan inti, suhu, dan rincian tanpa mengetuk</string>
+    <string name="settings_section_background">Saat aplikasi ditutup</string>
+    <string name="settings_battery_history">Riwayat baterai</string>
+    <string name="settings_battery_history_desc">Menyimpan level setiap 15 menit untuk grafik dan perkiraan kesehatan. Tetap di ponsel Anda, dan menonaktifkannya akan menghapusnya.</string>
+    <string name="settings_alerts">Peringatan</string>
+    <string name="settings_alerts_desc">Memberi tahu jika baterai tetap terlalu panas atau penyimpanan hampir penuh. Tanpa pop-up, tanpa suara di malam hari, dan hilang sendiri setelah masalahnya beres.</string>
+    <string name="settings_alerts_blocked">Notifikasi Vitals dinonaktifkan, jadi peringatan tidak bisa ditampilkan.</string>
+    <string name="settings_alerts_open_system">Buka setelan notifikasi</string>
+    <string name="settings_section_privacy">Privasi</string>
+    <string name="settings_analytics">Statistik penggunaan anonim</string>
+    <string name="settings_analytics_desc">Bantu menentukan apa yang perlu diperbaiki</string>
+    <string name="settings_crash_reports">Laporan error</string>
+    <string name="settings_crash_reports_desc">Dikirim ke Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Apa yang dikirim dan tidak</string>
+    <string name="settings_what_is_sent_desc">Layar yang Anda gunakan, model ponsel, versi Android, negara, dan laporan error. Tidak pernah hasil pembacaan, aplikasi terpasang, atau data pribadi Anda.</string>
+    <string name="settings_privacy_policy">Kebijakan privasi</string>
+    <string name="settings_section_about">Tentang</string>
+    <string name="settings_rate">Beri rating Vitals di Google Play</string>
+    <string name="settings_feedback">Kirim masukan</string>
+    <string name="settings_feedback_desc">Termasuk model ponsel dan versi Android Anda</string>
+    <string name="settings_feedback_subject">Masukan Vitals</string>
+    <string name="settings_version">Versi</string>
+</resources>

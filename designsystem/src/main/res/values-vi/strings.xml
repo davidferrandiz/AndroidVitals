@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">Không có trên thiết bị này</string>
+    <string name="ds_why">Tại sao?</string>
+    <string name="ds_state_expanded">Đã mở rộng</string>
+    <string name="ds_state_collapsed">Đã thu gọn</string>
+    <string name="ds_duration_minutes">%1$d phút</string>
+    <string name="ds_duration_hours">%1$d giờ</string>
+    <string name="ds_duration_hours_minutes">%1$d giờ %2$d phút</string>
+    <string name="ds_uptime_days_hours">%1$d ngày %2$d giờ</string>
+</resources>

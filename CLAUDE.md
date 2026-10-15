@@ -1,53 +1,78 @@
 # Vitals — Android System Monitor
 
 ## Descripción
-App de monitorización del sistema (CPU, RAM, threads) con lectura en tiempo real vía Foreground Service, recogida periódica vía WorkManager y comandos remotos vía FCM. Los datos se persisten en Room y se publican a un backend propio mediante Retrofit.
+Monitor del sistema para Android (batería, CPU, temperatura, memoria, red y hardware). Todas las
+lecturas se hacen en el dispositivo. Con la pantalla visible se lee en vivo; con la app cerrada solo
+corre `VitalsWorker` cada ~15 min (historial de batería y avisos, ambos desactivables) y el widget,
+sin servicio en primer plano. El historial nunca sale del móvil. Firebase Analytics y Crashlytics se
+usan para estadísticas anónimas y fallos, y el usuario puede desactivarlos en Ajustes › Privacidad.
+
+Usuarios reales (Analytics, oct 2026): sobre todo móviles de gama baja con MediaTek/Unisoc
+(Moto E14, Redmi 12C, Galaxy A8 con Android 9) en India, Alemania, Irán, Canadá, Argentina, EE. UU.
+e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en Android antiguo.
 
 ## Stack técnico
 
 | Capa | Tecnología |
 |---|---|
-| UI | Jetpack Compose + Material 3 |
+| UI | Jetpack Compose + Material 3, Navigation Compose |
 | DI | Hilt 2.x (KSP) |
-| Base de datos | Room 2.7.x (KSP) |
-| Background | ForegroundService + WorkManager |
-| Red | Retrofit + OkHttp + Moshi |
-| Push | Firebase Cloud Messaging |
-| Observabilidad | Firebase Crashlytics + Analytics |
-| Build | AGP 9.x · Kotlin 2.2.x · Gradle Version Catalog |
+| Persistencia | DataStore (ajustes, estado de avisos) · Room 2.7.x (`battery_samples`, 30 días) |
+| Background | WorkManager (solo `VitalsWorker`: historial, avisos y refresco del widget) |
+| Widget | Glance 1.1 (`:feature:widget`) |
+| Rendimiento | Baseline Profile (`:baselineprofile`, androidx.benchmark 1.5) + ProfileInstaller |
+| Observabilidad | Firebase Crashlytics + Analytics (detrás de `AnalyticsTracker`) |
+| Build | AGP 9.x · Kotlin 2.x · Gradle Version Catalog · R8 en release |
 
 ## Estructura de módulos
 
 ```
-:app              → Entry point: VitalsApplication, MainActivity, NavHost, AppModule
-:core             → Data (Room, Retrofit), Domain (models, repo interfaces, UseCases), Notifications, DI
-:feature:monitor  → VitalsForegroundService, VitalsWorker, VitalsFcmService, MonitorScreen + ViewModel
+:app               → VitalsApplication, MainActivity, navegación (VitalsApp), Firebase (AnalyticsTracker)
+:core              → Dominio (modelos, parsers puros, use cases, interfaces), datos (DataStore, Room, /proc y /sys), DI
+:designsystem      → Tema (claro/oscuro/dinámico, VitalsPalette), iconos vectoriales, componentes, formateadores
+:feature:monitor   → Panel (MonitorScreen + ViewModel), VitalsWorker + VitalsWorkScheduler
+:feature:battery   → Pantalla Batería (en vivo, historial 24 h, salud estimada)
+:feature:hardware  → Pantalla Hardware
+:feature:settings  → Pantalla Ajustes
+:feature:widget    → Widget Glance (implementa WidgetUpdater de :core)
+:baselineprofile   → Generador del Baseline Profile (com.android.test, solo se ejecuta en CI)
 ```
 
 **Regla de dependencias (estricta):**
 ```
-:app  ──►  :feature:monitor  ──►  :core
-:app  ──────────────────────────►  :core
+:app  ──►  :feature:*  ──►  :designsystem  ──►  :core
+:app  ──►  :designsystem, :core          :feature:*  ──►  :core
 ```
-- `:feature:monitor` nunca importa de `:app`
+- `:feature:*` nunca importa de `:app` ni de otra feature
 - `:core` no depende de ningún módulo interno
+- `:designsystem` solo depende de `:core` (enums de ajustes para los formateadores)
 - Añadir nuevas features siempre como `:feature:<nombre>`, nunca en `:app`
 
 ## Arquitectura
 
 - **Clean Architecture**: el dominio (`:core/domain`) es la fuente de verdad; la capa de datos implementa sus interfaces
-- **MVVM**: ViewModel expone `StateFlow`; Compose observa con `collectAsState()`
+- **MVVM**: ViewModel expone `StateFlow` con `stateIn(WhileSubscribed(5_000))`; Compose observa con `collectAsStateWithLifecycle()` (nunca `collectAsState()`: seguiría leyendo /proc en segundo plano)
 - **Single-Activity**: `MainActivity` es el host; cada feature expone un `@Composable` de entrada
 - **Hilt entry points**: `@AndroidEntryPoint` en Activity y Service; `@HiltViewModel` en ViewModels; `@HiltWorker` en Workers
+- **Analítica**: las features inyectan `AnalyticsTracker` (interfaz en `:core`); la implementación Firebase vive en `:app`. Nunca enviar valores de métricas del usuario
 
 ## Convenciones de código
 
 - **Siempre KSP, nunca kapt** — Room y Hilt lo soportan completamente
 - **Hilt scopes**: `SingletonComponent` para app-scoped, `ViewModelComponent` para VM-scoped
 - **WorkManager**: inicialización manual vía `Configuration.Provider` en `VitalsApplication`; usar `@HiltWorker` + `@AssistedInject`
-- **Room**: `exportSchema = false` durante desarrollo; activar y hacer commit del esquema antes de release
+- **Room**: `exportSchema = true` desde la v2; el esquema se genera en `core/schemas` y va en git. Cada cambio de esquema sube la versión y lleva una `Migration` con su test
+- **Segundo plano**: todo pasa por `VitalsWorker`; `VitalsWorkScheduler.needsWorker()` decide si existe según los ajustes. Nada de servicios ni alarmas exactas
+- **Entre features**: si una feature necesita algo de otra (el worker refresca el widget), la interfaz va en `:core` y la implementación se enlaza con Hilt en la feature que la tiene
 - **Corrutinas**: colección de Flow siempre dentro de `viewModelScope` o un dispatcher de background — nunca en Main
-- **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal
+- **Lecturas del sistema**: /proc y /sys pueden estar bloqueados por SELinux según fabricante. Leer con `SysFs` (devuelve null), parsear con funciones puras de `ProcParsers`/`CpuMath`/`BatteryNormalizer` y testearlas con ficheros de ejemplo
+- **Dato no disponible**: nunca una sección vacía ni "No data": usar `UnavailableRow` con el motivo y reportar con `MetricUnavailableReporter`
+- **Nombres de hardware**: códigos de SoC y núcleos en `HardwareNames`; ampliar la tabla con lo que salga en `metric_unavailable`
+- **UI**: colores de categoría con `VitalsTheme.palette`, iconos de `:designsystem` (nada de emojis), números con cifras tabulares, áreas táctiles de 44–48 dp
+- **Textos**: inglés en `values/`, español en `values-es/` y los otros 18 idiomas en `values-<loc>/`. Lint falla si falta una cadena: toda cadena nueva se traduce en el mismo cambio
+- **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal. Nunca invasivas: avisos desactivados por defecto, un canal por tipo, nada de `IMPORTANCE_HIGH` (sin emergentes), silencio de 22:00 a 9:00, cooldown por aviso (`AlertType`) y se quitan solas cuando el problema se resuelve. Las reglas son puras en `AlertRules` y tienen tests
+- **Baseline Profile**: lo genera `.github/workflows/baseline-profile.yml` en un emulador y hace commit en `app/src/release/generated/baselineProfiles/`. Regenerarlo tras cambios grandes de navegación o pantallas (tocar `baselineprofile/` o lanzar el workflow). Los elementos que recorre el generador llevan `testTag` (`nav_panel`, `nav_battery`, `nav_hardware`)
+- **Firebase fuera de release**: debug, `nonMinifiedRelease` y `benchmarkRelease` no recogen nada (placeholder `firebaseCollectionOff` en el Manifest y `BuildConfig.BUILD_TYPE`)
 - **`google-services.json`**: solo en `app/` — nunca en submódulos, nunca en git
 
 ## Ubicaciones clave
@@ -55,14 +80,16 @@ App de monitorización del sistema (CPU, RAM, threads) con lectura en tiempo rea
 | Artefacto | Ruta |
 |---|---|
 | Application class | `app/.../VitalsApplication.kt` |
-| Hilt app module | `app/.../di/AppModule.kt` |
-| Room DB + DAOs | `core/.../data/db/` |
+| Navegación | `app/.../navigation/VitalsApp.kt` |
+| Analítica (Firebase) | `app/.../analytics/FirebaseAnalyticsTracker.kt` |
 | Contratos de dominio | `core/.../domain/` |
-| Hilt modules (core) | `core/.../di/` |
-| Foreground Service | `feature/monitor/.../service/VitalsForegroundService.kt` |
-| WorkManager Worker | `feature/monitor/.../worker/VitalsWorker.kt` |
-| FCM Service | `feature/monitor/.../fcm/VitalsFcmService.kt` |
-| UI principal | `feature/monitor/.../ui/MonitorScreen.kt` |
+| Parsers puros + tests | `core/.../domain/parser`, `cpu`, `battery`, `hardware` · `core/src/test` |
+| Use cases | `core/.../domain/usecase/` |
+| Ajustes (DataStore) | `core/.../data/repository/SettingsRepositoryImpl.kt` |
+| Tema y componentes | `designsystem/.../theme`, `component`, `format` |
+| Panel | `feature/monitor/.../ui/MonitorScreen.kt` |
+| Batería / Hardware / Ajustes | `feature/battery`, `feature/hardware`, `feature/settings` |
+| Ficha y Data safety | `docs/play-store.md` · `docs/privacy-policy.html` |
 
 ## Notas de versiones
 

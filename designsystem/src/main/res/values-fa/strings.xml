@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">در این دستگاه در دسترس نیست</string>
+    <string name="ds_why">چرا؟</string>
+    <string name="ds_state_expanded">باز</string>
+    <string name="ds_state_collapsed">بسته</string>
+    <string name="ds_duration_minutes">%1$d دقیقه</string>
+    <string name="ds_duration_hours">%1$d ساعت</string>
+    <string name="ds_duration_hours_minutes">%1$d ساعت و %2$d دقیقه</string>
+    <string name="ds_uptime_days_hours">%1$d روز و %2$d ساعت</string>
+</resources>

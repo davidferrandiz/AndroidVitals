@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">İzleme</string>
-    <string name="notif_channel_monitor_desc">Sürekli sistem izleme</string>
-    <string name="notif_channel_alerts_name">Uyarılar</string>
-    <string name="notif_channel_alerts_desc">CPU ve RAM için eşik uyarıları</string>
+    <string name="notif_channel_battery_name">Pil sıcaklığı</string>
+    <string name="notif_channel_battery_desc">Pil fazla sıcak kalmaya devam ettiğinde. Günde en fazla iki kez, gece sessiz.</string>
+    <string name="notif_channel_storage_name">Depolama alanı</string>
+    <string name="notif_channel_storage_desc">Depolama neredeyse dolduğunda sessiz bildirim. Haftada en fazla bir kez.</string>
 
 </resources>

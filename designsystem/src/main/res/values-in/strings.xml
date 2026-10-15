@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">Tidak tersedia di perangkat ini</string>
+    <string name="ds_why">Kenapa?</string>
+    <string name="ds_state_expanded">Dibuka</string>
+    <string name="ds_state_collapsed">Ditutup</string>
+    <string name="ds_duration_minutes">%1$d mnt</string>
+    <string name="ds_duration_hours">%1$d jam</string>
+    <string name="ds_duration_hours_minutes">%1$d jam %2$d mnt</string>
+    <string name="ds_uptime_days_hours">%1$d hr %2$d jam</string>
+</resources>

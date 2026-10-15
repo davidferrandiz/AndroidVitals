@@ -1,44 +1,48 @@
 package com.ferryapps.vitals.core.domain.usecase
 
+import android.app.ActivityManager
+import android.content.Context
+import com.ferryapps.vitals.core.data.sysfs.SysFs
 import com.ferryapps.vitals.core.domain.model.MemoryInfo
+import com.ferryapps.vitals.core.domain.parser.ProcParsers
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import java.io.File
 import javax.inject.Inject
 
-class GetMemoryUseCase @Inject constructor() {
+class GetMemoryUseCase @Inject constructor(
+    @ApplicationContext context: Context
+) {
+    private val activityManager: ActivityManager? = context.getSystemService(ActivityManager::class.java)
 
     operator fun invoke(): Flow<MemoryInfo> = flow {
         while (true) {
-            emit(readMemInfo())
+            emit(current())
             delay(1_000)
         }
     }.flowOn(Dispatchers.IO)
 
-    private fun readMemInfo(): MemoryInfo {
-        val values = mutableMapOf<String, Long>()
-        File("/proc/meminfo").useLines { lines ->
-            for (line in lines) {
-                val colon = line.indexOf(':')
-                if (colon == -1) continue
-                val key = line.substring(0, colon).trim()
-                if (key != "MemTotal" && key != "MemAvailable") continue
-                // Rest of the line is like "  8048964 kB"; grab the numeric token
-                values[key] = line.substring(colon + 1).trim().split(' ')[0].toLongOrNull() ?: 0L
-                if (values.size == 2) break
-            }
-        }
-        val total = values["MemTotal"] ?: 0L
-        val available = values["MemAvailable"] ?: 0L
+    /** Una lectura suelta (widget). */
+    fun current(): MemoryInfo {
+        val values = SysFs.read("/proc/meminfo")?.let(ProcParsers::parseMemInfo).orEmpty()
+        val system = ActivityManager.MemoryInfo().also { activityManager?.getMemoryInfo(it) }
+
+        val total = values["MemTotal"] ?: (system.totalMem / 1024)
+        val available = values["MemAvailable"] ?: (system.availMem / 1024)
         val used = (total - available).coerceAtLeast(0L)
         return MemoryInfo(
             totalKb = total,
             availableKb = available,
             usedKb = used,
-            usedPercent = if (total > 0) used.toFloat() / total * 100f else 0f
+            usedPercent = if (total > 0) used.toFloat() / total * 100f else 0f,
+            lowMemory = system.lowMemory,
+            thresholdKb = system.threshold / 1024,
+            swapTotalKb = values["SwapTotal"] ?: 0L,
+            swapFreeKb = values["SwapFree"] ?: 0L,
+            cachedKb = values["Cached"] ?: 0L,
         )
     }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">Bảng</string>
+    <string name="nav_battery">Pin</string>
+    <string name="nav_hardware">Phần cứng</string>
+</resources>

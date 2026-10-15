@@ -1,0 +1,94 @@
+name: Baseline Profile
+
+# Genera el Baseline Profile en un emulador y hace commit del resultado en la misma rama.
+# Se lanza solo cuando cambia el generador; para regenerarlo tras cambios grandes de UI,
+# "Run workflow" en GitHub (cuando este fichero esté en main) o tocar baselineprofile/.
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+      - release
+    paths:
+      - 'baselineprofile/**'
+      - '.github/workflows/baseline-profile.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: baseline-profile-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: gradle-
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Generate Baseline Profile
+        run: |
+          chmod +x gradlew
+          set -o pipefail
+          ./gradlew :app:generateReleaseBaselineProfile --stacktrace \
+            -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect \
+            -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile \
+            2>&1 | tee gradle-output.txt
+
+      # Deja el motivo del fallo como anotación, que se puede leer por la API sin descargar logs.
+      - name: Report failure
+        if: failure()
+        run: |
+          { grep -n -A25 'What went wrong' gradle-output.txt; grep -n -B2 -A8 -E '^e: |FAILED|Exception:|error:' gradle-output.txt | head -80; } \
+            | head -150 | sed 's/%/%25/g' | awk 'BEGIN{ORS="%0A"} {print}' > failure.txt || true
+          echo "::error title=Baseline Profile::$(cat failure.txt)"
+
+      - name: Show result
+        run: |
+          find app/src -path '*generated/baselineProfiles*' -type f -exec wc -l {} \;
+
+      - name: Commit profile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/src/*/generated/baselineProfiles
+          if git diff --cached --quiet; then
+            echo "Sin cambios en el perfil"
+          else
+            git commit -m "chore: Baseline Profile generado en CI"
+            git push
+          fi
+
+      - name: Upload reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baseline-profile-reports
+          path: |
+            **/build/reports/**
+            **/build/outputs/androidTest-results/**
+          if-no-files-found: ignore

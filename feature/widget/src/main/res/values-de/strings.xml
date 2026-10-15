@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · Akku und System</string>
+    <string name="widget_description">Akkustand und -temperatur; breiter auch RAM und freier Speicher.</string>
+    <string name="widget_battery">Akku</string>
+    <string name="widget_charging">Lädt</string>
+    <string name="widget_full">Voll</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s frei</string>
+    <string name="widget_updated">Stand %1$s</string>
+</resources>

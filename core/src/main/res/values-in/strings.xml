@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Pemantauan</string>
-    <string name="notif_channel_monitor_desc">Pemantauan sistem berkelanjutan</string>
-    <string name="notif_channel_alerts_name">Peringatan</string>
-    <string name="notif_channel_alerts_desc">Peringatan ambang batas untuk CPU dan RAM</string>
+    <string name="notif_channel_battery_name">Suhu baterai</string>
+    <string name="notif_channel_battery_desc">Saat baterai tetap terlalu panas. Paling banyak dua kali sehari, tanpa suara di malam hari.</string>
+    <string name="notif_channel_storage_name">Ruang penyimpanan</string>
+    <string name="notif_channel_storage_desc">Pemberitahuan tanpa suara saat penyimpanan hampir penuh. Paling banyak seminggu sekali.</string>
 
 </resources>

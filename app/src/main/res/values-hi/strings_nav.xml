@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">पैनल</string>
+    <string name="nav_battery">बैटरी</string>
+    <string name="nav_hardware">हार्डवेयर</string>
+</resources>

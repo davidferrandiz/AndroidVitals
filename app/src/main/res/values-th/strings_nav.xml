@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">แผงหลัก</string>
+    <string name="nav_battery">แบตเตอรี่</string>
+    <string name="nav_hardware">ฮาร์ดแวร์</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">Недоступно на этом устройстве</string>
+    <string name="ds_why">Почему?</string>
+    <string name="ds_state_expanded">Развёрнуто</string>
+    <string name="ds_state_collapsed">Свёрнуто</string>
+    <string name="ds_duration_minutes">%1$d мин</string>
+    <string name="ds_duration_hours">%1$d ч</string>
+    <string name="ds_duration_hours_minutes">%1$d ч %2$d мин</string>
+    <string name="ds_uptime_days_hours">%1$d д %2$d ч</string>
+</resources>

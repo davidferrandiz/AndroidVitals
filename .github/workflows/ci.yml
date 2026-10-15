@@ -48,3 +48,18 @@ jobs:
         with:
           name: test-results
           path: '**/build/test-results/**/*.xml'
+
+      # Si cambia el esquema de Room y no se ha hecho commit de core/schemas, se ve aquí.
+      - name: Room schema up to date
+        run: |
+          git status --porcelain core/schemas
+          # Imprime el esquema nuevo para poder copiarlo desde el log si hace falta.
+          git ls-files --others --modified core/schemas | while read -r f; do echo "::group::$f"; cat "$f"; echo "::endgroup::"; done
+          test -z "$(git status --porcelain core/schemas)" || echo "::warning::core/schemas cambió: haz commit del esquema exportado"
+
+      - name: Upload Room schema
+        uses: actions/upload-artifact@v4
+        with:
+          name: room-schema
+          path: core/schemas
+          if-no-files-found: ignore

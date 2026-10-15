@@ -56,7 +56,7 @@
 
   <span class="badge">VITALS</span>
   <h1>Política de Privacidad</h1>
-  <p class="subtitle">Última actualización: junio de 2025</p>
+  <p class="subtitle">Última actualización: octubre de 2026</p>
 
   <div class="card">
     <p>
@@ -66,43 +66,51 @@
   </div>
 
   <h2>1. Información que recopilamos</h2>
-  <p>Vitals <strong style="color:#fff">no recopila ni transmite información personal</strong> del usuario.
-     Toda la lectura de métricas del sistema (CPU, RAM, batería, red, almacenamiento, procesos)
-     se realiza localmente en el dispositivo y no se envía a ningún servidor externo.</p>
-
-  <p>Los únicos datos que pueden salir del dispositivo son los generados por los servicios de terceros
-     descritos en la sección 3, y únicamente con fines de diagnóstico técnico.</p>
+  <p>Todas las métricas del sistema (CPU, RAM, batería, red, almacenamiento, sensores, temperaturas)
+     se leen y se muestran <strong style="color:#fff">solo en tu dispositivo</strong>. Vitals no envía
+     tus lecturas, tus apps instaladas ni datos personales a ningún servidor.</p>
+  <p>Para mejorar la app, Vitals usa Firebase (sección 3), que puede enviar:</p>
+  <ul>
+    <li><strong>Estadísticas de uso anónimas</strong>: qué pantallas se abren, qué tarjetas se despliegan,
+        qué datos no están disponibles en tu modelo, modelo de dispositivo, versión de Android,
+        país aproximado e identificador de instalación de la app.</li>
+    <li><strong>Informes de fallos</strong>: información técnica del error (traza, versión de Android,
+        modelo de dispositivo).</li>
+  </ul>
+  <p>Puedes desactivar ambos en cualquier momento en <strong style="color:#fff">Ajustes › Privacidad</strong>
+     dentro de la app.</p>
 
   <h2>2. Permisos utilizados</h2>
   <ul>
-    <li><strong>POST_NOTIFICATIONS</strong> — para mostrar notificaciones locales en Android 13+.</li>
-    <li><strong>INTERNET</strong> — requerido por Firebase para el envío de informes de fallos.</li>
+    <li><strong>INTERNET</strong> — para que Firebase envíe estadísticas e informes de fallos.</li>
+    <li><strong>ACCESS_NETWORK_STATE</strong> y <strong>ACCESS_WIFI_STATE</strong> — para mostrar el tipo
+        de conexión, la banda y la señal del Wi-Fi. No se lee el nombre de la red ni la ubicación.</li>
+    <li><strong>POST_NOTIFICATIONS</strong> — solo si activas los avisos (batería demasiado caliente,
+        almacenamiento casi lleno). Son notificaciones locales: no pasan por ningún servidor.</li>
   </ul>
-  <p>La app no solicita acceso a contactos, cámara, micrófono, ubicación ni almacenamiento del usuario.</p>
+  <p>La app no solicita acceso a contactos, cámara, micrófono, ubicación ni a tus archivos.</p>
 
   <h2>3. Servicios de terceros</h2>
-  <p>Vitals utiliza los siguientes servicios de Google:</p>
   <ul>
     <li>
-      <strong>Firebase Crashlytics</strong> — recopila automáticamente informes de fallos cuando
-      la app se cierra de forma inesperada. Estos informes incluyen información técnica del error
-      (stack trace, versión de Android, modelo de dispositivo) pero no identifican al usuario.
-      <br>
-      <a href="https://firebase.google.com/support/privacy" target="_blank">Política de privacidad de Firebase →</a>
-    </li>
-    <li>
-      <strong>Firebase Analytics</strong> — recopila métricas de uso anónimas y agregadas.
-      No incluye información personal identificable.
+      <strong>Firebase Analytics</strong> (Google) — estadísticas de uso anónimas descritas en la sección 1.
       <br>
       <a href="https://policies.google.com/privacy" target="_blank">Política de privacidad de Google →</a>
     </li>
+    <li>
+      <strong>Firebase Crashlytics</strong> (Google) — informes de fallos descritos en la sección 1.
+      <br>
+      <a href="https://firebase.google.com/support/privacy" target="_blank">Privacidad de Firebase →</a>
+    </li>
   </ul>
-  <p>Puedes desactivar la recopilación de datos de Firebase en los ajustes de tu dispositivo
-     mediante las opciones de personalización de anuncios de Google.</p>
 
   <h2>4. Almacenamiento de datos</h2>
-  <p>Las métricas del sistema se almacenan localmente en el dispositivo mediante una base de datos
-     interna (Room/SQLite). Estos datos no abandonan el dispositivo y se eliminan al desinstalar la app.</p>
+  <p>Tus ajustes (unidad de temperatura, tema, privacidad) se guardan solo en el dispositivo y se
+     eliminan al desinstalar la app.</p>
+  <p>Si el <strong style="color:#fff">historial de batería</strong> está activado (Ajustes › Con la app
+     cerrada), Vitals guarda cada 15 minutos el nivel, el estado de carga, la temperatura, el voltaje y
+     el contador de carga de la batería para dibujar la gráfica y estimar su salud. Se guardan los
+     últimos 30 días, solo en el dispositivo, y nunca se envían. Desactivar el ajuste los borra.</p>
 
   <h2>5. Menores de edad</h2>
   <p>Vitals no está dirigida a menores de 13 años ni recopila conscientemente información de ellos.</p>
@@ -115,7 +123,7 @@
   <p><a href="mailto:ferry.applications@gmail.com">ferry.applications@gmail.com</a></p>
 
   <footer>
-    © 2025 Vitals · Todos los derechos reservados
+    © 2026 Vitals · Todos los derechos reservados
   </footer>
 
 </div>
