@@ -53,9 +53,19 @@ jobs:
       - name: Generate Baseline Profile
         run: |
           chmod +x gradlew
-          ./gradlew :app:generateReleaseBaselineProfile \
+          set -o pipefail
+          ./gradlew :app:generateReleaseBaselineProfile --stacktrace \
             -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect \
-            -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+            -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile \
+            2>&1 | tee gradle-output.txt
+
+      # Deja el motivo del fallo como anotación, que se puede leer por la API sin descargar logs.
+      - name: Report failure
+        if: failure()
+        run: |
+          { grep -n -A25 'What went wrong' gradle-output.txt; grep -n -B2 -A8 -E '^e: |FAILED|Exception:|error:' gradle-output.txt | head -80; } \
+            | head -150 | sed 's/%/%25/g' | awk 'BEGIN{ORS="%0A"} {print}' > failure.txt || true
+          echo "::error title=Baseline Profile::$(cat failure.txt)"
 
       - name: Show result
         run: |
