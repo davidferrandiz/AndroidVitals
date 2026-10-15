@@ -13,9 +13,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -45,6 +49,7 @@ private enum class TopLevel(val route: String, @StringRes val label: Int, @Drawa
     HARDWARE(Routes.HARDWARE, R.string.nav_hardware, DsR.drawable.ic_phone),
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun VitalsApp(analytics: AnalyticsTracker) {
     val navController = rememberNavController()
@@ -61,6 +66,8 @@ fun VitalsApp(analytics: AnalyticsTracker) {
     }
 
     Scaffold(
+        // Los testTag se ven como resource-id: el generador de Baseline Profile navega con ellos.
+        modifier = Modifier.semantics { testTagsAsResourceId = true },
         containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             if (showBottomBar) {
@@ -69,6 +76,7 @@ fun VitalsApp(analytics: AnalyticsTracker) {
                         val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
                         NavigationBarItem(
                             selected = selected,
+                            modifier = Modifier.testTag("nav_${item.route}"),
                             onClick = { navController.navigateTopLevel(item.route) },
                             icon = { Icon(painterResource(item.icon), contentDescription = null, modifier = Modifier.size(22.dp)) },
                             label = { Text(stringResource(item.label)) },
