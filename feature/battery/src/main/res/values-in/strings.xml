@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Baterai</string>
+    <string name="battery_full_in">Penuh dalam %1$s</string>
+    <string name="battery_remaining">Sekitar %1$s lagi dengan pemakaian ini</string>
+    <string name="battery_power_history">Daya · 5 menit terakhir</string>
+    <string name="battery_current_title">Arus dan daya</string>
+    <string name="battery_current_reason">Ponsel Anda tidak memberikan arus baterai ke aplikasi. Level, tegangan, suhu, dan kesehatan tetap ditampilkan.</string>
+    <string name="battery_current">Arus</string>
+    <string name="battery_current_avg">rata-rata %1$s</string>
+    <string name="battery_voltage">Tegangan</string>
+    <string name="battery_temperature">Suhu</string>
+    <string name="battery_temp_normal">Normal</string>
+    <string name="battery_temp_warm">Hangat</string>
+    <string name="battery_temp_hot">Panas · biarkan dingin dulu</string>
+    <string name="battery_charge_counter">Sisa</string>
+    <string name="battery_cycles">Siklus pengisian</string>
+    <string name="battery_cycles_source">dilaporkan sistem</string>
+    <string name="battery_cycles_needs_14">Android melaporkannya mulai versi 14</string>
+    <string name="battery_cycles_not_reported">produsen Anda tidak melaporkannya</string>
+    <string name="battery_health">Kesehatan (sistem)</string>
+    <string name="battery_health_source">dilaporkan sistem</string>
+    <string name="battery_charger">Pengisi daya</string>
+    <string name="battery_charger_type">Jenis</string>
+    <string name="battery_status">Status</string>
+    <string name="battery_plug_ac">Charger dinding</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Nirkabel</string>
+    <string name="battery_plug_dock">Dok</string>
+    <string name="battery_plug_none">Tidak terhubung</string>
+    <string name="battery_status_charging">Mengisi</string>
+    <string name="battery_status_discharging">Mengosongkan</string>
+    <string name="battery_status_full">Penuh</string>
+    <string name="battery_status_not_charging">Tidak mengisi daya</string>
+    <string name="battery_status_unknown">Tidak diketahui</string>
+    <string name="battery_health_good">Baik</string>
+    <string name="battery_health_overheat">Terlalu panas</string>
+    <string name="battery_health_dead">Rusak</string>
+    <string name="battery_health_over_voltage">Tegangan berlebih</string>
+    <string name="battery_health_cold">Dingin</string>
+    <string name="battery_health_unknown">Tidak diketahui</string>
+</resources>

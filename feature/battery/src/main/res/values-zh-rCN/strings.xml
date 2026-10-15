@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">电池</string>
+    <string name="battery_full_in">%1$s 后充满</string>
+    <string name="battery_remaining">按当前用量约剩 %1$s</string>
+    <string name="battery_power_history">功率 · 最近 5 分钟</string>
+    <string name="battery_current_title">电流和功率</string>
+    <string name="battery_current_reason">您的手机不向应用提供电池电流。电量、电压、温度和健康状况仍会显示。</string>
+    <string name="battery_current">电流</string>
+    <string name="battery_current_avg">平均 %1$s</string>
+    <string name="battery_voltage">电压</string>
+    <string name="battery_temperature">温度</string>
+    <string name="battery_temp_normal">正常</string>
+    <string name="battery_temp_warm">温热</string>
+    <string name="battery_temp_hot">过热 · 请让它降温</string>
+    <string name="battery_charge_counter">剩余</string>
+    <string name="battery_cycles">充电循环</string>
+    <string name="battery_cycles_source">系统报告</string>
+    <string name="battery_cycles_needs_14">Android 14 起提供</string>
+    <string name="battery_cycles_not_reported">厂商未提供</string>
+    <string name="battery_health">健康 (系统)</string>
+    <string name="battery_health_source">系统报告</string>
+    <string name="battery_charger">充电器</string>
+    <string name="battery_charger_type">类型</string>
+    <string name="battery_status">状态</string>
+    <string name="battery_plug_ac">壁式充电器</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">无线</string>
+    <string name="battery_plug_dock">底座</string>
+    <string name="battery_plug_none">未连接</string>
+    <string name="battery_status_charging">充电中</string>
+    <string name="battery_status_discharging">放电中</string>
+    <string name="battery_status_full">已充满</string>
+    <string name="battery_status_not_charging">未充电</string>
+    <string name="battery_status_unknown">未知</string>
+    <string name="battery_health_good">良好</string>
+    <string name="battery_health_overheat">过热</string>
+    <string name="battery_health_dead">已损坏</string>
+    <string name="battery_health_over_voltage">电压过高</string>
+    <string name="battery_health_cold">过冷</string>
+    <string name="battery_health_unknown">未知</string>
+</resources>

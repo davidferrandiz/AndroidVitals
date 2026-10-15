@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Батарея</string>
+    <string name="battery_full_in">Полная через %1$s</string>
+    <string name="battery_remaining">Осталось около %1$s при таком использовании</string>
+    <string name="battery_power_history">Мощность · последние 5 минут</string>
+    <string name="battery_current_title">Ток и мощность</string>
+    <string name="battery_current_reason">Ваш телефон не передаёт приложениям ток батареи. Уровень заряда, напряжение, температура и состояние по-прежнему показываются.</string>
+    <string name="battery_current">Ток</string>
+    <string name="battery_current_avg">в среднем %1$s</string>
+    <string name="battery_voltage">Напряжение</string>
+    <string name="battery_temperature">Температура</string>
+    <string name="battery_temp_normal">Нормальная</string>
+    <string name="battery_temp_warm">Тёплая</string>
+    <string name="battery_temp_hot">Горячая · дайте остыть</string>
+    <string name="battery_charge_counter">Осталось</string>
+    <string name="battery_cycles">Циклы зарядки</string>
+    <string name="battery_cycles_source">по данным системы</string>
+    <string name="battery_cycles_needs_14">Android сообщает их начиная с версии 14</string>
+    <string name="battery_cycles_not_reported">производитель их не сообщает</string>
+    <string name="battery_health">Состояние (система)</string>
+    <string name="battery_health_source">по данным системы</string>
+    <string name="battery_charger">Зарядка</string>
+    <string name="battery_charger_type">Тип</string>
+    <string name="battery_status">Статус</string>
+    <string name="battery_plug_ac">Сетевое ЗУ</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Беспроводная</string>
+    <string name="battery_plug_dock">Док-станция</string>
+    <string name="battery_plug_none">Не подключено</string>
+    <string name="battery_status_charging">Заряжается</string>
+    <string name="battery_status_discharging">Разряжается</string>
+    <string name="battery_status_full">Заряжена</string>
+    <string name="battery_status_not_charging">Не заряжается</string>
+    <string name="battery_status_unknown">Неизвестно</string>
+    <string name="battery_health_good">Хорошее</string>
+    <string name="battery_health_overheat">Перегрев</string>
+    <string name="battery_health_dead">Неисправна</string>
+    <string name="battery_health_over_voltage">Перенапряжение</string>
+    <string name="battery_health_cold">Холодная</string>
+    <string name="battery_health_unknown">Неизвестно</string>
+</resources>

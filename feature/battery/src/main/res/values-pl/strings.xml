@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Bateria</string>
+    <string name="battery_full_in">Pełna za %1$s</string>
+    <string name="battery_remaining">Zostało ok. %1$s przy takim użyciu</string>
+    <string name="battery_power_history">Moc · ostatnie 5 minut</string>
+    <string name="battery_current_title">Prąd i moc</string>
+    <string name="battery_current_reason">Twój telefon nie udostępnia aplikacjom prądu baterii. Poziom, napięcie, temperatura i kondycja są nadal widoczne.</string>
+    <string name="battery_current">Prąd</string>
+    <string name="battery_current_avg">średnio %1$s</string>
+    <string name="battery_voltage">Napięcie</string>
+    <string name="battery_temperature">Temperatura</string>
+    <string name="battery_temp_normal">Normalna</string>
+    <string name="battery_temp_warm">Ciepła</string>
+    <string name="battery_temp_hot">Gorąca · pozwól jej ostygnąć</string>
+    <string name="battery_charge_counter">Pozostało</string>
+    <string name="battery_cycles">Cykle ładowania</string>
+    <string name="battery_cycles_source">wg systemu</string>
+    <string name="battery_cycles_needs_14">Android podaje je od wersji 14</string>
+    <string name="battery_cycles_not_reported">producent ich nie podaje</string>
+    <string name="battery_health">Kondycja (system)</string>
+    <string name="battery_health_source">wg systemu</string>
+    <string name="battery_charger">Ładowarka</string>
+    <string name="battery_charger_type">Typ</string>
+    <string name="battery_status">Stan</string>
+    <string name="battery_plug_ac">Ładowarka sieciowa</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Bezprzewodowa</string>
+    <string name="battery_plug_dock">Stacja dokująca</string>
+    <string name="battery_plug_none">Niepodłączona</string>
+    <string name="battery_status_charging">Ładowanie</string>
+    <string name="battery_status_discharging">Rozładowywanie</string>
+    <string name="battery_status_full">Pełna</string>
+    <string name="battery_status_not_charging">Nie ładuje</string>
+    <string name="battery_status_unknown">Nieznany</string>
+    <string name="battery_health_good">Dobra</string>
+    <string name="battery_health_overheat">Przegrzana</string>
+    <string name="battery_health_dead">Zużyta</string>
+    <string name="battery_health_over_voltage">Przepięcie</string>
+    <string name="battery_health_cold">Zimna</string>
+    <string name="battery_health_unknown">Nieznana</string>
+</resources>

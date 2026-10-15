@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Pin</string>
+    <string name="battery_full_in">Đầy sau %1$s</string>
+    <string name="battery_remaining">Còn khoảng %1$s với mức dùng này</string>
+    <string name="battery_power_history">Công suất · 5 phút qua</string>
+    <string name="battery_current_title">Dòng điện và công suất</string>
+    <string name="battery_current_reason">Điện thoại của bạn không cung cấp dòng điện pin cho ứng dụng. Mức pin, điện áp, nhiệt độ và tình trạng vẫn được hiển thị.</string>
+    <string name="battery_current">Dòng điện</string>
+    <string name="battery_current_avg">trung bình %1$s</string>
+    <string name="battery_voltage">Điện áp</string>
+    <string name="battery_temperature">Nhiệt độ</string>
+    <string name="battery_temp_normal">Bình thường</string>
+    <string name="battery_temp_warm">Ấm</string>
+    <string name="battery_temp_hot">Nóng · hãy để nguội</string>
+    <string name="battery_charge_counter">Còn lại</string>
+    <string name="battery_cycles">Chu kỳ sạc</string>
+    <string name="battery_cycles_source">do hệ thống báo</string>
+    <string name="battery_cycles_needs_14">Android báo từ phiên bản 14</string>
+    <string name="battery_cycles_not_reported">nhà sản xuất không báo</string>
+    <string name="battery_health">Tình trạng (hệ thống)</string>
+    <string name="battery_health_source">do hệ thống báo</string>
+    <string name="battery_charger">Bộ sạc</string>
+    <string name="battery_charger_type">Loại</string>
+    <string name="battery_status">Trạng thái</string>
+    <string name="battery_plug_ac">Sạc cắm tường</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Không dây</string>
+    <string name="battery_plug_dock">Đế sạc</string>
+    <string name="battery_plug_none">Chưa kết nối</string>
+    <string name="battery_status_charging">Đang sạc</string>
+    <string name="battery_status_discharging">Đang xả</string>
+    <string name="battery_status_full">Đầy</string>
+    <string name="battery_status_not_charging">Không sạc</string>
+    <string name="battery_status_unknown">Không rõ</string>
+    <string name="battery_health_good">Tốt</string>
+    <string name="battery_health_overheat">Quá nóng</string>
+    <string name="battery_health_dead">Hỏng</string>
+    <string name="battery_health_over_voltage">Quá áp</string>
+    <string name="battery_health_cold">Lạnh</string>
+    <string name="battery_health_unknown">Không rõ</string>
+</resources>

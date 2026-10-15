@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">Niedostępne na tym urządzeniu</string>
+    <string name="ds_why">Dlaczego?</string>
+    <string name="ds_state_expanded">Rozwinięte</string>
+    <string name="ds_state_collapsed">Zwinięte</string>
+    <string name="ds_duration_minutes">%1$d min</string>
+    <string name="ds_duration_hours">%1$d godz.</string>
+    <string name="ds_duration_hours_minutes">%1$d godz. %2$d min</string>
+    <string name="ds_uptime_days_hours">%1$d d. %2$d godz.</string>
+</resources>

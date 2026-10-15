@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources>
     <string name="nav_panel">Panel</string>
     <string name="nav_battery">Battery</string>
     <string name="nav_hardware">Hardware</string>

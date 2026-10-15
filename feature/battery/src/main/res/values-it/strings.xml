@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Batteria</string>
+    <string name="battery_full_in">Piena tra %1$s</string>
+    <string name="battery_remaining">Circa %1$s rimanenti con questo utilizzo</string>
+    <string name="battery_power_history">Potenza · ultimi 5 minuti</string>
+    <string name="battery_current_title">Corrente e potenza</string>
+    <string name="battery_current_reason">Il tuo telefono non comunica la corrente della batteria alle app. Livello, tensione, temperatura e stato restano visibili.</string>
+    <string name="battery_current">Corrente</string>
+    <string name="battery_current_avg">media %1$s</string>
+    <string name="battery_voltage">Tensione</string>
+    <string name="battery_temperature">Temperatura</string>
+    <string name="battery_temp_normal">Normale</string>
+    <string name="battery_temp_warm">Tiepida</string>
+    <string name="battery_temp_hot">Calda · lasciala raffreddare</string>
+    <string name="battery_charge_counter">Rimanente</string>
+    <string name="battery_cycles">Cicli di carica</string>
+    <string name="battery_cycles_source">indicato dal sistema</string>
+    <string name="battery_cycles_needs_14">Android lo indica dalla versione 14</string>
+    <string name="battery_cycles_not_reported">il produttore non lo indica</string>
+    <string name="battery_health">Stato (sistema)</string>
+    <string name="battery_health_source">indicato dal sistema</string>
+    <string name="battery_charger">Caricabatterie</string>
+    <string name="battery_charger_type">Tipo</string>
+    <string name="battery_status">Stato</string>
+    <string name="battery_plug_ac">Caricatore da parete</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Wireless</string>
+    <string name="battery_plug_dock">Dock</string>
+    <string name="battery_plug_none">Non collegato</string>
+    <string name="battery_status_charging">In carica</string>
+    <string name="battery_status_discharging">In scarica</string>
+    <string name="battery_status_full">Piena</string>
+    <string name="battery_status_not_charging">Non in carica</string>
+    <string name="battery_status_unknown">Sconosciuto</string>
+    <string name="battery_health_good">Buono</string>
+    <string name="battery_health_overheat">Surriscaldata</string>
+    <string name="battery_health_dead">Esaurita</string>
+    <string name="battery_health_over_voltage">Sovratensione</string>
+    <string name="battery_health_cold">Fredda</string>
+    <string name="battery_health_unknown">Sconosciuto</string>
+</resources>

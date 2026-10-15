@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">البطارية</string>
+    <string name="battery_full_in">تكتمل خلال %1$s</string>
+    <string name="battery_remaining">يتبقى حوالي %1$s بهذا الاستخدام</string>
+    <string name="battery_power_history">القدرة · آخر 5 دقائق</string>
+    <string name="battery_current_title">التيار والقدرة</string>
+    <string name="battery_current_reason">هاتفك لا يُبلغ التطبيقات بتيار البطارية. لا يزال المستوى والجهد والحرارة والحالة معروضة.</string>
+    <string name="battery_current">التيار</string>
+    <string name="battery_current_avg">المتوسط %1$s</string>
+    <string name="battery_voltage">الجهد</string>
+    <string name="battery_temperature">الحرارة</string>
+    <string name="battery_temp_normal">طبيعية</string>
+    <string name="battery_temp_warm">دافئة</string>
+    <string name="battery_temp_hot">ساخنة · اتركها تبرد</string>
+    <string name="battery_charge_counter">المتبقي</string>
+    <string name="battery_cycles">دورات الشحن</string>
+    <string name="battery_cycles_source">حسب النظام</string>
+    <string name="battery_cycles_needs_14">يُبلغ عنها Android بدءًا من الإصدار 14</string>
+    <string name="battery_cycles_not_reported">الشركة المصنّعة لا تُبلغ عنها</string>
+    <string name="battery_health">الحالة (النظام)</string>
+    <string name="battery_health_source">حسب النظام</string>
+    <string name="battery_charger">الشاحن</string>
+    <string name="battery_charger_type">النوع</string>
+    <string name="battery_status">الوضع</string>
+    <string name="battery_plug_ac">شاحن جداري</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">لاسلكي</string>
+    <string name="battery_plug_dock">قاعدة</string>
+    <string name="battery_plug_none">غير متصل</string>
+    <string name="battery_status_charging">يشحن</string>
+    <string name="battery_status_discharging">يفرغ</string>
+    <string name="battery_status_full">ممتلئة</string>
+    <string name="battery_status_not_charging">لا يشحن</string>
+    <string name="battery_status_unknown">غير معروف</string>
+    <string name="battery_health_good">جيدة</string>
+    <string name="battery_health_overheat">ارتفاع الحرارة</string>
+    <string name="battery_health_dead">تالفة</string>
+    <string name="battery_health_over_voltage">جهد زائد</string>
+    <string name="battery_health_cold">باردة</string>
+    <string name="battery_health_unknown">غير معروفة</string>
+</resources>

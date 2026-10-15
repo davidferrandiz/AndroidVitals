@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">설정</string>
+    <string name="settings_back">뒤로</string>
+    <string name="settings_section_view">보기</string>
+    <string name="settings_temperature">온도</string>
+    <string name="settings_auto">자동</string>
+    <string name="settings_temperature_auto_hint">자동은 미국에서는 °F, 그 외 지역에서는 °C를 사용합니다.</string>
+    <string name="settings_theme">테마</string>
+    <string name="settings_theme_dark">어둡게</string>
+    <string name="settings_theme_light">밝게</string>
+    <string name="settings_theme_system">시스템</string>
+    <string name="settings_dynamic_color">다이내믹 컬러</string>
+    <string name="settings_dynamic_color_desc">배경화면 색상 사용</string>
+    <string name="settings_expand_cards">시작 시 카드 열기</string>
+    <string name="settings_expand_cards_desc">탭하지 않아도 코어, 온도, 세부 내역 표시</string>
+    <string name="settings_section_privacy">개인정보</string>
+    <string name="settings_analytics">익명 사용 통계</string>
+    <string name="settings_analytics_desc">개선할 부분을 정하는 데 도움이 됩니다</string>
+    <string name="settings_crash_reports">오류 보고서</string>
+    <string name="settings_crash_reports_desc">Firebase Crashlytics로 전송됩니다</string>
+    <string name="settings_what_is_sent">전송되는 것과 전송되지 않는 것</string>
+    <string name="settings_what_is_sent_desc">사용한 화면, 휴대폰 모델, Android 버전, 국가, 오류 보고서. 측정값, 설치된 앱, 개인 데이터는 절대 전송하지 않습니다.</string>
+    <string name="settings_privacy_policy">개인정보처리방침</string>
+    <string name="settings_section_about">정보</string>
+    <string name="settings_rate">Google Play에서 Vitals 평가하기</string>
+    <string name="settings_feedback">의견 보내기</string>
+    <string name="settings_feedback_desc">휴대폰 모델과 Android 버전이 포함됩니다</string>
+    <string name="settings_feedback_subject">Vitals 의견</string>
+    <string name="settings_version">버전</string>
+</resources>

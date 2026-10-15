@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">แบตเตอรี่</string>
+    <string name="battery_full_in">เต็มใน %1$s</string>
+    <string name="battery_remaining">เหลือประมาณ %1$s เมื่อใช้งานแบบนี้</string>
+    <string name="battery_power_history">กำลังไฟ · 5 นาทีที่ผ่านมา</string>
+    <string name="battery_current_title">กระแสและกำลังไฟ</string>
+    <string name="battery_current_reason">โทรศัพท์ของคุณไม่รายงานกระแสแบตเตอรี่ให้แอป แต่ยังแสดงระดับ แรงดัน อุณหภูมิ และสุขภาพได้</string>
+    <string name="battery_current">กระแส</string>
+    <string name="battery_current_avg">เฉลี่ย %1$s</string>
+    <string name="battery_voltage">แรงดัน</string>
+    <string name="battery_temperature">อุณหภูมิ</string>
+    <string name="battery_temp_normal">ปกติ</string>
+    <string name="battery_temp_warm">อุ่น</string>
+    <string name="battery_temp_hot">ร้อน · ปล่อยให้เย็นลงก่อน</string>
+    <string name="battery_charge_counter">คงเหลือ</string>
+    <string name="battery_cycles">รอบการชาร์จ</string>
+    <string name="battery_cycles_source">ตามที่ระบบรายงาน</string>
+    <string name="battery_cycles_needs_14">Android รายงานตั้งแต่เวอร์ชัน 14</string>
+    <string name="battery_cycles_not_reported">ผู้ผลิตไม่ได้รายงาน</string>
+    <string name="battery_health">สุขภาพ (ระบบ)</string>
+    <string name="battery_health_source">ตามที่ระบบรายงาน</string>
+    <string name="battery_charger">ที่ชาร์จ</string>
+    <string name="battery_charger_type">ประเภท</string>
+    <string name="battery_status">สถานะ</string>
+    <string name="battery_plug_ac">ที่ชาร์จติดผนัง</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">ไร้สาย</string>
+    <string name="battery_plug_dock">แท่นชาร์จ</string>
+    <string name="battery_plug_none">ไม่ได้เชื่อมต่อ</string>
+    <string name="battery_status_charging">กำลังชาร์จ</string>
+    <string name="battery_status_discharging">กำลังคายประจุ</string>
+    <string name="battery_status_full">เต็ม</string>
+    <string name="battery_status_not_charging">ไม่ได้ชาร์จ</string>
+    <string name="battery_status_unknown">ไม่ทราบ</string>
+    <string name="battery_health_good">ดี</string>
+    <string name="battery_health_overheat">ร้อนเกิน</string>
+    <string name="battery_health_dead">เสื่อม</string>
+    <string name="battery_health_over_voltage">แรงดันเกิน</string>
+    <string name="battery_health_cold">เย็น</string>
+    <string name="battery_health_unknown">ไม่ทราบ</string>
+</resources>

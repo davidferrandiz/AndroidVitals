@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Pil</string>
+    <string name="battery_full_in">%1$s içinde dolacak</string>
+    <string name="battery_remaining">Bu kullanımla yaklaşık %1$s kaldı</string>
+    <string name="battery_power_history">Güç · son 5 dakika</string>
+    <string name="battery_current_title">Akım ve güç</string>
+    <string name="battery_current_reason">Telefonunuz pil akımını uygulamalara bildirmiyor. Seviye, voltaj, sıcaklık ve sağlık gösterilmeye devam ediyor.</string>
+    <string name="battery_current">Akım</string>
+    <string name="battery_current_avg">ortalama %1$s</string>
+    <string name="battery_voltage">Voltaj</string>
+    <string name="battery_temperature">Sıcaklık</string>
+    <string name="battery_temp_normal">Normal</string>
+    <string name="battery_temp_warm">Ilık</string>
+    <string name="battery_temp_hot">Sıcak · soğumasını bekleyin</string>
+    <string name="battery_charge_counter">Kalan</string>
+    <string name="battery_cycles">Şarj döngüsü</string>
+    <string name="battery_cycles_source">sistemin bildirdiği</string>
+    <string name="battery_cycles_needs_14">Android bunu 14 sürümünden itibaren bildirir</string>
+    <string name="battery_cycles_not_reported">üreticiniz bunu bildirmiyor</string>
+    <string name="battery_health">Sağlık (sistem)</string>
+    <string name="battery_health_source">sistemin bildirdiği</string>
+    <string name="battery_charger">Şarj cihazı</string>
+    <string name="battery_charger_type">Tür</string>
+    <string name="battery_status">Durum</string>
+    <string name="battery_plug_ac">Duvar şarj cihazı</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Kablosuz</string>
+    <string name="battery_plug_dock">Yuva</string>
+    <string name="battery_plug_none">Bağlı değil</string>
+    <string name="battery_status_charging">Şarj oluyor</string>
+    <string name="battery_status_discharging">Boşalıyor</string>
+    <string name="battery_status_full">Dolu</string>
+    <string name="battery_status_not_charging">Şarj olmuyor</string>
+    <string name="battery_status_unknown">Bilinmiyor</string>
+    <string name="battery_health_good">İyi</string>
+    <string name="battery_health_overheat">Aşırı ısınma</string>
+    <string name="battery_health_dead">Ölü</string>
+    <string name="battery_health_over_voltage">Aşırı voltaj</string>
+    <string name="battery_health_cold">Soğuk</string>
+    <string name="battery_health_unknown">Bilinmiyor</string>
+</resources>

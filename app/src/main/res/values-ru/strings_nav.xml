@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">Панель</string>
+    <string name="nav_battery">Батарея</string>
+    <string name="nav_hardware">Оборудование</string>
+</resources>

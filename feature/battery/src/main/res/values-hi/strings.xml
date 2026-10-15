@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">बैटरी</string>
+    <string name="battery_full_in">%1$s में पूरी</string>
+    <string name="battery_remaining">इस इस्तेमाल पर लगभग %1$s बाकी</string>
+    <string name="battery_power_history">पावर · पिछले 5 मिनट</string>
+    <string name="battery_current_title">करंट और पावर</string>
+    <string name="battery_current_reason">आपका फ़ोन ऐप्स को बैटरी करंट नहीं बताता। लेवल, वोल्टेज, तापमान और हेल्थ अब भी दिखते हैं।</string>
+    <string name="battery_current">करंट</string>
+    <string name="battery_current_avg">औसत %1$s</string>
+    <string name="battery_voltage">वोल्टेज</string>
+    <string name="battery_temperature">तापमान</string>
+    <string name="battery_temp_normal">सामान्य</string>
+    <string name="battery_temp_warm">गर्म</string>
+    <string name="battery_temp_hot">बहुत गर्म · ठंडा होने दें</string>
+    <string name="battery_charge_counter">बाकी</string>
+    <string name="battery_cycles">चार्ज साइकिल</string>
+    <string name="battery_cycles_source">सिस्टम के अनुसार</string>
+    <string name="battery_cycles_needs_14">Android वर्शन 14 से यह बताता है</string>
+    <string name="battery_cycles_not_reported">आपका निर्माता यह नहीं बताता</string>
+    <string name="battery_health">हेल्थ (सिस्टम)</string>
+    <string name="battery_health_source">सिस्टम के अनुसार</string>
+    <string name="battery_charger">चार्जर</string>
+    <string name="battery_charger_type">प्रकार</string>
+    <string name="battery_status">स्थिति</string>
+    <string name="battery_plug_ac">वॉल चार्जर</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">वायरलेस</string>
+    <string name="battery_plug_dock">डॉक</string>
+    <string name="battery_plug_none">कनेक्ट नहीं</string>
+    <string name="battery_status_charging">चार्ज हो रही है</string>
+    <string name="battery_status_discharging">डिस्चार्ज हो रही है</string>
+    <string name="battery_status_full">पूरी</string>
+    <string name="battery_status_not_charging">चार्ज नहीं हो रही</string>
+    <string name="battery_status_unknown">अज्ञात</string>
+    <string name="battery_health_good">अच्छी</string>
+    <string name="battery_health_overheat">ज़्यादा गर्म</string>
+    <string name="battery_health_dead">खराब</string>
+    <string name="battery_health_over_voltage">ज़्यादा वोल्टेज</string>
+    <string name="battery_health_cold">ठंडी</string>
+    <string name="battery_health_unknown">अज्ञात</string>
+</resources>

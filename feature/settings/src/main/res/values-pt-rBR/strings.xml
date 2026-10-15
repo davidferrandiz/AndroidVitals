@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Configurações</string>
+    <string name="settings_back">Voltar</string>
+    <string name="settings_section_view">Visualização</string>
+    <string name="settings_temperature">Temperatura</string>
+    <string name="settings_auto">Automático</string>
+    <string name="settings_temperature_auto_hint">O modo automático usa °F nos EUA e °C nos demais países.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Escuro</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_system">Sistema</string>
+    <string name="settings_dynamic_color">Cores dinâmicas</string>
+    <string name="settings_dynamic_color_desc">Usar as cores do seu plano de fundo</string>
+    <string name="settings_expand_cards">Abrir cards ao iniciar</string>
+    <string name="settings_expand_cards_desc">Mostrar núcleos, temperaturas e detalhes sem tocar</string>
+    <string name="settings_section_privacy">Privacidade</string>
+    <string name="settings_analytics">Estatísticas de uso anônimas</string>
+    <string name="settings_analytics_desc">Ajude a decidir o que melhorar</string>
+    <string name="settings_crash_reports">Relatórios de falhas</string>
+    <string name="settings_crash_reports_desc">Enviados ao Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">O que é enviado e o que não é</string>
+    <string name="settings_what_is_sent_desc">Quais telas você usa, o modelo do celular, a versão do Android, o país e relatórios de falhas. Nunca suas leituras, apps instalados ou dados pessoais.</string>
+    <string name="settings_privacy_policy">Política de privacidade</string>
+    <string name="settings_section_about">Sobre</string>
+    <string name="settings_rate">Avaliar o Vitals no Google Play</string>
+    <string name="settings_feedback">Enviar feedback</string>
+    <string name="settings_feedback_desc">Inclui o modelo do celular e a versão do Android</string>
+    <string name="settings_feedback_subject">Feedback do Vitals</string>
+    <string name="settings_version">Versão</string>
+</resources>

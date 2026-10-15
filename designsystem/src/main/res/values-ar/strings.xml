@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_unavailable">غير متاح على هذا الجهاز</string>
+    <string name="ds_why">لماذا؟</string>
+    <string name="ds_state_expanded">موسَّع</string>
+    <string name="ds_state_collapsed">مطويّ</string>
+    <string name="ds_duration_minutes">%1$d د</string>
+    <string name="ds_duration_hours">%1$d س</string>
+    <string name="ds_duration_hours_minutes">%1$d س %2$d د</string>
+    <string name="ds_uptime_days_hours">%1$d ي %2$d س</string>
+</resources>

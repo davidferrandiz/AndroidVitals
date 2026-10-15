@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">پیشخوان</string>
+    <string name="nav_battery">باتری</string>
+    <string name="nav_hardware">سخت‌افزار</string>
+</resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources>
     <string name="battery_title">Battery</string>
     <string name="battery_full_in">Full in %1$s</string>
     <string name="battery_remaining">About %1$s left with this usage</string>

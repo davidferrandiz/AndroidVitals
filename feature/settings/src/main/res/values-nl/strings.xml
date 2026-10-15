@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Instellingen</string>
+    <string name="settings_back">Terug</string>
+    <string name="settings_section_view">Weergave</string>
+    <string name="settings_temperature">Temperatuur</string>
+    <string name="settings_auto">Automatisch</string>
+    <string name="settings_temperature_auto_hint">Automatisch gebruikt °F in de VS en overal anders °C.</string>
+    <string name="settings_theme">Thema</string>
+    <string name="settings_theme_dark">Donker</string>
+    <string name="settings_theme_light">Licht</string>
+    <string name="settings_theme_system">Systeem</string>
+    <string name="settings_dynamic_color">Dynamische kleuren</string>
+    <string name="settings_dynamic_color_desc">De kleuren van je achtergrond gebruiken</string>
+    <string name="settings_expand_cards">Kaarten openen bij start</string>
+    <string name="settings_expand_cards_desc">Kernen, temperaturen en verdelingen tonen zonder te tikken</string>
+    <string name="settings_section_privacy">Privacy</string>
+    <string name="settings_analytics">Anonieme gebruiksstatistieken</string>
+    <string name="settings_analytics_desc">Help bepalen wat er beter moet</string>
+    <string name="settings_crash_reports">Crashrapporten</string>
+    <string name="settings_crash_reports_desc">Verzonden naar Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Wat wordt verzonden en wat niet</string>
+    <string name="settings_what_is_sent_desc">Welke schermen je gebruikt, je telefoonmodel, Android-versie, land en crashrapporten. Nooit je metingen, geïnstalleerde apps of persoonlijke gegevens.</string>
+    <string name="settings_privacy_policy">Privacybeleid</string>
+    <string name="settings_section_about">Over</string>
+    <string name="settings_rate">Vitals beoordelen op Google Play</string>
+    <string name="settings_feedback">Feedback sturen</string>
+    <string name="settings_feedback_desc">Bevat je telefoonmodel en Android-versie</string>
+    <string name="settings_feedback_subject">Feedback over Vitals</string>
+    <string name="settings_version">Versie</string>
+</resources>

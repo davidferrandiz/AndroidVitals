@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_panel">اللوحة</string>
+    <string name="nav_battery">البطارية</string>
+    <string name="nav_hardware">العتاد</string>
+</resources>

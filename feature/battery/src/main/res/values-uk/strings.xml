@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Батарея</string>
+    <string name="battery_full_in">Повна через %1$s</string>
+    <string name="battery_remaining">Залишилося близько %1$s за такого використання</string>
+    <string name="battery_power_history">Потужність · останні 5 хвилин</string>
+    <string name="battery_current_title">Струм і потужність</string>
+    <string name="battery_current_reason">Ваш телефон не передає застосункам струм батареї. Рівень заряду, напруга, температура й стан і далі показуються.</string>
+    <string name="battery_current">Струм</string>
+    <string name="battery_current_avg">у середньому %1$s</string>
+    <string name="battery_voltage">Напруга</string>
+    <string name="battery_temperature">Температура</string>
+    <string name="battery_temp_normal">Нормальна</string>
+    <string name="battery_temp_warm">Тепла</string>
+    <string name="battery_temp_hot">Гаряча · дайте охолонути</string>
+    <string name="battery_charge_counter">Залишилося</string>
+    <string name="battery_cycles">Цикли заряджання</string>
+    <string name="battery_cycles_source">за даними системи</string>
+    <string name="battery_cycles_needs_14">Android повідомляє їх починаючи з версії 14</string>
+    <string name="battery_cycles_not_reported">виробник їх не повідомляє</string>
+    <string name="battery_health">Стан (система)</string>
+    <string name="battery_health_source">за даними системи</string>
+    <string name="battery_charger">Зарядний пристрій</string>
+    <string name="battery_charger_type">Тип</string>
+    <string name="battery_status">Статус</string>
+    <string name="battery_plug_ac">Мережевий зарядний</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Бездротовий</string>
+    <string name="battery_plug_dock">Док-станція</string>
+    <string name="battery_plug_none">Не підключено</string>
+    <string name="battery_status_charging">Заряджається</string>
+    <string name="battery_status_discharging">Розряджається</string>
+    <string name="battery_status_full">Заряджена</string>
+    <string name="battery_status_not_charging">Не заряджається</string>
+    <string name="battery_status_unknown">Невідомо</string>
+    <string name="battery_health_good">Добрий</string>
+    <string name="battery_health_overheat">Перегрів</string>
+    <string name="battery_health_dead">Несправна</string>
+    <string name="battery_health_over_voltage">Перенапруга</string>
+    <string name="battery_health_cold">Холодна</string>
+    <string name="battery_health_unknown">Невідомо</string>
+</resources>

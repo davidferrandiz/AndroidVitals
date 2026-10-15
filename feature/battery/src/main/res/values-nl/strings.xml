@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">Batterij</string>
+    <string name="battery_full_in">Vol over %1$s</string>
+    <string name="battery_remaining">Nog ongeveer %1$s bij dit gebruik</string>
+    <string name="battery_power_history">Vermogen · laatste 5 minuten</string>
+    <string name="battery_current_title">Stroom en vermogen</string>
+    <string name="battery_current_reason">Je telefoon geeft de batterijstroom niet door aan apps. Niveau, spanning, temperatuur en conditie worden nog wel getoond.</string>
+    <string name="battery_current">Stroom</string>
+    <string name="battery_current_avg">gemiddeld %1$s</string>
+    <string name="battery_voltage">Spanning</string>
+    <string name="battery_temperature">Temperatuur</string>
+    <string name="battery_temp_normal">Normaal</string>
+    <string name="battery_temp_warm">Warm</string>
+    <string name="battery_temp_hot">Heet · laat afkoelen</string>
+    <string name="battery_charge_counter">Resterend</string>
+    <string name="battery_cycles">Laadcycli</string>
+    <string name="battery_cycles_source">gemeld door het systeem</string>
+    <string name="battery_cycles_needs_14">Android meldt dit vanaf versie 14</string>
+    <string name="battery_cycles_not_reported">je fabrikant meldt dit niet</string>
+    <string name="battery_health">Conditie (systeem)</string>
+    <string name="battery_health_source">gemeld door het systeem</string>
+    <string name="battery_charger">Lader</string>
+    <string name="battery_charger_type">Type</string>
+    <string name="battery_status">Status</string>
+    <string name="battery_plug_ac">Stopcontactlader</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">Draadloos</string>
+    <string name="battery_plug_dock">Dock</string>
+    <string name="battery_plug_none">Niet verbonden</string>
+    <string name="battery_status_charging">Laden</string>
+    <string name="battery_status_discharging">Ontladen</string>
+    <string name="battery_status_full">Vol</string>
+    <string name="battery_status_not_charging">Laadt niet</string>
+    <string name="battery_status_unknown">Onbekend</string>
+    <string name="battery_health_good">Goed</string>
+    <string name="battery_health_overheat">Oververhit</string>
+    <string name="battery_health_dead">Defect</string>
+    <string name="battery_health_over_voltage">Overspanning</string>
+    <string name="battery_health_cold">Koud</string>
+    <string name="battery_health_unknown">Onbekend</string>
+</resources>

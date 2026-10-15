@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">バッテリー</string>
+    <string name="battery_full_in">あと %1$s で満充電</string>
+    <string name="battery_remaining">この使い方で残り約 %1$s</string>
+    <string name="battery_power_history">電力 · 直近 5 分</string>
+    <string name="battery_current_title">電流と電力</string>
+    <string name="battery_current_reason">このスマホはバッテリー電流をアプリに公開していません。残量、電圧、温度、状態は引き続き表示されます。</string>
+    <string name="battery_current">電流</string>
+    <string name="battery_current_avg">平均 %1$s</string>
+    <string name="battery_voltage">電圧</string>
+    <string name="battery_temperature">温度</string>
+    <string name="battery_temp_normal">正常</string>
+    <string name="battery_temp_warm">やや高温</string>
+    <string name="battery_temp_hot">高温 · 冷ましてください</string>
+    <string name="battery_charge_counter">残り</string>
+    <string name="battery_cycles">充電サイクル</string>
+    <string name="battery_cycles_source">システムの報告値</string>
+    <string name="battery_cycles_needs_14">Android 14 以降で取得できます</string>
+    <string name="battery_cycles_not_reported">メーカーが公開していません</string>
+    <string name="battery_health">状態 (システム)</string>
+    <string name="battery_health_source">システムの報告値</string>
+    <string name="battery_charger">充電器</string>
+    <string name="battery_charger_type">種類</string>
+    <string name="battery_status">ステータス</string>
+    <string name="battery_plug_ac">コンセント充電器</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">ワイヤレス</string>
+    <string name="battery_plug_dock">ドック</string>
+    <string name="battery_plug_none">未接続</string>
+    <string name="battery_status_charging">充電中</string>
+    <string name="battery_status_discharging">放電中</string>
+    <string name="battery_status_full">満充電</string>
+    <string name="battery_status_not_charging">充電していません</string>
+    <string name="battery_status_unknown">不明</string>
+    <string name="battery_health_good">良好</string>
+    <string name="battery_health_overheat">過熱</string>
+    <string name="battery_health_dead">劣化</string>
+    <string name="battery_health_over_voltage">過電圧</string>
+    <string name="battery_health_cold">低温</string>
+    <string name="battery_health_unknown">不明</string>
+</resources>

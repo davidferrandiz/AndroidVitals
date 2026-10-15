@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_back">Retour</string>
+    <string name="settings_section_view">Affichage</string>
+    <string name="settings_temperature">Température</string>
+    <string name="settings_auto">Automatique</string>
+    <string name="settings_temperature_auto_hint">Le mode automatique utilise °F aux États-Unis et °C partout ailleurs.</string>
+    <string name="settings_theme">Thème</string>
+    <string name="settings_theme_dark">Sombre</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_system">Système</string>
+    <string name="settings_dynamic_color">Couleurs dynamiques</string>
+    <string name="settings_dynamic_color_desc">Utiliser les couleurs de votre fond d\'écran</string>
+    <string name="settings_expand_cards">Ouvrir les cartes au démarrage</string>
+    <string name="settings_expand_cards_desc">Afficher les cœurs, les températures et les détails sans toucher</string>
+    <string name="settings_section_privacy">Confidentialité</string>
+    <string name="settings_analytics">Statistiques d\'utilisation anonymes</string>
+    <string name="settings_analytics_desc">Aidez à choisir quoi améliorer</string>
+    <string name="settings_crash_reports">Rapports de plantage</string>
+    <string name="settings_crash_reports_desc">Envoyés à Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Ce qui est envoyé et ce qui ne l\'est pas</string>
+    <string name="settings_what_is_sent_desc">Les écrans que vous utilisez, le modèle de votre téléphone, la version d\'Android, le pays et les rapports de plantage. Jamais vos mesures, vos applis installées ni vos données personnelles.</string>
+    <string name="settings_privacy_policy">Politique de confidentialité</string>
+    <string name="settings_section_about">À propos</string>
+    <string name="settings_rate">Noter Vitals sur Google Play</string>
+    <string name="settings_feedback">Envoyer un commentaire</string>
+    <string name="settings_feedback_desc">Inclut le modèle de votre téléphone et la version d\'Android</string>
+    <string name="settings_feedback_subject">Commentaire sur Vitals</string>
+    <string name="settings_version">Version</string>
+</resources>

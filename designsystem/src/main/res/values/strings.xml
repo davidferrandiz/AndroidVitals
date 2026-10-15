@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources>
     <string name="ds_unavailable">Not available on this device</string>
     <string name="ds_why">Why?</string>
     <string name="ds_state_expanded">Expanded</string>

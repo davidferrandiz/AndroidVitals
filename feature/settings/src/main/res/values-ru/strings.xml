@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_back">Назад</string>
+    <string name="settings_section_view">Вид</string>
+    <string name="settings_temperature">Температура</string>
+    <string name="settings_auto">Автоматически</string>
+    <string name="settings_temperature_auto_hint">В автоматическом режиме в США используется °F, в остальных странах — °C.</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_theme_dark">Тёмная</string>
+    <string name="settings_theme_light">Светлая</string>
+    <string name="settings_theme_system">Системная</string>
+    <string name="settings_dynamic_color">Динамические цвета</string>
+    <string name="settings_dynamic_color_desc">Использовать цвета обоев</string>
+    <string name="settings_expand_cards">Раскрывать карточки при запуске</string>
+    <string name="settings_expand_cards_desc">Показывать ядра, температуры и подробности без нажатия</string>
+    <string name="settings_section_privacy">Конфиденциальность</string>
+    <string name="settings_analytics">Анонимная статистика использования</string>
+    <string name="settings_analytics_desc">Помогите решить, что улучшить</string>
+    <string name="settings_crash_reports">Отчёты о сбоях</string>
+    <string name="settings_crash_reports_desc">Отправляются в Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Что отправляется, а что нет</string>
+    <string name="settings_what_is_sent_desc">Какие экраны вы открываете, модель телефона, версия Android, страна и отчёты о сбоях. Никогда — ваши показания, установленные приложения или личные данные.</string>
+    <string name="settings_privacy_policy">Политика конфиденциальности</string>
+    <string name="settings_section_about">О приложении</string>
+    <string name="settings_rate">Оценить Vitals в Google Play</string>
+    <string name="settings_feedback">Отправить отзыв</string>
+    <string name="settings_feedback_desc">Включает модель телефона и версию Android</string>
+    <string name="settings_feedback_subject">Отзыв о Vitals</string>
+    <string name="settings_version">Версия</string>
+</resources>

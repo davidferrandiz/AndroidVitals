@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_back">رجوع</string>
+    <string name="settings_section_view">العرض</string>
+    <string name="settings_temperature">الحرارة</string>
+    <string name="settings_auto">تلقائي</string>
+    <string name="settings_temperature_auto_hint">يستخدم الوضع التلقائي °F في الولايات المتحدة و°C في باقي الدول.</string>
+    <string name="settings_theme">المظهر</string>
+    <string name="settings_theme_dark">داكن</string>
+    <string name="settings_theme_light">فاتح</string>
+    <string name="settings_theme_system">النظام</string>
+    <string name="settings_dynamic_color">ألوان ديناميكية</string>
+    <string name="settings_dynamic_color_desc">استخدام ألوان الخلفية</string>
+    <string name="settings_expand_cards">فتح البطاقات عند البدء</string>
+    <string name="settings_expand_cards_desc">عرض الأنوية ودرجات الحرارة والتفاصيل دون نقر</string>
+    <string name="settings_section_privacy">الخصوصية</string>
+    <string name="settings_analytics">إحصاءات استخدام مجهولة</string>
+    <string name="settings_analytics_desc">ساعد في تحديد ما يجب تحسينه</string>
+    <string name="settings_crash_reports">تقارير الأعطال</string>
+    <string name="settings_crash_reports_desc">تُرسل إلى Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">ما يُرسل وما لا يُرسل</string>
+    <string name="settings_what_is_sent_desc">الشاشات التي تستخدمها وطراز هاتفك وإصدار Android والدولة وتقارير الأعطال. لا تُرسل قراءاتك أو تطبيقاتك المثبتة أو بياناتك الشخصية أبدًا.</string>
+    <string name="settings_privacy_policy">سياسة الخصوصية</string>
+    <string name="settings_section_about">حول التطبيق</string>
+    <string name="settings_rate">قيّم Vitals على Google Play</string>
+    <string name="settings_feedback">إرسال ملاحظات</string>
+    <string name="settings_feedback_desc">يتضمن طراز هاتفك وإصدار Android</string>
+    <string name="settings_feedback_subject">ملاحظات حول Vitals</string>
+    <string name="settings_version">الإصدار</string>
+</resources>

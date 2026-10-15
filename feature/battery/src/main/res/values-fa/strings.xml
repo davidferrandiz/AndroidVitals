@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="battery_title">باتری</string>
+    <string name="battery_full_in">پر شدن تا %1$s</string>
+    <string name="battery_remaining">حدود %1$s باقی‌مانده با این میزان مصرف</string>
+    <string name="battery_power_history">توان · ۵ دقیقه اخیر</string>
+    <string name="battery_current_title">جریان و توان</string>
+    <string name="battery_current_reason">گوشی شما جریان باتری را به برنامه‌ها گزارش نمی‌دهد. سطح شارژ، ولتاژ، دما و سلامت همچنان نمایش داده می‌شود.</string>
+    <string name="battery_current">جریان</string>
+    <string name="battery_current_avg">میانگین %1$s</string>
+    <string name="battery_voltage">ولتاژ</string>
+    <string name="battery_temperature">دما</string>
+    <string name="battery_temp_normal">عادی</string>
+    <string name="battery_temp_warm">گرم</string>
+    <string name="battery_temp_hot">داغ · بگذارید خنک شود</string>
+    <string name="battery_charge_counter">باقی‌مانده</string>
+    <string name="battery_cycles">چرخه‌های شارژ</string>
+    <string name="battery_cycles_source">گزارش‌شده توسط سیستم</string>
+    <string name="battery_cycles_needs_14">Android از نسخه ۱۴ آن را گزارش می‌دهد</string>
+    <string name="battery_cycles_not_reported">سازنده گوشی آن را گزارش نمی‌دهد</string>
+    <string name="battery_health">سلامت (سیستم)</string>
+    <string name="battery_health_source">گزارش‌شده توسط سیستم</string>
+    <string name="battery_charger">شارژر</string>
+    <string name="battery_charger_type">نوع</string>
+    <string name="battery_status">وضعیت</string>
+    <string name="battery_plug_ac">شارژر دیواری</string>
+    <string name="battery_plug_usb">USB</string>
+    <string name="battery_plug_wireless">بی‌سیم</string>
+    <string name="battery_plug_dock">داک</string>
+    <string name="battery_plug_none">متصل نیست</string>
+    <string name="battery_status_charging">در حال شارژ</string>
+    <string name="battery_status_discharging">در حال تخلیه</string>
+    <string name="battery_status_full">پر</string>
+    <string name="battery_status_not_charging">شارژ نمی‌شود</string>
+    <string name="battery_status_unknown">نامشخص</string>
+    <string name="battery_health_good">خوب</string>
+    <string name="battery_health_overheat">داغ شدن بیش از حد</string>
+    <string name="battery_health_dead">خراب</string>
+    <string name="battery_health_over_voltage">ولتاژ بیش از حد</string>
+    <string name="battery_health_cold">سرد</string>
+    <string name="battery_health_unknown">نامشخص</string>
+</resources>

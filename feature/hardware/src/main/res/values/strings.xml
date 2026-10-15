@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+<resources>
     <string name="hw_title">Hardware</string>
     <string name="hw_share">Share report</string>
     <string name="hw_android_patch">Android %1$s · security patch %2$s</string>

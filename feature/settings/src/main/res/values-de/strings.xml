@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_back">Zurück</string>
+    <string name="settings_section_view">Ansicht</string>
+    <string name="settings_temperature">Temperatur</string>
+    <string name="settings_auto">Automatisch</string>
+    <string name="settings_temperature_auto_hint">Automatisch nutzt °F in den USA und überall sonst °C.</string>
+    <string name="settings_theme">Design</string>
+    <string name="settings_theme_dark">Dunkel</string>
+    <string name="settings_theme_light">Hell</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_dynamic_color">Dynamische Farben</string>
+    <string name="settings_dynamic_color_desc">Farben deines Hintergrunds verwenden</string>
+    <string name="settings_expand_cards">Karten beim Start öffnen</string>
+    <string name="settings_expand_cards_desc">Kerne, Temperaturen und Aufteilungen ohne Tippen zeigen</string>
+    <string name="settings_section_privacy">Datenschutz</string>
+    <string name="settings_analytics">Anonyme Nutzungsstatistiken</string>
+    <string name="settings_analytics_desc">Hilf zu entscheiden, was verbessert wird</string>
+    <string name="settings_crash_reports">Absturzberichte</string>
+    <string name="settings_crash_reports_desc">Werden an Firebase Crashlytics gesendet</string>
+    <string name="settings_what_is_sent">Was gesendet wird und was nicht</string>
+    <string name="settings_what_is_sent_desc">Welche Bildschirme du nutzt, dein Handymodell, die Android-Version, das Land und Absturzberichte. Niemals deine Messwerte, installierten Apps oder persönlichen Daten.</string>
+    <string name="settings_privacy_policy">Datenschutzerklärung</string>
+    <string name="settings_section_about">Info</string>
+    <string name="settings_rate">Vitals bei Google Play bewerten</string>
+    <string name="settings_feedback">Feedback senden</string>
+    <string name="settings_feedback_desc">Enthält dein Handymodell und die Android-Version</string>
+    <string name="settings_feedback_subject">Feedback zu Vitals</string>
+    <string name="settings_version">Version</string>
+</resources>

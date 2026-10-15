@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_back">Geri</string>
+    <string name="settings_section_view">Görünüm</string>
+    <string name="settings_temperature">Sıcaklık</string>
+    <string name="settings_auto">Otomatik</string>
+    <string name="settings_temperature_auto_hint">Otomatik mod ABD\'de °F, diğer ülkelerde °C kullanır.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Koyu</string>
+    <string name="settings_theme_light">Açık</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_dynamic_color">Dinamik renk</string>
+    <string name="settings_dynamic_color_desc">Duvar kâğıdınızın renklerini kullan</string>
+    <string name="settings_expand_cards">Başlangıçta kartları aç</string>
+    <string name="settings_expand_cards_desc">Çekirdekleri, sıcaklıkları ve dağılımları dokunmadan göster</string>
+    <string name="settings_section_privacy">Gizlilik</string>
+    <string name="settings_analytics">Anonim kullanım istatistikleri</string>
+    <string name="settings_analytics_desc">Neyin iyileştirileceğine karar vermeye yardım edin</string>
+    <string name="settings_crash_reports">Çökme raporları</string>
+    <string name="settings_crash_reports_desc">Firebase Crashlytics\'e gönderilir</string>
+    <string name="settings_what_is_sent">Neler gönderilir, neler gönderilmez</string>
+    <string name="settings_what_is_sent_desc">Kullandığınız ekranlar, telefon modeliniz, Android sürümü, ülke ve çökme raporları. Ölçümleriniz, yüklü uygulamalarınız veya kişisel verileriniz asla gönderilmez.</string>
+    <string name="settings_privacy_policy">Gizlilik politikası</string>
+    <string name="settings_section_about">Hakkında</string>
+    <string name="settings_rate">Vitals\'ı Google Play\'de değerlendir</string>
+    <string name="settings_feedback">Geri bildirim gönder</string>
+    <string name="settings_feedback_desc">Telefon modelinizi ve Android sürümünü içerir</string>
+    <string name="settings_feedback_subject">Vitals geri bildirimi</string>
+    <string name="settings_version">Sürüm</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Impostazioni</string>
+    <string name="settings_back">Indietro</string>
+    <string name="settings_section_view">Visualizzazione</string>
+    <string name="settings_temperature">Temperatura</string>
+    <string name="settings_auto">Automatica</string>
+    <string name="settings_temperature_auto_hint">In automatico usa °F negli Stati Uniti e °C altrove.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_dark">Scuro</string>
+    <string name="settings_theme_light">Chiaro</string>
+    <string name="settings_theme_system">Sistema</string>
+    <string name="settings_dynamic_color">Colori dinamici</string>
+    <string name="settings_dynamic_color_desc">Usa i colori dello sfondo</string>
+    <string name="settings_expand_cards">Apri le schede all\'avvio</string>
+    <string name="settings_expand_cards_desc">Mostra core, temperature e dettagli senza toccare</string>
+    <string name="settings_section_privacy">Privacy</string>
+    <string name="settings_analytics">Statistiche d\'uso anonime</string>
+    <string name="settings_analytics_desc">Aiuta a decidere cosa migliorare</string>
+    <string name="settings_crash_reports">Report sugli arresti anomali</string>
+    <string name="settings_crash_reports_desc">Inviati a Firebase Crashlytics</string>
+    <string name="settings_what_is_sent">Cosa viene inviato e cosa no</string>
+    <string name="settings_what_is_sent_desc">Le schermate che usi, il modello del telefono, la versione di Android, il paese e i report sugli arresti anomali. Mai le tue letture, le app installate o i tuoi dati personali.</string>
+    <string name="settings_privacy_policy">Informativa sulla privacy</string>
+    <string name="settings_section_about">Informazioni</string>
+    <string name="settings_rate">Valuta Vitals su Google Play</string>
+    <string name="settings_feedback">Invia feedback</string>
+    <string name="settings_feedback_desc">Include il modello del telefono e la versione di Android</string>
+    <string name="settings_feedback_subject">Feedback su Vitals</string>
+    <string name="settings_version">Versione</string>
+</resources>
