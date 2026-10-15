@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">壁紙の色を使う</string>
     <string name="settings_expand_cards">起動時にカードを開く</string>
     <string name="settings_expand_cards_desc">タップせずにコア、温度、内訳を表示</string>
+    <string name="settings_section_background">アプリを閉じているとき</string>
+    <string name="settings_battery_history">バッテリー履歴</string>
+    <string name="settings_battery_history_desc">グラフと推定状態のために 15 分ごとに残量を保存します。データはスマホ内にのみ保存され、オフにすると削除されます。</string>
     <string name="settings_section_privacy">プライバシー</string>
     <string name="settings_analytics">匿名の利用統計</string>
     <string name="settings_analytics_desc">改善点を決めるのに役立ちます</string>

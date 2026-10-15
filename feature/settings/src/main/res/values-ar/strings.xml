@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">استخدام ألوان الخلفية</string>
     <string name="settings_expand_cards">فتح البطاقات عند البدء</string>
     <string name="settings_expand_cards_desc">عرض الأنوية ودرجات الحرارة والتفاصيل دون نقر</string>
+    <string name="settings_section_background">والتطبيق مغلق</string>
+    <string name="settings_battery_history">سجل البطارية</string>
+    <string name="settings_battery_history_desc">يحفظ المستوى كل 15 دقيقة للرسم البياني والحالة التقديرية. يبقى على هاتفك، وإيقافه يحذفه.</string>
     <string name="settings_section_privacy">الخصوصية</string>
     <string name="settings_analytics">إحصاءات استخدام مجهولة</string>
     <string name="settings_analytics_desc">ساعد في تحديد ما يجب تحسينه</string>

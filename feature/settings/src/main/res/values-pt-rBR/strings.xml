@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Usar as cores do seu plano de fundo</string>
     <string name="settings_expand_cards">Abrir cards ao iniciar</string>
     <string name="settings_expand_cards_desc">Mostrar núcleos, temperaturas e detalhes sem tocar</string>
+    <string name="settings_section_background">Com o app fechado</string>
+    <string name="settings_battery_history">Histórico da bateria</string>
+    <string name="settings_battery_history_desc">Salva o nível a cada 15 minutos para o gráfico e a saúde estimada. Fica no seu celular, e desativar apaga o histórico.</string>
     <string name="settings_section_privacy">Privacidade</string>
     <string name="settings_analytics">Estatísticas de uso anônimas</string>
     <string name="settings_analytics_desc">Ajude a decidir o que melhorar</string>

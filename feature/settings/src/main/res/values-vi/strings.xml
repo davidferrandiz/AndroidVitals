@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Dùng màu của hình nền</string>
     <string name="settings_expand_cards">Mở thẻ khi khởi động</string>
     <string name="settings_expand_cards_desc">Hiện nhân, nhiệt độ và chi tiết mà không cần chạm</string>
+    <string name="settings_section_background">Khi đóng ứng dụng</string>
+    <string name="settings_battery_history">Lịch sử pin</string>
+    <string name="settings_battery_history_desc">Lưu mức pin mỗi 15 phút cho biểu đồ và tình trạng ước tính. Chỉ lưu trên điện thoại của bạn và sẽ bị xóa khi tắt.</string>
     <string name="settings_section_privacy">Quyền riêng tư</string>
     <string name="settings_analytics">Thống kê sử dụng ẩn danh</string>
     <string name="settings_analytics_desc">Giúp quyết định cần cải thiện gì</string>

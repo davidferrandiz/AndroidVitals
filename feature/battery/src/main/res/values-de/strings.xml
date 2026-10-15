@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Überspannung</string>
     <string name="battery_health_cold">Kalt</string>
     <string name="battery_health_unknown">Unbekannt</string>
+    <string name="battery_history_title">Letzte 24 Stunden</string>
+    <string name="battery_history_cd">Akkustand der letzten 24 Stunden. Schattierte Bereiche: Laden.</string>
+    <string name="battery_history_axis_start">vor 24 Std.</string>
+    <string name="battery_history_axis_end">Jetzt</string>
+    <string name="battery_history_collecting">Daten werden gesammelt. Vitals speichert den Ladestand alle 15 Minuten, auch bei geschlossener App, damit sich die Grafik im Lauf des Tages füllt.</string>
+    <string name="battery_history_off">Der Akkuverlauf ist aus. Schalte ihn in den Einstellungen ein, um den Ladestand über den Tag und den geschätzten Zustand zu sehen.</string>
+    <string name="battery_drain_rate">Ø Verbrauch</string>
+    <string name="battery_charges_7d">Ladungen · 7 Tage</string>
+    <string name="battery_max_temp">Max. Temperatur</string>
+    <string name="battery_health_estimated_title">Geschätzter Zustand</string>
+    <string name="battery_health_estimated_caption">%1$s von %2$s mAh · geschätzt aus %3$d Ladungen</string>
+    <string name="battery_capacity_estimated_caption">Geschätzte Kapazität aus %1$d Ladungen. Dein Handy gibt die Originalkapazität nicht an, daher gibt es keinen Prozentwert.</string>
+    <string name="battery_health_calculating">Wird berechnet · %1$d von %2$d Ladungen</string>
+    <string name="battery_health_calculating_desc">Vitals vergleicht, wie viel Ladung hineinfließt und wie stark der Ladestand steigt. Lade mindestens 20 Punkte am Stück, zum Beispiel von 40 auf 80.</string>
+    <string name="battery_health_no_counter_reason">Dein Handy meldet den Ladezähler des Akkus nicht oder er ändert sich beim Laden nicht. Ohne ihn lässt sich die Kapazität nicht schätzen.</string>
+    <string name="battery_health_estimate_note">Eine Schätzung, keine Labormessung. Sie wird mit jeder Ladung genauer.</string>
+    <string name="battery_wear_good">Gut</string>
+    <string name="battery_wear_worn">Abgenutzt</string>
+    <string name="battery_wear_bad">Stark abgenutzt</string>
 </resources>

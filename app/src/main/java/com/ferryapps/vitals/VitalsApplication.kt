@@ -7,6 +7,7 @@ import com.ferryapps.vitals.core.domain.analytics.AnalyticsTracker
 import com.ferryapps.vitals.core.domain.repository.SettingsRepository
 import com.ferryapps.vitals.core.notifications.NotificationHelper
 import com.ferryapps.vitals.di.ApplicationScope
+import com.ferryapps.vitals.feature.monitor.worker.VitalsWorkScheduler
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -21,12 +22,26 @@ class VitalsApplication : Application(), Configuration.Provider {
     @Inject lateinit var notificationHelper: NotificationHelper
     @Inject lateinit var settingsRepository: SettingsRepository
     @Inject lateinit var analytics: AnalyticsTracker
+    @Inject lateinit var workScheduler: VitalsWorkScheduler
     @Inject @field:ApplicationScope lateinit var appScope: CoroutineScope
 
     override fun onCreate() {
         super.onCreate()
         notificationHelper.createChannels()
         applyAnalyticsConsent()
+        scheduleBackgroundWork()
+    }
+
+    /** VitalsWorker existe solo si algún ajuste lo necesita (historial de batería). */
+    private fun scheduleBackgroundWork() {
+        appScope.launch {
+            settingsRepository.settings
+                .distinctUntilChanged { old, new ->
+                    VitalsWorkScheduler.needsWorker(old) == VitalsWorkScheduler.needsWorker(new) &&
+                        old.batteryHistoryEnabled == new.batteryHistoryEnabled
+                }
+                .collect { workScheduler.apply(it) }
+        }
     }
 
     /** La analítica y Crashlytics siguen siempre lo que el usuario elige en Ajustes. */

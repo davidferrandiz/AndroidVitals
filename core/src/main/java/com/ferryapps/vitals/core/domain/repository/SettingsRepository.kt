@@ -14,4 +14,5 @@ interface SettingsRepository {
     suspend fun setExpandCardsByDefault(enabled: Boolean)
     suspend fun setAnalyticsEnabled(enabled: Boolean)
     suspend fun setCrashReportsEnabled(enabled: Boolean)
+    suspend fun setBatteryHistoryEnabled(enabled: Boolean)
 }

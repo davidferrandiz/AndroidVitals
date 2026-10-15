@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Farben deines Hintergrunds verwenden</string>
     <string name="settings_expand_cards">Karten beim Start öffnen</string>
     <string name="settings_expand_cards_desc">Kerne, Temperaturen und Aufteilungen ohne Tippen zeigen</string>
+    <string name="settings_section_background">Bei geschlossener App</string>
+    <string name="settings_battery_history">Akkuverlauf</string>
+    <string name="settings_battery_history_desc">Speichert den Ladestand alle 15 Minuten für die Grafik und den geschätzten Zustand. Bleibt auf deinem Handy; beim Ausschalten wird er gelöscht.</string>
     <string name="settings_section_privacy">Datenschutz</string>
     <string name="settings_analytics">Anonyme Nutzungsstatistiken</string>
     <string name="settings_analytics_desc">Hilf zu entscheiden, was verbessert wird</string>

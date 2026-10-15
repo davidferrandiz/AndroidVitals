@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">استفاده از رنگ‌های تصویر زمینه</string>
     <string name="settings_expand_cards">باز کردن کارت‌ها هنگام شروع</string>
     <string name="settings_expand_cards_desc">نمایش هسته‌ها، دماها و جزئیات بدون لمس</string>
+    <string name="settings_section_background">وقتی برنامه بسته است</string>
+    <string name="settings_battery_history">سابقه باتری</string>
+    <string name="settings_battery_history_desc">سطح باتری را هر ۱۵ دقیقه برای نمودار و سلامت تخمینی ذخیره می‌کند. روی گوشی شما می‌ماند و با خاموش کردن پاک می‌شود.</string>
     <string name="settings_section_privacy">حریم خصوصی</string>
     <string name="settings_analytics">آمار ناشناس استفاده</string>
     <string name="settings_analytics_desc">کمک کنید بدانیم چه چیزی را بهتر کنیم</string>

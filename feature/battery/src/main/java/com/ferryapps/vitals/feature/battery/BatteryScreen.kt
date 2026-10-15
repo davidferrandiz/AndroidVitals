@@ -12,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,15 +27,22 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ferryapps.vitals.core.domain.model.AppSettings
 import com.ferryapps.vitals.core.domain.model.BatteryHealth
+import com.ferryapps.vitals.core.domain.model.BatteryHealthEstimate
+import com.ferryapps.vitals.core.domain.model.BatteryHistory
 import com.ferryapps.vitals.core.domain.model.BatteryInfo
 import com.ferryapps.vitals.core.domain.model.BatteryStatus
 import com.ferryapps.vitals.core.domain.model.PlugType
 import com.ferryapps.vitals.designsystem.component.CardPadding
+import com.ferryapps.vitals.designsystem.component.LinearMeter
+import com.ferryapps.vitals.designsystem.component.MiniStat
 import com.ferryapps.vitals.designsystem.component.MetricRow
 import com.ferryapps.vitals.designsystem.component.RingGauge
 import com.ferryapps.vitals.designsystem.component.SectionCard
 import com.ferryapps.vitals.designsystem.component.Sparkline
 import com.ferryapps.vitals.designsystem.component.StatusKind
+import com.ferryapps.vitals.designsystem.component.StatusPill
+import com.ferryapps.vitals.designsystem.component.TimePoint
+import com.ferryapps.vitals.designsystem.component.TimeSeriesChart
 import com.ferryapps.vitals.designsystem.component.UnavailableRow
 import com.ferryapps.vitals.designsystem.component.VitalCard
 import com.ferryapps.vitals.designsystem.component.color
@@ -50,6 +58,7 @@ fun BatteryScreen(
     val battery by viewModel.battery.collectAsStateWithLifecycle()
     val powerHistory by viewModel.powerHistory.collectAsStateWithLifecycle()
     val settings by viewModel.settings.collectAsStateWithLifecycle()
+    val history by viewModel.history.collectAsStateWithLifecycle()
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -73,6 +82,10 @@ fun BatteryScreen(
         val info = battery
         if (info == null) return@LazyColumn
         item(key = "hero") { HeroCard(info, powerHistory) }
+        item(key = "history") { HistoryCard(history, settings) }
+        if (settings.batteryHistoryEnabled) {
+            item(key = "health") { HealthCard(history, info) }
+        }
         item(key = "details") { DetailsGrid(info, settings) }
         item(key = "charger") { ChargerCard(info) }
     }
@@ -135,6 +148,161 @@ private fun HeroCard(info: BatteryInfo, powerHistory: List<Float>) {
         }
     }
 }
+
+/** Nivel de las últimas 24 h con lo que guarda VitalsWorker; las bandas son tramos cargando. */
+@Composable
+private fun HistoryCard(history: BatteryHistory?, settings: AppSettings) {
+    SectionCard(title = stringResource(R.string.battery_history_title)) {
+        if (!settings.batteryHistoryEnabled) {
+            HistoryNote(stringResource(R.string.battery_history_off))
+            return@SectionCard
+        }
+        val samples = history?.last24h.orEmpty()
+        if (samples.size < 2) {
+            HistoryNote(stringResource(R.string.battery_history_collecting))
+            return@SectionCard
+        }
+        val accent = VitalsTheme.palette.battery
+        val now = remember(samples) { maxOf(System.currentTimeMillis(), samples.last().timestampMs) }
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(top = 12.dp)) {
+            TimeSeriesChart(
+                points = samples.map { TimePoint(it.timestampMs, it.levelPercent.toFloat(), highlighted = it.isCharging) },
+                startMs = now - DAY_MS,
+                endMs = now,
+                color = accent,
+                highlightColor = VitalsTheme.palette.good,
+                description = stringResource(R.string.battery_history_cd),
+                height = 104.dp
+            )
+            Row {
+                Text(
+                    stringResource(R.string.battery_history_axis_start),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.weight(1f)
+                )
+                Text(
+                    stringResource(R.string.battery_history_axis_end),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            val stats = history?.stats
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
+                MiniStat(
+                    label = stringResource(R.string.battery_drain_rate),
+                    value = stats?.drainPercentPerHour?.let { "${Formatters.decimal(it, 1)} %/h" } ?: "—",
+                    modifier = Modifier.weight(1f)
+                )
+                MiniStat(
+                    label = stringResource(R.string.battery_charges_7d),
+                    value = stats?.let { Formatters.integer(it.chargeSessions7d) } ?: "—",
+                    modifier = Modifier.weight(1f)
+                )
+                MiniStat(
+                    label = stringResource(R.string.battery_max_temp),
+                    value = stats?.maxTemperature24hCelsius
+                        ?.let { Formatters.temperature(it, settings.temperatureUnit, decimals = 0) } ?: "—",
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun HistoryNote(text: String) {
+    Text(
+        text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(top = 8.dp)
+    )
+}
+
+/**
+ * Salud estimada = capacidad estimada / capacidad de diseño. Si no hay contador de carga, o
+ * no se mueve, no se inventa nada: se dice por qué no se puede calcular.
+ */
+@Composable
+private fun HealthCard(history: BatteryHistory?, info: BatteryInfo) {
+    val estimate = history?.health ?: BatteryHealthEstimate.EMPTY
+    SectionCard(title = stringResource(R.string.battery_health_estimated_title)) {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 8.dp)) {
+            when {
+                info.chargeCounterMah == null || estimate.counterUnreliable -> UnavailableRow(
+                    title = stringResource(R.string.battery_health_estimated_title),
+                    reason = stringResource(R.string.battery_health_no_counter_reason)
+                )
+                estimate.capacityMah == null -> {
+                    val needed = BatteryHealthEstimate.MIN_SESSIONS
+                    val done = estimate.validSessions.coerceAtMost(needed)
+                    Text(
+                        stringResource(R.string.battery_health_calculating, done, needed),
+                        style = MaterialTheme.typography.titleMedium
+                    )
+                    LinearMeter(progress = done / needed.toFloat(), color = VitalsTheme.palette.battery)
+                    HistoryNote(stringResource(R.string.battery_health_calculating_desc))
+                }
+                else -> HealthResult(history ?: return@Column, estimate.capacityMah ?: 0, estimate.validSessions)
+            }
+        }
+    }
+}
+
+@Composable
+private fun HealthResult(history: BatteryHistory, capacityMah: Int, sessions: Int) {
+    val percent = history.healthPercent
+    val design = history.designCapacityMah
+    if (percent != null && design != null) {
+        val kind = when {
+            percent >= 80 -> StatusKind.GOOD
+            percent >= 60 -> StatusKind.WARNING
+            else -> StatusKind.CRITICAL
+        }
+        val label = when (kind) {
+            StatusKind.GOOD -> R.string.battery_wear_good
+            StatusKind.WARNING -> R.string.battery_wear_worn
+            else -> R.string.battery_wear_bad
+        }
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Text(
+                "${Formatters.integer(percent)} %",
+                style = MaterialTheme.typography.displaySmall.merge(TabularNumbers),
+                fontWeight = FontWeight.ExtraBold
+            )
+            StatusPill(text = stringResource(label), kind = kind)
+        }
+        Text(
+            stringResource(
+                R.string.battery_health_estimated_caption,
+                Formatters.integer(capacityMah),
+                Formatters.integer(design),
+                sessions
+            ),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    } else {
+        Text(
+            "${Formatters.integer(capacityMah)} mAh",
+            style = MaterialTheme.typography.displaySmall.merge(TabularNumbers),
+            fontWeight = FontWeight.ExtraBold
+        )
+        Text(
+            stringResource(R.string.battery_capacity_estimated_caption, sessions),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    }
+    Text(
+        stringResource(R.string.battery_health_estimate_note),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
+}
+
+private const val DAY_MS = 24 * 60 * 60 * 1000L
 
 @Composable
 private fun DetailsGrid(info: BatteryInfo, settings: AppSettings) {

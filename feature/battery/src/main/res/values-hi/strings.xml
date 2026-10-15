@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">ज़्यादा वोल्टेज</string>
     <string name="battery_health_cold">ठंडी</string>
     <string name="battery_health_unknown">अज्ञात</string>
+    <string name="battery_history_title">पिछले 24 घंटे</string>
+    <string name="battery_history_cd">पिछले 24 घंटों में बैटरी लेवल। छायांकित हिस्से चार्जिंग के हैं।</string>
+    <string name="battery_history_axis_start">24 घं पहले</string>
+    <string name="battery_history_axis_end">अभी</string>
+    <string name="battery_history_collecting">डेटा इकट्ठा हो रहा है। Vitals हर 15 मिनट में लेवल सेव करता है, ऐप बंद होने पर भी, इसलिए दिन भर में चार्ट भर जाता है।</string>
+    <string name="battery_history_off">बैटरी हिस्ट्री बंद है। दिन भर का लेवल और अनुमानित हेल्थ देखने के लिए इसे सेटिंग्स में चालू करें।</string>
+    <string name="battery_drain_rate">औसत खपत</string>
+    <string name="battery_charges_7d">चार्ज · 7 दिन</string>
+    <string name="battery_max_temp">अधिकतम तापमान</string>
+    <string name="battery_health_estimated_title">अनुमानित हेल्थ</string>
+    <string name="battery_health_estimated_caption">%2$s में से %1$s mAh · %3$d चार्ज से अनुमान</string>
+    <string name="battery_capacity_estimated_caption">%1$d चार्ज से अनुमानित क्षमता। आपका फ़ोन मूल क्षमता नहीं बताता, इसलिए प्रतिशत नहीं है।</string>
+    <string name="battery_health_calculating">गणना हो रही है · %2$d में से %1$d चार्ज</string>
+    <string name="battery_health_calculating_desc">Vitals तुलना करता है कि कितना चार्ज अंदर गया और लेवल कितना बढ़ा। एक बार में कम से कम 20 पॉइंट चार्ज करें, जैसे 40 से 80 तक।</string>
+    <string name="battery_health_no_counter_reason">आपका फ़ोन बैटरी का चार्ज काउंटर नहीं बताता, या चार्ज करते समय वह नहीं बदलता। इसके बिना क्षमता का अनुमान नहीं लगाया जा सकता।</string>
+    <string name="battery_health_estimate_note">यह अनुमान है, लैब माप नहीं। हर चार्ज के साथ यह ज़्यादा सटीक होता है।</string>
+    <string name="battery_wear_good">अच्छी</string>
+    <string name="battery_wear_worn">घिसी हुई</string>
+    <string name="battery_wear_bad">बहुत घिसी हुई</string>
 </resources>

@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Перенапруга</string>
     <string name="battery_health_cold">Холодна</string>
     <string name="battery_health_unknown">Невідомо</string>
+    <string name="battery_history_title">Останні 24 години</string>
+    <string name="battery_history_cd">Рівень заряду за останні 24 години. Затінені ділянки — заряджання.</string>
+    <string name="battery_history_axis_start">24 год тому</string>
+    <string name="battery_history_axis_end">Зараз</string>
+    <string name="battery_history_collecting">Збираємо дані. Vitals зберігає рівень кожні 15 хвилин, навіть коли застосунок закритий, тож за день графік заповниться.</string>
+    <string name="battery_history_off">Історію батареї вимкнено. Увімкніть її в налаштуваннях, щоб бачити рівень протягом дня й приблизний стан.</string>
+    <string name="battery_drain_rate">Середня витрата</string>
+    <string name="battery_charges_7d">Заряджання · 7 днів</string>
+    <string name="battery_max_temp">Макс. температура</string>
+    <string name="battery_health_estimated_title">Приблизний стан</string>
+    <string name="battery_health_estimated_caption">%1$s з %2$s mAh · оцінка за заряджаннями: %3$d</string>
+    <string name="battery_capacity_estimated_caption">Приблизна ємність за заряджаннями: %1$d. Телефон не повідомляє початкову ємність, тому відсотка немає.</string>
+    <string name="battery_health_calculating">Підрахунок · заряджання: %1$d з %2$d</string>
+    <string name="battery_health_calculating_desc">Vitals порівнює, скільки заряду надійшло, з тим, наскільки виріс рівень. Заряджайте щонайменше на 20 пунктів за раз, наприклад з 40 до 80.</string>
+    <string name="battery_health_no_counter_reason">Телефон не повідомляє лічильник заряду батареї або він не змінюється під час заряджання. Без нього ємність не оцінити.</string>
+    <string name="battery_health_estimate_note">Це оцінка, а не лабораторне вимірювання. З кожним заряджанням вона точніша.</string>
+    <string name="battery_wear_good">Добрий</string>
+    <string name="battery_wear_worn">Зношена</string>
+    <string name="battery_wear_bad">Сильно зношена</string>
 </resources>

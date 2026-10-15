@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Utiliser les couleurs de votre fond d\'écran</string>
     <string name="settings_expand_cards">Ouvrir les cartes au démarrage</string>
     <string name="settings_expand_cards_desc">Afficher les cœurs, les températures et les détails sans toucher</string>
+    <string name="settings_section_background">Appli fermée</string>
+    <string name="settings_battery_history">Historique de la batterie</string>
+    <string name="settings_battery_history_desc">Enregistre le niveau toutes les 15 minutes pour le graphique et l\'état estimé. Il reste sur votre téléphone et le désactiver l\'efface.</string>
     <string name="settings_section_privacy">Confidentialité</string>
     <string name="settings_analytics">Statistiques d\'utilisation anonymes</string>
     <string name="settings_analytics_desc">Aidez à choisir quoi améliorer</string>

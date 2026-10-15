@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Sobretensão</string>
     <string name="battery_health_cold">Fria</string>
     <string name="battery_health_unknown">Desconhecida</string>
+    <string name="battery_history_title">Últimas 24 horas</string>
+    <string name="battery_history_cd">Nível da bateria nas últimas 24 horas. As áreas sombreadas são carregamentos.</string>
+    <string name="battery_history_axis_start">24 h atrás</string>
+    <string name="battery_history_axis_end">Agora</string>
+    <string name="battery_history_collecting">Coletando dados. O Vitals salva o nível a cada 15 minutos, mesmo com o app fechado, e o gráfico vai sendo preenchido ao longo do dia.</string>
+    <string name="battery_history_off">O histórico da bateria está desativado. Ative nas Configurações para ver o nível ao longo do dia e a saúde estimada.</string>
+    <string name="battery_drain_rate">Consumo médio</string>
+    <string name="battery_charges_7d">Cargas · 7 dias</string>
+    <string name="battery_max_temp">Temp. máxima</string>
+    <string name="battery_health_estimated_title">Saúde estimada</string>
+    <string name="battery_health_estimated_caption">%1$s de %2$s mAh · estimada em %3$d cargas</string>
+    <string name="battery_capacity_estimated_caption">Capacidade estimada em %1$d cargas. Seu celular não informa a capacidade original, então não há porcentagem.</string>
+    <string name="battery_health_calculating">Calculando · %1$d de %2$d cargas</string>
+    <string name="battery_health_calculating_desc">O Vitals compara quanta carga entra com quanto o nível sobe. Carregue pelo menos 20 pontos de uma vez, por exemplo de 40 a 80.</string>
+    <string name="battery_health_no_counter_reason">Seu celular não informa o contador de carga da bateria, ou ele não muda durante o carregamento. Sem ele não dá para estimar a capacidade.</string>
+    <string name="battery_health_estimate_note">É uma estimativa, não uma medição de laboratório. Fica mais precisa a cada carga.</string>
+    <string name="battery_wear_good">Boa</string>
+    <string name="battery_wear_worn">Desgastada</string>
+    <string name="battery_wear_bad">Muito desgastada</string>
 </resources>

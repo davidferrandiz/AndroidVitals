@@ -172,3 +172,87 @@ fun RingGauge(
         }
     }
 }
+
+/** Punto de una serie temporal. [highlighted] sombrea el tramo que empieza en él (cargando). */
+data class TimePoint(val timeMs: Long, val value: Float, val highlighted: Boolean = false)
+
+/**
+ * Serie temporal con huecos: a diferencia de [Sparkline], el eje X es tiempo real, así que
+ * un periodo sin muestras (Doze, móvil apagado) se ve como un hueco y no como una línea recta.
+ * Respeta RTL igual que [Sparkline]: "ahora" queda en el borde final.
+ */
+@Composable
+fun TimeSeriesChart(
+    points: List<TimePoint>,
+    startMs: Long,
+    endMs: Long,
+    color: Color,
+    description: String,
+    modifier: Modifier = Modifier,
+    maxValue: Float = 100f,
+    highlightColor: Color = color,
+    maxGapMs: Long = 2 * 60 * 60 * 1000L,
+    height: Dp = 96.dp,
+) {
+    val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
+    val grid = VitalsTheme.palette.divider
+    Canvas(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(height)
+            .semantics { contentDescription = description }
+    ) {
+        val span = (endMs - startMs).coerceAtLeast(1L).toFloat()
+        val usableHeight = size.height - 2.dp.toPx()
+        fun x(t: Long): Float {
+            val ltr = ((t - startMs) / span).coerceIn(0f, 1f) * size.width
+            return if (rtl) size.width - ltr else ltr
+        }
+        fun y(v: Float): Float = size.height - 1.dp.toPx() - (v / maxValue).coerceIn(0f, 1f) * usableHeight
+
+        val dash = PathEffect.dashPathEffect(floatArrayOf(3f * density, 4f * density))
+        listOf(0.5f, 1f).forEach { fraction ->
+            val gy = y(maxValue * fraction)
+            drawLine(grid, Offset(0f, gy), Offset(size.width, gy), strokeWidth = 1.dp.toPx(), pathEffect = dash)
+        }
+        drawLine(grid, Offset(0f, size.height - 0.5f), Offset(size.width, size.height - 0.5f), strokeWidth = 1.dp.toPx())
+
+        val sorted = points.sortedBy { it.timeMs }
+        // Tramos cargando: banda vertical suave detrás de la línea.
+        sorted.zipWithNext().forEach { (a, b) ->
+            if (a.highlighted && b.timeMs - a.timeMs <= maxGapMs) {
+                val left = minOf(x(a.timeMs), x(b.timeMs))
+                val right = maxOf(x(a.timeMs), x(b.timeMs))
+                drawRect(
+                    highlightColor.copy(alpha = 0.10f),
+                    topLeft = Offset(left, 0f),
+                    size = androidx.compose.ui.geometry.Size(right - left, size.height)
+                )
+            }
+        }
+
+        // Grupos contiguos: cada uno con su línea y su relleno.
+        val groups = mutableListOf<MutableList<TimePoint>>()
+        sorted.forEach { point ->
+            val last = groups.lastOrNull()?.lastOrNull()
+            if (last == null || point.timeMs - last.timeMs > maxGapMs) groups += mutableListOf(point) else groups.last() += point
+        }
+        groups.forEach { group ->
+            if (group.size == 1) {
+                drawCircle(color, radius = 2.5f * density, center = Offset(x(group[0].timeMs), y(group[0].value)))
+                return@forEach
+            }
+            val line = Path().apply {
+                group.forEachIndexed { i, p -> if (i == 0) moveTo(x(p.timeMs), y(p.value)) else lineTo(x(p.timeMs), y(p.value)) }
+            }
+            val area = Path().apply {
+                addPath(line)
+                lineTo(x(group.last().timeMs), size.height)
+                lineTo(x(group.first().timeMs), size.height)
+                close()
+            }
+            drawPath(area, color.copy(alpha = 0.12f))
+            drawPath(line, color, style = Stroke(width = 2f * density, cap = StrokeCap.Round, join = StrokeJoin.Round))
+        }
+    }
+}

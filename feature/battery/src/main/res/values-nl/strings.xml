@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Overspanning</string>
     <string name="battery_health_cold">Koud</string>
     <string name="battery_health_unknown">Onbekend</string>
+    <string name="battery_history_title">Laatste 24 uur</string>
+    <string name="battery_history_cd">Batterijniveau van de laatste 24 uur. Gearceerde delen zijn opladen.</string>
+    <string name="battery_history_axis_start">24 u geleden</string>
+    <string name="battery_history_axis_end">Nu</string>
+    <string name="battery_history_collecting">Gegevens worden verzameld. Vitals slaat het niveau elke 15 minuten op, ook als de app dicht is, zodat de grafiek zich in de loop van de dag vult.</string>
+    <string name="battery_history_off">Batterijgeschiedenis staat uit. Zet hem aan in Instellingen om het niveau over de dag en de geschatte conditie te zien.</string>
+    <string name="battery_drain_rate">Gem. verbruik</string>
+    <string name="battery_charges_7d">Laadbeurten · 7 dagen</string>
+    <string name="battery_max_temp">Max. temperatuur</string>
+    <string name="battery_health_estimated_title">Geschatte conditie</string>
+    <string name="battery_health_estimated_caption">%1$s van %2$s mAh · geschat over %3$d laadbeurten</string>
+    <string name="battery_capacity_estimated_caption">Geschatte capaciteit over %1$d laadbeurten. Je telefoon geeft de oorspronkelijke capaciteit niet door, dus er is geen percentage.</string>
+    <string name="battery_health_calculating">Berekenen · %1$d van %2$d laadbeurten</string>
+    <string name="battery_health_calculating_desc">Vitals vergelijkt hoeveel lading erin gaat met hoeveel het niveau stijgt. Laad minstens 20 punten in één keer op, bijvoorbeeld van 40 naar 80.</string>
+    <string name="battery_health_no_counter_reason">Je telefoon geeft de laadteller van de batterij niet door, of die verandert niet tijdens het opladen. Zonder teller kan de capaciteit niet worden geschat.</string>
+    <string name="battery_health_estimate_note">Een schatting, geen labmeting. Hij wordt nauwkeuriger met elke laadbeurt.</string>
+    <string name="battery_wear_good">Goed</string>
+    <string name="battery_wear_worn">Versleten</string>
+    <string name="battery_wear_bad">Sterk versleten</string>
 </resources>

@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">과전압</string>
     <string name="battery_health_cold">저온</string>
     <string name="battery_health_unknown">알 수 없음</string>
+    <string name="battery_history_title">최근 24시간</string>
+    <string name="battery_history_cd">최근 24시간 배터리 잔량. 음영 부분은 충전 중입니다.</string>
+    <string name="battery_history_axis_start">24시간 전</string>
+    <string name="battery_history_axis_end">지금</string>
+    <string name="battery_history_collecting">데이터를 모으는 중입니다. Vitals는 앱이 닫혀 있어도 15분마다 잔량을 저장하므로 하루 동안 그래프가 채워집니다.</string>
+    <string name="battery_history_off">배터리 기록이 꺼져 있습니다. 설정에서 켜면 하루 동안의 잔량과 추정 상태를 볼 수 있습니다.</string>
+    <string name="battery_drain_rate">평균 소모</string>
+    <string name="battery_charges_7d">충전 · 7일</string>
+    <string name="battery_max_temp">최고 온도</string>
+    <string name="battery_health_estimated_title">추정 상태</string>
+    <string name="battery_health_estimated_caption">%2$s mAh 중 %1$s mAh · 충전 %3$d회로 추정</string>
+    <string name="battery_capacity_estimated_caption">충전 %1$d회로 추정한 용량입니다. 휴대폰이 원래 용량을 알려주지 않아 비율은 표시할 수 없습니다.</string>
+    <string name="battery_health_calculating">계산 중 · 충전 %2$d회 중 %1$d회</string>
+    <string name="battery_health_calculating_desc">Vitals는 들어간 충전량과 잔량 상승 폭을 비교합니다. 한 번에 20포인트 이상 충전하세요(예: 40에서 80까지).</string>
+    <string name="battery_health_no_counter_reason">휴대폰이 배터리 충전 카운터를 제공하지 않거나 충전 중에 값이 바뀌지 않습니다. 이 값 없이는 용량을 추정할 수 없습니다.</string>
+    <string name="battery_health_estimate_note">추정값이며 실험실 측정값이 아닙니다. 충전할수록 더 정확해집니다.</string>
+    <string name="battery_wear_good">좋음</string>
+    <string name="battery_wear_worn">마모됨</string>
+    <string name="battery_wear_bad">많이 마모됨</string>
 </resources>

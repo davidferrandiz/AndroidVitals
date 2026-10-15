@@ -28,4 +28,7 @@
     <string name="settings_feedback_desc">Incluye el modelo del móvil y la versión de Android</string>
     <string name="settings_feedback_subject">Comentarios sobre Vitals</string>
     <string name="settings_version">Versión</string>
+    <string name="settings_section_background">Con la app cerrada</string>
+    <string name="settings_battery_history">Historial de batería</string>
+    <string name="settings_battery_history_desc">Guarda el nivel cada 15 minutos para la gráfica y la salud estimada. Se queda en tu móvil y, si lo desactivas, se borra.</string>
 </resources>

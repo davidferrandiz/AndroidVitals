@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">過電圧</string>
     <string name="battery_health_cold">低温</string>
     <string name="battery_health_unknown">不明</string>
+    <string name="battery_history_title">過去 24 時間</string>
+    <string name="battery_history_cd">過去 24 時間のバッテリー残量。網掛け部分は充電中です。</string>
+    <string name="battery_history_axis_start">24 時間前</string>
+    <string name="battery_history_axis_end">現在</string>
+    <string name="battery_history_collecting">データを収集中です。Vitals はアプリを閉じていても 15 分ごとに残量を保存するので、1 日のうちにグラフが埋まります。</string>
+    <string name="battery_history_off">バッテリー履歴がオフです。設定でオンにすると、1 日の残量の推移と推定状態を確認できます。</string>
+    <string name="battery_drain_rate">平均消費</string>
+    <string name="battery_charges_7d">充電回数 · 7 日間</string>
+    <string name="battery_max_temp">最高温度</string>
+    <string name="battery_health_estimated_title">推定状態</string>
+    <string name="battery_health_estimated_caption">%2$s mAh 中 %1$s mAh · %3$d 回の充電から推定</string>
+    <string name="battery_capacity_estimated_caption">%1$d 回の充電から推定した容量です。このスマホは本来の容量を公開していないため、割合は表示できません。</string>
+    <string name="battery_health_calculating">計算中 · %2$d 回中 %1$d 回の充電</string>
+    <string name="battery_health_calculating_desc">Vitals は充電された量と残量の上がり方を比べます。一度に 20 ポイント以上充電してください (例: 40 から 80 まで)。</string>
+    <string name="battery_health_no_counter_reason">このスマホはバッテリーの充電カウンターを公開していないか、充電中に値が変わりません。これがないと容量を推定できません。</string>
+    <string name="battery_health_estimate_note">推定値であり、実測値ではありません。充電するたびに精度が上がります。</string>
+    <string name="battery_wear_good">良好</string>
+    <string name="battery_wear_worn">劣化</string>
+    <string name="battery_wear_bad">大きく劣化</string>
 </resources>

@@ -17,6 +17,11 @@ android {
     }
 }
 
+// Esquema de Room versionado en git (core/schemas): hace falta para escribir y testear migraciones.
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 dependencies {
     // Hilt
     implementation(libs.hilt.android)

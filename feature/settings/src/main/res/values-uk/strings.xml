@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Використовувати кольори шпалер</string>
     <string name="settings_expand_cards">Розгортати картки під час запуску</string>
     <string name="settings_expand_cards_desc">Показувати ядра, температури й подробиці без натискання</string>
+    <string name="settings_section_background">Коли застосунок закритий</string>
+    <string name="settings_battery_history">Історія батареї</string>
+    <string name="settings_battery_history_desc">Зберігає рівень кожні 15 хвилин для графіка й приблизного стану. Зберігається лише на телефоні; у разі вимкнення видаляється.</string>
     <string name="settings_section_privacy">Конфіденційність</string>
     <string name="settings_analytics">Анонімна статистика використання</string>
     <string name="settings_analytics_desc">Допоможіть вирішити, що покращити</string>

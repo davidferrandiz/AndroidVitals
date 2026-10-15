@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">배경화면 색상 사용</string>
     <string name="settings_expand_cards">시작 시 카드 열기</string>
     <string name="settings_expand_cards_desc">탭하지 않아도 코어, 온도, 세부 내역 표시</string>
+    <string name="settings_section_background">앱을 닫았을 때</string>
+    <string name="settings_battery_history">배터리 기록</string>
+    <string name="settings_battery_history_desc">그래프와 추정 상태를 위해 15분마다 잔량을 저장합니다. 휴대폰에만 저장되며 끄면 삭제됩니다.</string>
     <string name="settings_section_privacy">개인정보</string>
     <string name="settings_analytics">익명 사용 통계</string>
     <string name="settings_analytics_desc">개선할 부분을 정하는 데 도움이 됩니다</string>

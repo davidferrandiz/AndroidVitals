@@ -8,6 +8,8 @@ data class AppSettings(
     val expandCardsByDefault: Boolean = false,
     val analyticsEnabled: Boolean = true,
     val crashReportsEnabled: Boolean = true,
+    /** VitalsWorker guarda el nivel cada 15 min. Solo en el dispositivo; desactivarlo lo borra. */
+    val batteryHistoryEnabled: Boolean = true,
 )
 
 enum class TemperatureUnit { AUTO, CELSIUS, FAHRENHEIT }

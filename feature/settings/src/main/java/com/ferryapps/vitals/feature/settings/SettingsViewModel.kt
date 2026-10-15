@@ -47,6 +47,10 @@ class SettingsViewModel @Inject constructor(
         viewModelScope.launch { repository.setCrashReportsEnabled(enabled) }
     }
 
+    fun setBatteryHistoryEnabled(enabled: Boolean) = update("battery_history", enabled.toString()) {
+        repository.setBatteryHistoryEnabled(enabled)
+    }
+
     private fun update(setting: String, value: String, block: suspend () -> Unit) {
         viewModelScope.launch {
             block()

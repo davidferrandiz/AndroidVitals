@@ -1,11 +1,11 @@
 package com.ferryapps.vitals.core.di
 
+import com.ferryapps.vitals.core.data.repository.BatteryHistoryRepositoryImpl
 import com.ferryapps.vitals.core.data.repository.EngagementRepositoryImpl
 import com.ferryapps.vitals.core.data.repository.SettingsRepositoryImpl
-import com.ferryapps.vitals.core.data.repository.VitalsRepositoryImpl
+import com.ferryapps.vitals.core.domain.repository.BatteryHistoryRepository
 import com.ferryapps.vitals.core.domain.repository.EngagementRepository
 import com.ferryapps.vitals.core.domain.repository.SettingsRepository
-import com.ferryapps.vitals.core.domain.repository.VitalsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,7 +18,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindVitalsRepository(impl: VitalsRepositoryImpl): VitalsRepository
+    abstract fun bindBatteryHistoryRepository(impl: BatteryHistoryRepositoryImpl): BatteryHistoryRepository
 
     @Binds
     @Singleton

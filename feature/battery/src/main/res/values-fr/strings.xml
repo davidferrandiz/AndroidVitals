@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Surtension</string>
     <string name="battery_health_cold">Froide</string>
     <string name="battery_health_unknown">Inconnu</string>
+    <string name="battery_history_title">Dernières 24 heures</string>
+    <string name="battery_history_cd">Niveau de la batterie sur les dernières 24 heures. Les zones ombrées correspondent à la charge.</string>
+    <string name="battery_history_axis_start">Il y a 24 h</string>
+    <string name="battery_history_axis_end">Maintenant</string>
+    <string name="battery_history_collecting">Collecte des données. Vitals enregistre le niveau toutes les 15 minutes, même appli fermée, et le graphique se remplit au fil de la journée.</string>
+    <string name="battery_history_off">L\'historique de la batterie est désactivé. Activez-le dans les Paramètres pour voir le niveau au fil de la journée et l\'état estimé.</string>
+    <string name="battery_drain_rate">Décharge moyenne</string>
+    <string name="battery_charges_7d">Charges · 7 jours</string>
+    <string name="battery_max_temp">Température max.</string>
+    <string name="battery_health_estimated_title">État estimé</string>
+    <string name="battery_health_estimated_caption">%1$s sur %2$s mAh · estimé sur %3$d charges</string>
+    <string name="battery_capacity_estimated_caption">Capacité estimée sur %1$d charges. Votre téléphone n\'indique pas la capacité d\'origine, il n\'y a donc pas de pourcentage.</string>
+    <string name="battery_health_calculating">Calcul en cours · %1$d charges sur %2$d</string>
+    <string name="battery_health_calculating_desc">Vitals compare la quantité de charge reçue et la hausse du niveau. Chargez au moins 20 points d\'un coup, par exemple de 40 à 80.</string>
+    <string name="battery_health_no_counter_reason">Votre téléphone n\'indique pas le compteur de charge de la batterie, ou il ne bouge pas pendant la charge. Sans lui, impossible d\'estimer la capacité.</string>
+    <string name="battery_health_estimate_note">Une estimation, pas une mesure de laboratoire. Elle s\'affine à chaque charge.</string>
+    <string name="battery_wear_good">Bon</string>
+    <string name="battery_wear_worn">Usée</string>
+    <string name="battery_wear_bad">Très usée</string>
 </resources>

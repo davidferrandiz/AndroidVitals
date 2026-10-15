@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">Sovratensione</string>
     <string name="battery_health_cold">Fredda</string>
     <string name="battery_health_unknown">Sconosciuto</string>
+    <string name="battery_history_title">Ultime 24 ore</string>
+    <string name="battery_history_cd">Livello della batteria nelle ultime 24 ore. Le aree ombreggiate sono le ricariche.</string>
+    <string name="battery_history_axis_start">24 h fa</string>
+    <string name="battery_history_axis_end">Ora</string>
+    <string name="battery_history_collecting">Raccolta dati in corso. Vitals salva il livello ogni 15 minuti, anche con l\'app chiusa, e il grafico si riempie nel corso della giornata.</string>
+    <string name="battery_history_off">La cronologia della batteria è disattivata. Attivala nelle Impostazioni per vedere il livello durante la giornata e lo stato stimato.</string>
+    <string name="battery_drain_rate">Consumo medio</string>
+    <string name="battery_charges_7d">Ricariche · 7 giorni</string>
+    <string name="battery_max_temp">Temperatura max</string>
+    <string name="battery_health_estimated_title">Stato stimato</string>
+    <string name="battery_health_estimated_caption">%1$s di %2$s mAh · stimato su %3$d ricariche</string>
+    <string name="battery_capacity_estimated_caption">Capacità stimata su %1$d ricariche. Il tuo telefono non indica la capacità originale, quindi non c\'è una percentuale.</string>
+    <string name="battery_health_calculating">Calcolo in corso · %1$d di %2$d ricariche</string>
+    <string name="battery_health_calculating_desc">Vitals confronta quanta carica entra con quanto sale il livello. Ricarica almeno 20 punti di fila, per esempio da 40 a 80.</string>
+    <string name="battery_health_no_counter_reason">Il tuo telefono non indica il contatore di carica della batteria, oppure non cambia durante la ricarica. Senza, non si può stimare la capacità.</string>
+    <string name="battery_health_estimate_note">Una stima, non una misura di laboratorio. Diventa più precisa a ogni ricarica.</string>
+    <string name="battery_wear_good">Buono</string>
+    <string name="battery_wear_worn">Usurata</string>
+    <string name="battery_wear_bad">Molto usurata</string>
 </resources>

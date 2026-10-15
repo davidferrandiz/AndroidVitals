@@ -26,12 +26,13 @@ class GetBatteryUseCase @Inject constructor(
     /** 2 s por defecto: la corriente cambia rápido y se pinta en una gráfica. */
     operator fun invoke(intervalMs: Long = 2_000L): Flow<BatteryInfo> = flow {
         while (true) {
-            readBattery()?.let { emit(it) }
+            current()?.let { emit(it) }
             delay(intervalMs)
         }
     }.flowOn(Dispatchers.IO)
 
-    private fun readBattery(): BatteryInfo? {
+    /** Una lectura suelta (VitalsWorker, widget). Lee un broadcast fijo: no registra nada. */
+    fun current(): BatteryInfo? {
         val intent = context.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED)) ?: return null
         val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
         val scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100)

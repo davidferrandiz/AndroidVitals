@@ -79,6 +79,7 @@ fun SettingsScreen(
         }
         val current = settings ?: return@LazyColumn
         item(key = "view") { ViewSection(current, viewModel) }
+        item(key = "background") { BackgroundSection(current, viewModel) }
         item(key = "privacy") { PrivacySection(current, viewModel, context) }
         item(key = "about") { AboutSection(context) }
     }
@@ -132,6 +133,19 @@ private fun ViewSection(settings: AppSettings, viewModel: SettingsViewModel) {
             description = stringResource(R.string.settings_expand_cards_desc),
             checked = settings.expandCardsByDefault,
             onCheckedChange = viewModel::setExpandCardsByDefault
+        )
+    }
+}
+
+/** Lo que Vitals hace con la app cerrada (VitalsWorker cada 15 min). */
+@Composable
+private fun BackgroundSection(settings: AppSettings, viewModel: SettingsViewModel) {
+    SectionCard(title = stringResource(R.string.settings_section_background)) {
+        SwitchRow(
+            title = stringResource(R.string.settings_battery_history),
+            description = stringResource(R.string.settings_battery_history_desc),
+            checked = settings.batteryHistoryEnabled,
+            onCheckedChange = viewModel::setBatteryHistoryEnabled
         )
     }
 }

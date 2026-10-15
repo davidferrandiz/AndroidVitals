@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">ولتاژ بیش از حد</string>
     <string name="battery_health_cold">سرد</string>
     <string name="battery_health_unknown">نامشخص</string>
+    <string name="battery_history_title">۲۴ ساعت اخیر</string>
+    <string name="battery_history_cd">سطح باتری در ۲۴ ساعت اخیر. بخش‌های سایه‌دار زمان شارژ است.</string>
+    <string name="battery_history_axis_start">۲۴ ساعت پیش</string>
+    <string name="battery_history_axis_end">اکنون</string>
+    <string name="battery_history_collecting">در حال جمع‌آوری داده. Vitals هر ۱۵ دقیقه سطح باتری را ذخیره می‌کند، حتی وقتی برنامه بسته است، و نمودار در طول روز کامل می‌شود.</string>
+    <string name="battery_history_off">سابقه باتری خاموش است. آن را در تنظیمات روشن کنید تا سطح باتری در طول روز و سلامت تخمینی را ببینید.</string>
+    <string name="battery_drain_rate">میانگین تخلیه</string>
+    <string name="battery_charges_7d">دفعات شارژ · ۷ روز</string>
+    <string name="battery_max_temp">بیشترین دما</string>
+    <string name="battery_health_estimated_title">سلامت تخمینی</string>
+    <string name="battery_health_estimated_caption">%1$s از %2$s mAh · تخمین از %3$d شارژ</string>
+    <string name="battery_capacity_estimated_caption">ظرفیت تخمینی از %1$d شارژ. گوشی شما ظرفیت اصلی را گزارش نمی‌دهد، پس درصدی وجود ندارد.</string>
+    <string name="battery_health_calculating">در حال محاسبه · %1$d از %2$d شارژ</string>
+    <string name="battery_health_calculating_desc">Vitals مقدار شارژ ورودی را با میزان بالا رفتن سطح مقایسه می‌کند. دست‌کم ۲۰ واحد را یک‌جا شارژ کنید، مثلاً از ۴۰ تا ۸۰.</string>
+    <string name="battery_health_no_counter_reason">گوشی شما شمارنده شارژ باتری را گزارش نمی‌دهد یا هنگام شارژ تغییر نمی‌کند. بدون آن نمی‌توان ظرفیت را تخمین زد.</string>
+    <string name="battery_health_estimate_note">یک تخمین است، نه اندازه‌گیری آزمایشگاهی. با هر شارژ دقیق‌تر می‌شود.</string>
+    <string name="battery_wear_good">خوب</string>
+    <string name="battery_wear_worn">فرسوده</string>
+    <string name="battery_wear_bad">بسیار فرسوده</string>
 </resources>

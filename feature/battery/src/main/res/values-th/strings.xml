@@ -39,4 +39,23 @@
     <string name="battery_health_over_voltage">แรงดันเกิน</string>
     <string name="battery_health_cold">เย็น</string>
     <string name="battery_health_unknown">ไม่ทราบ</string>
+    <string name="battery_history_title">24 ชั่วโมงที่ผ่านมา</string>
+    <string name="battery_history_cd">ระดับแบตเตอรี่ใน 24 ชั่วโมงที่ผ่านมา ส่วนที่แรเงาคือช่วงชาร์จ</string>
+    <string name="battery_history_axis_start">24 ชม. ก่อน</string>
+    <string name="battery_history_axis_end">ตอนนี้</string>
+    <string name="battery_history_collecting">กำลังเก็บข้อมูล Vitals บันทึกระดับแบตทุก 15 นาทีแม้ปิดแอป กราฟจึงค่อยๆ เต็มในระหว่างวัน</string>
+    <string name="battery_history_off">ประวัติแบตเตอรี่ปิดอยู่ เปิดได้ในการตั้งค่าเพื่อดูระดับแบตตลอดวันและสุขภาพโดยประมาณ</string>
+    <string name="battery_drain_rate">การใช้เฉลี่ย</string>
+    <string name="battery_charges_7d">การชาร์จ · 7 วัน</string>
+    <string name="battery_max_temp">อุณหภูมิสูงสุด</string>
+    <string name="battery_health_estimated_title">สุขภาพโดยประมาณ</string>
+    <string name="battery_health_estimated_caption">%1$s จาก %2$s mAh · ประมาณจากการชาร์จ %3$d ครั้ง</string>
+    <string name="battery_capacity_estimated_caption">ความจุโดยประมาณจากการชาร์จ %1$d ครั้ง โทรศัพท์ของคุณไม่รายงานความจุเดิม จึงไม่มีเปอร์เซ็นต์</string>
+    <string name="battery_health_calculating">กำลังคำนวณ · ชาร์จแล้ว %1$d จาก %2$d ครั้ง</string>
+    <string name="battery_health_calculating_desc">Vitals เปรียบเทียบปริมาณไฟที่ชาร์จเข้ากับระดับที่เพิ่มขึ้น ชาร์จต่อเนื่องอย่างน้อย 20 จุด เช่น จาก 40 ถึง 80</string>
+    <string name="battery_health_no_counter_reason">โทรศัพท์ของคุณไม่รายงานตัวนับประจุแบตเตอรี่ หรือค่าไม่เปลี่ยนขณะชาร์จ หากไม่มีค่านี้จะประมาณความจุไม่ได้</string>
+    <string name="battery_health_estimate_note">เป็นค่าประมาณ ไม่ใช่การวัดในห้องแล็บ จะแม่นยำขึ้นทุกครั้งที่ชาร์จ</string>
+    <string name="battery_wear_good">ดี</string>
+    <string name="battery_wear_worn">เสื่อม</string>
+    <string name="battery_wear_bad">เสื่อมมาก</string>
 </resources>

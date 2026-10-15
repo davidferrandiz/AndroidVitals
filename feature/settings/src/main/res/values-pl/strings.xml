@@ -14,6 +14,9 @@
     <string name="settings_dynamic_color_desc">Użyj kolorów tapety</string>
     <string name="settings_expand_cards">Otwieraj karty przy starcie</string>
     <string name="settings_expand_cards_desc">Pokazuj rdzenie, temperatury i podziały bez dotykania</string>
+    <string name="settings_section_background">Przy zamkniętej aplikacji</string>
+    <string name="settings_battery_history">Historia baterii</string>
+    <string name="settings_battery_history_desc">Zapisuje poziom co 15 minut na potrzeby wykresu i szacowanej kondycji. Zostaje na telefonie, a wyłączenie ją usuwa.</string>
     <string name="settings_section_privacy">Prywatność</string>
     <string name="settings_analytics">Anonimowe statystyki użycia</string>
     <string name="settings_analytics_desc">Pomóż zdecydować, co ulepszyć</string>

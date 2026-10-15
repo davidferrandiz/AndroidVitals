@@ -37,6 +37,7 @@ class SettingsRepositoryImpl @Inject constructor(
                 expandCardsByDefault = prefs[KEY_EXPAND_CARDS] ?: defaults.expandCardsByDefault,
                 analyticsEnabled = prefs[KEY_ANALYTICS] ?: defaults.analyticsEnabled,
                 crashReportsEnabled = prefs[KEY_CRASH_REPORTS] ?: defaults.crashReportsEnabled,
+                batteryHistoryEnabled = prefs[KEY_BATTERY_HISTORY] ?: defaults.batteryHistoryEnabled,
             )
         }
         .distinctUntilChanged()
@@ -65,6 +66,10 @@ class SettingsRepositoryImpl @Inject constructor(
         dataStore.edit { it[KEY_CRASH_REPORTS] = enabled }
     }
 
+    override suspend fun setBatteryHistoryEnabled(enabled: Boolean) {
+        dataStore.edit { it[KEY_BATTERY_HISTORY] = enabled }
+    }
+
     private companion object {
         val KEY_TEMPERATURE_UNIT = stringPreferencesKey("temperature_unit")
         val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
@@ -72,5 +77,6 @@ class SettingsRepositoryImpl @Inject constructor(
         val KEY_EXPAND_CARDS = booleanPreferencesKey("expand_cards_by_default")
         val KEY_ANALYTICS = booleanPreferencesKey("analytics_enabled")
         val KEY_CRASH_REPORTS = booleanPreferencesKey("crash_reports_enabled")
+        val KEY_BATTERY_HISTORY = booleanPreferencesKey("battery_history_enabled")
     }
 }
