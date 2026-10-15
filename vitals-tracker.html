@@ -149,7 +149,7 @@
       <div class="module-card">
         <div class="module-name">:feature:widget</div>
         <div class="module-desc">Widget Glance: batería, temperatura, RAM y espacio libre</div>
-        <div class="module-progress"><div class="module-bar" style="width: 50%; background: #ff9800;"></div></div>
+        <div class="module-progress"><div class="module-bar" style="width: 80%; background: #ff9800;"></div></div>
       </div>
     </div>
   </div>
@@ -233,14 +233,14 @@
       <span class="item-badge ib-progress">CI en verde</span>
     </div>
     <div class="item">
-      <div class="item-dot dot-progress"></div>
-      <div class="item-text">Historial de batería y salud estimada (VitalsWorker + Room)</div>
-      <span class="item-badge ib-progress">1.4 · CI en verde</span>
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Historial de batería y salud estimada (VitalsWorker + Room)</div>
+      <span class="item-badge ib-done">1.4 · hecho</span>
     </div>
     <div class="item">
-      <div class="item-dot dot-progress"></div>
-      <div class="item-text">Avisos (batería caliente, espacio) y widget Glance</div>
-      <span class="item-badge ib-progress">1.4</span>
+      <div class="item-dot dot-done"></div>
+      <div class="item-text done">Avisos (batería caliente, espacio) y widget Glance</div>
+      <span class="item-badge ib-done">1.4 · hecho</span>
     </div>
     <div class="item">
       <div class="item-dot dot-done"></div>
@@ -283,7 +283,7 @@
     <div class="timeline-item">
       <div class="tl-dot"></div>
       <div>
-        <div class="tl-text">Versión 1.4: VitalsWorker cada 15 min con WorkManager guarda la batería en Room (battery_samples, 30 días, exportSchema activado) y estima la salud por tramos de carga de ≥ 20 puntos (mediana de Δcontador/Δnivel). Avisos de batería ≥ 45 °C y espacio &lt; 10 % con cooldown, y widget Glance en :feature:widget refrescado por el worker vía WidgetUpdater (interfaz en :core) para no acoplar features. Sin servicio en primer plano.</div>
+        <div class="tl-text">Versión 1.4: VitalsWorker cada 15 min con WorkManager guarda la batería en Room (battery_samples, 30 días, exportSchema activado) y estima la salud por tramos de carga de ≥ 20 puntos (mediana de Δcontador/Δnivel). Avisos de batería ≥ 45 °C y espacio &lt; 10 % con cooldown, y widget Glance en :feature:widget refrescado por el worker vía WidgetUpdater (interfaz en :core) para no acoplar features. Sin servicio en primer plano. Esquema de Room v2 en core/schemas; la CI avisa si cambia y no está en git.</div>
         <div class="tl-date">Octubre 2026</div>
       </div>
     </div>
