@@ -17,6 +17,7 @@ import com.ferryapps.vitals.core.domain.model.ThermalState
 import com.ferryapps.vitals.core.domain.model.ThermalStatus
 import com.ferryapps.vitals.core.domain.model.ThermalZone
 import com.ferryapps.vitals.core.domain.model.TopProcess
+import com.ferryapps.vitals.core.domain.repository.EngagementRepository
 import com.ferryapps.vitals.core.domain.repository.SettingsRepository
 import com.ferryapps.vitals.core.domain.usecase.DeviceSummary
 import com.ferryapps.vitals.core.domain.usecase.GetAppCpuUsageUseCase
@@ -43,6 +44,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.runningFold
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -67,6 +69,7 @@ class MonitorViewModel @Inject constructor(
     settingsRepository: SettingsRepository,
     private val analytics: AnalyticsTracker,
     private val unavailableReporter: MetricUnavailableReporter,
+    private val engagement: EngagementRepository,
 ) : ViewModel() {
 
     val settings: StateFlow<AppSettings> = settingsRepository.settings.stateInVm(AppSettings())
@@ -85,7 +88,10 @@ class MonitorViewModel @Inject constructor(
         val current = expandedCards.value
         val expanding = id !in current
         userExpanded.value = if (expanding) current + id else current - id
-        if (expanding) analytics.logEvent(AnalyticsEvents.CARD_EXPAND, mapOf(AnalyticsEvents.PARAM_CARD to id))
+        if (expanding) {
+            analytics.logEvent(AnalyticsEvents.CARD_EXPAND, mapOf(AnalyticsEvents.PARAM_CARD to id))
+            viewModelScope.launch { engagement.markEngaged() }
+        }
     }
 
     // ── Sistema ──────────────────────────────────────────────────────────────

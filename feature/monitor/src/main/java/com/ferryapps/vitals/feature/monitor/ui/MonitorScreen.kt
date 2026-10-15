@@ -84,6 +84,7 @@ import com.ferryapps.vitals.feature.monitor.R
 @Composable
 fun MonitorScreen(
     onOpenBattery: () -> Unit,
+    onOpenHardware: () -> Unit,
     onOpenSettings: () -> Unit,
     contentPadding: PaddingValues = PaddingValues(),
     viewModel: MonitorViewModel = hiltViewModel(),
@@ -132,7 +133,8 @@ fun MonitorScreen(
                 thermalZones = thermalZones,
                 settings = settings,
                 expanded = MonitorViewModel.CARD_CPU in expanded,
-                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_CPU) }
+                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_CPU) },
+                onOpenHardware = onOpenHardware
             )
         }
 
@@ -382,17 +384,33 @@ private fun CpuCard(
     settings: AppSettings,
     expanded: Boolean,
     onToggle: () -> Unit,
+    onOpenHardware: () -> Unit,
 ) {
     val accent = VitalsTheme.palette.cpu
     val coreCount = cpu?.cores?.size ?: 0
     VitalCard {
+        // La cabecera lleva a Hardware: ahí está el detalle del SoC, la GPU y el estado térmico.
         CardHeader(
             icon = DsR.drawable.ic_cpu,
             accent = accent,
             title = stringResource(R.string.card_cpu),
             subtitle = if (socName != null && coreCount > 0) stringResource(R.string.cpu_subtitle, socName, coreCount) else socName,
             value = cpu?.let { Formatters.percent(it.estimatedLoadPercent) } ?: "—",
-            valueLabel = stringResource(R.string.cpu_estimated_load)
+            valueLabel = stringResource(R.string.cpu_estimated_load),
+            modifier = Modifier.clickable(
+                onClickLabel = stringResource(R.string.cpu_open_hardware),
+                role = Role.Button,
+                onClick = onOpenHardware
+            ),
+            trailing = {
+                Spacer(Modifier.width(6.dp))
+                Icon(
+                    painterResource(DsR.drawable.ic_chevron_right),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(18.dp)
+                )
+            }
         )
         Sparkline(
             values = history,

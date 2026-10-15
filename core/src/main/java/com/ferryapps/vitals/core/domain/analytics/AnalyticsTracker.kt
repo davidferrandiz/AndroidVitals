@@ -21,6 +21,9 @@ object AnalyticsEvents {
     /** Cambio de ajuste. Params `setting` y `value`. */
     const val SETTING_CHANGED = "setting_changed"
 
+    /** Se ha mostrado la valoración de Play (In-App Review). */
+    const val REVIEW_PROMPT = "review_prompt"
+
     const val PARAM_CARD = "card"
     const val PARAM_SOURCE = "source"
     const val PARAM_SETTING = "setting"

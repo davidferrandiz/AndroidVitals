@@ -1,7 +1,9 @@
 package com.ferryapps.vitals.core.di
 
+import com.ferryapps.vitals.core.data.repository.EngagementRepositoryImpl
 import com.ferryapps.vitals.core.data.repository.SettingsRepositoryImpl
 import com.ferryapps.vitals.core.data.repository.VitalsRepositoryImpl
+import com.ferryapps.vitals.core.domain.repository.EngagementRepository
 import com.ferryapps.vitals.core.domain.repository.SettingsRepository
 import com.ferryapps.vitals.core.domain.repository.VitalsRepository
 import dagger.Binds
@@ -21,4 +23,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSettingsRepository(impl: SettingsRepositoryImpl): SettingsRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindEngagementRepository(impl: EngagementRepositoryImpl): EngagementRepository
 }

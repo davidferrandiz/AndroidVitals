@@ -86,6 +86,7 @@ fun VitalsApp(analytics: AnalyticsTracker) {
             composable(Routes.PANEL) {
                 MonitorScreen(
                     onOpenBattery = { navController.navigateTopLevel(Routes.BATTERY) },
+                    onOpenHardware = { navController.navigateTopLevel(Routes.HARDWARE) },
                     onOpenSettings = { navController.navigate(Routes.SETTINGS) },
                     contentPadding = innerPadding
                 )

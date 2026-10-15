@@ -85,6 +85,9 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.lifecycle.runtime.compose)
 
+    // Valoración en Google Play sin salir de la app
+    implementation(libs.play.review.ktx)
+
     // WorkManager (Configuration.Provider en VitalsApplication)
     implementation(libs.workmanager.ktx)
 
