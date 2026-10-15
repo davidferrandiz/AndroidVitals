@@ -3,7 +3,6 @@ package com.ferryapps.vitals.baselineprofile
 import androidx.benchmark.macro.MacrobenchmarkScope
 import androidx.benchmark.macro.junit4.BaselineProfileRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.LargeTest
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.Direction
 import androidx.test.uiautomator.Until
@@ -17,7 +16,6 @@ import org.junit.runner.RunWith
  * que el arranque y el primer scroll no esperan al JIT (lo que más se nota en gama baja).
  */
 @RunWith(AndroidJUnit4::class)
-@LargeTest
 class BaselineProfileGenerator {
 
     @get:Rule
