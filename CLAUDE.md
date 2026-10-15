@@ -20,6 +20,7 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 | Persistencia | DataStore (ajustes, estado de avisos) · Room 2.7.x (`battery_samples`, 30 días) |
 | Background | WorkManager (solo `VitalsWorker`: historial, avisos y refresco del widget) |
 | Widget | Glance 1.1 (`:feature:widget`) |
+| Rendimiento | Baseline Profile (`:baselineprofile`, androidx.benchmark 1.5) + ProfileInstaller |
 | Observabilidad | Firebase Crashlytics + Analytics (detrás de `AnalyticsTracker`) |
 | Build | AGP 9.x · Kotlin 2.x · Gradle Version Catalog · R8 en release |
 
@@ -34,6 +35,7 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 :feature:hardware  → Pantalla Hardware
 :feature:settings  → Pantalla Ajustes
 :feature:widget    → Widget Glance (implementa WidgetUpdater de :core)
+:baselineprofile   → Generador del Baseline Profile (com.android.test, solo se ejecuta en CI)
 ```
 
 **Regla de dependencias (estricta):**
@@ -69,6 +71,8 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 - **UI**: colores de categoría con `VitalsTheme.palette`, iconos de `:designsystem` (nada de emojis), números con cifras tabulares, áreas táctiles de 44–48 dp
 - **Textos**: inglés en `values/`, español en `values-es/` y los otros 18 idiomas en `values-<loc>/`. Lint falla si falta una cadena: toda cadena nueva se traduce en el mismo cambio
 - **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal. Nunca invasivas: avisos desactivados por defecto, un canal por tipo, nada de `IMPORTANCE_HIGH` (sin emergentes), silencio de 22:00 a 9:00, cooldown por aviso (`AlertType`) y se quitan solas cuando el problema se resuelve. Las reglas son puras en `AlertRules` y tienen tests
+- **Baseline Profile**: lo genera `.github/workflows/baseline-profile.yml` en un emulador y hace commit en `app/src/release/generated/baselineProfiles/`. Regenerarlo tras cambios grandes de navegación o pantallas (tocar `baselineprofile/` o lanzar el workflow). Los elementos que recorre el generador llevan `testTag` (`nav_panel`, `nav_battery`, `nav_hardware`)
+- **Firebase fuera de release**: debug, `nonMinifiedRelease` y `benchmarkRelease` no recogen nada (placeholder `firebaseCollectionOff` en el Manifest y `BuildConfig.BUILD_TYPE`)
 - **`google-services.json`**: solo en `app/` — nunca en submódulos, nunca en git
 
 ## Ubicaciones clave
