@@ -111,7 +111,7 @@ class GetDeviceInfoUseCase @Inject constructor(
         } else null
 
         @Suppress("DEPRECATION")
-        val hdr = (display.hdrCapabilities?.supportedHdrTypes ?: IntArray(0)).mapNotNull {
+        val hdr = (display.hdrCapabilities?.supportedHdrTypes ?: IntArray(0)).toList().mapNotNull {
             when (it) {
                 Display.HdrCapabilities.HDR_TYPE_DOLBY_VISION -> HdrType.DOLBY_VISION
                 Display.HdrCapabilities.HDR_TYPE_HDR10 -> HdrType.HDR10
