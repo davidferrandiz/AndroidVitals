@@ -37,7 +37,11 @@ Ya lo declaraste en Play Console (commit `a2d01aa`); mantén esa declaración co
 > Vitals te enseña de un vistazo cómo está tu móvil, con datos reales y explicados.
 >
 > **Batería**: nivel, potencia de carga en vatios, corriente, voltaje, temperatura, tiempo hasta carga
-> completa o autonomía estimada, ciclos de carga (Android 14+) y tipo de cargador.
+> completa o autonomía estimada, ciclos de carga (Android 14+) y tipo de cargador. Historial de las
+> últimas 24 h, descarga media por hora y **salud estimada** de la batería a partir de tus cargas.
+>
+> **Avisos y widget**: aviso si la batería se calienta demasiado o el almacenamiento está casi lleno, y
+> un widget con batería, temperatura, RAM y espacio libre en la pantalla de inicio.
 >
 > **Rendimiento**: carga estimada de la CPU con gráfica en vivo, frecuencia de cada núcleo con su nombre
 > (Cortex-A55, Cortex-X3…) y aviso si el sistema está limitando el rendimiento por temperatura.
@@ -49,8 +53,9 @@ Ya lo declaraste en Play Console (commit `a2d01aa`); mantén esa declaración co
 >
 > **Red**: velocidad de bajada y subida, banda Wi-Fi (2,4 / 5 / 6 GHz), estándar y calidad de señal.
 >
-> Sin anuncios. Ligera. Funciona sin conexión. Tus lecturas nunca salen del móvil; las estadísticas
-> anónimas de uso se pueden desactivar en Ajustes.
+> Sin anuncios. Ligera: con la app cerrada solo hace una lectura cada 15 minutos. Funciona sin
+> conexión. Tus lecturas y tu historial nunca salen del móvil; las estadísticas anónimas de uso se
+> pueden desactivar en Ajustes.
 
 Quitar de la ficha actual: "Process Manager" y "no data collection" (ver el análisis del rediseño).
 

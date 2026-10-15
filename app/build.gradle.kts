@@ -62,6 +62,7 @@ dependencies {
     implementation(project(":feature:battery"))
     implementation(project(":feature:hardware"))
     implementation(project(":feature:settings"))
+    implementation(project(":feature:widget"))
 
     // Hilt
     implementation(libs.hilt.android)

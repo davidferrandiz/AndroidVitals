@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · البطارية والنظام</string>
+    <string name="widget_description">مستوى البطارية وحرارتها؛ وعند التوسيع أيضًا RAM والمساحة المتاحة.</string>
+    <string name="widget_battery">البطارية</string>
+    <string name="widget_charging">يشحن</string>
+    <string name="widget_full">ممتلئة</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s متاحة</string>
+    <string name="widget_updated">تحديث %1$s</string>
+</resources>

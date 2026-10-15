@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · батарея й система</string>
+    <string name="widget_description">Рівень і температура батареї; у широкому вигляді також RAM і вільне місце.</string>
+    <string name="widget_battery">Батарея</string>
+    <string name="widget_charging">Заряджається</string>
+    <string name="widget_full">Заряджена</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">Вільно %1$s</string>
+    <string name="widget_updated">Оновлено о %1$s</string>
+</resources>

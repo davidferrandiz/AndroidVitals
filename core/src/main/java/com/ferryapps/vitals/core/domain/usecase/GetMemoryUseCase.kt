@@ -20,12 +20,13 @@ class GetMemoryUseCase @Inject constructor(
 
     operator fun invoke(): Flow<MemoryInfo> = flow {
         while (true) {
-            emit(readMemInfo())
+            emit(current())
             delay(1_000)
         }
     }.flowOn(Dispatchers.IO)
 
-    private fun readMemInfo(): MemoryInfo {
+    /** Una lectura suelta (widget). */
+    fun current(): MemoryInfo {
         val values = SysFs.read("/proc/meminfo")?.let(ProcParsers::parseMemInfo).orEmpty()
         val system = ActivityManager.MemoryInfo().also { activityManager?.getMemoryInfo(it) }
 

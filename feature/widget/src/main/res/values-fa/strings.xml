@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · باتری و سیستم</string>
+    <string name="widget_description">سطح و دمای باتری؛ در حالت پهن، RAM و فضای آزاد هم.</string>
+    <string name="widget_battery">باتری</string>
+    <string name="widget_charging">در حال شارژ</string>
+    <string name="widget_full">پر</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s آزاد</string>
+    <string name="widget_updated">به‌روزرسانی %1$s</string>
+</resources>

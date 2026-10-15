@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · batteria e sistema</string>
+    <string name="widget_description">Livello e temperatura della batteria; più largo, anche RAM e spazio libero.</string>
+    <string name="widget_battery">Batteria</string>
+    <string name="widget_charging">In carica</string>
+    <string name="widget_full">Piena</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">%1$s liberi</string>
+    <string name="widget_updated">Aggiornato alle %1$s</string>
+</resources>

@@ -19,6 +19,7 @@ import com.ferryapps.vitals.core.domain.repository.SettingsRepository
 import com.ferryapps.vitals.core.domain.usecase.GetBatteryHistoryUseCase
 import com.ferryapps.vitals.core.domain.usecase.GetBatteryUseCase
 import com.ferryapps.vitals.core.domain.usecase.GetStorageUseCase
+import com.ferryapps.vitals.core.domain.widget.WidgetUpdater
 import com.ferryapps.vitals.core.notifications.NotificationHelper
 import com.ferryapps.vitals.designsystem.format.Formatters
 import com.ferryapps.vitals.feature.monitor.R
@@ -40,6 +41,7 @@ class VitalsWorker @AssistedInject constructor(
     private val alertState: AlertStateRepository,
     private val notifications: NotificationHelper,
     private val settingsRepository: SettingsRepository,
+    private val widgetUpdater: WidgetUpdater,
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
@@ -52,6 +54,8 @@ class VitalsWorker @AssistedInject constructor(
             history.deleteOlderThan(now - GetBatteryHistoryUseCase.RETENTION_MS)
         }
         if (settings.alertsEnabled) checkAlerts(settings, battery, now)
+        // Ya que el worker está despierto, refresca el widget (no hace nada si no hay ninguno).
+        runCatching { widgetUpdater.updateAll() }
         return Result.success()
     }
 

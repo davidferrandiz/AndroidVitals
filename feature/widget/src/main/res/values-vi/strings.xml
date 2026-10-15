@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_label">Vitals · pin và hệ thống</string>
+    <string name="widget_description">Mức pin và nhiệt độ pin; khi rộng hơn có thêm RAM và dung lượng trống.</string>
+    <string name="widget_battery">Pin</string>
+    <string name="widget_charging">Đang sạc</string>
+    <string name="widget_full">Đầy</string>
+    <string name="widget_ram">RAM %1$s</string>
+    <string name="widget_storage_free">Trống %1$s</string>
+    <string name="widget_updated">Cập nhật %1$s</string>
+</resources>

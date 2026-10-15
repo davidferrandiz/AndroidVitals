@@ -2,9 +2,10 @@
 
 ## Descripción
 Monitor del sistema para Android (batería, CPU, temperatura, memoria, red y hardware). Todas las
-lecturas se hacen en el dispositivo y solo mientras la pantalla está visible (no hay servicio en
-segundo plano). Firebase Analytics y Crashlytics se usan para estadísticas anónimas y fallos, y el
-usuario puede desactivarlos en Ajustes › Privacidad.
+lecturas se hacen en el dispositivo. Con la pantalla visible se lee en vivo; con la app cerrada solo
+corre `VitalsWorker` cada ~15 min (historial de batería y avisos, ambos desactivables) y el widget,
+sin servicio en primer plano. El historial nunca sale del móvil. Firebase Analytics y Crashlytics se
+usan para estadísticas anónimas y fallos, y el usuario puede desactivarlos en Ajustes › Privacidad.
 
 Usuarios reales (Analytics, oct 2026): sobre todo móviles de gama baja con MediaTek/Unisoc
 (Moto E14, Redmi 12C, Galaxy A8 con Android 9) en India, Alemania, Irán, Canadá, Argentina, EE. UU.
@@ -16,8 +17,9 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 |---|---|
 | UI | Jetpack Compose + Material 3, Navigation Compose |
 | DI | Hilt 2.x (KSP) |
-| Persistencia | DataStore (ajustes) · Room 2.7.x (historial, 1.4) |
-| Background | WorkManager (solo `VitalsWorker`, historial de batería en la 1.4) |
+| Persistencia | DataStore (ajustes, estado de avisos) · Room 2.7.x (`battery_samples`, 30 días) |
+| Background | WorkManager (solo `VitalsWorker`: historial, avisos y refresco del widget) |
+| Widget | Glance 1.1 (`:feature:widget`) |
 | Observabilidad | Firebase Crashlytics + Analytics (detrás de `AnalyticsTracker`) |
 | Build | AGP 9.x · Kotlin 2.x · Gradle Version Catalog · R8 en release |
 
@@ -27,10 +29,11 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 :app               → VitalsApplication, MainActivity, navegación (VitalsApp), Firebase (AnalyticsTracker)
 :core              → Dominio (modelos, parsers puros, use cases, interfaces), datos (DataStore, Room, /proc y /sys), DI
 :designsystem      → Tema (claro/oscuro/dinámico, VitalsPalette), iconos vectoriales, componentes, formateadores
-:feature:monitor   → Panel (MonitorScreen + ViewModel), VitalsWorker
-:feature:battery   → Pantalla Batería
+:feature:monitor   → Panel (MonitorScreen + ViewModel), VitalsWorker + VitalsWorkScheduler
+:feature:battery   → Pantalla Batería (en vivo, historial 24 h, salud estimada)
 :feature:hardware  → Pantalla Hardware
 :feature:settings  → Pantalla Ajustes
+:feature:widget    → Widget Glance (implementa WidgetUpdater de :core)
 ```
 
 **Regla de dependencias (estricta):**
@@ -56,13 +59,15 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 - **Siempre KSP, nunca kapt** — Room y Hilt lo soportan completamente
 - **Hilt scopes**: `SingletonComponent` para app-scoped, `ViewModelComponent` para VM-scoped
 - **WorkManager**: inicialización manual vía `Configuration.Provider` en `VitalsApplication`; usar `@HiltWorker` + `@AssistedInject`
-- **Room**: `exportSchema = false` durante desarrollo; activar y hacer commit del esquema antes de release
+- **Room**: `exportSchema = true` desde la v2; el esquema se genera en `core/schemas` y va en git. Cada cambio de esquema sube la versión y lleva una `Migration` con su test
+- **Segundo plano**: todo pasa por `VitalsWorker`; `VitalsWorkScheduler.needsWorker()` decide si existe según los ajustes. Nada de servicios ni alarmas exactas
+- **Entre features**: si una feature necesita algo de otra (el worker refresca el widget), la interfaz va en `:core` y la implementación se enlaza con Hilt en la feature que la tiene
 - **Corrutinas**: colección de Flow siempre dentro de `viewModelScope` o un dispatcher de background — nunca en Main
 - **Lecturas del sistema**: /proc y /sys pueden estar bloqueados por SELinux según fabricante. Leer con `SysFs` (devuelve null), parsear con funciones puras de `ProcParsers`/`CpuMath`/`BatteryNormalizer` y testearlas con ficheros de ejemplo
 - **Dato no disponible**: nunca una sección vacía ni "No data": usar `UnavailableRow` con el motivo y reportar con `MetricUnavailableReporter`
 - **Nombres de hardware**: códigos de SoC y núcleos en `HardwareNames`; ampliar la tabla con lo que salga en `metric_unavailable`
 - **UI**: colores de categoría con `VitalsTheme.palette`, iconos de `:designsystem` (nada de emojis), números con cifras tabulares, áreas táctiles de 44–48 dp
-- **Textos**: inglés en `values/`, español en `values-es/`. Los ficheros nuevos llevan `tools:ignore="MissingTranslation"` hasta traducir el resto de idiomas
+- **Textos**: inglés en `values/`, español en `values-es/` y los otros 18 idiomas en `values-<loc>/`. Lint falla si falta una cadena: toda cadena nueva se traduce en el mismo cambio
 - **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal
 - **`google-services.json`**: solo en `app/` — nunca en submódulos, nunca en git
 
