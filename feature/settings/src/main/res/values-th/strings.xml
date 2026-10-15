@@ -18,7 +18,7 @@
     <string name="settings_battery_history">ประวัติแบตเตอรี่</string>
     <string name="settings_battery_history_desc">บันทึกระดับแบตทุก 15 นาทีสำหรับกราฟและสุขภาพโดยประมาณ เก็บไว้ในโทรศัพท์ของคุณเท่านั้น และจะถูกลบเมื่อปิด</string>
     <string name="settings_alerts">การแจ้งเตือน</string>
-    <string name="settings_alerts_desc">แจ้งให้ทราบเมื่อแบตเตอรี่ร้อนเกินหรือพื้นที่จัดเก็บใกล้เต็ม ไม่เกินหนึ่งครั้งต่อปัญหาในทุกๆ สองสามชั่วโมง</string>
+    <string name="settings_alerts_desc">แจ้งให้ทราบเมื่อแบตเตอรี่ยังร้อนเกินไปหรือพื้นที่จัดเก็บเกือบเต็ม ไม่มีป๊อปอัป ไม่มีเสียงตอนกลางคืน และหายไปเองเมื่อแก้ปัญหาแล้ว</string>
     <string name="settings_alerts_blocked">การแจ้งเตือนของ Vitals ปิดอยู่ จึงแสดงการแจ้งเตือนไม่ได้</string>
     <string name="settings_alerts_open_system">เปิดการตั้งค่าการแจ้งเตือน</string>
     <string name="settings_section_privacy">ความเป็นส่วนตัว</string>

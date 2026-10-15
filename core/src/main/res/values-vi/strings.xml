@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Cảnh báo</string>
-    <string name="notif_channel_alerts_desc">Pin quá nóng và bộ nhớ gần đầy</string>
+    <string name="notif_channel_battery_name">Nhiệt độ pin</string>
+    <string name="notif_channel_battery_desc">Khi pin vẫn quá nóng. Tối đa hai lần mỗi ngày, ban đêm không phát âm thanh.</string>
+    <string name="notif_channel_storage_name">Dung lượng lưu trữ</string>
+    <string name="notif_channel_storage_desc">Thông báo im lặng khi bộ nhớ gần đầy. Tối đa mỗi tuần một lần.</string>
 
 </resources>

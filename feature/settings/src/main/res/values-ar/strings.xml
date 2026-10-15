@@ -18,7 +18,7 @@
     <string name="settings_battery_history">سجل البطارية</string>
     <string name="settings_battery_history_desc">يحفظ المستوى كل 15 دقيقة للرسم البياني والحالة التقديرية. يبقى على هاتفك، وإيقافه يحذفه.</string>
     <string name="settings_alerts">التنبيهات</string>
-    <string name="settings_alerts_desc">ينبّهك إذا ارتفعت حرارة البطارية أو امتلأت مساحة التخزين تقريبًا. لا أكثر من تنبيه واحد لكل مشكلة كل بضع ساعات.</string>
+    <string name="settings_alerts_desc">ينبّهك إذا بقيت البطارية ساخنة جدًا أو امتلأت مساحة التخزين تقريبًا. بلا نوافذ منبثقة، وبصمت في الليل، وتختفي التنبيهات وحدها عند حل المشكلة.</string>
     <string name="settings_alerts_blocked">إشعارات Vitals متوقفة، لذا لا يمكن عرض التنبيهات.</string>
     <string name="settings_alerts_open_system">فتح إعدادات الإشعارات</string>
     <string name="settings_section_privacy">الخصوصية</string>

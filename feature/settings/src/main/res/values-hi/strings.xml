@@ -18,7 +18,7 @@
     <string name="settings_battery_history">बैटरी हिस्ट्री</string>
     <string name="settings_battery_history_desc">चार्ट और अनुमानित हेल्थ के लिए हर 15 मिनट में लेवल सेव करता है। यह आपके फ़ोन पर ही रहता है और बंद करने पर मिट जाता है।</string>
     <string name="settings_alerts">अलर्ट</string>
-    <string name="settings_alerts_desc">बैटरी ज़्यादा गर्म होने या स्टोरेज लगभग भर जाने पर बताता है। हर समस्या के लिए कुछ घंटों में एक से ज़्यादा सूचना नहीं।</string>
+    <string name="settings_alerts_desc">बैटरी ज़्यादा गर्म बनी रहे या स्टोरेज लगभग भर जाए तो आपको बताता है। कोई पॉप-अप नहीं, रात में बिना आवाज़, और समस्या ठीक होते ही सूचना अपने आप हट जाती है।</string>
     <string name="settings_alerts_blocked">Vitals की सूचनाएँ बंद हैं, इसलिए अलर्ट नहीं दिखाए जा सकते।</string>
     <string name="settings_alerts_open_system">सूचना सेटिंग्स खोलें</string>
     <string name="settings_section_privacy">गोपनीयता</string>

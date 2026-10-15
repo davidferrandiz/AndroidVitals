@@ -18,7 +18,7 @@
     <string name="settings_battery_history">Histórico da bateria</string>
     <string name="settings_battery_history_desc">Salva o nível a cada 15 minutos para o gráfico e a saúde estimada. Fica no seu celular, e desativar apaga o histórico.</string>
     <string name="settings_alerts">Alertas</string>
-    <string name="settings_alerts_desc">Avisa se a bateria esquentar demais ou o armazenamento estiver quase cheio. Nunca mais de um aviso por problema a cada poucas horas.</string>
+    <string name="settings_alerts_desc">Avisa se a bateria continuar quente demais ou o armazenamento estiver quase cheio. Sem pop-ups, em silêncio à noite, e o aviso some sozinho quando o problema é resolvido.</string>
     <string name="settings_alerts_blocked">As notificações do Vitals estão desativadas, então os alertas não podem ser exibidos.</string>
     <string name="settings_alerts_open_system">Abrir configurações de notificação</string>
     <string name="settings_section_privacy">Privacidade</string>

@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Alertas</string>
-    <string name="notif_channel_alerts_desc">Bateria superaquecida e armazenamento quase cheio</string>
+    <string name="notif_channel_battery_name">Temperatura da bateria</string>
+    <string name="notif_channel_battery_desc">Quando a bateria continua quente demais. No máximo duas vezes por dia, em silêncio à noite.</string>
+    <string name="notif_channel_storage_name">Espaço de armazenamento</string>
+    <string name="notif_channel_storage_desc">Aviso silencioso quando o armazenamento está quase cheio. No máximo uma vez por semana.</string>
 
 </resources>

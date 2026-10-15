@@ -18,7 +18,7 @@
     <string name="settings_battery_history">سابقه باتری</string>
     <string name="settings_battery_history_desc">سطح باتری را هر ۱۵ دقیقه برای نمودار و سلامت تخمینی ذخیره می‌کند. روی گوشی شما می‌ماند و با خاموش کردن پاک می‌شود.</string>
     <string name="settings_alerts">هشدارها</string>
-    <string name="settings_alerts_desc">اگر باتری بیش از حد داغ شود یا فضای ذخیره‌سازی تقریباً پر شود به شما خبر می‌دهد. برای هر مشکل حداکثر یک هشدار در چند ساعت.</string>
+    <string name="settings_alerts_desc">اگر باتری بیش از حد داغ بماند یا فضای ذخیره‌سازی تقریباً پر شود خبرتان می‌کند. بدون پنجره بازشو، شب‌ها بی‌صدا، و وقتی مشکل حل شد خودش پاک می‌شود.</string>
     <string name="settings_alerts_blocked">اعلان‌های Vitals خاموش است، پس هشدارها نمایش داده نمی‌شوند.</string>
     <string name="settings_alerts_open_system">باز کردن تنظیمات اعلان</string>
     <string name="settings_section_privacy">حریم خصوصی</string>

@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">การแจ้งเตือน</string>
-    <string name="notif_channel_alerts_desc">แบตเตอรี่ร้อนเกินและพื้นที่จัดเก็บใกล้เต็ม</string>
+    <string name="notif_channel_battery_name">อุณหภูมิแบตเตอรี่</string>
+    <string name="notif_channel_battery_desc">เมื่อแบตเตอรี่ยังร้อนเกินไป ไม่เกินวันละสองครั้ง และไม่มีเสียงตอนกลางคืน</string>
+    <string name="notif_channel_storage_name">พื้นที่จัดเก็บ</string>
+    <string name="notif_channel_storage_desc">แจ้งเตือนแบบไม่มีเสียงเมื่อพื้นที่จัดเก็บเกือบเต็ม ไม่เกินสัปดาห์ละครั้ง</string>
 
 </resources>

@@ -18,7 +18,7 @@
     <string name="settings_battery_history">电池历史记录</string>
     <string name="settings_battery_history_desc">每 15 分钟记录一次电量，用于图表和估算健康度。仅保存在您的手机上，关闭后会删除。</string>
     <string name="settings_alerts">提醒</string>
-    <string name="settings_alerts_desc">电池过热或存储空间即将用尽时通知您。同一问题几小时内最多提醒一次。</string>
+    <string name="settings_alerts_desc">电池持续过热或存储空间即将用尽时提醒您。不弹窗，夜间静音，问题解决后通知会自动消失。</string>
     <string name="settings_alerts_blocked">Vitals 的通知已关闭，因此无法显示提醒。</string>
     <string name="settings_alerts_open_system">打开通知设置</string>
     <string name="settings_section_privacy">隐私</string>

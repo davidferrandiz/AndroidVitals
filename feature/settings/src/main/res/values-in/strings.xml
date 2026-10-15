@@ -18,7 +18,7 @@
     <string name="settings_battery_history">Riwayat baterai</string>
     <string name="settings_battery_history_desc">Menyimpan level setiap 15 menit untuk grafik dan perkiraan kesehatan. Tetap di ponsel Anda, dan menonaktifkannya akan menghapusnya.</string>
     <string name="settings_alerts">Peringatan</string>
-    <string name="settings_alerts_desc">Memberi tahu jika baterai terlalu panas atau penyimpanan hampir penuh. Tidak lebih dari satu pemberitahuan per masalah setiap beberapa jam.</string>
+    <string name="settings_alerts_desc">Memberi tahu jika baterai tetap terlalu panas atau penyimpanan hampir penuh. Tanpa pop-up, tanpa suara di malam hari, dan hilang sendiri setelah masalahnya beres.</string>
     <string name="settings_alerts_blocked">Notifikasi Vitals dinonaktifkan, jadi peringatan tidak bisa ditampilkan.</string>
     <string name="settings_alerts_open_system">Buka setelan notifikasi</string>
     <string name="settings_section_privacy">Privasi</string>

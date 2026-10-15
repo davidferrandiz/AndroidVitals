@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">अलर्ट</string>
-    <string name="notif_channel_alerts_desc">बैटरी ज़्यादा गर्म होना और स्टोरेज लगभग भर जाना</string>
+    <string name="notif_channel_battery_name">बैटरी का तापमान</string>
+    <string name="notif_channel_battery_desc">जब बैटरी ज़्यादा गर्म बनी रहे। दिन में ज़्यादा से ज़्यादा दो बार, रात में बिना आवाज़।</string>
+    <string name="notif_channel_storage_name">स्टोरेज स्पेस</string>
+    <string name="notif_channel_storage_desc">स्टोरेज लगभग भर जाने पर बिना आवाज़ की सूचना। हफ़्ते में ज़्यादा से ज़्यादा एक बार।</string>
 
 </resources>

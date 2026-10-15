@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">هشدارها</string>
-    <string name="notif_channel_alerts_desc">داغ شدن بیش از حد باتری و پر شدن فضای ذخیره‌سازی</string>
+    <string name="notif_channel_battery_name">دمای باتری</string>
+    <string name="notif_channel_battery_desc">وقتی باتری بیش از حد داغ می‌ماند. حداکثر دو بار در روز و شب‌ها بی‌صدا.</string>
+    <string name="notif_channel_storage_name">فضای ذخیره‌سازی</string>
+    <string name="notif_channel_storage_desc">هشدار بی‌صدا وقتی فضای ذخیره‌سازی تقریباً پر است. حداکثر یک بار در هفته.</string>
 
 </resources>

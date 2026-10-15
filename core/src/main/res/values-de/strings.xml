@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Warnungen</string>
-    <string name="notif_channel_alerts_desc">Überhitzter Akku und fast voller Speicher</string>
+    <string name="notif_channel_battery_name">Akkutemperatur</string>
+    <string name="notif_channel_battery_desc">Wenn der Akku zu heiß bleibt. Höchstens zweimal am Tag, nachts lautlos.</string>
+    <string name="notif_channel_storage_name">Speicherplatz</string>
+    <string name="notif_channel_storage_desc">Lautloser Hinweis, wenn der Speicher fast voll ist. Höchstens einmal pro Woche.</string>
 
 </resources>

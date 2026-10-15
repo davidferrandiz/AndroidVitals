@@ -283,6 +283,13 @@
     <div class="timeline-item">
       <div class="tl-dot"></div>
       <div>
+        <div class="tl-text">Avisos menos invasivos: un canal por tipo (batería con prioridad normal, espacio silencioso) en lugar de uno con IMPORTANCE_HIGH, batería caliente solo si se repite en dos lecturas, cooldown de 12 h / 7 días, silencio de 22:00 a 9:00 y la notificación se quita sola al resolverse. Reglas puras en AlertRules con tests.</div>
+        <div class="tl-date">Octubre 2026</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-dot"></div>
+      <div>
         <div class="tl-text">Versión 1.4: VitalsWorker cada 15 min con WorkManager guarda la batería en Room (battery_samples, 30 días, exportSchema activado) y estima la salud por tramos de carga de ≥ 20 puntos (mediana de Δcontador/Δnivel). Avisos de batería ≥ 45 °C y espacio &lt; 10 % con cooldown, y widget Glance en :feature:widget refrescado por el worker vía WidgetUpdater (interfaz en :core) para no acoplar features. Sin servicio en primer plano. Esquema de Room v2 en core/schemas; la CI avisa si cambia y no está en git.</div>
         <div class="tl-date">Octubre 2026</div>
       </div>

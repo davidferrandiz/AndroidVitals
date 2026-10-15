@@ -18,7 +18,7 @@
     <string name="settings_battery_history">Lịch sử pin</string>
     <string name="settings_battery_history_desc">Lưu mức pin mỗi 15 phút cho biểu đồ và tình trạng ước tính. Chỉ lưu trên điện thoại của bạn và sẽ bị xóa khi tắt.</string>
     <string name="settings_alerts">Cảnh báo</string>
-    <string name="settings_alerts_desc">Báo cho bạn khi pin quá nóng hoặc bộ nhớ gần đầy. Mỗi vấn đề tối đa một thông báo trong vài giờ.</string>
+    <string name="settings_alerts_desc">Cho bạn biết khi pin vẫn quá nóng hoặc bộ nhớ gần đầy. Không bật lên màn hình, im lặng vào ban đêm và tự biến mất khi vấn đề đã được xử lý.</string>
     <string name="settings_alerts_blocked">Thông báo của Vitals đang tắt nên không thể hiển thị cảnh báo.</string>
     <string name="settings_alerts_open_system">Mở cài đặt thông báo</string>
     <string name="settings_section_privacy">Quyền riêng tư</string>

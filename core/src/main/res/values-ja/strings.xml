@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">アラート</string>
-    <string name="notif_channel_alerts_desc">バッテリーの高温とストレージの空き不足</string>
+    <string name="notif_channel_battery_name">バッテリー温度</string>
+    <string name="notif_channel_battery_desc">バッテリーが高温のままのとき。1 日 2 回まで、夜間は音なし。</string>
+    <string name="notif_channel_storage_name">ストレージ容量</string>
+    <string name="notif_channel_storage_desc">ストレージの空きがわずかなときに音なしで通知。週 1 回まで。</string>
 
 </resources>

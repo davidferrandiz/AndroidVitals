@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Alertas</string>
-    <string name="notif_channel_alerts_desc">Batería demasiado caliente y almacenamiento casi lleno</string>
+    <string name="notif_channel_battery_name">Temperatura de la batería</string>
+    <string name="notif_channel_battery_desc">Cuando la batería sigue demasiado caliente. Como mucho dos veces al día y en silencio por la noche.</string>
+    <string name="notif_channel_storage_name">Espacio de almacenamiento</string>
+    <string name="notif_channel_storage_desc">Aviso silencioso cuando el almacenamiento está casi lleno. Como mucho una vez por semana.</string>
 
 </resources>

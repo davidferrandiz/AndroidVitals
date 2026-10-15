@@ -68,7 +68,7 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 - **Nombres de hardware**: códigos de SoC y núcleos en `HardwareNames`; ampliar la tabla con lo que salga en `metric_unavailable`
 - **UI**: colores de categoría con `VitalsTheme.palette`, iconos de `:designsystem` (nada de emojis), números con cifras tabulares, áreas táctiles de 44–48 dp
 - **Textos**: inglés en `values/`, español en `values-es/` y los otros 18 idiomas en `values-<loc>/`. Lint falla si falta una cadena: toda cadena nueva se traduce en el mismo cambio
-- **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal
+- **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal. Nunca invasivas: avisos desactivados por defecto, un canal por tipo, nada de `IMPORTANCE_HIGH` (sin emergentes), silencio de 22:00 a 9:00, cooldown por aviso (`AlertType`) y se quitan solas cuando el problema se resuelve. Las reglas son puras en `AlertRules` y tienen tests
 - **`google-services.json`**: solo en `app/` — nunca en submódulos, nunca en git
 
 ## Ubicaciones clave

@@ -18,7 +18,7 @@
     <string name="settings_battery_history">Історія батареї</string>
     <string name="settings_battery_history_desc">Зберігає рівень кожні 15 хвилин для графіка й приблизного стану. Зберігається лише на телефоні; у разі вимкнення видаляється.</string>
     <string name="settings_alerts">Сповіщення</string>
-    <string name="settings_alerts_desc">Повідомляє, якщо батарея перегрівається або сховище майже заповнене. Не частіше ніж одне сповіщення про проблему раз на кілька годин.</string>
+    <string name="settings_alerts_desc">Повідомляє, якщо батарея залишається надто гарячою або пам\'ять майже заповнена. Без спливних вікон, уночі без звуку, а сповіщення зникає само, коли проблему вирішено.</string>
     <string name="settings_alerts_blocked">Сповіщення Vitals вимкнено, тому попередження не можуть з\'являтися.</string>
     <string name="settings_alerts_open_system">Відкрити налаштування сповіщень</string>
     <string name="settings_section_privacy">Конфіденційність</string>

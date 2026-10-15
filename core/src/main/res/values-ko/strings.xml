@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">알림</string>
-    <string name="notif_channel_alerts_desc">배터리 과열 및 저장공간 부족</string>
+    <string name="notif_channel_battery_name">배터리 온도</string>
+    <string name="notif_channel_battery_desc">배터리가 계속 너무 뜨거울 때. 하루 최대 2번, 밤에는 무음.</string>
+    <string name="notif_channel_storage_name">저장공간</string>
+    <string name="notif_channel_storage_desc">저장공간이 거의 가득 찼을 때 무음으로 알림. 일주일에 최대 1번.</string>
 
 </resources>

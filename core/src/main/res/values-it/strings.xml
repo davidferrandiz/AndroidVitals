@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Avvisi</string>
-    <string name="notif_channel_alerts_desc">Batteria surriscaldata e memoria quasi piena</string>
+    <string name="notif_channel_battery_name">Temperatura della batteria</string>
+    <string name="notif_channel_battery_desc">Quando la batteria resta troppo calda. Al massimo due volte al giorno, in silenzio di notte.</string>
+    <string name="notif_channel_storage_name">Spazio di archiviazione</string>
+    <string name="notif_channel_storage_desc">Avviso silenzioso quando la memoria è quasi piena. Al massimo una volta a settimana.</string>
 
 </resources>

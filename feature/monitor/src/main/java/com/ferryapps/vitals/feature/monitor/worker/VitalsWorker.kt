@@ -26,6 +26,7 @@ import com.ferryapps.vitals.feature.monitor.R
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.first
+import java.time.LocalTime
 
 /**
  * Único trabajo en segundo plano de Vitals. Corre cada ~15 min (WorkManager decide el momento
@@ -65,9 +66,14 @@ class VitalsWorker @AssistedInject constructor(
             batteryTemperatureCelsius = battery?.temperatureCelsius,
             storageFreePercent = storage?.takeIf { it.totalBytes > 0 }?.let { it.freeBytes * 100f / it.totalBytes },
         )
-        for (type in AlertRules.due(inputs, alertState.lastFired(), now)) {
+        val state = alertState.load()
+        val decision = AlertRules.decide(inputs, state, now, LocalTime.now().hour)
+        if (decision.batteryHotStreak != state.batteryHotStreak) alertState.setBatteryHotStreak(decision.batteryHotStreak)
+
+        decision.dismiss.forEach(notifications::dismiss)
+        for (type in decision.show) {
             val shown = when (type) {
-                AlertType.BATTERY_HOT -> showBatteryHot(battery ?: continue, settings)
+                AlertType.BATTERY_HOT -> showBatteryHot(battery ?: continue, settings, decision.silent)
                 AlertType.STORAGE_LOW -> showStorageLow(storage ?: continue)
             }
             // Si no se pudo mostrar (permiso retirado), no se marca: saldrá cuando vuelva a poder.
@@ -75,22 +81,23 @@ class VitalsWorker @AssistedInject constructor(
         }
     }
 
-    private fun showBatteryHot(battery: BatteryInfo, settings: AppSettings): Boolean {
+    private fun showBatteryHot(battery: BatteryInfo, settings: AppSettings, silent: Boolean): Boolean {
         val context = applicationContext
         val temperature = Formatters.temperature(battery.temperatureCelsius, settings.temperatureUnit, decimals = 0)
         return notifications.showAlert(
-            id = NotificationHelper.ID_BATTERY_HOT,
+            type = AlertType.BATTERY_HOT,
             title = context.getString(R.string.alert_battery_hot_title, temperature),
             text = context.getString(
                 if (battery.isCharging) R.string.alert_battery_hot_charging_msg else R.string.alert_battery_hot_msg
             ),
+            silent = silent,
         )
     }
 
     private fun showStorageLow(storage: StorageInfo): Boolean {
         val context = applicationContext
         return notifications.showAlert(
-            id = NotificationHelper.ID_STORAGE_LOW,
+            type = AlertType.STORAGE_LOW,
             title = context.getString(R.string.panel_alert_storage_title),
             text = context.getString(
                 R.string.panel_alert_storage_msg,

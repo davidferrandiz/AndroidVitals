@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Сповіщення</string>
-    <string name="notif_channel_alerts_desc">Перегрів батареї й майже заповнене сховище</string>
+    <string name="notif_channel_battery_name">Температура батареї</string>
+    <string name="notif_channel_battery_desc">Коли батарея залишається надто гарячою. Не частіше двох разів на день, уночі без звуку.</string>
+    <string name="notif_channel_storage_name">Місце в сховищі</string>
+    <string name="notif_channel_storage_desc">Беззвучне сповіщення, коли пам\'ять майже заповнена. Не частіше разу на тиждень.</string>
 
 </resources>

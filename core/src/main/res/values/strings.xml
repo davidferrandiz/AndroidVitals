@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Alerts</string>
-    <string name="notif_channel_alerts_desc">Overheating battery and almost full storage</string>
+    <string name="notif_channel_battery_name">Battery temperature</string>
+    <string name="notif_channel_battery_desc">When the battery stays too hot. At most twice a day, silent at night.</string>
+    <string name="notif_channel_storage_name">Storage space</string>
+    <string name="notif_channel_storage_desc">Silent notice when storage is almost full. At most once a week.</string>
 
 </resources>

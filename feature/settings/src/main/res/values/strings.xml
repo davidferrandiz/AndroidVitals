@@ -18,7 +18,7 @@
     <string name="settings_battery_history">Battery history</string>
     <string name="settings_battery_history_desc">Saves the level every 15 minutes for the chart and the estimated health. It stays on your phone, and turning it off deletes it.</string>
     <string name="settings_alerts">Alerts</string>
-    <string name="settings_alerts_desc">Notifies you if the battery overheats or the storage is almost full. Never more than one notice per problem every few hours.</string>
+    <string name="settings_alerts_desc">Lets you know if the battery stays too hot or storage is almost full. No pop-ups, silent at night, and they go away on their own once it\'s fixed.</string>
     <string name="settings_alerts_blocked">Notifications are turned off for Vitals, so alerts can\'t be shown.</string>
     <string name="settings_alerts_open_system">Open notification settings</string>
     <string name="settings_section_privacy">Privacy</string>

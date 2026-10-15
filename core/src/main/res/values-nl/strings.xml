@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_alerts_name">Waarschuwingen</string>
-    <string name="notif_channel_alerts_desc">Oververhitte batterij en bijna volle opslag</string>
+    <string name="notif_channel_battery_name">Batterijtemperatuur</string>
+    <string name="notif_channel_battery_desc">Als de batterij te heet blijft. Hooguit twee keer per dag, \'s nachts zonder geluid.</string>
+    <string name="notif_channel_storage_name">Opslagruimte</string>
+    <string name="notif_channel_storage_desc">Stille melding als de opslag bijna vol is. Hooguit één keer per week.</string>
 
 </resources>
