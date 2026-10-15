@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Giám sát</string>
-    <string name="notif_channel_monitor_desc">Giám sát hệ thống liên tục</string>
     <string name="notif_channel_alerts_name">Cảnh báo</string>
-    <string name="notif_channel_alerts_desc">Cảnh báo ngưỡng cho CPU và RAM</string>
+    <string name="notif_channel_alerts_desc">Pin quá nóng và bộ nhớ gần đầy</string>
 
 </resources>

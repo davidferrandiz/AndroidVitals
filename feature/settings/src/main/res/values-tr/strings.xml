@@ -17,6 +17,10 @@
     <string name="settings_section_background">Uygulama kapalıyken</string>
     <string name="settings_battery_history">Pil geçmişi</string>
     <string name="settings_battery_history_desc">Grafik ve tahmini sağlık için seviyeyi 15 dakikada bir kaydeder. Telefonunuzda kalır; kapatınca silinir.</string>
+    <string name="settings_alerts">Uyarılar</string>
+    <string name="settings_alerts_desc">Pil aşırı ısınırsa veya depolama neredeyse dolarsa haber verir. Her sorun için birkaç saatte en fazla bir uyarı.</string>
+    <string name="settings_alerts_blocked">Vitals bildirimleri kapalı, bu yüzden uyarılar gösterilemiyor.</string>
+    <string name="settings_alerts_open_system">Bildirim ayarlarını aç</string>
     <string name="settings_section_privacy">Gizlilik</string>
     <string name="settings_analytics">Anonim kullanım istatistikleri</string>
     <string name="settings_analytics_desc">Neyin iyileştirileceğine karar vermeye yardım edin</string>

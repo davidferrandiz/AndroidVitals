@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">พื้นที่จัดเก็บเกือบเต็ม</string>
     <string name="panel_alert_storage_msg">ว่าง %1$s จาก %2$s หากต่ำกว่า 10%% แอปและการอัปเดตอาจล้มเหลว</string>
     <string name="panel_alert_storage_action">เปิดการตั้งค่าพื้นที่จัดเก็บ</string>
+    <string name="alert_battery_hot_title">แบตเตอรี่ร้อน · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">ถอดที่ชาร์จและปล่อยให้โทรศัพท์เย็นลง ความร้อนทำให้แบตเตอรี่เสื่อมมากที่สุด</string>
+    <string name="alert_battery_hot_msg">ปิดเกมหรือแอปหนักๆ แล้วปล่อยให้โทรศัพท์เย็นลง ห่างจากแดดและถอดเคส ความร้อนทำให้แบตเตอรี่เสื่อม</string>
     <string name="tile_temperature">อุณหภูมิ</string>
     <string name="tile_battery_charging_eta">กำลังชาร์จ · เต็มใน %1$s</string>
     <string name="tile_battery_discharging_power">กำลังคายประจุ · %1$s</string>

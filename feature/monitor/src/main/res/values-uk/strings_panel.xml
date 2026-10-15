@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Сховище майже заповнене</string>
     <string name="panel_alert_storage_msg">Вільно %1$s з %2$s. Якщо менше 10%%, застосунки й оновлення можуть не встановлюватися.</string>
     <string name="panel_alert_storage_action">Відкрити налаштування сховища</string>
+    <string name="alert_battery_hot_title">Батарея гаряча · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Від\'єднайте зарядний пристрій і дайте телефону охолонути. Нагрів зношує батарею найбільше.</string>
+    <string name="alert_battery_hot_msg">Закрийте ігри або важкі застосунки й дайте телефону охолонути — подалі від сонця й без чохла. Нагрів зношує батарею.</string>
     <string name="tile_temperature">Температура</string>
     <string name="tile_battery_charging_eta">Заряджається · повна через %1$s</string>
     <string name="tile_battery_discharging_power">Розряджається · %1$s</string>

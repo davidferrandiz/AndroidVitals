@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">存储空间即将用尽</string>
     <string name="panel_alert_storage_msg">%2$s 中可用 %1$s。低于 10%% 时，应用和更新可能失败。</string>
     <string name="panel_alert_storage_action">打开存储设置</string>
+    <string name="alert_battery_hot_title">电池过热 · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">请拔下充电器，让手机降温。高温是电池损耗的最大原因。</string>
+    <string name="alert_battery_hot_msg">请关闭游戏或耗电应用，避开阳光并取下手机壳，让手机降温。高温会损耗电池。</string>
     <string name="tile_temperature">温度</string>
     <string name="tile_battery_charging_eta">充电中 · %1$s 后充满</string>
     <string name="tile_battery_discharging_power">放电中 · %1$s</string>

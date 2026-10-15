@@ -31,4 +31,8 @@
     <string name="settings_section_background">Con la app cerrada</string>
     <string name="settings_battery_history">Historial de batería</string>
     <string name="settings_battery_history_desc">Guarda el nivel cada 15 minutos para la gráfica y la salud estimada. Se queda en tu móvil y, si lo desactivas, se borra.</string>
+    <string name="settings_alerts">Avisos</string>
+    <string name="settings_alerts_desc">Te avisa si la batería se calienta demasiado o el almacenamiento está casi lleno. Nunca más de un aviso por problema cada pocas horas.</string>
+    <string name="settings_alerts_blocked">Las notificaciones de Vitals están desactivadas, así que no se pueden mostrar avisos.</string>
+    <string name="settings_alerts_open_system">Abrir ajustes de notificaciones</string>
 </resources>

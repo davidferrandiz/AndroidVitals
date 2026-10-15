@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">监控</string>
-    <string name="notif_channel_monitor_desc">持续监控系统状态</string>
     <string name="notif_channel_alerts_name">警报</string>
-    <string name="notif_channel_alerts_desc">CPU 和 RAM 阈值警报</string>
+    <string name="notif_channel_alerts_desc">电池过热和存储空间即将用尽</string>
 
 </resources>

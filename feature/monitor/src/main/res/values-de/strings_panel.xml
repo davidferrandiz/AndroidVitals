@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Speicher fast voll</string>
     <string name="panel_alert_storage_msg">%1$s von %2$s frei. Unter 10%% können Apps und Updates fehlschlagen.</string>
     <string name="panel_alert_storage_action">Speichereinstellungen öffnen</string>
+    <string name="alert_battery_hot_title">Akku ist heiß · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Zieh das Ladegerät ab und lass das Handy abkühlen. Hitze schadet dem Akku mehr als alles andere.</string>
+    <string name="alert_battery_hot_msg">Schließe Spiele oder aufwendige Apps und lass das Handy abkühlen, ohne Sonne und ohne Hülle. Hitze nutzt den Akku ab.</string>
     <string name="tile_temperature">Temperatur</string>
     <string name="tile_battery_charging_eta">Lädt · voll in %1$s</string>
     <string name="tile_battery_discharging_power">Entlädt · %1$s</string>

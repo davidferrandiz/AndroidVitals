@@ -17,6 +17,10 @@
     <string name="settings_section_background">Appli fermée</string>
     <string name="settings_battery_history">Historique de la batterie</string>
     <string name="settings_battery_history_desc">Enregistre le niveau toutes les 15 minutes pour le graphique et l\'état estimé. Il reste sur votre téléphone et le désactiver l\'efface.</string>
+    <string name="settings_alerts">Alertes</string>
+    <string name="settings_alerts_desc">Vous prévient si la batterie surchauffe ou si le stockage est presque plein. Jamais plus d\'une alerte par problème en quelques heures.</string>
+    <string name="settings_alerts_blocked">Les notifications de Vitals sont désactivées, les alertes ne peuvent donc pas s\'afficher.</string>
+    <string name="settings_alerts_open_system">Ouvrir les paramètres de notification</string>
     <string name="settings_section_privacy">Confidentialité</string>
     <string name="settings_analytics">Statistiques d\'utilisation anonymes</string>
     <string name="settings_analytics_desc">Aidez à choisir quoi améliorer</string>

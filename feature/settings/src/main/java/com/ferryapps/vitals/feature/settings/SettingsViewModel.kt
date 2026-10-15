@@ -51,6 +51,10 @@ class SettingsViewModel @Inject constructor(
         repository.setBatteryHistoryEnabled(enabled)
     }
 
+    fun setAlertsEnabled(enabled: Boolean) = update("alerts", enabled.toString()) {
+        repository.setAlertsEnabled(enabled)
+    }
+
     private fun update(setting: String, value: String, block: suspend () -> Unit) {
         viewModelScope.launch {
             block()

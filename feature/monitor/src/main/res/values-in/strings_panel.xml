@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Penyimpanan hampir penuh</string>
     <string name="panel_alert_storage_msg">%1$s kosong dari %2$s. Di bawah 10%% aplikasi dan pembaruan bisa gagal.</string>
     <string name="panel_alert_storage_action">Buka setelan penyimpanan</string>
+    <string name="alert_battery_hot_title">Baterai panas · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Cabut charger dan biarkan ponsel dingin. Panas adalah penyebab utama baterai cepat aus.</string>
+    <string name="alert_battery_hot_msg">Tutup game atau aplikasi berat dan biarkan ponsel dingin, jauh dari sinar matahari dan tanpa casing. Panas membuat baterai aus.</string>
     <string name="tile_temperature">Suhu</string>
     <string name="tile_battery_charging_eta">Mengisi · penuh dalam %1$s</string>
     <string name="tile_battery_discharging_power">Mengosongkan · %1$s</string>

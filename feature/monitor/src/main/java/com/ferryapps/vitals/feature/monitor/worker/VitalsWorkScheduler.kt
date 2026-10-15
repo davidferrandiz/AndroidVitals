@@ -39,6 +39,6 @@ class VitalsWorkScheduler @Inject constructor(
         const val INTERVAL_MINUTES = 15L
 
         /** Lo que decide si hace falta el worker; VitalsApplication solo reacciona a sus cambios. */
-        fun needsWorker(settings: AppSettings): Boolean = settings.batteryHistoryEnabled
+        fun needsWorker(settings: AppSettings): Boolean = settings.batteryHistoryEnabled || settings.alertsEnabled
     }
 }

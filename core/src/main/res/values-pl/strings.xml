@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Monitor</string>
-    <string name="notif_channel_monitor_desc">Ciągłe monitorowanie systemu</string>
     <string name="notif_channel_alerts_name">Alerty</string>
-    <string name="notif_channel_alerts_desc">Alerty progowe dla CPU i RAM</string>
+    <string name="notif_channel_alerts_desc">Przegrzana bateria i prawie pełna pamięć</string>
 
 </resources>

@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Моніторинг</string>
-    <string name="notif_channel_monitor_desc">Безперервний моніторинг системи</string>
     <string name="notif_channel_alerts_name">Сповіщення</string>
-    <string name="notif_channel_alerts_desc">Порогові сповіщення для CPU та RAM</string>
+    <string name="notif_channel_alerts_desc">Перегрів батареї й майже заповнене сховище</string>
 
 </resources>

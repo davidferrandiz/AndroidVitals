@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">저장공간이 거의 가득 참</string>
     <string name="panel_alert_storage_msg">%2$s 중 %1$s 남음. 10%% 미만이면 앱과 업데이트가 실패할 수 있습니다.</string>
     <string name="panel_alert_storage_action">저장공간 설정 열기</string>
+    <string name="alert_battery_hot_title">배터리가 뜨겁습니다 · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">충전기를 뽑고 휴대폰을 식혀 주세요. 열은 배터리를 가장 빨리 닳게 합니다.</string>
+    <string name="alert_battery_hot_msg">게임이나 무거운 앱을 닫고 햇빛을 피해 케이스를 벗긴 채 휴대폰을 식혀 주세요. 열은 배터리를 닳게 합니다.</string>
     <string name="tile_temperature">온도</string>
     <string name="tile_battery_charging_eta">충전 중 · %1$s 후 완충</string>
     <string name="tile_battery_discharging_power">방전 중 · %1$s</string>

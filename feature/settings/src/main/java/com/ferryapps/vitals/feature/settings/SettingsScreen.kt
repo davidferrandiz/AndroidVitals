@@ -1,11 +1,15 @@
 package com.ferryapps.vitals.feature.settings
 
+import android.Manifest
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,7 +24,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -30,7 +36,10 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.ferryapps.vitals.core.domain.model.AppSettings
 import com.ferryapps.vitals.core.domain.model.TemperatureUnit
@@ -140,6 +149,32 @@ private fun ViewSection(settings: AppSettings, viewModel: SettingsViewModel) {
 /** Lo que Vitals hace con la app cerrada (VitalsWorker cada 15 min). */
 @Composable
 private fun BackgroundSection(settings: AppSettings, viewModel: SettingsViewModel) {
+    val context = LocalContext.current
+    // Se vuelve a mirar al volver de los ajustes del sistema.
+    var notificationsAllowed by remember { mutableStateOf(context.notificationsAllowed()) }
+    var showBlocked by remember { mutableStateOf(false) }
+    LifecycleResumeEffect(Unit) {
+        notificationsAllowed = context.notificationsAllowed()
+        if (notificationsAllowed) showBlocked = false
+        onPauseOrDispose { }
+    }
+    val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        notificationsAllowed = granted && context.notificationsAllowed()
+        viewModel.setAlertsEnabled(notificationsAllowed)
+        // Tras dos "no", Android ya no muestra el diálogo y responde false al momento.
+        showBlocked = !notificationsAllowed
+    }
+
+    fun onAlertsToggle(enable: Boolean) {
+        when {
+            !enable -> viewModel.setAlertsEnabled(false)
+            notificationsAllowed -> viewModel.setAlertsEnabled(true)
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !context.hasNotificationPermission() ->
+                permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            else -> showBlocked = true
+        }
+    }
+
     SectionCard(title = stringResource(R.string.settings_section_background)) {
         SwitchRow(
             title = stringResource(R.string.settings_battery_history),
@@ -147,8 +182,42 @@ private fun BackgroundSection(settings: AppSettings, viewModel: SettingsViewMode
             checked = settings.batteryHistoryEnabled,
             onCheckedChange = viewModel::setBatteryHistoryEnabled
         )
+        HorizontalDivider(color = VitalsTheme.palette.divider)
+        SwitchRow(
+            title = stringResource(R.string.settings_alerts),
+            description = stringResource(R.string.settings_alerts_desc),
+            checked = settings.alertsEnabled && notificationsAllowed,
+            onCheckedChange = ::onAlertsToggle
+        )
+        if (showBlocked || (settings.alertsEnabled && !notificationsAllowed)) {
+            Text(
+                stringResource(R.string.settings_alerts_blocked),
+                style = MaterialTheme.typography.bodySmall,
+                color = VitalsTheme.palette.warning
+            )
+            NavigationRow(
+                title = stringResource(R.string.settings_alerts_open_system),
+                onClick = {
+                    val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                        .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    try {
+                        context.startActivity(intent)
+                    } catch (e: ActivityNotFoundException) {
+                        context.openUri(Uri.parse("package:${context.packageName}"), Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    }
+                }
+            )
+        }
     }
 }
+
+private fun Context.hasNotificationPermission(): Boolean =
+    Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+        ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+
+private fun Context.notificationsAllowed(): Boolean =
+    hasNotificationPermission() && NotificationManagerCompat.from(this).areNotificationsEnabled()
 
 @Composable
 private fun PrivacySection(settings: AppSettings, viewModel: SettingsViewModel, context: Context) {

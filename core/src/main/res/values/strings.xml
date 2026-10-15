@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">Monitor</string>
-    <string name="notif_channel_monitor_desc">Ongoing system vitals monitoring</string>
     <string name="notif_channel_alerts_name">Alerts</string>
-    <string name="notif_channel_alerts_desc">Threshold alerts for CPU and RAM</string>
+    <string name="notif_channel_alerts_desc">Overheating battery and almost full storage</string>
 
 </resources>

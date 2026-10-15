@@ -17,6 +17,10 @@
     <string name="settings_section_background">Bei geschlossener App</string>
     <string name="settings_battery_history">Akkuverlauf</string>
     <string name="settings_battery_history_desc">Speichert den Ladestand alle 15 Minuten für die Grafik und den geschätzten Zustand. Bleibt auf deinem Handy; beim Ausschalten wird er gelöscht.</string>
+    <string name="settings_alerts">Warnungen</string>
+    <string name="settings_alerts_desc">Meldet sich, wenn der Akku überhitzt oder der Speicher fast voll ist. Nie mehr als ein Hinweis pro Problem alle paar Stunden.</string>
+    <string name="settings_alerts_blocked">Benachrichtigungen für Vitals sind aus, daher können keine Warnungen angezeigt werden.</string>
+    <string name="settings_alerts_open_system">Benachrichtigungseinstellungen öffnen</string>
     <string name="settings_section_privacy">Datenschutz</string>
     <string name="settings_analytics">Anonyme Nutzungsstatistiken</string>
     <string name="settings_analytics_desc">Hilf zu entscheiden, was verbessert wird</string>

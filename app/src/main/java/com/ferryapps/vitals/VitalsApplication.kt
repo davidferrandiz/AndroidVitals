@@ -32,7 +32,7 @@ class VitalsApplication : Application(), Configuration.Provider {
         scheduleBackgroundWork()
     }
 
-    /** VitalsWorker existe solo si algún ajuste lo necesita (historial de batería). */
+    /** VitalsWorker existe solo si algún ajuste lo necesita (historial de batería o avisos). */
     private fun scheduleBackgroundWork() {
         appScope.launch {
             settingsRepository.settings

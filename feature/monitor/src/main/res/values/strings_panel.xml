@@ -11,6 +11,9 @@
     <string name="panel_alert_storage_title">Storage almost full</string>
     <string name="panel_alert_storage_msg">%1$s free of %2$s. Below 10%% apps and updates can fail.</string>
     <string name="panel_alert_storage_action">Open storage settings</string>
+    <string name="alert_battery_hot_title">Battery is hot · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Unplug the charger and let the phone cool down. Heat wears the battery more than anything else.</string>
+    <string name="alert_battery_hot_msg">Close games or heavy apps and let the phone cool down, out of the sun and without the case. Heat wears the battery.</string>
 
     <string name="tile_temperature">Temperature</string>
     <string name="tile_battery_charging_eta">Charging · full in %1$s</string>

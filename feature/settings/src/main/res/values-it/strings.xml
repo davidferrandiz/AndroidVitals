@@ -17,6 +17,10 @@
     <string name="settings_section_background">Con l\'app chiusa</string>
     <string name="settings_battery_history">Cronologia batteria</string>
     <string name="settings_battery_history_desc">Salva il livello ogni 15 minuti per il grafico e lo stato stimato. Resta sul telefono e disattivarla la cancella.</string>
+    <string name="settings_alerts">Avvisi</string>
+    <string name="settings_alerts_desc">Ti avvisa se la batteria si surriscalda o la memoria è quasi piena. Mai più di un avviso per problema ogni poche ore.</string>
+    <string name="settings_alerts_blocked">Le notifiche di Vitals sono disattivate, quindi gli avvisi non possono essere mostrati.</string>
+    <string name="settings_alerts_open_system">Apri impostazioni notifiche</string>
     <string name="settings_section_privacy">Privacy</string>
     <string name="settings_analytics">Statistiche d\'uso anonime</string>
     <string name="settings_analytics_desc">Aiuta a decidere cosa migliorare</string>

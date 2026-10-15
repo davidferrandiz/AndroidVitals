@@ -2,9 +2,7 @@
 <resources>
 
     <!-- Notification channels -->
-    <string name="notif_channel_monitor_name">การตรวจสอบ</string>
-    <string name="notif_channel_monitor_desc">การตรวจสอบสถานะระบบอย่างต่อเนื่อง</string>
     <string name="notif_channel_alerts_name">การแจ้งเตือน</string>
-    <string name="notif_channel_alerts_desc">การแจ้งเตือนเกณฑ์สำหรับ CPU และ RAM</string>
+    <string name="notif_channel_alerts_desc">แบตเตอรี่ร้อนเกินและพื้นที่จัดเก็บใกล้เต็ม</string>
 
 </resources>

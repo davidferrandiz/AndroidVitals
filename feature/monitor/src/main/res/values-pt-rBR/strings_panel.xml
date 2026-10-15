@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Armazenamento quase cheio</string>
     <string name="panel_alert_storage_msg">%1$s livres de %2$s. Abaixo de 10%% apps e atualizações podem falhar.</string>
     <string name="panel_alert_storage_action">Abrir configurações de armazenamento</string>
+    <string name="alert_battery_hot_title">Bateria quente · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Tire o carregador e deixe o celular esfriar. O calor é o que mais desgasta a bateria.</string>
+    <string name="alert_battery_hot_msg">Feche jogos ou apps pesados e deixe o celular esfriar, longe do sol e sem capa. O calor desgasta a bateria.</string>
     <string name="tile_temperature">Temperatura</string>
     <string name="tile_battery_charging_eta">Carregando · cheia em %1$s</string>
     <string name="tile_battery_discharging_power">Descarregando · %1$s</string>

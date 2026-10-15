@@ -38,6 +38,7 @@ class SettingsRepositoryImpl @Inject constructor(
                 analyticsEnabled = prefs[KEY_ANALYTICS] ?: defaults.analyticsEnabled,
                 crashReportsEnabled = prefs[KEY_CRASH_REPORTS] ?: defaults.crashReportsEnabled,
                 batteryHistoryEnabled = prefs[KEY_BATTERY_HISTORY] ?: defaults.batteryHistoryEnabled,
+                alertsEnabled = prefs[KEY_ALERTS] ?: defaults.alertsEnabled,
             )
         }
         .distinctUntilChanged()
@@ -70,6 +71,10 @@ class SettingsRepositoryImpl @Inject constructor(
         dataStore.edit { it[KEY_BATTERY_HISTORY] = enabled }
     }
 
+    override suspend fun setAlertsEnabled(enabled: Boolean) {
+        dataStore.edit { it[KEY_ALERTS] = enabled }
+    }
+
     private companion object {
         val KEY_TEMPERATURE_UNIT = stringPreferencesKey("temperature_unit")
         val KEY_THEME_MODE = stringPreferencesKey("theme_mode")
@@ -78,5 +83,6 @@ class SettingsRepositoryImpl @Inject constructor(
         val KEY_ANALYTICS = booleanPreferencesKey("analytics_enabled")
         val KEY_CRASH_REPORTS = booleanPreferencesKey("crash_reports_enabled")
         val KEY_BATTERY_HISTORY = booleanPreferencesKey("battery_history_enabled")
+        val KEY_ALERTS = booleanPreferencesKey("alerts_enabled")
     }
 }

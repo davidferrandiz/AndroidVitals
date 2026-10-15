@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">فضای ذخیره‌سازی تقریباً پر است</string>
     <string name="panel_alert_storage_msg">%1$s آزاد از %2$s. زیر 10%% ممکن است برنامه‌ها و به‌روزرسانی‌ها با خطا مواجه شوند.</string>
     <string name="panel_alert_storage_action">باز کردن تنظیمات فضای ذخیره‌سازی</string>
+    <string name="alert_battery_hot_title">باتری داغ است · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">شارژر را جدا کنید و بگذارید گوشی خنک شود. گرما بیش از هر چیز باتری را فرسوده می‌کند.</string>
+    <string name="alert_battery_hot_msg">بازی‌ها یا برنامه‌های سنگین را ببندید و بگذارید گوشی دور از آفتاب و بدون قاب خنک شود. گرما باتری را فرسوده می‌کند.</string>
     <string name="tile_temperature">دما</string>
     <string name="tile_battery_charging_eta">در حال شارژ · پر شدن تا %1$s</string>
     <string name="tile_battery_discharging_power">در حال تخلیه · %1$s</string>

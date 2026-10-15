@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">स्टोरेज लगभग भर गया है</string>
     <string name="panel_alert_storage_msg">%2$s में से %1$s खाली। 10%% से कम होने पर ऐप्स और अपडेट विफल हो सकते हैं।</string>
     <string name="panel_alert_storage_action">स्टोरेज सेटिंग्स खोलें</string>
+    <string name="alert_battery_hot_title">बैटरी गर्म है · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">चार्जर निकालें और फ़ोन को ठंडा होने दें। गर्मी बैटरी को सबसे ज़्यादा नुकसान पहुँचाती है।</string>
+    <string name="alert_battery_hot_msg">गेम या भारी ऐप्स बंद करें और फ़ोन को धूप से दूर, बिना कवर के ठंडा होने दें। गर्मी बैटरी को घिसती है।</string>
     <string name="tile_temperature">तापमान</string>
     <string name="tile_battery_charging_eta">चार्ज हो रहा है · %1$s में पूरा</string>
     <string name="tile_battery_discharging_power">डिस्चार्ज हो रहा है · %1$s</string>

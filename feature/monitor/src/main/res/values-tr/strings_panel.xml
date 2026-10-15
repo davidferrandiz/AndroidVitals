@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Depolama neredeyse dolu</string>
     <string name="panel_alert_storage_msg">%2$s içinde %1$s boş. %%10\'un altında uygulamalar ve güncellemeler başarısız olabilir.</string>
     <string name="panel_alert_storage_action">Depolama ayarlarını aç</string>
+    <string name="alert_battery_hot_title">Pil sıcak · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Şarj cihazını çıkarın ve telefonun soğumasını bekleyin. Pili en çok ısı yıpratır.</string>
+    <string name="alert_battery_hot_msg">Oyunları veya ağır uygulamaları kapatın; telefonu güneşten uzakta ve kılıfsız soğumaya bırakın. Isı pili yıpratır.</string>
     <string name="tile_temperature">Sıcaklık</string>
     <string name="tile_battery_charging_eta">Şarj oluyor · %1$s içinde dolacak</string>
     <string name="tile_battery_discharging_power">Boşalıyor · %1$s</string>

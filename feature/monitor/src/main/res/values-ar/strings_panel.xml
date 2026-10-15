@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">مساحة التخزين ممتلئة تقريبًا</string>
     <string name="panel_alert_storage_msg">%1$s متاحة من %2$s. تحت 10%% قد تفشل التطبيقات والتحديثات.</string>
     <string name="panel_alert_storage_action">فتح إعدادات التخزين</string>
+    <string name="alert_battery_hot_title">البطارية ساخنة · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">افصل الشاحن واترك الهاتف يبرد. الحرارة أكثر ما يُتلف البطارية.</string>
+    <string name="alert_battery_hot_msg">أغلق الألعاب أو التطبيقات الثقيلة واترك الهاتف يبرد بعيدًا عن الشمس ودون غطاء. الحرارة تُتلف البطارية.</string>
     <string name="tile_temperature">الحرارة</string>
     <string name="tile_battery_charging_eta">يشحن · يكتمل خلال %1$s</string>
     <string name="tile_battery_discharging_power">يفرغ · %1$s</string>

@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Bộ nhớ lưu trữ gần đầy</string>
     <string name="panel_alert_storage_msg">Còn trống %1$s trên %2$s. Dưới 10%% ứng dụng và bản cập nhật có thể bị lỗi.</string>
     <string name="panel_alert_storage_action">Mở cài đặt bộ nhớ</string>
+    <string name="alert_battery_hot_title">Pin đang nóng · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Rút sạc và để điện thoại nguội bớt. Nhiệt độ cao làm chai pin nhiều nhất.</string>
+    <string name="alert_battery_hot_msg">Đóng trò chơi hoặc ứng dụng nặng và để điện thoại nguội, tránh nắng và tháo ốp. Nhiệt độ cao làm chai pin.</string>
     <string name="tile_temperature">Nhiệt độ</string>
     <string name="tile_battery_charging_eta">Đang sạc · đầy sau %1$s</string>
     <string name="tile_battery_discharging_power">Đang xả · %1$s</string>

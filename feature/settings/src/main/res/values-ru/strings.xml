@@ -17,6 +17,10 @@
     <string name="settings_section_background">Когда приложение закрыто</string>
     <string name="settings_battery_history">История батареи</string>
     <string name="settings_battery_history_desc">Сохраняет уровень каждые 15 минут для графика и примерного состояния. Хранится только на телефоне; при выключении удаляется.</string>
+    <string name="settings_alerts">Оповещения</string>
+    <string name="settings_alerts_desc">Сообщает, если батарея перегревается или память почти заполнена. Не чаще одного оповещения о проблеме раз в несколько часов.</string>
+    <string name="settings_alerts_blocked">Уведомления Vitals отключены, поэтому оповещения не могут отображаться.</string>
+    <string name="settings_alerts_open_system">Открыть настройки уведомлений</string>
     <string name="settings_section_privacy">Конфиденциальность</string>
     <string name="settings_analytics">Анонимная статистика использования</string>
     <string name="settings_analytics_desc">Помогите решить, что улучшить</string>

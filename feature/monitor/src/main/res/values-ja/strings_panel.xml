@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">ストレージの空きがわずかです</string>
     <string name="panel_alert_storage_msg">%2$s 中 %1$s 空き。10%% を下回るとアプリやアップデートが失敗することがあります。</string>
     <string name="panel_alert_storage_action">ストレージ設定を開く</string>
+    <string name="alert_battery_hot_title">バッテリーが高温です · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">充電器を外してスマホを冷ましてください。熱はバッテリー劣化の最大の原因です。</string>
+    <string name="alert_battery_hot_msg">ゲームや重いアプリを閉じ、直射日光を避けてケースを外し、スマホを冷ましてください。熱はバッテリーを劣化させます。</string>
     <string name="tile_temperature">温度</string>
     <string name="tile_battery_charging_eta">充電中 · あと %1$s で満充電</string>
     <string name="tile_battery_discharging_power">放電中 · %1$s</string>

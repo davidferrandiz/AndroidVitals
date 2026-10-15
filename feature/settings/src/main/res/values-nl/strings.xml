@@ -17,6 +17,10 @@
     <string name="settings_section_background">Met de app dicht</string>
     <string name="settings_battery_history">Batterijgeschiedenis</string>
     <string name="settings_battery_history_desc">Slaat het niveau elke 15 minuten op voor de grafiek en de geschatte conditie. Blijft op je telefoon; uitzetten wist hem.</string>
+    <string name="settings_alerts">Meldingen</string>
+    <string name="settings_alerts_desc">Waarschuwt als de batterij oververhit raakt of de opslag bijna vol is. Nooit meer dan één melding per probleem per paar uur.</string>
+    <string name="settings_alerts_blocked">Meldingen van Vitals staan uit, dus waarschuwingen kunnen niet worden getoond.</string>
+    <string name="settings_alerts_open_system">Meldingsinstellingen openen</string>
     <string name="settings_section_privacy">Privacy</string>
     <string name="settings_analytics">Anonieme gebruiksstatistieken</string>
     <string name="settings_analytics_desc">Help bepalen wat er beter moet</string>

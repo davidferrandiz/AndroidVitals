@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Pamięć prawie pełna</string>
     <string name="panel_alert_storage_msg">Wolne %1$s z %2$s. Poniżej 10%% aplikacje i aktualizacje mogą się nie udać.</string>
     <string name="panel_alert_storage_action">Otwórz ustawienia pamięci</string>
+    <string name="alert_battery_hot_title">Bateria jest gorąca · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Odłącz ładowarkę i pozwól telefonowi ostygnąć. Ciepło zużywa baterię bardziej niż cokolwiek innego.</string>
+    <string name="alert_battery_hot_msg">Zamknij gry lub ciężkie aplikacje i pozwól telefonowi ostygnąć, z dala od słońca i bez etui. Ciepło zużywa baterię.</string>
     <string name="tile_temperature">Temperatura</string>
     <string name="tile_battery_charging_eta">Ładowanie · pełna za %1$s</string>
     <string name="tile_battery_discharging_power">Rozładowywanie · %1$s</string>

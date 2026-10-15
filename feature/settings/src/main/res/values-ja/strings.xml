@@ -17,6 +17,10 @@
     <string name="settings_section_background">アプリを閉じているとき</string>
     <string name="settings_battery_history">バッテリー履歴</string>
     <string name="settings_battery_history_desc">グラフと推定状態のために 15 分ごとに残量を保存します。データはスマホ内にのみ保存され、オフにすると削除されます。</string>
+    <string name="settings_alerts">アラート</string>
+    <string name="settings_alerts_desc">バッテリーが高温になったときやストレージの空きが少なくなったときに通知します。同じ問題の通知は数時間に 1 回までです。</string>
+    <string name="settings_alerts_blocked">Vitals の通知がオフのため、アラートを表示できません。</string>
+    <string name="settings_alerts_open_system">通知設定を開く</string>
     <string name="settings_section_privacy">プライバシー</string>
     <string name="settings_analytics">匿名の利用統計</string>
     <string name="settings_analytics_desc">改善点を決めるのに役立ちます</string>

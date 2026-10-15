@@ -10,6 +10,8 @@ data class AppSettings(
     val crashReportsEnabled: Boolean = true,
     /** VitalsWorker guarda el nivel cada 15 min. Solo en el dispositivo; desactivarlo lo borra. */
     val batteryHistoryEnabled: Boolean = true,
+    /** Avisos de batería caliente y almacenamiento casi lleno. Necesita permiso en Android 13+. */
+    val alertsEnabled: Boolean = false,
 )
 
 enum class TemperatureUnit { AUTO, CELSIUS, FAHRENHEIT }

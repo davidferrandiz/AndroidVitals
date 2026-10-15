@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Память почти заполнена</string>
     <string name="panel_alert_storage_msg">Свободно %1$s из %2$s. Если меньше 10%%, приложения и обновления могут не устанавливаться.</string>
     <string name="panel_alert_storage_action">Открыть настройки хранилища</string>
+    <string name="alert_battery_hot_title">Батарея горячая · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Отключите зарядку и дайте телефону остыть. Нагрев изнашивает батарею сильнее всего.</string>
+    <string name="alert_battery_hot_msg">Закройте игры или тяжёлые приложения и дайте телефону остыть — вне солнца и без чехла. Нагрев изнашивает батарею.</string>
     <string name="tile_temperature">Температура</string>
     <string name="tile_battery_charging_eta">Заряжается · полная через %1$s</string>
     <string name="tile_battery_discharging_power">Разряжается · %1$s</string>

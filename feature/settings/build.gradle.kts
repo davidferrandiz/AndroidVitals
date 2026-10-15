@@ -38,6 +38,8 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+    // Petición del permiso de notificaciones (Android 13+) para los avisos
+    implementation(libs.androidx.activity.compose)
 
     implementation(libs.androidx.core.ktx)
     debugImplementation(libs.androidx.compose.ui.tooling)

@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Opslag bijna vol</string>
     <string name="panel_alert_storage_msg">%1$s vrij van %2$s. Onder 10%% kunnen apps en updates mislukken.</string>
     <string name="panel_alert_storage_action">Opslaginstellingen openen</string>
+    <string name="alert_battery_hot_title">Batterij is heet · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Haal de lader eruit en laat de telefoon afkoelen. Hitte slijt de batterij meer dan wat ook.</string>
+    <string name="alert_battery_hot_msg">Sluit games of zware apps en laat de telefoon afkoelen, uit de zon en zonder hoesje. Hitte slijt de batterij.</string>
     <string name="tile_temperature">Temperatuur</string>
     <string name="tile_battery_charging_eta">Laden · vol over %1$s</string>
     <string name="tile_battery_discharging_power">Ontladen · %1$s</string>

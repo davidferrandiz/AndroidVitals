@@ -15,4 +15,5 @@ interface SettingsRepository {
     suspend fun setAnalyticsEnabled(enabled: Boolean)
     suspend fun setCrashReportsEnabled(enabled: Boolean)
     suspend fun setBatteryHistoryEnabled(enabled: Boolean)
+    suspend fun setAlertsEnabled(enabled: Boolean)
 }

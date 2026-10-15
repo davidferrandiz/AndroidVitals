@@ -8,6 +8,9 @@
     <string name="panel_alert_storage_title">Stockage presque plein</string>
     <string name="panel_alert_storage_msg">%1$s libres sur %2$s. Sous 10%%, les applis et les mises à jour peuvent échouer.</string>
     <string name="panel_alert_storage_action">Ouvrir les paramètres de stockage</string>
+    <string name="alert_battery_hot_title">Batterie chaude · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Débranchez le chargeur et laissez le téléphone refroidir. La chaleur use la batterie plus que tout le reste.</string>
+    <string name="alert_battery_hot_msg">Fermez les jeux ou les applis gourmandes et laissez le téléphone refroidir, à l\'abri du soleil et sans coque. La chaleur use la batterie.</string>
     <string name="tile_temperature">Température</string>
     <string name="tile_battery_charging_eta">En charge · pleine dans %1$s</string>
     <string name="tile_battery_discharging_power">Décharge · %1$s</string>

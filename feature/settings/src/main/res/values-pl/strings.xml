@@ -17,6 +17,10 @@
     <string name="settings_section_background">Przy zamkniętej aplikacji</string>
     <string name="settings_battery_history">Historia baterii</string>
     <string name="settings_battery_history_desc">Zapisuje poziom co 15 minut na potrzeby wykresu i szacowanej kondycji. Zostaje na telefonie, a wyłączenie ją usuwa.</string>
+    <string name="settings_alerts">Alerty</string>
+    <string name="settings_alerts_desc">Powiadamia, gdy bateria się przegrzewa lub pamięć jest prawie pełna. Nie częściej niż jedno powiadomienie o problemie na kilka godzin.</string>
+    <string name="settings_alerts_blocked">Powiadomienia Vitals są wyłączone, więc alerty nie mogą się wyświetlać.</string>
+    <string name="settings_alerts_open_system">Otwórz ustawienia powiadomień</string>
     <string name="settings_section_privacy">Prywatność</string>
     <string name="settings_analytics">Anonimowe statystyki użycia</string>
     <string name="settings_analytics_desc">Pomóż zdecydować, co ulepszyć</string>

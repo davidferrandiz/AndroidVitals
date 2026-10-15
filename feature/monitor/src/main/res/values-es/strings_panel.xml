@@ -9,6 +9,9 @@
     <string name="panel_alert_storage_title">Espacio casi lleno</string>
     <string name="panel_alert_storage_msg">Quedan %1$s de %2$s. Por debajo del 10 %% las apps y las actualizaciones pueden fallar.</string>
     <string name="panel_alert_storage_action">Abrir ajustes de almacenamiento</string>
+    <string name="alert_battery_hot_title">Batería caliente · %1$s</string>
+    <string name="alert_battery_hot_charging_msg">Desenchufa el cargador y deja que el móvil se enfríe. El calor es lo que más desgasta la batería.</string>
+    <string name="alert_battery_hot_msg">Cierra juegos o apps pesadas y deja que el móvil se enfríe, fuera del sol y sin funda. El calor desgasta la batería.</string>
 
     <string name="tile_temperature">Temperatura</string>
     <string name="tile_battery_charging_eta">Cargando · lleno en %1$s</string>
