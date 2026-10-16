@@ -1,0 +1,53 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0}
+body{width:1024px;height:500px;overflow:hidden;font-family:Inter,sans-serif;color:#E6EDF2;
+ background:radial-gradient(circle at 22% 45%,#1B2833 0,#0E151C 45%,#090D11 100%)}
+.pulse{position:absolute;left:0;top:0}
+.left{position:absolute;left:76px;top:118px;width:520px}
+.icon{width:132px;height:132px;border-radius:30px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+h1{font-family:'Inter Display',Inter;font-weight:700;font-size:86px;letter-spacing:-2px;margin-top:22px;line-height:1}
+.tag{font-size:27px;color:#AEBCC7;margin-top:12px;font-weight:500}
+.chips{display:flex;gap:10px;margin-top:22px}
+.chip{font-size:17px;font-weight:600;padding:7px 14px;border-radius:999px;background:#17212A;color:#CFDAE2;border:1px solid #24313C}
+.row{display:flex;align-items:center;gap:26px}
+.row h1{margin-top:0}
+.phone{position:absolute;left:690px;top:44px;width:262px;height:540px;border-radius:38px;background:#0F0F0F;
+ border:7px solid #23292F;box-shadow:0 30px 70px rgba(0,0,0,.6);padding:20px 14px;font-variant-numeric:tabular-nums}
+.ttl{font-size:21px;font-weight:700;margin:6px 4px 12px}
+.card{background:#1A1A1A;border-radius:18px;padding:12px 14px;margin-bottom:9px}
+.lbl{font-size:12px;color:#9AA4AC;font-weight:600;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%}
+.big{font-size:30px;font-weight:700;margin-top:4px}
+.sub{font-size:12px;color:#9AA4AC;margin-top:2px}
+.bar{height:6px;border-radius:3px;background:#2A2A2A;margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:3px}
+.two{display:flex;gap:9px}.two .card{flex:1;min-width:0}
+.mid{font-size:22px;font-weight:700;margin-top:4px;white-space:nowrap}
+</style></head><body>
+<svg class="pulse" width="1024" height="500" viewBox="0 0 1024 500">
+ <path d="M0,400 L520,400 L548,372 L572,440 L604,330 L634,420 L652,400 L1024,400" fill="none" stroke="#4FC3F7" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".16"/>
+</svg>
+<div class="left">
+ <div class="row">
+  <div class="icon"><svg width="132" height="132" viewBox="18 18 72 72"><defs><radialGradient id="g" cx="54" cy="42" r="72" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1A2631"/><stop offset="1" stop-color="#0A0F14"/></radialGradient></defs><rect width="108" height="108" fill="url(#g)"/><path d="M34.908,73.092A27.0,27.0 0 0,1 28.214,45.993" fill="none" stroke="#4FC3F7" stroke-width="5.6" stroke-linecap="butt"/><path d="M29.382,42.911A27.0,27.0 0 0,1 52.352,27.050" fill="none" stroke="#CE93D8" stroke-width="5.6" stroke-linecap="butt"/><path d="M55.648,27.050A27.0,27.0 0 0,1 78.618,42.911" fill="none" stroke="#81C784" stroke-width="5.6" stroke-linecap="butt"/><path d="M79.786,45.993A27.0,27.0 0 0,1 73.092,73.092" fill="none" stroke="#FFB74D" stroke-width="5.6" stroke-linecap="butt"/><path d="M34.5,56L43,56L46.5,49L51,66L56.5,37L62,60L65,54L73.5,54" fill="none" stroke="#EAF6FC" stroke-width="5.0" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <h1>Vitals</h1>
+ </div>
+ <div class="tag">Battery, CPU and hardware monitor</div>
+ <div class="chips"><span class="chip">Battery health</span><span class="chip">Live CPU</span><span class="chip">Widget</span><span class="chip">No ads</span></div>
+</div>
+<div class="phone">
+ <div class="ttl">Dashboard</div>
+ <div class="card"><div class="lbl"><span class="dot" style="background:#81C784"></span>BATTERY</div>
+  <div class="big">87%</div><div class="sub">Charging · 12.4 W · 31 °C</div>
+  <div class="bar"><i style="width:87%;background:#81C784"></i></div></div>
+ <div class="two">
+  <div class="card"><div class="lbl"><span class="dot" style="background:#4FC3F7"></span>CPU</div><div class="mid">34%</div>
+   <svg width="92" height="26" viewBox="0 0 92 26" style="margin-top:4px"><polyline points="0,20 12,16 22,18 32,8 42,13 52,6 62,14 72,10 82,15 92,9" fill="none" stroke="#4FC3F7" stroke-width="2.4" stroke-linejoin="round"/></svg></div>
+  <div class="card"><div class="lbl"><span class="dot" style="background:#CE93D8"></span>RAM</div><div class="mid">2.1 GB</div><div class="sub">of 4 GB</div>
+   <div class="bar"><i style="width:53%;background:#CE93D8"></i></div></div>
+ </div>
+ <div class="card"><div class="lbl"><span class="dot" style="background:#4DB6AC"></span>STORAGE</div>
+  <div class="mid">41 GB free</div><div class="bar"><i style="width:68%;background:#4DB6AC"></i></div></div>
+ 
+</div>
+</body></html>

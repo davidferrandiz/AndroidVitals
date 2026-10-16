@@ -62,3 +62,17 @@ Quitar de la ficha actual: "Process Manager" y "no data collection" (ver el aná
 ## 4. Traducciones de la ficha
 
 Por usuarios activos: inglés, alemán, persa, hindi, francés (Canadá), italiano y español.
+
+## 5. Icono y gráfico de cabecera
+
+Archivos listos para subir en Play Console › Presencia en Google Play › Ficha principal:
+
+| Recurso | Archivo | Requisito de Play |
+| --- | --- | --- |
+| Icono de la app | `docs/store-assets/icon_512.png` | 512 × 512 PNG, cuadrado completo (Play redondea las esquinas) |
+| Gráfico de cabecera | `docs/store-assets/feature_graphic_1024x500.png` | 1024 × 500 PNG sin transparencia |
+
+El gráfico antiguo decía "No data collected" y enseñaba "Processes", ya eliminado: hay que sustituirlo.
+
+Fuentes: `gen_icon.py` genera las capas del icono adaptativo (`app/src/main/res/drawable/ic_launcher_*.xml`)
+y `icon.svg`; `feature_graphic.html` es la cabecera (renderizar a 1024 × 500 con Chromium e Inter).

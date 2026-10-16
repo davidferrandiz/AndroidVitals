@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Icono de la barra de estado: monocromo blanco, como exige Android. -->
+<!-- Icono de la barra de estado: el del launcher en monocromo blanco, como exige Android. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:pathData="M3,12h4l3,-8 4,16 3,-8h4"
-        android:fillColor="#00000000"
+        android:pathData="M5.13,18.87A9.72,9.72 0 1,1 18.87,18.87"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M4.98,12.72L8.04,12.72L9.30,10.20L10.92,16.32L12.90,5.88L14.88,14.16L15.96,12.00L19.02,12.00"
         android:strokeColor="#FFFFFFFF"
         android:strokeWidth="2"
         android:strokeLineCap="round"
