@@ -36,7 +36,7 @@ import com.ferryapps.vitals.feature.hardware.HardwareScreen
 import com.ferryapps.vitals.feature.monitor.ui.MonitorScreen
 import com.ferryapps.vitals.feature.settings.SettingsScreen
 
-private object Routes {
+internal object Routes {
     const val PANEL = "panel"
     const val BATTERY = "battery"
     const val HARDWARE = "hardware"
@@ -71,22 +71,10 @@ fun VitalsApp(analytics: AnalyticsTracker) {
         containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             if (showBottomBar) {
-                NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainerLow) {
-                    TopLevel.entries.forEach { item ->
-                        val selected = currentDestination?.hierarchy?.any { it.route == item.route } == true
-                        NavigationBarItem(
-                            selected = selected,
-                            modifier = Modifier.testTag("nav_${item.route}"),
-                            onClick = { navController.navigateTopLevel(item.route) },
-                            icon = { Icon(painterResource(item.icon), contentDescription = null, modifier = Modifier.size(22.dp)) },
-                            label = { Text(stringResource(item.label)) },
-                            colors = NavigationBarItemDefaults.colors(
-                                indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.18f),
-                                selectedIconColor = MaterialTheme.colorScheme.primary,
-                            )
-                        )
-                    }
-                }
+                VitalsBottomBar(
+                    isSelected = { route -> currentDestination?.hierarchy?.any { it.route == route } == true },
+                    onNavigate = navController::navigateTopLevel,
+                )
             }
         }
     ) { innerPadding ->
@@ -104,6 +92,26 @@ fun VitalsApp(analytics: AnalyticsTracker) {
             composable(Routes.SETTINGS) {
                 SettingsScreen(onBack = { navController.popBackStack() }, contentPadding = innerPadding)
             }
+        }
+    }
+}
+
+/** Barra inferior. Separada de [VitalsApp] para reutilizarla en las capturas de Play Store. */
+@Composable
+internal fun VitalsBottomBar(isSelected: (String) -> Boolean, onNavigate: (String) -> Unit) {
+    NavigationBar(containerColor = MaterialTheme.colorScheme.surfaceContainerLow) {
+        TopLevel.entries.forEach { item ->
+            NavigationBarItem(
+                selected = isSelected(item.route),
+                modifier = Modifier.testTag("nav_${item.route}"),
+                onClick = { onNavigate(item.route) },
+                icon = { Icon(painterResource(item.icon), contentDescription = null, modifier = Modifier.size(22.dp)) },
+                label = { Text(stringResource(item.label)) },
+                colors = NavigationBarItemDefaults.colors(
+                    indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.18f),
+                    selectedIconColor = MaterialTheme.colorScheme.primary,
+                )
+            )
         }
     }
 }

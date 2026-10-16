@@ -66,6 +66,23 @@ android {
         compose = true
         buildConfig = true
     }
+    testOptions {
+        unitTests {
+            // Robolectric necesita los recursos para las capturas de Play Store.
+            isIncludeAndroidResources = true
+            all { test ->
+                // Las capturas (src/test/.../storescreenshots) solo se generan a propósito:
+                // ./gradlew :app:testDebugUnitTest -PstoreScreenshots
+                if (project.hasProperty("storeScreenshots")) {
+                    test.systemProperty("roborazzi.test.record", "true")
+                    test.systemProperty("storeScreenshots.outDir", rootProject.file("docs/store-assets/screenshots/raw").absolutePath)
+                    test.maxHeapSize = "3g"
+                } else {
+                    test.exclude("**/storescreenshots/**")
+                }
+            }
+        }
+    }
 }
 
 hilt {
@@ -123,6 +140,10 @@ dependencies {
     implementation(libs.androidx.activity.compose)
 
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.roborazzi)
+    testImplementation(platform(libs.androidx.compose.bom))
+    testImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)

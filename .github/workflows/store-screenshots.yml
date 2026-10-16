@@ -1,0 +1,76 @@
+name: Store screenshots
+
+# Genera las capturas de Play Store con Robolectric + Roborazzi (pantallas reales con datos de
+# ejemplo, sin emulador) y hace commit en docs/store-assets/screenshots/raw de la misma rama.
+# Se lanza al tocar las capturas o a mano con "Run workflow".
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+      - release
+    paths:
+      - 'app/src/test/java/com/ferryapps/vitals/storescreenshots/**'
+      - '.github/workflows/store-screenshots.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: store-screenshots-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: gradle-
+
+      - name: Record screenshots
+        run: |
+          chmod +x gradlew
+          set -o pipefail
+          ./gradlew :app:testDebugUnitTest -PstoreScreenshots --tests '*StoreScreenshots*' --stacktrace \
+            2>&1 | tee gradle-output.txt
+
+      # Deja el motivo del fallo como anotación, que se puede leer por la API sin descargar logs.
+      - name: Report failure
+        if: failure()
+        run: |
+          { grep -n -A25 'What went wrong' gradle-output.txt; grep -n -B2 -A12 -E '^e: |FAILED|Exception|error:' gradle-output.txt | head -80; \
+            find app/build/test-results -name '*.xml' -exec grep -h -A6 '<failure' {} \; | head -40; } \
+            | head -160 | sed 's/%/%25/g' | awk 'BEGIN{ORS="%0A"} {print}' > failure.txt || true
+          echo "::error title=Store screenshots::$(cat failure.txt)"
+
+      - name: Show result
+        run: find docs/store-assets/screenshots -type f | sort
+
+      - name: Commit screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/store-assets/screenshots/raw
+          if git diff --cached --quiet; then
+            echo "Sin cambios en las capturas"
+          else
+            git commit -m "chore: capturas de Play Store generadas en CI"
+            git push
+          fi

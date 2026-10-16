@@ -107,6 +107,58 @@ fun MonitorScreen(
     val appMemory by viewModel.appMemory.collectAsStateWithLifecycle()
     val appProcesses by viewModel.appProcesses.collectAsStateWithLifecycle()
 
+    MonitorContent(
+        settings = settings,
+        device = device,
+        expanded = expanded,
+        cpu = cpu,
+        cpuHistory = cpuHistory,
+        thermalZones = thermalZones,
+        thermalState = thermalState,
+        memory = memory,
+        storage = storage,
+        battery = battery,
+        speed = speed,
+        networkHistory = networkHistory,
+        network = network,
+        appCpu = appCpu,
+        appThreads = appThreads,
+        appMemory = appMemory,
+        appProcesses = appProcesses,
+        onToggleCard = viewModel::toggleCard,
+        onOpenBattery = onOpenBattery,
+        onOpenHardware = onOpenHardware,
+        onOpenSettings = onOpenSettings,
+        contentPadding = contentPadding,
+    )
+}
+
+/** Pantalla sin ViewModel: la usan [MonitorScreen] y las capturas de Play Store (tests de Roborazzi). */
+@Composable
+fun MonitorContent(
+    settings: AppSettings,
+    device: DeviceSummary?,
+    expanded: Set<String>,
+    cpu: CpuSnapshot?,
+    cpuHistory: List<Float>,
+    thermalZones: List<ThermalZone>?,
+    thermalState: ThermalState?,
+    memory: MemoryInfo?,
+    storage: StorageInfo?,
+    battery: BatteryInfo?,
+    speed: NetworkSpeed?,
+    networkHistory: Pair<List<Float>, List<Float>>,
+    network: NetworkInfo?,
+    appCpu: Float,
+    appThreads: Int,
+    appMemory: ProcessMemoryBreakdown?,
+    appProcesses: List<TopProcess>,
+    onToggleCard: (String) -> Unit,
+    onOpenBattery: () -> Unit,
+    onOpenHardware: () -> Unit,
+    onOpenSettings: () -> Unit,
+    contentPadding: PaddingValues = PaddingValues(),
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -133,7 +185,7 @@ fun MonitorScreen(
                 thermalZones = thermalZones,
                 settings = settings,
                 expanded = MonitorViewModel.CARD_CPU in expanded,
-                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_CPU) },
+                onToggle = { onToggleCard(MonitorViewModel.CARD_CPU) },
                 onOpenHardware = onOpenHardware
             )
         }
@@ -149,7 +201,7 @@ fun MonitorScreen(
                 memory = appMemory,
                 processes = appProcesses,
                 expanded = MonitorViewModel.CARD_VITALS in expanded,
-                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_VITALS) }
+                onToggle = { onToggleCard(MonitorViewModel.CARD_VITALS) }
             )
         }
     }

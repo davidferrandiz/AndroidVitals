@@ -66,6 +66,21 @@ fun HardwareScreen(
     val sensors by viewModel.sensors.collectAsStateWithLifecycle()
     val uptime by viewModel.uptimeMs.collectAsStateWithLifecycle()
     val settings by viewModel.settings.collectAsStateWithLifecycle()
+
+    HardwareContent(device, cpu, thermalState, memory, sensors, uptime, contentPadding)
+}
+
+/** Pantalla sin ViewModel: la usan [HardwareScreen] y las capturas de Play Store (tests de Roborazzi). */
+@Composable
+fun HardwareContent(
+    device: DeviceInfo?,
+    cpu: CpuSnapshot?,
+    thermalState: ThermalState?,
+    memory: MemoryInfo?,
+    sensors: List<SensorReading>,
+    uptime: Long,
+    contentPadding: PaddingValues = PaddingValues(),
+) {
     val context = LocalContext.current
 
     LazyColumn(

@@ -60,6 +60,18 @@ fun BatteryScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val history by viewModel.history.collectAsStateWithLifecycle()
 
+    BatteryContent(battery, powerHistory, history, settings, contentPadding)
+}
+
+/** Pantalla sin ViewModel: la usan [BatteryScreen] y las capturas de Play Store (tests de Roborazzi). */
+@Composable
+fun BatteryContent(
+    battery: BatteryInfo?,
+    powerHistory: List<Float>,
+    history: BatteryHistory?,
+    settings: AppSettings,
+    contentPadding: PaddingValues = PaddingValues(),
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
