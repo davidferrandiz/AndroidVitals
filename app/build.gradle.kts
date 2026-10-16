@@ -38,6 +38,7 @@ android {
         }
         release {
             isDebuggable = false
+            proguardFiles("proguard-rules.pro")
             // R8: APK más pequeño y arranque más rápido. Importa en los móviles de gama
             // baja que usa la mayoría de usuarios (Moto E14, Redmi 12C…).
             optimization {
