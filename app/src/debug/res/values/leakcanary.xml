@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        LeakCanary solo existe en debug, pero lanza notificaciones "Heap dump" constantes.
+        Desactivado por defecto: para cazar fugas, poner a true y volver a dejarlo en false
+        antes de commitear.
+    -->
+    <bool name="leak_canary_watcher_auto_install">false</bool>
+    <bool name="leak_canary_add_launcher_icon">false</bool>
+</resources>
