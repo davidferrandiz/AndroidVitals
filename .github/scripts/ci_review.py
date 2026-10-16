@@ -25,12 +25,18 @@ Prioridad: 1) bugs/crashes  2) seguridad  3) casos límite. Bugs típicos de Kot
 trabajo pesado en el hilo principal. IGNORA el estilo (lo cubre ktlint/detekt).
 
 CRITERIO 0 (lo primero): violaciones de CODING_STANDARDS → severidad "alta" AUNQUE no sean
-crashes; la arquitectura NO es "estilo". CITA la regla en la nota (p. ej. "viola R-DI-4").
+crashes; la arquitectura NO es "estilo".
+
+Escribe la "nota" SIEMPRE en lenguaje claro que entienda cualquier desarrollador, en este
+orden: 1) QUÉ está mal y por qué es un problema (consecuencia concreta), 2) CÓMO arreglarlo.
+Si aplica una regla del estándar, menciónala AL FINAL entre paréntesis con su código,
+p. ej. "(regla R-DI-4)". NUNCA empieces la nota con "viola X:" ni uses el código como si se
+entendiera por sí solo — el código es solo una referencia, la explicación va en palabras.
 
 DEVUELVE EXCLUSIVAMENTE un array JSON válido (sin texto alrededor, sin ```), un objeto por
 hallazgo, con estas claves exactas:
   {"archivo": "<ruta tal cual aparece en el diff>", "linea": <entero, línea del lado nuevo>,
-   "severidad": "alta" | "media", "nota": "<problema — sugerencia>"}
+   "severidad": "alta" | "media", "nota": "<explicación clara + (regla X) al final si aplica>"}
 Si no hay hallazgos, devuelve exactamente: []
 No inventes problemas para rellenar."""
 

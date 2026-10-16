@@ -30,6 +30,41 @@ SUMMARY = os.environ.get("PR_BOT_SUMMARY", "1") == "1"
 API = "https://api.github.com"
 RANK = {"baja": 0, "media": 1, "alta": 2}
 
+# --- Glosario de reglas: para que cada código (R-DI-4, K-NULL-1...) venga con su
+# descripción legible sacada del CODING_STANDARDS.md ---
+STANDARDS = os.path.join(os.path.dirname(__file__), "..", "..", "CODING_STANDARDS.md")
+RULE_RE = re.compile(r"\b([A-Z]{1,3}-[A-Z]{2,6}-\d+)\b")
+
+
+def load_glossary():
+    g = {}
+    try:
+        text = open(STANDARDS, encoding="utf-8", errors="ignore").read()
+    except FileNotFoundError:
+        return g
+    # **CÓDIGO** — descripción (la descripción puede continuar hasta el próximo bullet/regla)
+    for m in re.finditer(
+        r"\*\*([A-Z]{1,3}-[A-Z]{2,6}-\d+)\*\*\s*[—-]\s*(.+?)(?=\n\s*[-*]\s*\*\*|\n\s*\n|\Z)",
+        text, re.S,
+    ):
+        desc = re.sub(r"\s+", " ", m.group(2)).strip()
+        if len(desc) > 240:
+            desc = desc[:237].rstrip() + "…"
+        g[m.group(1)] = desc
+    return g
+
+
+GLOSSARY = load_glossary()
+
+
+def explain_rules(note: str) -> str:
+    """Texto extra con la definición legible de las reglas citadas en la nota."""
+    seen = []
+    for code in RULE_RE.findall(note or ""):
+        if code in GLOSSARY and code not in seen:
+            seen.append(code)
+    return "".join(f"\n\n> 📖 **{c}** — {GLOSSARY[c]}" for c in seen)
+
 
 def api_post(path: str, payload: dict):
     req = urllib.request.Request(
@@ -95,7 +130,8 @@ def main():
             line = int(f.get("linea"))
         except (TypeError, ValueError):
             line = None
-        body = f"🤖 {badge(sev)}\n\n{str(f.get('nota', '')).strip()}"
+        nota = str(f.get("nota", "")).strip()
+        body = f"🤖 {badge(sev)}\n\n{nota}{explain_rules(nota)}"
         if path and line and (path, line) in valid:
             comments.append({"path": path, "line": line, "side": "RIGHT", "body": body})
         else:
