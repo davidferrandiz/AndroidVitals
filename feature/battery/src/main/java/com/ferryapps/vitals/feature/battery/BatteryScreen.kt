@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
@@ -60,6 +63,18 @@ fun BatteryScreen(
     val settings by viewModel.settings.collectAsStateWithLifecycle()
     val history by viewModel.history.collectAsStateWithLifecycle()
 
+    BatteryContent(battery, powerHistory, history, settings, contentPadding)
+}
+
+/** Pantalla sin ViewModel: la usan [BatteryScreen] y las capturas de Play Store (tests de Roborazzi). */
+@Composable
+fun BatteryContent(
+    battery: BatteryInfo?,
+    powerHistory: List<Float>,
+    history: BatteryHistory?,
+    settings: AppSettings,
+    contentPadding: PaddingValues = PaddingValues(),
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -188,22 +203,22 @@ private fun HistoryCard(history: BatteryHistory?, settings: AppSettings) {
                 )
             }
             val stats = history?.stats
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(top = 6.dp).height(IntrinsicSize.Min)) {
                 MiniStat(
                     label = stringResource(R.string.battery_drain_rate),
                     value = stats?.drainPercentPerHour?.let { "${Formatters.decimal(it, 1)} %/h" } ?: "—",
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f).fillMaxHeight()
                 )
                 MiniStat(
                     label = stringResource(R.string.battery_charges_7d),
                     value = stats?.let { Formatters.integer(it.chargeSessions7d) } ?: "—",
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f).fillMaxHeight()
                 )
                 MiniStat(
                     label = stringResource(R.string.battery_max_temp),
                     value = stats?.maxTemperature24hCelsius
                         ?.let { Formatters.temperature(it, settings.temperatureUnit, decimals = 0) } ?: "—",
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier.weight(1f).fillMaxHeight()
                 )
             }
         }

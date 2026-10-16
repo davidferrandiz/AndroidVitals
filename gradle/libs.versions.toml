@@ -25,6 +25,8 @@ uiautomator = "2.3.0"
 androidxHilt = "1.2.0"
 kotlin-metadata-jvm = "2.4.0"
 leakcanary = "2.14"
+robolectric = "4.16.1"
+roborazzi = "1.74.0"
 
 [libraries]
 kotlinMetadataJvm = { group = "org.jetbrains.kotlin", name = "kotlin-metadata-jvm", version.ref = "kotlin-metadata-jvm" }
@@ -43,6 +45,8 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", version.ref = "roborazzi" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 
 # Hilt (Dagger)

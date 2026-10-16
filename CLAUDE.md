@@ -72,6 +72,7 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 - **Textos**: inglés en `values/`, español en `values-es/` y los otros 18 idiomas en `values-<loc>/`. Lint falla si falta una cadena: toda cadena nueva se traduce en el mismo cambio
 - **Notificaciones**: `NotificationHelper` es el único lugar donde se construyen notificaciones y se declaran IDs de canal. Nunca invasivas: avisos desactivados por defecto, un canal por tipo, nada de `IMPORTANCE_HIGH` (sin emergentes), silencio de 22:00 a 9:00, cooldown por aviso (`AlertType`) y se quitan solas cuando el problema se resuelve. Las reglas son puras en `AlertRules` y tienen tests
 - **Baseline Profile**: lo genera `.github/workflows/baseline-profile.yml` en un emulador y hace commit en `app/src/release/generated/baselineProfiles/`. Regenerarlo tras cambios grandes de navegación o pantallas (tocar `baselineprofile/` o lanzar el workflow). Los elementos que recorre el generador llevan `testTag` (`nav_panel`, `nav_battery`, `nav_hardware`)
+- **Capturas de Play Store**: `MonitorContent`, `BatteryContent` y `HardwareContent` no dependen del ViewModel; `app/src/test/.../storescreenshots` las pinta con Robolectric + Roborazzi (solo con `-PstoreScreenshots`, workflow `store-screenshots.yml`) y `docs/store-assets/frame_screenshots.py` añade titular y marco. Regenerarlas tras cambios visibles en esas pantallas
 - **Firebase fuera de release**: debug, `nonMinifiedRelease` y `benchmarkRelease` no recogen nada (placeholder `firebaseCollectionOff` en el Manifest y `BuildConfig.BUILD_TYPE`)
 - **`google-services.json`**: solo en `app/` — nunca en submódulos, nunca en git
 
@@ -90,6 +91,7 @@ e Italia. Diseñar para 360 dp, texto grande, RTL (persa) y APIs que faltan en A
 | Panel | `feature/monitor/.../ui/MonitorScreen.kt` |
 | Batería / Hardware / Ajustes | `feature/battery`, `feature/hardware`, `feature/settings` |
 | Ficha y Data safety | `docs/play-store.md` · `docs/privacy-policy.html` |
+| Icono, cabecera y capturas de Play | `docs/store-assets/` |
 
 ## Notas de versiones
 

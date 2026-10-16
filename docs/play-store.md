@@ -62,3 +62,29 @@ Quitar de la ficha actual: "Process Manager" y "no data collection" (ver el aná
 ## 4. Traducciones de la ficha
 
 Por usuarios activos: inglés, alemán, persa, hindi, francés (Canadá), italiano y español.
+
+## 5. Icono y gráfico de cabecera
+
+Archivos listos para subir en Play Console › Presencia en Google Play › Ficha principal:
+
+| Recurso | Archivo | Requisito de Play |
+| --- | --- | --- |
+| Icono de la app | `docs/store-assets/icon_512.png` | 512 × 512 PNG, cuadrado completo (Play redondea las esquinas) |
+| Gráfico de cabecera | `docs/store-assets/feature_graphic_1024x500.png` | 1024 × 500 PNG sin transparencia |
+
+El gráfico antiguo decía "No data collected" y enseñaba "Processes", ya eliminado: hay que sustituirlo.
+
+Fuentes: `gen_icon.py` genera las capas del icono adaptativo (`app/src/main/res/drawable/ic_launcher_*.xml`)
+y `icon.svg`; `feature_graphic.html` es la cabecera (renderizar a 1024 × 500 con Chromium e Inter).
+
+## 6. Capturas de pantalla
+
+Listas en `docs/store-assets/screenshots/<idioma>/` (1080 × 1920, PNG de 24 bits): 4 por idioma en
+en-US, es-ES, de-DE, it-IT, fr-CA, hi-IN y fa-IR. Subirlas en Ficha principal › Capturas de teléfono,
+en el mismo orden (01 → 04), y en cada traducción de la ficha las de su idioma.
+
+Son las pantallas reales de la app pintadas por Robolectric con datos de ejemplo coherentes
+(`app/src/test/.../storescreenshots`). Para regenerarlas tras cambiar la UI:
+
+1. Lanzar el workflow **Store screenshots** (o tocar los tests): deja las capturas sin marco en `raw/`.
+2. `python3 docs/store-assets/frame_screenshots.py` les pone titular y marco (los textos están en el script).

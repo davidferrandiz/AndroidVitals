@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -107,6 +110,58 @@ fun MonitorScreen(
     val appMemory by viewModel.appMemory.collectAsStateWithLifecycle()
     val appProcesses by viewModel.appProcesses.collectAsStateWithLifecycle()
 
+    MonitorContent(
+        settings = settings,
+        device = device,
+        expanded = expanded,
+        cpu = cpu,
+        cpuHistory = cpuHistory,
+        thermalZones = thermalZones,
+        thermalState = thermalState,
+        memory = memory,
+        storage = storage,
+        battery = battery,
+        speed = speed,
+        networkHistory = networkHistory,
+        network = network,
+        appCpu = appCpu,
+        appThreads = appThreads,
+        appMemory = appMemory,
+        appProcesses = appProcesses,
+        onToggleCard = viewModel::toggleCard,
+        onOpenBattery = onOpenBattery,
+        onOpenHardware = onOpenHardware,
+        onOpenSettings = onOpenSettings,
+        contentPadding = contentPadding,
+    )
+}
+
+/** Pantalla sin ViewModel: la usan [MonitorScreen] y las capturas de Play Store (tests de Roborazzi). */
+@Composable
+fun MonitorContent(
+    settings: AppSettings,
+    device: DeviceSummary?,
+    expanded: Set<String>,
+    cpu: CpuSnapshot?,
+    cpuHistory: List<Float>,
+    thermalZones: List<ThermalZone>?,
+    thermalState: ThermalState?,
+    memory: MemoryInfo?,
+    storage: StorageInfo?,
+    battery: BatteryInfo?,
+    speed: NetworkSpeed?,
+    networkHistory: Pair<List<Float>, List<Float>>,
+    network: NetworkInfo?,
+    appCpu: Float,
+    appThreads: Int,
+    appMemory: ProcessMemoryBreakdown?,
+    appProcesses: List<TopProcess>,
+    onToggleCard: (String) -> Unit,
+    onOpenBattery: () -> Unit,
+    onOpenHardware: () -> Unit,
+    onOpenSettings: () -> Unit,
+    contentPadding: PaddingValues = PaddingValues(),
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(
@@ -133,7 +188,7 @@ fun MonitorScreen(
                 thermalZones = thermalZones,
                 settings = settings,
                 expanded = MonitorViewModel.CARD_CPU in expanded,
-                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_CPU) },
+                onToggle = { onToggleCard(MonitorViewModel.CARD_CPU) },
                 onOpenHardware = onOpenHardware
             )
         }
@@ -149,7 +204,7 @@ fun MonitorScreen(
                 memory = appMemory,
                 processes = appProcesses,
                 expanded = MonitorViewModel.CARD_VITALS in expanded,
-                onToggle = { viewModel.toggleCard(MonitorViewModel.CARD_VITALS) }
+                onToggle = { onToggleCard(MonitorViewModel.CARD_VITALS) }
             )
         }
     }
@@ -647,10 +702,11 @@ private fun VitalsUsageCard(
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-            MiniStat(stringResource(R.string.vitals_cpu), Formatters.percent(cpuPercent, 1), Modifier.weight(1f))
-            MiniStat(stringResource(R.string.active_threads), Formatters.integer(threads), Modifier.weight(1f))
-            MiniStat(stringResource(R.string.vitals_pss), pssMb?.let { "${Formatters.integer(it)} MB" } ?: "—", Modifier.weight(1f))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
+            val tile = Modifier.weight(1f).fillMaxHeight()
+            MiniStat(stringResource(R.string.vitals_cpu), Formatters.percent(cpuPercent, 1), tile)
+            MiniStat(stringResource(R.string.active_threads), Formatters.integer(threads), tile)
+            MiniStat(stringResource(R.string.vitals_pss), pssMb?.let { "${Formatters.integer(it)} MB" } ?: "—", tile)
         }
         ExpandToggle(
             label = stringResource(if (expanded) R.string.vitals_hide else R.string.vitals_show),
