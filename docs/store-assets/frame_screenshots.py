@@ -96,9 +96,9 @@ def page(locale, name, shot_png):
     return f"""<!doctype html><html dir="{'rtl' if rtl else 'ltr'}"><head><meta charset="utf-8"><style>{FONTS}
 *{{margin:0;box-sizing:border-box}}
 body{{width:{W}px;height:{H}px;overflow:hidden;background:{bg};font-family:{family};text-align:center}}
-.top{{position:absolute;left:80px;right:80px;top:96px}}
+.top{{position:absolute;left:80px;right:80px;top:40px;height:420px;display:flex;flex-direction:column;justify-content:center}}
 .bar{{width:72px;height:8px;border-radius:4px;background:{ACCENT[name]};margin:0 auto 34px}}
-h1{{color:{fg};font-size:64px;line-height:1.12;font-weight:700;letter-spacing:{'0' if rtl else '-1px'}}}
+h1{{color:{fg};font-size:68px;line-height:1.12;font-weight:700;letter-spacing:{'0' if rtl else '-1px'}}}
 p{{color:{fg2};font-size:34px;line-height:1.3;margin-top:22px;font-weight:600}}
 .phone{{position:absolute;left:50%;transform:translateX(-50%);top:470px;width:676px;padding:16px;border-radius:72px;
   background:#1B2127;box-shadow:0 40px 90px rgba(0,0,0,{0.55 if not light else 0.25}),inset 0 0 0 2px #2E363E}}

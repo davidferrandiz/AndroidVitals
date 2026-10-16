@@ -76,3 +76,15 @@ El gráfico antiguo decía "No data collected" y enseñaba "Processes", ya elimi
 
 Fuentes: `gen_icon.py` genera las capas del icono adaptativo (`app/src/main/res/drawable/ic_launcher_*.xml`)
 y `icon.svg`; `feature_graphic.html` es la cabecera (renderizar a 1024 × 500 con Chromium e Inter).
+
+## 6. Capturas de pantalla
+
+Listas en `docs/store-assets/screenshots/<idioma>/` (1080 × 1920, PNG de 24 bits): 4 por idioma en
+en-US, es-ES, de-DE, it-IT, fr-CA, hi-IN y fa-IR. Subirlas en Ficha principal › Capturas de teléfono,
+en el mismo orden (01 → 04), y en cada traducción de la ficha las de su idioma.
+
+Son las pantallas reales de la app pintadas por Robolectric con datos de ejemplo coherentes
+(`app/src/test/.../storescreenshots`). Para regenerarlas tras cambiar la UI:
+
+1. Lanzar el workflow **Store screenshots** (o tocar los tests): deja las capturas sin marco en `raw/`.
+2. `python3 docs/store-assets/frame_screenshots.py` les pone titular y marco (los textos están en el script).
