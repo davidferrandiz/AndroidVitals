@@ -64,7 +64,7 @@ object StoreSampleData {
     )
 
     /** Potencia de los últimos minutos (W), estable con algo de ruido. */
-    val powerHistory: List<Float> = List(60) { i -> 12.2f + 0.6f * sin(i / 4.0).toFloat() - (i % 7) * 0.05f }
+    val powerHistory: List<Float> = List(150) { i -> 12.2f + 0.5f * sin(i / 6.0).toFloat() + 0.25f * sin(i / 1.7).toFloat() }
 
     private fun cores(): List<CpuCoreInfo> =
         List(4) { CpuCoreInfo(it, currentMhz = listOf(1_820, 1_536, 2_002, 1_248)[it], maxMhz = 2_002, isOnline = true, minMhz = 400, coreName = "Cortex-A55") } +
@@ -134,7 +134,7 @@ object StoreSampleData {
             val (level, status, plug) = when {
                 h < 1.5f -> Triple((44 + h / 1.5f * 56).toInt(), BatteryStatus.CHARGING, PlugType.AC)
                 h < 9f -> Triple(100, BatteryStatus.FULL, PlugType.AC)
-                h < 22.8f -> Triple((100 - (h - 9f) * 5.6f).toInt(), BatteryStatus.DISCHARGING, PlugType.NONE)
+                h < 22.8f -> Triple(dischargeLevel(h - 9f), BatteryStatus.DISCHARGING, PlugType.NONE)
                 else -> Triple((23 + (h - 22.8f) / 1.2f * 55).toInt(), BatteryStatus.CHARGING, PlugType.AC)
             }
             val temp = 28f + 3f * sin(h / 24.0 * 2 * PI).toFloat() + if (status == BatteryStatus.CHARGING) 2.5f else 0f
@@ -146,6 +146,21 @@ object StoreSampleData {
             health = BatteryHealthEstimate(capacityMah = 4_710, validSessions = 6, candidateSessions = 7),
             designCapacityMah = 5_000,
         )
+    }
+
+    /** Descarga de un día normal: lenta por la mañana, más rápida con uso intenso, de 100 % a 23 %. */
+    private fun dischargeLevel(hours: Float): Int {
+        // Ritmo (%/h) por tramos de una hora durante 13,8 h.
+        val rates = floatArrayOf(2.5f, 3f, 6f, 8f, 4f, 3.5f, 9f, 11f, 5f, 4f, 6.5f, 7f, 3f, 4f)
+        var level = 100f
+        var t = 0f
+        for (rate in rates) {
+            val step = minOf(1f, hours - t)
+            if (step <= 0f) break
+            level -= rate * step
+            t += 1f
+        }
+        return level.toInt().coerceAtLeast(23)
     }
 
     val device = DeviceInfo(

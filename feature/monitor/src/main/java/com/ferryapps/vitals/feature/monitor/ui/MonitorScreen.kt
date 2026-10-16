@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -699,10 +702,11 @@ private fun VitalsUsageCard(
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-            MiniStat(stringResource(R.string.vitals_cpu), Formatters.percent(cpuPercent, 1), Modifier.weight(1f))
-            MiniStat(stringResource(R.string.active_threads), Formatters.integer(threads), Modifier.weight(1f))
-            MiniStat(stringResource(R.string.vitals_pss), pssMb?.let { "${Formatters.integer(it)} MB" } ?: "—", Modifier.weight(1f))
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
+            val tile = Modifier.weight(1f).fillMaxHeight()
+            MiniStat(stringResource(R.string.vitals_cpu), Formatters.percent(cpuPercent, 1), tile)
+            MiniStat(stringResource(R.string.active_threads), Formatters.integer(threads), tile)
+            MiniStat(stringResource(R.string.vitals_pss), pssMb?.let { "${Formatters.integer(it)} MB" } ?: "—", tile)
         }
         ExpandToggle(
             label = stringResource(if (expanded) R.string.vitals_hide else R.string.vitals_show),

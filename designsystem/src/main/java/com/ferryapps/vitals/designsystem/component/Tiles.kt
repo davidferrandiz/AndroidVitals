@@ -112,9 +112,18 @@ fun MiniStat(label: String, value: String, modifier: Modifier = Modifier) {
             .clip(RoundedCornerShape(12.dp))
             .background(VitalsTheme.palette.raised)
             .padding(horizontal = 12.dp, vertical = 10.dp),
-        verticalArrangement = Arrangement.spacedBy(2.dp)
+        // SpaceBetween: en una fila con IntrinsicSize.Min las cifras quedan alineadas abajo aunque
+        // una etiqueta ocupe dos líneas ("Cargas · 7 días" no cabe en una a 360 dp).
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(label, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant, maxLines = 1)
+        Text(
+            label,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.padding(bottom = 2.dp)
+        )
         Text(value, style = MaterialTheme.typography.titleMedium.merge(TabularNumbers), fontWeight = FontWeight.ExtraBold, maxLines = 1)
     }
 }
