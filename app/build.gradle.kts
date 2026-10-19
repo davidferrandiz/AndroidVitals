@@ -20,8 +20,8 @@ android {
         applicationId = "com.ferryapps.vitals"
         minSdk = 26
         targetSdk = 36
-        versionCode = 12
-        versionName = "2.0.1"
+        versionCode = 13
+        versionName = "2.0.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // Solo la build de release manda estadísticas y fallos a Firebase (ver buildTypes).
         manifestPlaceholders["firebaseCollectionOff"] = "false"
